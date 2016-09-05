@@ -1,9 +1,9 @@
-<html>
-<head>
-<title>Test page</title>
-</head>
-<body>
-<?php echo phpinfo(); ?>
-</body>
+<?php
+	require_once(realpath('.') . "/class/autoload.php");
 
-</html>
+	Page::header(Globals::ENTERPRISE_NAME);
+?>
+	<h1>HomePage</h1>
+<?php
+	Page::closeBody();
+?>
