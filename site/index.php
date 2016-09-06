@@ -1,9 +1,12 @@
 <?php
-	require_once(realpath('.') . "/class/autoload.php");
+    require_once(realpath('.') . "/class/autoload.php");
+    use \html\Page as Page;
+    use \configuration\Globals as Globals;
 
-	Page::header(Globals::ENTERPRISE_NAME);
+    Page::header(Globals::ENTERPRISE_NAME);
 ?>
-	<h1>HomePage</h1>
+    <!-- All content is here -->
 <?php
-	Page::closeBody();
+    Page::footer();
+    Page::closeBody();
 ?>

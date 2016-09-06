@@ -8,12 +8,13 @@
  *@link    http://eletronjun.com.br/class/exception/pageException.php
  */
 
+
 namespace exception{
 
     /**
      * @codeCoverageIgnore
      */
-    class PageException extends Exception
+    class PageException extends \Exception
     {
 
         public function __construct($message, $code = 0, Exception $previous = null)
