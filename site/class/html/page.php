@@ -57,7 +57,7 @@ namespace html{
         /**
          * Method to write a footer page
          */
-        public function footer()
+        public static function footer()
         {
             echo "<div class=\"footer\">";
             echo "  <address class=\"right\">";
