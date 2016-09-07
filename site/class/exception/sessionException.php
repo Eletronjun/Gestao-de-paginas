@@ -5,14 +5,14 @@
  *@package Exception
  *@author  Vinicius Pinheiro <viny-pinheiro@hotmail.com>
  *@license MIT License
- *@link    http://eletronjun.com.br/class/exception/pageException.php
+ *@link    http://eletronjun.com.br/class/exception/sessionException.php
  */
 namespace exception{
 
     /**
      * @codeCoverageIgnore
      */
-    class PageException extends \Exception
+    class SessionException extends \Exception
     {
         public function __construct($message, $code = 0, Exception $previous = null)
         {

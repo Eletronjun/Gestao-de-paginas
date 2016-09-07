@@ -14,11 +14,15 @@ namespace htmlTests{
         public function testValidtitle()
         {
             Page::header("nova", "Description of this page");
+            Page::footer();
+            Page::closeBody();
         }
     
         public function testValidtitleWithNullDescription()
         {
             Page::header("nova");
+            Page::footer();
+            Page::closeBody();
         }
     
         /**
@@ -27,6 +31,8 @@ namespace htmlTests{
         public function testNulltitle()
         {
             Page::header(null);
+            Page::footer();
+            Page::closeBody();
         }
     
         /**
@@ -35,6 +41,8 @@ namespace htmlTests{
         public function testEmptytitle()
         {
             Page::header("");
+            Page::footer();
+            Page::closeBody();
         }
     }
 }

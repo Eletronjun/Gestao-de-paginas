@@ -9,13 +9,12 @@
  */
 namespace html{
 
-    require_once(realpath(".") . "/class/autoload.php");
-
+    require_once(__DIR__ . "/../autoload.php");
 
     class Page
     {
-
-        const INVALID_TITLE = "T&iacute;tulo inv&aacute;lido";
+        //Exception constant
+        const INVALID_TITLE = "Título inválido";
 
         /**
           * Method with all meta tag and header for html page
@@ -89,7 +88,7 @@ namespace html{
             echo "                </a> ";
             echo "                e livre de direitos autorais sob Creative Commons CC0.</p>";
             echo "        </div>";
-            echo "</div>";                      
+            echo "</div>";
             echo "</div>";
         }
     }
