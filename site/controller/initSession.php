@@ -4,9 +4,9 @@
  *
  *@author  Vinicius Pinheiro <viny-pinheiro@hotmail.com>
  *@license MIT License
- *@link    http://eletronjun.com.br/utils/initSession.php
+ *@link    http://eletronjun.com.br/controller/initSession.php
  */
-require_once(__DIR__ . "/../class/autoload.php");
+require_once __DIR__ . "/../class/autoload.php";
 
 use \utilities\Session as Session;
 use \exception\SessionException as SessionException;
@@ -21,7 +21,7 @@ $password = addslashes($_POST["password"]);
 //try initialize session
 try {
     $session->initSession($email, $password);
-    echo "<script>alert('ENTROU')</script>";
+    echo "<script>location.href=\"" . PROJECT_ROOT . "index.php\"</script>";
 } catch (SessionException $msg) {
-    echo "<script>alert('{$msg}');history.go(-1);</script>";
+    //echo "<script>alert('{$msg}');history.go(-1);</script>";
 }

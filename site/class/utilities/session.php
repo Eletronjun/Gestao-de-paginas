@@ -10,7 +10,7 @@
 
 namespace utilities{
 
-    require_once(__DIR__ . "/../autoload.php");
+    include_once __DIR__ . "/../autoload.php";
 
     use \dao\DAO as DAO;
     use \configuration\Globals as Globals;
@@ -37,7 +37,7 @@ namespace utilities{
         /**
          * Method to destroy a session
          */
-        public function desconect()
+        public function disconnect()
         {
             $_SESSION["loggin"] == 0;
             session_destroy();
@@ -46,8 +46,9 @@ namespace utilities{
         /**
          * Method to verify if the user has permission to access private area
          *  create a session cookie loggin, define 1 to loggin or 0 to loggout
-         * @param string $email     email to find im database
-         * @param string $password  password from email param in database
+         *
+         * @param string $email    email to find im database
+         * @param string $password password from email param in database
          */
         public function initSession($email, $password)
         {
@@ -60,7 +61,7 @@ namespace utilities{
             $line_result = $result_set->fetch_assoc();
 
             //Close connection with database
-            parent::disconect();
+            parent::disconnect();
 
             //Verify if consult found user
             if (count($line_result) != 0) {
@@ -105,7 +106,7 @@ namespace utilities{
         private function redirectMemberNoLogged()
         {
             echo "<script>alert('Faça Login');";
-            echo "location.href = '../login.php'</script>";
+            echo "location.href =\"" .PROJECT_ROOT . "login.php\"</script>";
         }
     }
 }

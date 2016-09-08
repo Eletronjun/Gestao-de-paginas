@@ -9,6 +9,10 @@
  */
 namespace configuration{
 
+    //Defining the path of constant
+    define("IMG_PATCH", "http://" . $_SERVER['HTTP_HOST'] . "/site/res/img/");
+    define("PROJECT_ROOT", "http://" . $_SERVER['HTTP_HOST'] . "/site/");
+
     class Globals
     {
         //Constants to connect to database
