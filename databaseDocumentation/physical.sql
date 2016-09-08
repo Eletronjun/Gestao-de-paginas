@@ -50,8 +50,8 @@ CREATE TABLE MEMBERS
 	phone VARCHAR(15) NOT NULL,
 	code_address INT NOT NULL,
 	code_directorate INT,
-	code_office INT,
-	isActivity char(1) NOT NULL DEFAULT 'n', /* To account actived, use 'y' or 'n' to inative. */
+	code_office INT NOT NULL,
+	isActivity ENUM('n','y') NOT NULL DEFAULT 'n', /* To account actived, use 'y' or 'n' to inative. */
 	image VARCHAR(150) NOT NULL DEFAULT 'default.png', /* Save file locate. */
 
 	PRIMARY KEY members_pk (email),
@@ -65,6 +65,14 @@ CREATE TABLE MEMBERS
 	
 ) ENGINE=InnoDB CHARSET=utf8;
 
+CREATE TABLE CATEGORY
+(
+	code INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50) NOT NULL,
+	
+	PRIMARY KEY members_pk (code)
+
+) ENGINE=InnoDB CHARSET=utf8;
 
 
 INSERT INTO OFFICE (office) VALUES ('Presidente');
@@ -85,5 +93,5 @@ INSERT INTO ADDRESS (cep, address, neighborhood, residence, city, state, complem
 /*password is 1234*/
 INSERT INTO MEMBERS (email, registration, member_name, sex, nick, password, birthDate, rg, 
 	rg_agency, cpf, phone, code_address, code_directorate,code_office,isActivity) VALUES
-	('marketing@eletronjun.com.br', '14/0066543', 'Eletronjun', ' ', 'eletronjun','$2a$05$JD2WU824jsfhs23hu233D.rVgASbSUNUPPe3UVJruY2/ahaOner56',
-		'2013-01-01','', '', '', '', 1, NULL, 1,'y');
+	('marketing@eletronjun.com.br', '14/0066543', 'Eletronjun', ' ', 'eletronjun','$2a$05$JD2WU824jsfhs23hu233D.0EbJKRpRMa8cI/4dKusO.yCyTiHuqvO',
+		'2013-01-01','', '', '', '', 1, 3, 1,'y');
