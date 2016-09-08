@@ -10,7 +10,7 @@
 
 namespace utilities{
 
-    require_once(__DIR__ . "/../autoload.php");
+    include_once __DIR__ . "/../autoload.php";
 
     use \dao\DAO as DAO;
     use \configuration\Globals as Globals;
@@ -46,8 +46,9 @@ namespace utilities{
         /**
          * Method to verify if the user has permission to access private area
          *  create a session cookie loggin, define 1 to loggin or 0 to loggout
-         * @param string $email     email to find im database
-         * @param string $password  password from email param in database
+         *
+         * @param string $email    email to find im database
+         * @param string $password password from email param in database
          */
         public function initSession($email, $password)
         {

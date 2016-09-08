@@ -9,7 +9,7 @@
  */
 namespace html{
 
-    require_once(__DIR__ . "/../autoload.php");
+    include_once __DIR__ . "/../autoload.php";
 
     class Menu
     {
@@ -25,7 +25,7 @@ namespace html{
             echo "<nav>";
             self::startItem();
             self::addItem(
-                PROJECT_ROOT . "utils/destroySession.php\" 
+                PROJECT_ROOT . "controller/destroySession.php\" 
                 OnClick=\"return confirm('Tem certeza que deseja sair?');",
                 "Sair"
             );

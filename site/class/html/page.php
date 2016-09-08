@@ -9,7 +9,7 @@
  */
 namespace html{
 
-    require_once(__DIR__ . "/../autoload.php");
+    include_once __DIR__ . "/../autoload.php";
 
     class Page
     {
@@ -18,6 +18,7 @@ namespace html{
 
         /**
           * Method with all meta tag and header for html page
+         *
           *@param string $title       title of the page, not null value or empty
           *@param string $description string with the meta tag descritpion
           */
@@ -90,6 +91,7 @@ namespace html{
             echo "        </div>";
             echo "</div>";
             echo "</div>";
+            echo "<script type=\"text/javascript\" src=\"http://code.jquery.com/jquery-1.4.3.min.js\"></script>";
         }
     }
 }

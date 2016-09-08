@@ -1,5 +1,5 @@
 <?php
-    require_once(__DIR__ . "/class/autoload.php");
+    require_once __DIR__ . "/class/autoload.php";
     
     use \utilities\Session as Session;
     use \html\Page as Page;

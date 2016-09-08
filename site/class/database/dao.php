@@ -10,7 +10,7 @@
 
 namespace dao{
 
-    require_once(__DIR__ . "/../autoload.php");
+    include_once __DIR__ . "/../autoload.php";
 
     use \exception\DatabaseException as DatabaseException;
 
@@ -34,12 +34,13 @@ namespace dao{
     
         /**
          * Sets necessary attributes to dao class
+         *
          * @param $host string with not null value and the host of database
          * @param $user string with not null value and the user of database server
          * @param $passwoord string with not null value and the user password's
          * @param $database string with not null value and the name of schema in database server
          */
-        public function __construct($host, $user, $password, $database)
+        protected function __construct($host, $user, $password, $database)
         {
             $this->setHost($host);
             $this->setUser($user);
@@ -49,7 +50,8 @@ namespace dao{
     
         /**
          * Method to open and execute a new query in database
-         * @param $query DML, DTL or DQL for database
+         *
+         * @param  $query DML, DTL or DQL for database
          * @return resultset for the query
          */
         protected function query($query)
