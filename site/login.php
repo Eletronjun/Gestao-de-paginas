@@ -4,7 +4,6 @@
     use \configuration\Globals as Globals;
 
     Page::header(Globals::ENTERPRISE_NAME);
-    echo crypt("1234s", Globals::SECURITY_HASH);
 ?>
     <form action="utils/initSession.php" method="POST">
         <label>Email</label><br>

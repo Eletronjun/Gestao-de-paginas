@@ -1,15 +1,11 @@
 <?php
     require_once(__DIR__ . "/class/autoload.php");
     
-    use \utilities\Session as Session;
     use \html\Page as Page;
     use \html\Menu as Menu;
     use \configuration\Globals as Globals;
 
     Page::header(Globals::ENTERPRISE_NAME);
-
-    $session = new Session();
-    $session->verifyIfSessionIsStarted();
     
     Menu::startMenu();
         Menu::startItem();
@@ -21,7 +17,7 @@
     Menu::endMenu();
 ?>
 
-<h1>Home Page</h1>
+<h1>Edição de Categoria</h1>
 
 <?php
     Page::footer();

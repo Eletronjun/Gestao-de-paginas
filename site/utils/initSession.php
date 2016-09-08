@@ -21,7 +21,7 @@ $password = addslashes($_POST["password"]);
 //try initialize session
 try {
     $session->initSession($email, $password);
-    echo "<script>alert('ENTROU')</script>";
+    echo "<script>location.href=\"" . PROJECT_ROOT . "index.php\"</script>";
 } catch (SessionException $msg) {
     echo "<script>alert('{$msg}');history.go(-1);</script>";
 }

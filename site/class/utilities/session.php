@@ -37,7 +37,7 @@ namespace utilities{
         /**
          * Method to destroy a session
          */
-        public function desconect()
+        public function disconnect()
         {
             $_SESSION["loggin"] == 0;
             session_destroy();
@@ -60,7 +60,7 @@ namespace utilities{
             $line_result = $result_set->fetch_assoc();
 
             //Close connection with database
-            parent::disconect();
+            parent::disconnect();
 
             //Verify if consult found user
             if (count($line_result) != 0) {
@@ -105,7 +105,7 @@ namespace utilities{
         private function redirectMemberNoLogged()
         {
             echo "<script>alert('Faça Login');";
-            echo "location.href = '../login.php'</script>";
+            echo "location.href =\"" .PROJECT_ROOT . "login.php\"</script>";
         }
     }
 }
