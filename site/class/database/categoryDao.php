@@ -34,6 +34,23 @@ namespace dao{
             $this->setCategoryModel($category_model);
         }
 
+        public static function getCategories()
+        {
+            $query = "SELECT code, name FROM CATEGORY";
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+
+            $resultSet = $dao->query($query);
+
+            $data = array();
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $data[$i][0] = $row['code'];
+                $data[$i][1] = $row['name'];
+            }
+
+            return $data;
+        }
+
         /**
          * Method to persist category data
          */
@@ -49,6 +66,8 @@ namespace dao{
             );
 
             $this->setCategoryModel($category);
+
+            parent::disconnect();
         }
 
         public function setCategoryModel($category_model)

@@ -23,7 +23,7 @@ namespace model{
 
         /* Exception messengers */
         const NULL_NAME = "Nome não pode ser nulo.";
-        const NAME_LARGER = "Nome não pode ter mais que 50 caracteres.";
+        const NAME_LARGER = "Nome não pode ter mais que 100 caracteres.";
         const NO_NUMERIC_ID = "Id deve ser um número.";
 
         /**
@@ -43,7 +43,7 @@ namespace model{
             $name = trim($name);
 
             if ($name != null) {
-                if (strlen($name) <= 50) {
+                if (strlen($name) <= 100) {
                     $this->name = $name;
                 } else {
                     throw new CategoryException(self::NAME_LARGER);
