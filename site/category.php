@@ -55,6 +55,32 @@
 <script type="text/javascript">
 $(document).ready(function(){ 
 
+    $('#update_button').click(function(){
+        $.ajax({
+            url: 'controller/updateCategory.php?id=' + $('#select_update').val() + 
+                '&name=' + $('#select_update option:selected').text() +
+                '&new_name=' + $('#update_category').val(),
+            success: function(data) {
+                alert(data);
+                $.ajax({
+                    url: 'controller/findCategory.php',
+                    success: function(data){
+                        $('#select_update').html(data);
+                        $('#update_category').val("");
+                    }
+                });
+            },
+            beforeSend: function(){
+                $('#update').html("Carregando...");
+            },
+            complete: function(){
+                $('#update').html("");
+            },
+        });
+    });
+
+
+
     $('#register_button').click(function(){
         $.ajax({
             url: 'controller/registerCategory.php?name=' + $('#new_category').val(),

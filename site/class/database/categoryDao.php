@@ -24,6 +24,7 @@ namespace dao{
         /* Exception constants */
         const INVALID_MODEL = "Modelo Inválida.";
         const CATEGORY_MODEL_ISNT_OBJECT = "Objeto de Categoria Inválido.";
+        const NOT_UPDATE_CATEGORY = "Não é possivel atualizar categoria pois não há código.";
 
         /**
          * @param Category $categoryModel not null value
@@ -49,6 +50,26 @@ namespace dao{
             }
 
             return $data;
+        }
+
+        /**
+         * Method to update data
+         * @param String  $new_name
+         */
+        public function update($new_name)
+        {
+            if (!is_null($this->getCategoryModel()->getId())) {
+                $query = "UPDATE CATEGORY SET name = '{$new_name}' WHERE code = " . $this->getCategoryModel()->getId();
+
+                parent::query($query);
+
+                $category = new Category(
+                    $new_name,
+                    $this->getCategoryModel()->getId()
+                );
+            } else {
+                throw new CategoryException(self::NOT_UPDATE_CATEGORY);
+            }
         }
 
         /**
