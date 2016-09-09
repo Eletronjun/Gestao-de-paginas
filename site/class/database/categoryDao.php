@@ -24,6 +24,7 @@ namespace dao{
         /* Exception constants */
         const INVALID_MODEL = "Modelo Inválida.";
         const CATEGORY_MODEL_ISNT_OBJECT = "Objeto de Categoria Inválido.";
+        const NOT_UPDATE_CATEGORY = "Não é possivel atualizar categoria pois não há código.";
 
         /**
          * @param Category $categoryModel not null value
@@ -32,6 +33,43 @@ namespace dao{
         {
             parent::__construct(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $this->setCategoryModel($category_model);
+        }
+
+        public static function getCategories()
+        {
+            $query = "SELECT code, name FROM CATEGORY";
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+
+            $resultSet = $dao->query($query);
+
+            $data = array();
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $data[$i][0] = $row['code'];
+                $data[$i][1] = $row['name'];
+            }
+
+            return $data;
+        }
+
+        /**
+         * Method to update data
+         * @param String  $new_name
+         */
+        public function update($new_name)
+        {
+            if (!is_null($this->getCategoryModel()->getId())) {
+                $query = "UPDATE CATEGORY SET name = '{$new_name}' WHERE code = " . $this->getCategoryModel()->getId();
+
+                parent::query($query);
+
+                $category = new Category(
+                    $new_name,
+                    $this->getCategoryModel()->getId()
+                );
+            } else {
+                throw new CategoryException(self::NOT_UPDATE_CATEGORY);
+            }
         }
 
         /**
@@ -49,6 +87,8 @@ namespace dao{
             );
 
             $this->setCategoryModel($category);
+
+            parent::disconnect();
         }
 
         public function setCategoryModel($category_model)

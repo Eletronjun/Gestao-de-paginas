@@ -25,8 +25,25 @@
         <div id="register"></div>
         <form>
             <label>Nome:</label><br>
-            <input type="text" name="category" id="new_category" size="50%" required>
+            <input type="text" name="category" id="new_category" size="50%" maxlength="50" required>
             <input type="button" name="submit" value="Salvar" id="register_button">
+        </form>
+
+        <br><br>
+
+        <hr>
+
+        <h1>Atualizar Nome de Categoria</h1>
+        <div id="update"></div>
+        <form>
+            <label>Cadastradas</label><br>
+            <select name="categories" id="select_update">
+            <?php include 'controller/findCategory.php'; ?>
+            </select><br>
+
+            <label>Novo Nome:</label><br>
+            <input type="text" name="category" id="update_category" size="50%" required>
+            <input type="button" name="submit" value="Salvar" id="update_button">
         </form>
 
     </article>
@@ -38,12 +55,44 @@
 <script type="text/javascript">
 $(document).ready(function(){ 
 
+    $('#update_button').click(function(){
+        $.ajax({
+            url: 'controller/updateCategory.php?id=' + $('#select_update').val() + 
+                '&name=' + $('#select_update option:selected').text() +
+                '&new_name=' + $('#update_category').val(),
+            success: function(data) {
+                alert(data);
+                $.ajax({
+                    url: 'controller/findCategory.php',
+                    success: function(data){
+                        $('#select_update').html(data);
+                        $('#update_category').val("");
+                    }
+                });
+            },
+            beforeSend: function(){
+                $('#update').html("Carregando...");
+            },
+            complete: function(){
+                $('#update').html("");
+            },
+        });
+    });
+
+
+
     $('#register_button').click(function(){
         $.ajax({
             url: 'controller/registerCategory.php?name=' + $('#new_category').val(),
             success: function(data) {
                 alert(data);
-                $('#new_category').val("");
+                $.ajax({
+                    url: 'controller/findCategory.php',
+                    success: function(data){
+                        $('#select_update').html(data);
+                        $('#new_category').val("");
+                    }
+                });
             },
             beforeSend: function(){
                 $('#register').html("Carregando...");
