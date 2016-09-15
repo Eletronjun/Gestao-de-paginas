@@ -30,7 +30,7 @@ namespace model{
          * Method to create a category instance
          *
          * @param string $name name of category, not null value
-         * @param string $id   category code, only numbers or null if not exists in database
+         * @param int $id   category code, only numbers or null if not exists in database
          */
         public function __construct($name, $id = null)
         {

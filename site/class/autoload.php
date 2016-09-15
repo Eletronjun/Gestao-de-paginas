@@ -5,9 +5,11 @@
     //Dao
     require_once __DIR__ . '/database/dao.php';
     require_once __DIR__ . '/database/categoryDao.php';
+    require_once __DIR__ . '/database/webPageDao.php';
 
     //Model
     require_once __DIR__ . '/model/category.php';
+    require_once __DIR__ . '/model/webPage.php';
     
     //Html
     require_once __DIR__ . '/html/page.php';
