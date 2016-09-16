@@ -3,6 +3,7 @@
     
     use \html\Page as Page;
     use \html\Menu as Menu;
+    use \html\FindCategories as FindCategories;
     use \configuration\Globals as Globals;
 
     Page::header(Globals::ENTERPRISE_NAME);
@@ -38,7 +39,7 @@
         <form>
             <label>Cadastradas</label><br>
             <select name="categories" id="select_update">
-            <?php include 'controller/findCategory.php'; ?>
+            <?php FindCategories::getOptions(); ?>
             </select><br>
 
             <label>Novo Nome:</label><br>
@@ -46,11 +47,31 @@
             <input type="button" name="submit" value="Salvar" id="update_button">
         </form>
 
+        <h1>Ativar/Desativar Visualização de categoria</h1>
+        <table>
+        <tr>
+            <th><strong>Categoria</strong></th>
+            <th><strong>Está ativo</strong></th>
+        </tr>
+            <?php FindCategories::getCheckboxTable(); ?>
+        </table>
+
     </article>
 </div>
 <?php
     Page::footer();
 ?>
+
+<style type="text/css">
+    table {
+        margin:  auto;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 2px solid black;
+    }
+</style>
 
 <script type="text/javascript">
 $(document).ready(function(){ 
