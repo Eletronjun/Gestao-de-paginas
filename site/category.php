@@ -1,6 +1,7 @@
 <?php
     require_once __DIR__ . "/class/autoload.php";
     
+    use \utilities\Session as Session;
     use \html\Page as Page;
     use \html\Menu as Menu;
     use \html\FindCategories as FindCategories;
@@ -8,6 +9,9 @@
 
     Page::header(Globals::ENTERPRISE_NAME);
     
+    $session = new Session();
+    $session->verifyIfSessionIsStarted();
+
     Menu::startMenu();
         Menu::startItem();
         Menu::addItem(PROJECT_ROOT . "#", "Páginas");
