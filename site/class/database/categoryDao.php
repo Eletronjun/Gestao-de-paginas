@@ -92,6 +92,30 @@ namespace dao{
             parent::disconnect();
         }
 
+        /**
+         * Method to update in database activity
+         * @param int   $isEnable   0 to disable or 1 to enable
+         */
+        public function updateActivity($isEnable)
+        {
+            $is_activity = ($isEnable == 1) ? 'y' : 'n';
+            $id = $this->getCategoryModel()->getId();
+
+            $query = "UPDATE CATEGORY SET isActivity = '{$is_activity}' WHERE code = " . $id;
+
+            parent::query($query);
+
+            $category = new Category(
+                $this->getCategoryModel()->getName(),
+                $this->getCategoryModel()->getId(),
+                $is_activity
+            );
+
+            $this->setCategoryModel($category);
+
+            parent::disconnect();
+        }
+
         public function setCategoryModel($category_model)
         {
             if (is_object($category_model)) {

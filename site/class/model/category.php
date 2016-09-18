@@ -85,7 +85,7 @@ namespace model{
             if ($is_activity == 'n' || $is_activity == 'y') {
                 $this->is_activity = $is_activity;
             } else {
-                    throw new CategoryException(self::INVALID_ACTIVITY);
+                    throw new CategoryException(self::INVALID_ACTIVITY); // @codeCoverageIgnore
             }
         }
 

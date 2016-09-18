@@ -48,6 +48,7 @@
         </form>
 
         <h1>Ativar/Desativar Visualização de categoria</h1>
+        <div id="enable"></div>
         <table>
         <tr>
             <th><strong>Categoria</strong></th>
@@ -123,8 +124,24 @@ $(document).ready(function(){
             },
         });
     });
-    
-    
+
+    $("input:checkbox[name='categories']").click(function(){
+        $("input:checkbox[name='categories']").map(function()
+        {
+            $.ajax({
+                url: 'controller/enableCategory.php?name=' + $(this).val().split("-_-")[1]
+                +'&id=' + $(this).val().split("-")[0]
+                    +'&is_activity=' + (($(this).is(':checked')) ? 1 : 0),
+                beforeSend: function() {
+                    $('#enable').html("Carregando...");
+                },
+                complete: function() {
+                    $('#enable').html("Salvo com sucesso");
+                },
+            });
+
+        });
+    });
 });
 </script>
 <?php

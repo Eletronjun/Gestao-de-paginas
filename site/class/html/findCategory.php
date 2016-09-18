@@ -34,7 +34,7 @@ namespace html{
             for ($i=0; $i < count($data); $i++) {
                 echo "<tr>\n";
                 echo "<td>{$data[$i][1]}</td>\n";
-                echo "<td><input type=\"checkbox\" name=\"categories\" value=\"{$data[$i][0]}\"";
+                echo "<td><input type=\"checkbox\" name=\"categories\" value=\"{$data[$i][0]}-_-{$data[$i][1]}\"";
                 if ($data[$i][2] == "y") {
                     echo "checked";
                 }
