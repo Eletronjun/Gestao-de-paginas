@@ -69,7 +69,7 @@ CREATE TABLE CATEGORY
 (
 	code INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
-	isActivity ENUM(  "y",  "n" ) NOT NULL DEFAULT  'y';
+	isActivity ENUM(  "y",  "n" ) NOT NULL DEFAULT  'y',
 	
 	PRIMARY KEY members_pk (code)
 
