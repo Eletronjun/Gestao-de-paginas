@@ -87,7 +87,7 @@ CREATE TABLE WEB_PAGE(
     PRIMARY KEY web_page_pk (code),
     FOREIGN KEY web_category_fk (code_category) REFERENCES CATEGORY(code)
 
-) ENGINE=InnoDB CHARSET=utf8
+) ENGINE=InnoDB CHARSET=utf8;
 
 INSERT INTO OFFICE (office) VALUES ('Presidente');
 INSERT INTO OFFICE (office) VALUES ('Diretor');
