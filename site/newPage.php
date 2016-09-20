@@ -1,7 +1,12 @@
 <?php
     require_once realpath('.') . "/class/autoload.php";
+    
+    use \utilities\Session as Session;
     use \html\Page as Page;
     use \configuration\Globals as Globals;
+
+    $session = new Session();
+    $session->verifyIfSessionIsStarted();
 
     Page::header(Globals::ENTERPRISE_NAME);
 ?>

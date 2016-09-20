@@ -35,7 +35,7 @@ namespace dao{
             $this->setWebPageModel($web_page_model);
         }
 
-       public static function getWebPages()
+        public static function getWebPages()
         {
             $query = "SELECT id, title FROM WEB_PAGE";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);

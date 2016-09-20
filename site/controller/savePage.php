@@ -11,7 +11,8 @@ require_once __DIR__ . "/../class/autoload.php";
 //use \model\Category as Category;
 use \model\webPage as WebPage;
 use \dao\WebPageDAO as WebPageDAO;
-use \exception\	WebPageException as WebPageException;
+use \exception\     WebPageException as WebPageException;
+
 //use \exception\DatabaseException as DatabaseException;*/
 
 try {

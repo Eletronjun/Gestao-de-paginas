@@ -19,11 +19,16 @@ namespace model{
         
         /* Class attributes */
         private $title; //page title, not null value
-        private $author; //athor's name, not null value
+        private $author; //member of the email that created the page
         private $id_category; //category code, code must exist in the database
-        private $id; //web page code, only numbers
+        private $code; //web page code, only numbers
+        private $creation_date; //Date and time to create a page in format yyyy-MM-dd hh:mm:ss,
+                    //if receive null command 'now()' is used
+        private $last_modified; //Date and time of last page modifier in format yyyy-MM-dd hh:mm:ss,
+                    //if receive null command 'now()' is used
+        private $content; //Content of the page.
 
-        //Exception messengers 
+        //Exception messengers
         const NULL_TITLE = "O título não pode ser nulo.";
         const TITLE_LARGER = "O título não pode ter mais que 100 caracteres.";
         const NULL_AUTHOR = "Autor não pode ser nulo.";
@@ -34,11 +39,15 @@ namespace model{
         /**
          * Method to create a category instance
          *
-         * @param string $title    page title, not null value
-         * @param string $author    athor's name, not null value
-         * @param int $id_category    category code, code must exist in the database
+         * @param string    $title          page title, not null value
+         * @param string    $author         athor's name, not null value
+         * @param int       $id_category    category code, code must exist in the database
+         * @param date      $creation_date  Date and time to create a page in format yyyy-MM-dd hh:mm:ss,if receive null command 'now()' is used
+         * @param date      $last_modified  Date and time to create a page in format yyyy-MM-dd hh:mm:ss,if receive null command 'now()' is used
+         * @param string    $content        Content of the page.
+         * @param int       $code           web page code, only numbers
          */
-        public function __construct($title, $author/*, $id_category*/)
+        public function __construct($title, $author, $id_category, $creation_date = null, $last_modified = null, $content = null, $code = null)
         {
             $this->setTitle($title);
             $this->setAuthor($author);
