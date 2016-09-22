@@ -12,7 +12,10 @@ namespace htmlTests{
     {
         public function testCreateValidCategory()
         {
-            new Category("PCBS - ....", 1);
+            $category = new Category("PCBS - ....", 1);
+            assert($category->getName() == "PCBS - ....");
+            assert($category->getId() == 1);
+            assert($category->getIsActivity() == "y");
         }
 
         public function testCreateValidCategoryWithoutId()
@@ -26,6 +29,16 @@ namespace htmlTests{
         public function testNameInvalid()
         {
             new Category("");
+        }
+
+
+        /**
+         * @expectedException \exception\CategoryException
+         */
+        public function testLargeName()
+        {
+            new Category("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" .
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         }
 
         /**

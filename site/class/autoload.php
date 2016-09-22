@@ -12,6 +12,7 @@
     //Html
     require_once __DIR__ . '/html/page.php';
     require_once __DIR__ . '/html/menu.php';
+    require_once __DIR__ . '/html/findCategory.php';
     
     //Utilities
     require_once __DIR__ . '/utilities/session.php';

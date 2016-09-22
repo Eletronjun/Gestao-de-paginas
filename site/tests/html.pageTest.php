@@ -6,6 +6,8 @@
 namespace htmlTests{
 
     use \html\Page as Page;
+    use \html\Menu as Menu;
+    use \html\FindCategories as FindCategories;
     use \exception\PageException as PageException;
 
     class PageTest extends \PHPUnit_Framework_TestCase
@@ -14,6 +16,14 @@ namespace htmlTests{
         public function testValidtitle()
         {
             Page::header("nova", "Description of this page");
+            Menu::startMenu();
+            Menu::startItem();
+                Menu::addItem(PROJECT_ROOT . "#", "Páginas");
+                    Menu::initSubItem();
+                        Menu::addItem(PROJECT_ROOT . "category.php", "Edição de Categoria");
+                    Menu::endSubItem();
+                Menu::endItem();
+            Menu::endMenu();
             Page::footer();
             Page::closeBody();
         }
@@ -43,6 +53,12 @@ namespace htmlTests{
             Page::header("");
             Page::footer();
             Page::closeBody();
+        }
+
+        public function testgetCategoriesOptions()
+        {
+            FindCategories::getOptions();
+            FindCategories::getCheckboxTable();
         }
     }
 }

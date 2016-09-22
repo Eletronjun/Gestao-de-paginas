@@ -37,7 +37,7 @@ namespace dao{
 
         public static function getCategories()
         {
-            $query = "SELECT code, name FROM CATEGORY";
+            $query = "SELECT code, name, isActivity FROM CATEGORY";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
             $resultSet = $dao->query($query);
@@ -47,6 +47,7 @@ namespace dao{
             for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
                 $data[$i][0] = $row['code'];
                 $data[$i][1] = $row['name'];
+                $data[$i][2] = $row['isActivity'];
             }
 
             return $data;
@@ -84,6 +85,30 @@ namespace dao{
             $category = new Category(
                 $this->getCategoryModel()->getName(),
                 parent::insertId()
+            );
+
+            $this->setCategoryModel($category);
+
+            parent::disconnect();
+        }
+
+        /**
+         * Method to update in database activity
+         * @param int   $isEnable   0 to disable or 1 to enable
+         */
+        public function updateActivity($isEnable)
+        {
+            $is_activity = ($isEnable == 1) ? 'y' : 'n';
+            $id = $this->getCategoryModel()->getId();
+
+            $query = "UPDATE CATEGORY SET isActivity = '{$is_activity}' WHERE code = " . $id;
+
+            parent::query($query);
+
+            $category = new Category(
+                $this->getCategoryModel()->getName(),
+                $this->getCategoryModel()->getId(),
+                $is_activity
             );
 
             $this->setCategoryModel($category);
