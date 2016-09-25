@@ -48,12 +48,13 @@ namespace model{
          * @param string    $content        Content of the page.
          * @param int       $code           web page code, only numbers
          */
-        public function __construct($title, $author/*, $id_category, $creation_date = null, $last_modified = null*/, $content = null/*, $code = null*/)
+        public function __construct($title, $author/*, $id_category*/, $creation_date = null, $last_modified = null, $content = null/*, $code = null*/)
         {
             $this->setTitle($title);
             $this->setAuthor($author);
-            //$this->setCategory($id_category);
             $this->setContent($content);
+            $this->setCreationDate($creation_date);
+            $this->setLastModified($last_modified);
         }
 
         private function setTitle($title)
@@ -122,6 +123,34 @@ namespace model{
         public function getContent()
         {
             return $this->content;
+        }
+
+        public function setCreationDate($creation_date){
+
+          if($creation_date != NULL) {
+            $this->creation_date = $creation_date;
+          } else {
+            $this->creation_date = NULL;
+          }
+        }
+
+        public function getCreationDate()
+        {
+            return $this->creation_date;
+        }
+
+        public function setLastModified($last_modified){
+
+          if($last_modified != NULL) {
+            $this->last_modified = $last_modified;
+          } else {
+            $this->last_modified = NULL;
+          }
+        }
+
+        public function getLastModified()
+        {
+            return $this->last_modified;
         }
 
         public function getId()
