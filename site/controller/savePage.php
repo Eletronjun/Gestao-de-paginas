@@ -16,8 +16,7 @@ use \exception\     WebPageException as WebPageException;
 //use \exception\DatabaseException as DatabaseException;*/
 
 try {
-    $new_page = new WebPage($_POST['title'], $_POST['author'], $_POST['category']);
-    echo $_POST['category'];
+$new_page = new WebPage($_POST['title'], $_POST['author']/*, $_POST['category']*/, $_POST['postage']);
     $web_page_dao = new WebPageDAO($new_page);
     $web_page_dao->register();
     echo "Salvo com sucesso!";

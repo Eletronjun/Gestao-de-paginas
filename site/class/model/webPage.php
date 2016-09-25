@@ -16,7 +16,7 @@ namespace model{
 
     class WebPage
     {
-        
+
         /* Class attributes */
         private $title; //page title, not null value
         private $author; //member of the email that created the page
@@ -35,6 +35,7 @@ namespace model{
         const AUTHOR_LARGER = "Nome não pode ter mais que 100 caracteres.";
         const NO_CATEGORY_ID = "Categoria não identificada.";
         const NO_NUMERIC_ID = "Id deve ser um número.";
+        const CHARACTER_LIMIT_EXCEEDED = "O limite do conteúdo é 5000 caracteres.";
 
         /**
          * Method to create a category instance
@@ -47,12 +48,12 @@ namespace model{
          * @param string    $content        Content of the page.
          * @param int       $code           web page code, only numbers
          */
-        public function __construct($title, $author, $id_category, $creation_date = null, $last_modified = null, $content = null, $code = null)
+        public function __construct($title, $author/*, $id_category, $creation_date = null, $last_modified = null*/, $content = null/*, $code = null*/)
         {
             $this->setTitle($title);
             $this->setAuthor($author);
             //$this->setCategory($id_category);
-            //$this->setId($id);
+            $this->setContent($content);
         }
 
         private function setTitle($title)
@@ -95,24 +96,37 @@ namespace model{
             return $this->author;
         }
 
-        private function setId($id)
+        private function setCategory($id_category)
         {
-            if (is_null($id)) {
-                $this->id = $id;
+            if ($id_category != null) {
+                $this->id_category = $id_category;
             } else {
-                if (is_numeric($id)) {
-                    $this->id = $id;
-                } else {
-                    throw new WebPageException(self::NO_NUMERIC_ID);
-                }
+                throw new WebPageException(self::NO_CATEGORY_ID);
             }
+        }
+
+        public function getCategory()
+        {
+            return $this->id_category;
+        }
+
+        private function setContent($content)
+        {
+              if (strlen($content) <= 5000) {
+                  $this->content = $content;
+              } else {
+                  throw new WebPageException(self::CHARACTER_LIMIT_EXCEEDED);
+              }
+        }
+
+        public function getContent()
+        {
+            return $this->content;
         }
 
         public function getId()
         {
             return $this->id;
         }
-
-        /*TESTAR CATEGORIA NO BANCO DE DADOS*/
     }
 }

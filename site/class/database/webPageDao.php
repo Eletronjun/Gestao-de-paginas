@@ -97,7 +97,7 @@ namespace dao{
          */
         public function register()
         {
-            $query = "INSERT INTO WEB_PAGE(title, author, creation_date, last_modified) VALUES('{$this->getWebPageModel()->getTitle()}', '{$this->getWebPageModel()->getAuthor()}', NOW(), NOW())";
+            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`, `content`) VALUES ('{$this->getWebPageModel()->getTitle()}', '{$this->getWebPageModel()->getAuthor()}', 1, NOW(),NOW(),'{$this->getWebPageModel()->getContent()}')";
 
             parent::query($query);
 
