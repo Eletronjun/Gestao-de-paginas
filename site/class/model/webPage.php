@@ -48,13 +48,15 @@ namespace model{
          * @param string    $content        Content of the page.
          * @param int       $code           web page code, only numbers
          */
-        public function __construct($title, $author/*, $id_category*/, $creation_date = null, $last_modified = null, $content = null/*, $code = null*/)
+        public function __construct($title, $author, $id_category, $content = null, $code = null, $creation_date = null, $last_modified = null)
         {
             $this->setTitle($title);
             $this->setAuthor($author);
             $this->setContent($content);
             $this->setCreationDate($creation_date);
             $this->setLastModified($last_modified);
+            $this->setCode($code);
+            $this->setCategory($id_category);
         }
 
         private function setTitle($title)
@@ -125,12 +127,13 @@ namespace model{
             return $this->content;
         }
 
-        public function setCreationDate($creation_date){
+        private function setCreationDate($creation_date){
 
           if($creation_date != NULL) {
             $this->creation_date = $creation_date;
           } else {
-            $this->creation_date = NULL;
+            date_default_timezone_set('America/Sao_Paulo');
+            $this->creation_date = getdate();
           }
         }
 
@@ -139,12 +142,13 @@ namespace model{
             return $this->creation_date;
         }
 
-        public function setLastModified($last_modified){
+        private function setLastModified($last_modified){
 
           if($last_modified != NULL) {
             $this->last_modified = $last_modified;
           } else {
-            $this->last_modified = NULL;
+            date_default_timezone_set('America/Sao_Paulo');
+            $this->last_modified = getdate();
           }
         }
 
@@ -153,9 +157,14 @@ namespace model{
             return $this->last_modified;
         }
 
-        public function getId()
+        private function setCode($code)
         {
-            return $this->id;
+          $this->code = $code;
+        }
+
+        public function getCode()
+        {
+            return $this->code;
         }
     }
 }
