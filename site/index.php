@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__ . "/class/autoload.php";
-    
+
     use \utilities\Session as Session;
     use \html\Page as Page;
     use \html\Menu as Menu;
@@ -10,12 +10,13 @@
 
     $session = new Session();
     $session->verifyIfSessionIsStarted();
-    
+
     Menu::startMenu();
         Menu::startItem();
         Menu::addItem(PROJECT_ROOT . "#", "Páginas");
             Menu::initSubItem();
                 Menu::addItem(PROJECT_ROOT . "category.php", "Edição de Categoria");
+                Menu::addItem(PROJECT_ROOT . "newPage.php", "Nova Página");
             Menu::endSubItem();
         Menu::endItem();
     Menu::endMenu();
