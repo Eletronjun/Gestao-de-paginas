@@ -37,7 +37,8 @@ namespace dao{
 
         public static function getWebPages()
         {
-            $query = "SELECT id, title FROM WEB_PAGE";
+            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content FROM WEB_PAGE";
+
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
             $resultSet = $dao->query($query);
@@ -46,9 +47,14 @@ namespace dao{
 
             for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
                 $data[$i][0] = $row['code'];
-                $data[$i][1] = $row['name'];
+                $data[$i][1] = $row['title'];
+                $data[$i][2] = $row['author'];
+                $data[$i][3] = $row['code_category'];
+                $data[$i][4] = $row['creation_date'];
+                $data[$i][5] = $row['last_modified'];
+                $data[$i][6] = $row['content'];
             }
-
+            
             return $data;
         }
 
