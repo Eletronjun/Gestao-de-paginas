@@ -16,5 +16,5 @@ use \exception\DatabaseException as DatabaseException;
 $data = WebPageDAO::getWebPages();
 
 for ($i=0; $i < count($data); $i++) {
-    echo "<option value=\"{$data[$i][0]}\">{$data[$i][1]}</option>";
+    echo "<option value=\"{$data[$i][0]}\">{$data[$i][0]}. {$data[$i][1]}</option>";
 }
