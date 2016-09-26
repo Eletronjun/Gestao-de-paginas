@@ -12,6 +12,10 @@ use \model\WebPage as WebPage;
 use \dao\WebPageDAO as WebPageDAO;
 use \exception\WebPageException as WebPageException;
 use \exception\DatabaseException as DatabaseException;
+use \utilities\Session as Session;
+
+$session = new Session();
+$session->verifyIfSessionIsStarted();
 
 try {
     $web_page = new WebPage($_GET['title'], "IASMIN", 1, "", $_GET['code']);

@@ -4,6 +4,10 @@
     use \html\Page as Page;
     use \html\Menu as Menu;
     use \configuration\Globals as Globals;
+    use \utilities\Session as Session;
+
+    $session = new Session();
+    $session->verifyIfSessionIsStarted();
 
     Page::header(Globals::ENTERPRISE_NAME);
 
