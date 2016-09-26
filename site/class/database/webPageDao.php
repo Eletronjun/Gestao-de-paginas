@@ -25,6 +25,7 @@ namespace dao{
         const INVALID_MODEL = "Modelo Inválida.";
         const WEB_PAGE_MODEL_ISNT_OBJECT = "Objeto da Página Web Inválido.";
         const NOT_UPDATE_WEB_PAGE = "Não foi possível atualizar a página web.";
+        const NOT_DELETE_WEB_PAGE = "Não foi possível excluir a página web.";
 
         /**
          * @param WebPage $WebPageModel not null value
@@ -54,7 +55,7 @@ namespace dao{
                 $data[$i][5] = $row['last_modified'];
                 $data[$i][6] = $row['content'];
             }
-            
+
             return $data;
         }
 
@@ -138,6 +139,22 @@ namespace dao{
         public function getWebPageModel()
         {
             return $this->web_page_model;
+        }
+
+        /**
+         * Method to delete data
+         * @param Int  $code
+         */
+        public function delete()
+        {
+            if (!is_null($this->getWebPageModel()->getCode())) {
+                $query = "DELETE FROM WEB_PAGE WHERE code = " . $this->getWebPageModel()->getCode();
+
+                parent::query($query);
+
+            } else {
+                throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
+            }
         }
     }
 }
