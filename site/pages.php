@@ -67,32 +67,6 @@ $(document).ready(function(){
             },
         });
     });
-
-
-/*
-    $('#register_button').click(function(){
-        $.ajax({
-            url: 'controller/registerCategory.php?name=' + $('#new_category').val(),
-            success: function(data) {
-                alert(data);
-                $.ajax({
-                    url: 'controller/findCategory.php',
-                    success: function(data){
-                        $('#select_update').html(data);
-                        $('#new_category').val("");
-                    }
-                });
-            },
-            beforeSend: function(){
-                $('#register').html("Carregando...");
-            },
-            complete: function(){
-                $('#register').html("");
-            },
-        });
-    });
-*/
-
 });
 </script>
 <?php
