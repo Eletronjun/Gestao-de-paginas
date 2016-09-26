@@ -25,6 +25,7 @@ Menu::startMenu();
         Menu::initSubItem();
             Menu::addItem(PROJECT_ROOT . "category.php", "Edição de Categoria");
             Menu::addItem(PROJECT_ROOT . "newPage.php", "Nova Página");
+            Menu::addItem(PROJECT_ROOT . "pages.php", "Gerenciar Páginas");
         Menu::endSubItem();
     Menu::endItem();
 Menu::endMenu();
