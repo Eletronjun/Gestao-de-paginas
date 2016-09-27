@@ -156,5 +156,28 @@ namespace dao{
                 throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
             }
         }
+
+        public function getPage()
+        {
+          if (!is_null($this->getWebPageModel()->getCode())) {
+            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content FROM WEB_PAGE WHERE code = " . $this->getWebPageModel()->getCode();
+
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+
+            $resultSet = $dao->query($query);
+
+            $row = $resultSet->fetch_assoc();
+
+            $this->getWebPageModel()->setTitle($row['title']);
+            $this->getWebPageModel()->setAuthor($row['author']);
+            $this->getWebPageModel()->setCategory($row['code_category']);
+            $this->getWebPageModel()->setCreationDate($row['creation_date']);
+            $this->getWebPageModel()->setLastModified($row['last_modified']);
+            $this->getWebPageModel()->setContent($row['content']);
+
+          } else {
+              throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
+          }
+        }
     }
 }
