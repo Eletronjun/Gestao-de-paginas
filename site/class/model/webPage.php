@@ -59,7 +59,7 @@ namespace model{
             $this->setCategory($id_category);
         }
 
-        private function setTitle($title)
+        public function setTitle($title)
         {
             $title = trim($title);
 
@@ -79,7 +79,7 @@ namespace model{
             return $this->title;
         }
 
-        private function setAuthor($author)
+        public function setAuthor($author)
         {
             $author = trim($author);
 
@@ -99,7 +99,7 @@ namespace model{
             return $this->author;
         }
 
-        private function setCategory($id_category)
+        public function setCategory($id_category)
         {
             if ($id_category != null) {
                 $this->id_category = $id_category;
@@ -113,7 +113,7 @@ namespace model{
             return $this->id_category;
         }
 
-        private function setContent($content)
+        public function setContent($content)
         {
               if (strlen($content) <= 5000) {
                   $this->content = $content;
@@ -127,7 +127,7 @@ namespace model{
             return $this->content;
         }
 
-        private function setCreationDate($creation_date){
+        public function setCreationDate($creation_date){
 
           if($creation_date != NULL) {
             $this->creation_date = $creation_date;
@@ -142,7 +142,7 @@ namespace model{
             return $this->creation_date;
         }
 
-        private function setLastModified($last_modified){
+        public function setLastModified($last_modified){
 
           if($last_modified != NULL) {
             $this->last_modified = $last_modified;
@@ -157,7 +157,7 @@ namespace model{
             return $this->last_modified;
         }
 
-        private function setCode($code)
+        public function setCode($code)
         {
           $this->code = $code;
         }
