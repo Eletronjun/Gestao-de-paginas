@@ -35,6 +35,7 @@
               <?php include 'controller/findPage.php'; ?>
             </select><br>
             <input type="button" name="submit" value="Excluir" id="delete_button">
+            <input type="button" name="submit" value="Editar" id="edit_button">
         </form>
 
     </article>
@@ -68,32 +69,9 @@ $(document).ready(function(){
         });
     });
 
-
-/*
-    $('#register_button').click(function(){
-        $.ajax({
-            url: 'controller/registerCategory.php?name=' + $('#new_category').val(),
-            success: function(data) {
-                alert(data);
-                $.ajax({
-                    url: 'controller/findCategory.php',
-                    success: function(data){
-                        $('#select_update').html(data);
-                        $('#new_category').val("");
-                    }
-                });
-            },
-            beforeSend: function(){
-                $('#register').html("Carregando...");
-            },
-            complete: function(){
-                $('#register').html("");
-            },
-        });
-    });
-*/
-
-});
+    function editPage(){
+        location.href = "editPage.php";
+    };
 </script>
 <?php
     Page::closeBody();
