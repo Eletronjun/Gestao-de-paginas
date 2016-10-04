@@ -62,42 +62,22 @@ namespace dao{
         /**
          * Method to update data
          * @param String  $new_title
-         */
-        public function updateTitle($new_title)
-        {
-            if (!is_null($this->getNewPageModel()->getId())) {
-                $query = "UPDATE WEB_PAGE SET title = '{$new_title}' WHERE id = " . $this->getWebPageModel()->getId();
-
-                parent::query($query);
-
-                $web_page = new WebPage(
-                    $new_title,
-                    $this->getWebPageModel()->getId()
-                );
-            } else {
-                throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
-            }
-        }
-
-        /**
-         * Method to update data
          * @param String  $new_author
+         * @param Int  $new_category
+         * @param String  $new_postage
          */
-        public function updateAuthor($new_author)
+        public function updatePage($new_title, $new_author, $new_category, $new_postage)
         {
-            if (!is_null($this->getNewPageModel()->getId())) {
-                $query = "UPDATE WEB_PAGE SET author = '{$new_author}', SET last_modified = NOW() WHERE id = " . $this->getWebPageModel()->getId();
-
+            if (!is_null($this->getWebPageModel()->getCode())) {
+                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', last_modified = NOW() WHERE code = " . $this->getWebPageModel()->getCode();
                 parent::query($query);
+                $this->getPage();
 
-                $web_page = new WebPage(
-                    $new_title,
-                    $this->getWebPageModel()->getId()
-                );
             } else {
                 throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
             }
         }
+
 
         /**
          * Method to persist web page data
@@ -155,6 +135,29 @@ namespace dao{
             } else {
                 throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
             }
+        }
+
+        public function getPage()
+        {
+          if (!is_null($this->getWebPageModel()->getCode())) {
+            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content FROM WEB_PAGE WHERE code = " . $this->getWebPageModel()->getCode();
+
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+
+            $resultSet = $dao->query($query);
+
+            $row = $resultSet->fetch_assoc();
+
+            $this->getWebPageModel()->setTitle($row['title']);
+            $this->getWebPageModel()->setAuthor($row['author']);
+            $this->getWebPageModel()->setCategory($row['code_category']);
+            $this->getWebPageModel()->setCreationDate($row['creation_date']);
+            $this->getWebPageModel()->setLastModified($row['last_modified']);
+            $this->getWebPageModel()->setContent($row['content']);
+
+          } else {
+              throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
+          }
         }
     }
 }

@@ -29,12 +29,13 @@
     <article>
 
         <h1>Gerência de Páginas</h1>
-        <form>
+        <form method="GET">
             <label>Páginas Atuais</label><br>
             <select name="pages" id="select_page">
               <?php include 'controller/findPage.php'; ?>
             </select><br>
             <input type="button" name="submit" value="Excluir" id="delete_button">
+            <input type="button" name="submit" value="Editar" id="edit_button" onclick="location.href = 'editPage.php?code=78'">
         </form>
 
     </article>
@@ -65,9 +66,9 @@ $(document).ready(function(){
             complete: function(){
                 $('#delete').html("");
             },
+          });
         });
     });
-});
 </script>
 <?php
     Page::closeBody();
