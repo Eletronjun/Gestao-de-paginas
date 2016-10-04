@@ -35,7 +35,7 @@
               <?php include 'controller/findPage.php'; ?>
             </select><br>
             <input type="button" name="submit" value="Excluir" id="delete_button">
-            <input type="button" name="submit" value="Editar" id="edit_button">
+            <input type="button" name="submit" value="Editar" id="edit_button" onclick="location.href = 'editPage.php'">
         </form>
 
     </article>
@@ -66,12 +66,8 @@ $(document).ready(function(){
             complete: function(){
                 $('#delete').html("");
             },
+          });
         });
-    });
-
-    function editPage(){
-        location.href = "editPage.php";
-    };
 </script>
 <?php
     Page::closeBody();
