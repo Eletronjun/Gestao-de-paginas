@@ -29,9 +29,9 @@
 <div id="content" style="text-align: left;">
     <article>
 
-        <h1>Edição de Página</h1>
-        <form>
-          <?php include 'controller/formPage.php'; ?>
+        <h1>Edição de Página </h1>
+        <form action="controller/updatePage.php" method="POST">
+          <?php include "controller/formPage.php" ?>
           <input type="submit" value="Atualizar">
         </form>
 
@@ -40,5 +40,4 @@
 <?php
     Page::footer();
     Page::closeBody();
-
 ?>
