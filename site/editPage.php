@@ -30,8 +30,11 @@
     <article>
 
         <h1>Edição de Página </h1>
+        <?php
+          echo "class/utilities/formPage.php?code={$_GET['pages']}" . "<br>";
+        ?>
         <form action="controller/updatePage.php" method="POST">
-          <?php include "controller/formPage.php" ?>
+          <?php required_once("class/utilities/formPage.php?code={$_GET['pages']}");?>
           <input type="submit" value="Atualizar">
         </form>
 

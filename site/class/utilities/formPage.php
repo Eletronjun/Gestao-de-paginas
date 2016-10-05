@@ -6,15 +6,16 @@
  *@license MIT License
  *@link    http://eletronjun.com.br/controller/getPage.php
  */
-require_once __DIR__ . "/../class/autoload.php";
+require_once __DIR__ . "/../autoload.php";
 
 use \model\WebPage as WebPage;
 use \dao\WebPageDAO as WebPageDAO;
 use \exception\WebPageException as WebPageException;
 use \exception\DatabaseException as DatabaseException;
 
+//echo $_GET_['code'] . "<br>";
 //$web_page = new WebPage($_GET['title'], " ", 1, "", $_GET['code']);
-$web_page = new WebPage("Titulo", "Author", 1, "", 78);
+$web_page = new WebPage("Titulo", "Author", 1, "", 80);
 $web_page_dao = new WebPageDAO($web_page);
 $web_page_dao->getPage();
 
