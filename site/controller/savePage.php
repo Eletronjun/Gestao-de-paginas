@@ -37,7 +37,7 @@ Page::header(Globals::ENTERPRISE_NAME);
 echo "<h1>Nova Página</h1>";
 
 try {
-$new_page = new WebPage($_POST['title'], $_POST['author'], $_POST['category'], $_POST['postage']);
+    $new_page = new WebPage($_POST['title'], $_POST['author'], $_POST['category'], $_POST['postage']);
     $web_page_dao = new WebPageDAO($new_page);
     $web_page_dao->register();
     echo "Salvo com sucesso!";
@@ -47,4 +47,3 @@ $new_page = new WebPage($_POST['title'], $_POST['author'], $_POST['category'], $
 
 Page::footer();
 Page::closeBody();
-?>

@@ -32,7 +32,7 @@
         <form method="GET" action='editPage.php'>
             <label>Páginas Atuais</label><br>
             <select name="pages" id="select_page">
-              <?php include 'controller/findPage.php'; ?>
+                <?php include 'controller/findPage.php'; ?>
             </select><br>
             <input type="button" name="submit" value="Excluir" id="delete_button">
             <input type="submit" name="submit" value="Editar" id="edit_button">

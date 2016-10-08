@@ -16,5 +16,16 @@ use \exception\DatabaseException as DatabaseException;
 $data = CategoryDAO::getCategories();
 
 for ($i=0; $i < count($data); $i++) {
-    echo "<option value=\"{$data[$i][0]}\">{$data[$i][1]}</option>";
+    $selected = "";
+
+    if (isset($_GET['code'])) {
+        if ($data[$i][0] == $_GET['code']) {
+            $selected = " selected";
+        } else {
+            $selected = "";
+        }
+        echo "<option value=\"{$data[$i][0]}\"{$selected}>{$data[$i][1]}</option>";
+    } else {
+        echo "<option value=\"{$data[$i][0]}\">{$data[$i][1]}</option>";
+    }
 }

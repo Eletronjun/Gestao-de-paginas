@@ -115,11 +115,11 @@ namespace model{
 
         public function setContent($content)
         {
-              if (strlen($content) <= 5000) {
-                  $this->content = $content;
-              } else {
-                  throw new WebPageException(self::CHARACTER_LIMIT_EXCEEDED);
-              }
+            if (strlen($content) <= 5000) {
+                $this->content = $content;
+            } else {
+                throw new WebPageException(self::CHARACTER_LIMIT_EXCEEDED);
+            }
         }
 
         public function getContent()
@@ -127,14 +127,15 @@ namespace model{
             return $this->content;
         }
 
-        public function setCreationDate($creation_date){
+        public function setCreationDate($creation_date)
+        {
 
-          if($creation_date != NULL) {
-            $this->creation_date = $creation_date;
-          } else {
-            date_default_timezone_set('America/Sao_Paulo');
-            $this->creation_date = getdate();
-          }
+            if ($creation_date != null) {
+                $this->creation_date = $creation_date;
+            } else {
+                date_default_timezone_set('America/Sao_Paulo');
+                $this->creation_date = getdate();
+            }
         }
 
         public function getCreationDate()
@@ -142,14 +143,15 @@ namespace model{
             return $this->creation_date;
         }
 
-        public function setLastModified($last_modified){
+        public function setLastModified($last_modified)
+        {
 
-          if($last_modified != NULL) {
-            $this->last_modified = $last_modified;
-          } else {
-            date_default_timezone_set('America/Sao_Paulo');
-            $this->last_modified = getdate();
-          }
+            if ($last_modified != null) {
+                $this->last_modified = $last_modified;
+            } else {
+                date_default_timezone_set('America/Sao_Paulo');
+                $this->last_modified = getdate();
+            }
         }
 
         public function getLastModified()
@@ -159,7 +161,7 @@ namespace model{
 
         public function setCode($code)
         {
-          $this->code = $code;
+            $this->code = $code;
         }
 
         public function getCode()

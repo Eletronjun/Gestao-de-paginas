@@ -17,7 +17,6 @@ use \html\Page as Page;
 use \html\Menu as Menu;
 use \configuration\Globals as Globals;
 
-
 $session = new Session();
 $session->verifyIfSessionIsStarted();
 
@@ -36,14 +35,14 @@ Page::header(Globals::ENTERPRISE_NAME);
 
 echo "<h1>Atualização de Página</h1>";
 
-try{
-  $web_page = new WebPage($_POST['title'], $_POST['author'], $_POST['categories'], $_POST['postage'], $_POST['code']);
-  $web_page_dao = new WebPageDAO($web_page);
-  $web_page_dao->updatePage($_POST['title'], $_POST['author'], $_POST['categories'], $_POST['postage']);
+try {
+    $web_page = new WebPage($_POST['title'], $_POST['author'], $_POST['categories'], $_POST['postage'], $_POST['code']);
+    $web_page_dao = new WebPageDAO($web_page);
+    $web_page_dao->updatePage($_POST['title'], $_POST['author'], $_POST['categories'], $_POST['postage']);
 
-  echo "Salvo com sucesso.";
-} catch (Expetion $msg){
-  echo $msg;
+    echo "Salvo com sucesso.";
+} catch (Expetion $msg) {
+    echo $msg;
 }
 
 Page::footer();

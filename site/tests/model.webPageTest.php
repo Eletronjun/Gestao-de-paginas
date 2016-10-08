@@ -33,8 +33,12 @@ namespace htmlTests{
          */
         public function testTitleLarger()
         {
-            new WebPage("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678900",
-             "EletronJun", 1, "Post Teste");
+            new WebPage(
+                "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678900",
+                "EletronJun",
+                1,
+                "Post Teste"
+            );
         }
 
         /**
@@ -107,8 +111,7 @@ namespace htmlTests{
          */
         public function testCategoryInvalid()
         {
-            new WebPage("Page Test", "EletronJun", NULL, "Post Teste");
+            new WebPage("Page Test", "EletronJun", null, "Post Teste");
         }
-
     }
 }

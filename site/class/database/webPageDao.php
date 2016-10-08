@@ -26,6 +26,8 @@ namespace dao{
         const WEB_PAGE_MODEL_ISNT_OBJECT = "Objeto da Página Web Inválido.";
         const NOT_UPDATE_WEB_PAGE = "Não foi possível atualizar a página web.";
         const NOT_DELETE_WEB_PAGE = "Não foi possível excluir a página web.";
+        const NOT_FIND_PAGE = "Página não encontrada.";
+        const INVALID_CODE = "Código inválido.";
 
         /**
          * @param WebPage $WebPageModel not null value
@@ -72,7 +74,6 @@ namespace dao{
                 $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', last_modified = NOW() WHERE code = " . $this->getWebPageModel()->getCode();
                 parent::query($query);
                 $this->getPage();
-
             } else {
                 throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
             }
@@ -131,33 +132,41 @@ namespace dao{
                 $query = "DELETE FROM WEB_PAGE WHERE code = " . $this->getWebPageModel()->getCode();
 
                 parent::query($query);
-
             } else {
                 throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
             }
         }
 
-        public function getPage()
+        /**
+         * Method to find and return page, if exists
+         * @param Int  $code only integer and contain code of the page to return
+         * @throws WebPageException invalid code value
+         * @throws WebPageException not page returned
+         */
+        public static function getPage($code)
         {
-          if (!is_null($this->getWebPageModel()->getCode())) {
-            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content FROM WEB_PAGE WHERE code = " . $this->getWebPageModel()->getCode();
+            if (is_numeric($code)) {
+                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content FROM WEB_PAGE WHERE code = {$code}";
 
-            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+                $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+                $resultSet = $dao->query($query);
 
-            $resultSet = $dao->query($query);
-
-            $row = $resultSet->fetch_assoc();
-
-            $this->getWebPageModel()->setTitle($row['title']);
-            $this->getWebPageModel()->setAuthor($row['author']);
-            $this->getWebPageModel()->setCategory($row['code_category']);
-            $this->getWebPageModel()->setCreationDate($row['creation_date']);
-            $this->getWebPageModel()->setLastModified($row['last_modified']);
-            $this->getWebPageModel()->setContent($row['content']);
-
-          } else {
-              throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
-          }
+                if ($row = $resultSet->fetch_assoc()) {
+                    return new WebPage(
+                        $row['title'],
+                        $row['author'],
+                        $row['code_category'],
+                        $row['content'],
+                        $code,
+                        $row['creation_date'],
+                        $row['last_modified']
+                    );
+                } else {
+                    throw new WebPageException(self::NOT_FIND_PAGE);
+                }
+            } else {
+                throw new WebPageException(self::INVALID_CODE);
+            }
         }
     }
 }
