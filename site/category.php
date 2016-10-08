@@ -1,12 +1,17 @@
 <?php
     require_once __DIR__ . "/class/autoload.php";
     
+    use \utilities\Session as Session;
     use \html\Page as Page;
     use \html\Menu as Menu;
+    use \html\FindCategories as FindCategories;
     use \configuration\Globals as Globals;
 
     Page::header(Globals::ENTERPRISE_NAME);
     
+    $session = new Session();
+    $session->verifyIfSessionIsStarted();
+
     Menu::startMenu();
         Menu::startItem();
         Menu::addItem(PROJECT_ROOT . "#", "Páginas");
@@ -38,7 +43,7 @@
         <form>
             <label>Cadastradas</label><br>
             <select name="categories" id="select_update">
-            <?php include 'controller/findCategory.php'; ?>
+            <?php FindCategories::getOptions(); ?>
             </select><br>
 
             <label>Novo Nome:</label><br>
@@ -46,11 +51,32 @@
             <input type="button" name="submit" value="Salvar" id="update_button">
         </form>
 
+        <h1>Ativar/Desativar Visualização de categoria</h1>
+        <div id="enable"></div>
+        <table>
+        <tr>
+            <th><strong>Categoria</strong></th>
+            <th><strong>Está ativo</strong></th>
+        </tr>
+            <?php FindCategories::getCheckboxTable(); ?>
+        </table>
+
     </article>
 </div>
 <?php
     Page::footer();
 ?>
+
+<style type="text/css">
+    table {
+        margin:  auto;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 2px solid black;
+    }
+</style>
 
 <script type="text/javascript">
 $(document).ready(function(){ 
@@ -102,8 +128,24 @@ $(document).ready(function(){
             },
         });
     });
-    
-    
+
+    $("input:checkbox[name='categories']").click(function(){
+        $("input:checkbox[name='categories']").map(function()
+        {
+            $.ajax({
+                url: 'controller/enableCategory.php?name=' + $(this).val().split("-_-")[1]
+                +'&id=' + $(this).val().split("-")[0]
+                    +'&is_activity=' + (($(this).is(':checked')) ? 1 : 0),
+                beforeSend: function() {
+                    $('#enable').html("Carregando...");
+                },
+                complete: function() {
+                    $('#enable').html("Salvo com sucesso");
+                },
+            });
+
+        });
+    });
 });
 </script>
 <?php
