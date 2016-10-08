@@ -4,6 +4,7 @@
 
     use \html\Page as Page;
     use \html\Menu as Menu;
+    use \html\Forms as Forms;
     use \configuration\Globals as Globals;
     use \utilities\Session as Session;
 
@@ -30,11 +31,8 @@
     <article>
 
         <h1>Edição de Página </h1>
-        <?php
-          echo "class/utilities/formPage.php?code={$_GET['pages']}" . "<br>";
-        ?>
         <form action="controller/updatePage.php" method="POST">
-            <?php require_once "class/utilities/formPage.php?code={$_GET['pages']}";?>
+            <?php Forms::updatePageForm($_GET['pages']); ?>
           <input type="submit" value="Atualizar">
         </form>
 

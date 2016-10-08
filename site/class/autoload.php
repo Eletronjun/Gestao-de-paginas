@@ -14,12 +14,9 @@
     //Html
     require_once __DIR__ . '/html/page.php';
     require_once __DIR__ . '/html/menu.php';
-<<<<<<< HEAD
-
-=======
     require_once __DIR__ . '/html/findCategory.php';
+    require_once __DIR__ . '/html/forms.php';
     
->>>>>>> 97ca47da03ea07c9bfa374c22a7e51418bd6e95d
     //Utilities
     require_once __DIR__ . '/utilities/session.php';
 

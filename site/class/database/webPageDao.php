@@ -73,7 +73,6 @@ namespace dao{
             if (!is_null($this->getWebPageModel()->getCode())) {
                 $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', last_modified = NOW() WHERE code = " . $this->getWebPageModel()->getCode();
                 parent::query($query);
-                $this->getPage();
             } else {
                 throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
             }

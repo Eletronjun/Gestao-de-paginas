@@ -13,6 +13,7 @@ use \model\WebPage as WebPage;
 use \dao\WebPageDAO as WebPageDAO;
 use \exception\WebPageException as WebPageException;
 use \exception\DatabaseException as DatabaseException;
+use \html\FindCategories as FindCategories;
 
 try {
     $web_page = WebPageDAO::getPage($_GET['code']);
@@ -24,7 +25,7 @@ try {
     echo "<input type='text' id='author' name='author' value='{$web_page->getAuthor()}' required><br><br>";
     echo "<label>Categoria</label><br>";
     echo "<select name='categories' id='select_update'>";
-    include '../../controller/findCategory.php';
+    FindCategories::getOptions($_GET['code']);
     echo "</select><br><br>";
     echo "<label>Título</label><br>";
     echo "<input type='text' id='title' name='title' value='{$web_page->getTitle()}' required><br><br>";
