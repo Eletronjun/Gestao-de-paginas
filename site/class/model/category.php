@@ -31,14 +31,9 @@ namespace model{
         /**
          * Method to create a category instance
          *
-<<<<<<< HEAD
-         * @param string $name name of category, not null value
-         * @param int $id   category code, only numbers or null if not exists in database
-=======
          * @param string $name          name of category, not null value
          * @param int    $id            category code, only numbers or null if not exists in database
          * @param string $is_activity   'y' or 'n' to register if category is visible, default is 'y'
->>>>>>> 97ca47da03ea07c9bfa374c22a7e51418bd6e95d
          */
         public function __construct($name, $id = null, $is_activity = "y")
         {

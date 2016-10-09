@@ -22,7 +22,7 @@
     <article>
 
         <h1>Edição de Página </h1>
-        <form action="controller/updatePage.php" method="POST">
+        <form action="<?php echo PROJECT_ROOT;?>controller/updatePage.php" method="POST">
             <?php Forms::updatePageForm($_GET['pages']); ?>
           <input type="submit" value="Atualizar">
         </form>

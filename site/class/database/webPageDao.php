@@ -161,10 +161,10 @@ namespace dao{
                         $row['last_modified']
                     );
                 } else {
-                    throw new WebPageException(self::NOT_FIND_PAGE);
+                    throw new DatabaseException(self::NOT_FIND_PAGE);
                 }
             } else {
-                throw new WebPageException(self::INVALID_CODE);
+                throw new DatabaseException(self::INVALID_CODE);
             }
         }
 
