@@ -168,11 +168,15 @@ namespace dao{
             }
         }
 
+        /**
+         * Method to return the last 4 publications
+         * @return Array code => title
+         */
         public static function returnLast4()
         {
             $query = "SELECT WEB_PAGE.code, title " .
                 "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
-                "WHERE CATEGORY.isActivity = 'y' LIMIT 4";
+                "WHERE CATEGORY.isActivity = 'y' ORDER BY last_modified LIMIT 4";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
 
@@ -185,12 +189,16 @@ namespace dao{
             return $data;
         }
 
-
-        public static function returnLast4byCategory($codeCategory)
+        /**
+         * Method to return the last 5 publications with a category
+         * @param int $codeCategory only positive numbers and contain the code of category
+         * @return Array code => title
+         */
+        public static function returnLast5byCategory($codeCategory)
         {
 
             $query = "SELECT code, title FROM WEB_PAGE " .
-                "WHERE code_category = {$codeCategory} LIMIT 5";
+                "WHERE code_category = {$codeCategory} ORDER BY last_modified LIMIT 5";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
@@ -199,6 +207,29 @@ namespace dao{
 
             for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
                 $data[$row['code']] = $row['title'];
+            }
+
+            return $data;
+        }
+
+        /**
+         * Method to return all publications with a category
+         * @param int $codeCategory only positive numbers and contain the code of category
+         * @return Array index => publication object
+         */
+        public static function returnByCategory($codeCategory)
+        {
+
+            $query = "SELECT code, title,author,creation_date,last_modified,content FROM WEB_PAGE " .
+                "WHERE code_category = {$codeCategory} ORDER BY last_modified";
+
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+            $resultSet = $dao->query($query);
+
+            $data = array();
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $data[$i] = new WebPage($row['title'], $row['author'], $codeCategory, $row['content'], $row['code'], $row['creation_date'], $row['last_modified']);
             }
 
             return $data;

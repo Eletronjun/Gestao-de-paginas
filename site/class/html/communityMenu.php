@@ -15,6 +15,7 @@ namespace html{
     use \html\Page as Page;
     use \html\Menu as Menu;
     use \configuration\Globals as Globals;
+    use \dao\CategoryDao as CategoryDao;
 
     class CommunityMenu extends Menu
     {
@@ -33,8 +34,14 @@ namespace html{
         private function publicationOptions()
         {
             parent::startItem();
-                parent::addItem("#", "Publicações");
-                parent::endItem();
+            parent::addItem("#", "Publicações");
+            parent::initSubItem();
+
+            foreach (CategoryDao::returnActiveCategories() as $code => $name) {
+                parent::addItem(PROJECT_ROOT . "categories.php?code={$code}", $name);
+            }
+            
+            parent::endItem();
         }
     }
 }
