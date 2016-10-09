@@ -14,6 +14,7 @@
     //Html
     require_once __DIR__ . '/html/page.php';
     require_once __DIR__ . '/html/menu.php';
+    require_once __DIR__ . '/html/administratorMenu.php';
     require_once __DIR__ . '/html/findCategory.php';
     require_once __DIR__ . '/html/forms.php';
     

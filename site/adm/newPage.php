@@ -1,26 +1,19 @@
 <?php
-    require_once realpath('.') . "/class/autoload.php";
+    require_once __DIR__ . "/../class/autoload.php";
 
     use \utilities\Session as Session;
     use \html\Page as Page;
-    use \html\Menu as Menu;
+    use \html\AdministratorMenu as AdministratorMenu;
     use \configuration\Globals as Globals;
+    
+    Page::header(Globals::ENTERPRISE_NAME);
 
     $session = new Session();
     $session->verifyIfSessionIsStarted();
+    
+    $menu = new AdministratorMenu();
+    $menu->construct();
 
-    Menu::startMenu();
-        Menu::startItem();
-        Menu::addItem(PROJECT_ROOT . "#", "Páginas");
-            Menu::initSubItem();
-                Menu::addItem(PROJECT_ROOT . "category.php", "Edição de Categoria");
-                Menu::addItem(PROJECT_ROOT . "newPage.php", "Nova Página");
-                Menu::addItem(PROJECT_ROOT . "pages.php", "Gerenciar Páginas");
-            Menu::endSubItem();
-        Menu::endItem();
-    Menu::endMenu();
-
-    Page::header(Globals::ENTERPRISE_NAME);
 ?>
     <h1>Nova Página</h1>
     <form method="POST" action="controller/savePage.php">
