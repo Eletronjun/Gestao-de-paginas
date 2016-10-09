@@ -167,5 +167,41 @@ namespace dao{
                 throw new WebPageException(self::INVALID_CODE);
             }
         }
+
+        public static function returnLast4()
+        {
+            $query = "SELECT WEB_PAGE.code, title " .
+                "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
+                "WHERE CATEGORY.isActivity = 'y' LIMIT 4";
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+            $resultSet = $dao->query($query);
+
+            $data = array();
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $data[$row['code']] = $row['title'];
+            }
+
+            return $data;
+        }
+
+
+        public static function returnLast4byCategory($codeCategory)
+        {
+
+            $query = "SELECT code, title FROM WEB_PAGE " .
+                "WHERE code_category = {$codeCategory} LIMIT 5";
+
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+            $resultSet = $dao->query($query);
+
+            $data = array();
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $data[$row['code']] = $row['title'];
+            }
+
+            return $data;
+        }
     }
 }

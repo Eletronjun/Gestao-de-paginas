@@ -116,6 +116,27 @@ namespace dao{
             parent::disconnect();
         }
 
+        /**
+         * Method to find and return only active categories
+         * @return array code of category => name of category
+        */
+        public static function returnActiveCategories()
+        {
+
+            $query = "SELECT code, name FROM CATEGORY WHERE isActivity = 'y'";
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+
+            $resultSet = $dao->query($query);
+
+            $data = array();
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $data[$row['code']] = $row['name'];
+            }
+
+            return $data;
+        }
+
         public function setCategoryModel($category_model)
         {
             if (is_object($category_model)) {
