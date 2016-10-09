@@ -23,13 +23,6 @@ namespace html{
             echo "<input type=\"checkbox\" id=\"control-nav\"/>";
             echo "<label for=\"control-nav\" class=\"control-nav\"></label>";
             echo "<nav>";
-            self::startItem();
-            self::addItem(
-                PROJECT_ROOT . "controller/destroySession.php\" 
-                OnClick=\"return confirm('Tem certeza que deseja sair?');",
-                "Sair"
-            );
-            self::endItem();
         }
         
         protected static function startItem()

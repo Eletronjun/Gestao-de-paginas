@@ -10,7 +10,7 @@ require_once __DIR__ . "/../class/autoload.php";
 
 use \utilities\Session as Session;
 use \html\Page as Page;
-use \html\Menu as Menu;
+use \html\AdministratorMenu as AdministratorMenu;
 use \model\webPage as WebPage;
 use \dao\WebPageDAO as WebPageDAO;
 use \configuration\Globals as Globals;
@@ -19,16 +19,9 @@ use \exception\     WebPageException as WebPageException;
 $session = new Session();
 $session->verifyIfSessionIsStarted();
 
-Menu::startMenu();
-    Menu::startItem();
-    Menu::addItem(PROJECT_ROOT . "#", "Páginas");
-        Menu::initSubItem();
-            Menu::addItem(PROJECT_ROOT . "category.php", "Edição de Categoria");
-            Menu::addItem(PROJECT_ROOT . "newPage.php", "Nova Página");
-            Menu::addItem(PROJECT_ROOT . "pages.php", "Gerenciar Páginas");
-        Menu::endSubItem();
-    Menu::endItem();
-Menu::endMenu();
+
+$menu = new AdministratorMenu();
+$menu->construct();
 
 Page::header(Globals::ENTERPRISE_NAME);
 

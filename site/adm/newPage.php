@@ -3,6 +3,7 @@
 
     use \utilities\Session as Session;
     use \html\Page as Page;
+    use \html\FindCategories as FindCategories;
     use \html\AdministratorMenu as AdministratorMenu;
     use \configuration\Globals as Globals;
     
@@ -16,12 +17,12 @@
 
 ?>
     <h1>Nova Página</h1>
-    <form method="POST" action="controller/savePage.php">
+    <form method="POST" action="<?php echo PROJECT_ROOT; ?>controller/savePage.php">
         <label>Autor</label><br>
         <input type="text" id="author" name="author" required><br><br>
         <label>Categoria</label><br>
         <select name="category" id="select_update">
-            <?php include 'controller/findCategory.php'; ?>
+            <?php FindCategories::getOptions(); ?>
         </select><br><br>
         <label>Título</label><br>
         <input type="text" id="title" name="title" required><br><br>

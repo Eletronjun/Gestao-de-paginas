@@ -33,6 +33,7 @@ namespace html{
 
         public function construct()
         {
+            $this->logout();
             if ($_SESSION['code_directorate'] == self::MARKETING) {
                 $this->pageOptions();
             }
@@ -43,13 +44,24 @@ namespace html{
         private function pageOptions()
         {
             parent::startItem();
-                parent::addItem(PROJECT_ROOT . "#", "Páginas");
+                parent::addItem("#", "Páginas");
                     parent::initSubItem();
                         parent::addItem(PROJECT_ROOT . "adm/category.php", "Edição de Categoria");
                         parent::addItem(PROJECT_ROOT . "adm/newPage.php", "Nova Página");
                         parent::addItem(PROJECT_ROOT . "adm/pages.php", "Gerenciar Páginas");
                     parent::endSubItem();
                 parent::endItem();
+        }
+
+        private function logout()
+        {
+            self::startItem();
+            self::addItem(
+                PROJECT_ROOT . "controller/destroySession.php\" 
+                OnClick=\"return confirm('Tem certeza que deseja sair?');",
+                "Sair"
+            );
+            self::endItem();
         }
     }
 }
