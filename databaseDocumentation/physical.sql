@@ -83,6 +83,7 @@ CREATE TABLE WEB_PAGE(
 	creation_date DATETIME NOT NULL,
 	last_modified DATETIME NOT NULL,
 	content VARCHAR(5000) NULL,
+	image VARCHAR(200) NULL,
 
     PRIMARY KEY web_page_pk (code),
     FOREIGN KEY web_category_fk (code_category) REFERENCES CATEGORY(code) ON UPDATE RESTRICT ON DELETE RESTRICT

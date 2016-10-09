@@ -17,7 +17,7 @@
 
 ?>
     <h1>Nova Página</h1>
-    <form method="POST" action="<?php echo PROJECT_ROOT; ?>controller/savePage.php">
+    <form method="POST" action="<?php echo PROJECT_ROOT; ?>controller/savePage.php" enctype="multipart/form-data">
         <label>Autor</label><br>
         <input type="text" id="author" name="author" required><br><br>
         <label>Categoria</label><br>
@@ -27,6 +27,8 @@
         <label>Título</label><br>
         <input type="text" id="title" name="title" required><br><br>
         <textarea rows="20" cols="80" id="postage" name="postage"></textarea><br><br>
+
+        <input type="file" name="imageFile" />
         <input type="submit" value="Salvar">
     </form>
 <?php

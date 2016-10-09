@@ -40,7 +40,7 @@ namespace dao{
 
         public static function getWebPages()
         {
-            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content FROM WEB_PAGE";
+            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image FROM WEB_PAGE";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
@@ -56,8 +56,8 @@ namespace dao{
                 $data[$i][4] = $row['creation_date'];
                 $data[$i][5] = $row['last_modified'];
                 $data[$i][6] = $row['content'];
+                $data[$i][6] = $row['image'];
             }
-
             return $data;
         }
 
@@ -84,9 +84,10 @@ namespace dao{
          */
         public function register()
         {
-            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`, `content`)
+            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`, `content`, `image`)
             VALUES ('{$this->getWebPageModel()->getTitle()}', '{$this->getWebPageModel()->getAuthor()}',
-            {$this->getWebPageModel()->getCategory()}, NOW(),NOW(),'{$this->getWebPageModel()->getContent()}')";
+            {$this->getWebPageModel()->getCategory()}, NOW(),NOW(),'{$this->getWebPageModel()->getContent()}',
+            '{$this->getWebPageModel()->getImage()}')";
 
             parent::query($query);
 
@@ -145,7 +146,7 @@ namespace dao{
         public static function getPage($code)
         {
             if (is_numeric($code)) {
-                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content FROM WEB_PAGE WHERE code = {$code}";
+                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image FROM WEB_PAGE WHERE code = {$code}";
 
                 $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
                 $resultSet = $dao->query($query);
@@ -158,7 +159,8 @@ namespace dao{
                         $row['content'],
                         $code,
                         $row['creation_date'],
-                        $row['last_modified']
+                        $row['last_modified'],
+                        $row['image']
                     );
                 } else {
                     throw new DatabaseException(self::NOT_FIND_PAGE);
@@ -176,7 +178,7 @@ namespace dao{
         {
             $query = "SELECT WEB_PAGE.code, title " .
                 "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
-                "WHERE CATEGORY.isActivity = 'y' ORDER BY last_modified LIMIT 4";
+                "WHERE CATEGORY.isActivity = 'y' ORDER BY last_modified DESC LIMIT 4";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
 
@@ -198,7 +200,7 @@ namespace dao{
         {
 
             $query = "SELECT code, title FROM WEB_PAGE " .
-                "WHERE code_category = {$codeCategory} ORDER BY last_modified LIMIT 5";
+                "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC LIMIT 5";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
@@ -221,7 +223,7 @@ namespace dao{
         {
 
             $query = "SELECT code, title,author,creation_date,last_modified,content FROM WEB_PAGE " .
-                "WHERE code_category = {$codeCategory} ORDER BY last_modified";
+                "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);

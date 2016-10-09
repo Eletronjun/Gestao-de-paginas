@@ -26,7 +26,7 @@ foreach (WebPageDao::returnLast4() as $code => $title) {
 foreach (CategoryDao::returnActiveCategories() as $code => $name) {
     echo "<p><strong>{$name}</strong></p>";
     $hasPage = false;
-    foreach (WebPageDao::returnLast4byCategory($code) as $pageCode => $title) {
+    foreach (WebPageDao::returnLast5byCategory($code) as $pageCode => $title) {
         $hasPage = true;
         echo "<a href=\"publications.php?code={$pageCode}\">{$title}</a><br>";
     }

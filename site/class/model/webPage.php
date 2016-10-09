@@ -27,6 +27,7 @@ namespace model{
         private $last_modified; //Date and time of last page modifier in format yyyy-MM-dd hh:mm:ss,
                     //if receive null command 'now()' is used
         private $content; //Content of the page.
+        private $image; //image path or null if not exists
 
         //Exception messengers
         const NULL_TITLE = "O título não pode ser nulo.";
@@ -47,8 +48,9 @@ namespace model{
          * @param date      $last_modified  Date and time to create a page in format yyyy-MM-dd hh:mm:ss,if receive null command 'now()' is used
          * @param string    $content        Content of the page.
          * @param int       $code           web page code, only numbers
+         * @param string    $image          imagePath
          */
-        public function __construct($title, $author, $id_category, $content = null, $code = null, $creation_date = null, $last_modified = null)
+        public function __construct($title, $author, $id_category, $content = null, $code = null, $creation_date = null, $last_modified = null, $image = null)
         {
             $this->setTitle($title);
             $this->setAuthor($author);
@@ -57,6 +59,7 @@ namespace model{
             $this->setLastModified($last_modified);
             $this->setCode($code);
             $this->setCategory($id_category);
+            $this->setImage($image);
         }
 
         public function setTitle($title)
@@ -167,6 +170,16 @@ namespace model{
         public function getCode()
         {
             return $this->code;
+        }
+
+        public function setImage($image)
+        {
+            $this->image = $image;
+        }
+
+        public function getImage()
+        {
+            return $this->image;
         }
     }
 }

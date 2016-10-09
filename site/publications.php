@@ -31,6 +31,7 @@ try {
     </i>
     <hr>
     <?php echo $page->getContent(); ?>
+    <img src="<?php echo FILE_PATCH . $page->getImage(); ?>" alt="<?php echo $category->getName(); ?>">
 
 <?php
 } catch (Exception $msg) {
