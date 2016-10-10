@@ -30,10 +30,11 @@ Page::header(Globals::ENTERPRISE_NAME);
 echo "<h1>Nova Página</h1>";
 
 try {
-    date_default_timezone_set("Brazil/East"); //Definindo timezone padrão
-    $ext = strtolower(substr($_FILES['imageFile']['name'], -4)); //Pegando extensão do arquivo
-    $new_name = md5(date("Y.m.d-H.i.s")) . $ext; //Definindo um novo nome para o arquivo
+    date_default_timezone_set("Brazil/East"); //Define TimeZone
+    $ext = strtolower(substr($_FILES['imageFile']['name'], -4)); //Get extension of file
+    $new_name = md5(date("Y.m.d-H.i.s")) . $ext; //Define a new name for file
 
+    //Verify if mime-type is image
     if (eregi("^image\/(pjpeg|jpeg|png|gif|bmp)$", $_FILES['imageFile']["type"])) {
         $new_page = new WebPage(
             $_POST['title'],
@@ -47,8 +48,8 @@ try {
         );
         $web_page_dao = new WebPageDAO($new_page);
         $web_page_dao->register();
-        
-        move_uploaded_file($_FILES['imageFile']['tmp_name'], UPLOAD_ROOT . $new_name); //Fazer upload do arquivo
+
+        move_uploaded_file($_FILES['imageFile']['tmp_name'], UPLOAD_ROOT . $new_name); //Save upload of file
     
         echo "Salvo com sucesso!";
     } else {

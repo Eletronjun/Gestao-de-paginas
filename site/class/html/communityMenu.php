@@ -27,6 +27,10 @@ namespace html{
 
         public function construct()
         {
+            
+            parent::startItem();
+                parent::addItem(PROJECT_ROOT, "Home");
+            parent::endItem();
             $this->publicationOptions();
             parent::endMenu();
         }
