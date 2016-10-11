@@ -26,7 +26,7 @@
               <label>Senha</label><br>
               <input type="password" id="password" name="password" required><br><br>
             </fieldset>
-          <input type="submit" value="Logar"/>
+          <input type="submit" value="Logar" style="margin-top: 1.875rem"/>
       </form>
   </div>
 <?php
