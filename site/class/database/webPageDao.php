@@ -67,12 +67,17 @@ namespace dao{
          * @param String  $new_author
          * @param Int  $new_category
          * @param String  $new_postage
+         * @param String  $image path of the new image or null if not change image
          */
-        public function updatePage($new_title, $new_author, $new_category, $new_postage)
+        public function updatePage($new_title, $new_author, $new_category, $new_postage, $image = null)
         {
+            $changeImage = ($image == null)? "" : ", image = '{$image}'";
             if (!is_null($this->getWebPageModel()->getCode())) {
-                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', last_modified = NOW() WHERE code = " . $this->getWebPageModel()->getCode();
+                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', last_modified = NOW(){$changeImage} WHERE code = " . $this->getWebPageModel()->getCode();
                 parent::query($query);
+                if ($image != null) {
+                    unlink(UPLOAD_ROOT . $this->getWebPageModel()->getImage());
+                }
             } else {
                 throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
             }

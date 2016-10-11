@@ -31,11 +31,12 @@ namespace html{
                 echo "<input type='text' id='author' name='author' value='{$web_page->getAuthor()}' required><br><br>";
                 echo "<label>Categoria</label><br>";
                 echo "<select name='categories' id='select_update'>";
-                FindCategories::getOptions($_GET['code']);
+                FindCategories::getOptions($code);
                 echo "</select><br><br>";
                 echo "<label>Título</label><br>";
                 echo "<input type='text' id='title' name='title' value='{$web_page->getTitle()}' required><br><br>";
                 echo "<textarea rows='20' cols='80' id='postage' name='postage'>{$web_page->getContent()}</textarea><br><br>";
+                echo "<input type=\"file\" name=\"imageFile\" />";
             } catch (WebPageException $msg) {
                 echo $msg;
             }
