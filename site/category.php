@@ -1,12 +1,12 @@
 <?php
     require_once __DIR__ . "/class/autoload.php";
-    
+
     use \html\Page as Page;
     use \html\Menu as Menu;
     use \configuration\Globals as Globals;
 
     Page::header(Globals::ENTERPRISE_NAME);
-    
+
     Menu::startMenu();
         Menu::startItem();
         Menu::addItem(PROJECT_ROOT . "#", "Páginas");
@@ -19,45 +19,44 @@
 
 <!--Conteúdo da página-->
 <div id="content" style="text-align: left;">
-    <article>
-
-        <h1>Cadastrar Nome de Categoria</h1>
+        <h1>Cadastrar Nova Categoria</h1>
         <div id="register"></div>
         <form>
-            <label>Nome:</label><br>
-            <input type="text" name="category" id="new_category" size="50%" maxlength="50" required>
-            <input type="button" name="submit" value="Salvar" id="register_button">
+            <fieldset>
+              <label>Nome:</label><br>
+              <input type="text" name="category" id="new_category" size="50%" maxlength="50" required><br>
+              <label>Descrição:</label><br>
+              <textarea name="description" id="description" maxlength="200" rows="5" cols="50"></textarea><br>
+              <input type="button" name="submit" value="Salvar" id="register_button">
+            </fieldset>
         </form>
-
-        <br><br>
 
         <hr>
 
-        <h1>Atualizar Nome de Categoria</h1>
+        <h1>Atualizar Categoria</h1>
         <div id="update"></div>
         <form>
-            <label>Cadastradas</label><br>
-            <select name="categories" id="select_update">
-            <?php include 'controller/findCategory.php'; ?>
-            </select><br>
-
-            <label>Novo Nome:</label><br>
-            <input type="text" name="category" id="update_category" size="50%" required>
-            <input type="button" name="submit" value="Salvar" id="update_button">
+            <fieldset>
+              <label>Categoria</label><br>
+              <select name="categories" id="select_update">
+              <?php include 'controller/findCategory.php'; ?>
+              </select><br>
+              <label>Novo Nome:</label><br>
+              <input type="text" name="category" id="update_category" size="50%" required>
+              <input type="button" name="submit" value="Salvar" id="update_button">
+            </fieldset>
         </form>
-
-    </article>
 </div>
 <?php
     Page::footer();
 ?>
 
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
 
     $('#update_button').click(function(){
         $.ajax({
-            url: 'controller/updateCategory.php?id=' + $('#select_update').val() + 
+            url: 'controller/updateCategory.php?id=' + $('#select_update').val() +
                 '&name=' + $('#select_update option:selected').text() +
                 '&new_name=' + $('#update_category').val(),
             success: function(data) {
@@ -102,8 +101,8 @@ $(document).ready(function(){
             },
         });
     });
-    
-    
+
+
 });
 </script>
 <?php
