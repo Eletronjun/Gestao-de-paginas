@@ -72,6 +72,7 @@ input{
 input[type=submit]{
   color: #FFF;
   background-color: #111F1E;
+  border-color: #111F1E;
   border-radius: 0.7rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -80,6 +81,12 @@ input[type=submit]{
   margin-top: 1.875rem;
   width: auto;
   height: auto;
+}
+
+input[type=submit]:hover{
+  color: #111F1E;
+  background-color: #88c665;
+  border-color: #88c665;
 }
 
 #container{
