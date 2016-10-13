@@ -1,18 +1,18 @@
 <?php
 /**
- *Class for exceptions for page
+ *Class for exceptions for web page
  *
  *@package Exception
- *@author  Vinicius Pinheiro <viny-pinheiro@hotmail.com>
+ *@author  Iasmin Mendes <mendesiasmin96@gmail.com>
  *@license MIT License
- *@link    http://eletronjun.com.br/class/exception/categoryException.php
+ *@link    http://eletronjun.com.br/class/exception/webPageException.php
  */
 namespace exception{
 
     /**
      * @codeCoverageIgnore
      */
-    class CategoryException extends \Exception
+    class WebPageException extends \Exception
     {
         public function __construct($message, $code = 0, Exception $previous = null)
         {

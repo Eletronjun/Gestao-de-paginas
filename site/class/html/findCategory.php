@@ -18,12 +18,25 @@ namespace html{
 
     class FindCategories
     {
-        public static function getOptions()
+        public static function getOptions($code = null)
         {
             $data = CategoryDAO::getCategories();
 
-            for ($i=0; $i < count($data); $i++) {
-                echo "<option value=\"{$data[$i][0]}\">{$data[$i][1]}</option>";
+            if ($code == null) {
+                for ($i=0; $i < count($data); $i++) {
+                    echo "<option value=\"{$data[$i][0]}\">{$data[$i][1]}</option>";
+                }
+            } else {
+                for ($i=0; $i < count($data); $i++) {
+                    $selected = "";
+                
+                    if ($data[$i][0] == $code) {
+                        $selected = " selected";
+                    } else {
+                        $selected = "";
+                    }
+                    echo "<option value=\"{$data[$i][0]}\"{$selected}>{$data[$i][1]}</option>";
+                }
             }
         }
 

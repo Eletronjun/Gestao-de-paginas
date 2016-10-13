@@ -1,9 +1,9 @@
 <?php
-    require_once __DIR__ . "/class/autoload.php";
+    require_once __DIR__ . "/../class/autoload.php";
     
     use \utilities\Session as Session;
     use \html\Page as Page;
-    use \html\Menu as Menu;
+    use \html\AdministratorMenu as AdministratorMenu;
     use \html\FindCategories as FindCategories;
     use \configuration\Globals as Globals;
 
@@ -12,14 +12,8 @@
     $session = new Session();
     $session->verifyIfSessionIsStarted();
 
-    Menu::startMenu();
-        Menu::startItem();
-        Menu::addItem(PROJECT_ROOT . "#", "Páginas");
-            Menu::initSubItem();
-                Menu::addItem(PROJECT_ROOT . "category.php", "Gerenciar de Categoria");
-            Menu::endSubItem();
-        Menu::endItem();
-    Menu::endMenu();
+    $menu = new AdministratorMenu();
+    $menu->construct();
 ?>
 
 <!--Conteúdo da página-->
@@ -53,7 +47,7 @@
 
         <h1>Ativar/Desativar Visualização de categoria</h1>
         <div id="enable"></div>
-        <table>
+        <table id="enableCategory">
         <tr>
             <th><strong>Categoria</strong></th>
             <th><strong>Está ativo</strong></th>
@@ -83,16 +77,23 @@ $(document).ready(function(){
 
     $('#update_button').click(function(){
         $.ajax({
-            url: 'controller/updateCategory.php?id=' + $('#select_update').val() + 
+            url: '../controller/updateCategory.php?id=' + $('#select_update').val() + 
                 '&name=' + $('#select_update option:selected').text() +
                 '&new_name=' + $('#update_category').val(),
             success: function(data) {
                 alert(data);
                 $.ajax({
-                    url: 'controller/findCategory.php',
+                    url: '../controller/findCategory.php',
                     success: function(data){
                         $('#select_update').html(data);
                         $('#update_category').val("");
+                    }
+                });
+                $.ajax({
+                    url: '../controller/findCategory.php?checkbox=yes',
+                    success: function(data){
+                        $('#enableCategory').html(data);
+                        $('#new_category').val("");
                     }
                 });
             },
@@ -109,13 +110,19 @@ $(document).ready(function(){
 
     $('#register_button').click(function(){
         $.ajax({
-            url: 'controller/registerCategory.php?name=' + $('#new_category').val(),
+            url: '../controller/registerCategory.php?name=' + $('#new_category').val(),
             success: function(data) {
                 alert(data);
                 $.ajax({
-                    url: 'controller/findCategory.php',
+                    url: '../controller/findCategory.php',
                     success: function(data){
                         $('#select_update').html(data);
+                    }
+                });
+                $.ajax({
+                    url: '../controller/findCategory.php?checkbox=yes',
+                    success: function(data){
+                        $('#enableCategory').html(data);
                         $('#new_category').val("");
                     }
                 });
@@ -129,11 +136,11 @@ $(document).ready(function(){
         });
     });
 
-    $("input:checkbox[name='categories']").click(function(){
+    $("input:checkbox[name='categories']").live('click',function(){
         $("input:checkbox[name='categories']").map(function()
         {
             $.ajax({
-                url: 'controller/enableCategory.php?name=' + $(this).val().split("-_-")[1]
+                url: '../controller/enableCategory.php?name=' + $(this).val().split("-_-")[1]
                 +'&id=' + $(this).val().split("-")[0]
                     +'&is_activity=' + (($(this).is(':checked')) ? 1 : 0),
                 beforeSend: function() {

@@ -25,6 +25,7 @@ namespace dao{
         const INVALID_MODEL = "Modelo Inválida.";
         const CATEGORY_MODEL_ISNT_OBJECT = "Objeto de Categoria Inválido.";
         const NOT_UPDATE_CATEGORY = "Não é possivel atualizar categoria pois não há código.";
+        const NOT_EXISTS_CATEGORY = "Categoria não encontrada.";
 
         /**
          * @param Category $categoryModel not null value
@@ -69,7 +70,7 @@ namespace dao{
                     $this->getCategoryModel()->getId()
                 );
             } else {
-                throw new CategoryException(self::NOT_UPDATE_CATEGORY);
+                throw new DatabaseException(self::NOT_UPDATE_CATEGORY);
             }
         }
 
@@ -114,6 +115,45 @@ namespace dao{
             $this->setCategoryModel($category);
 
             parent::disconnect();
+        }
+
+        /**
+         * Method to find and return only active categories
+         * @return array code of category => name of category
+        */
+        public static function returnActiveCategories()
+        {
+
+            $query = "SELECT code, name FROM CATEGORY WHERE isActivity = 'y'";
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+
+            $resultSet = $dao->query($query);
+
+            $data = array();
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $data[$row['code']] = $row['name'];
+            }
+
+            return $data;
+        }
+
+        public static function findCategory($code)
+        {
+            $query = "SELECT code, name, isActivity FROM CATEGORY WHERE code = {$code}";
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+
+            $resultSet = $dao->query($query);
+
+            $category = null;
+
+            if ($row = $resultSet->fetch_assoc()) {
+                $category = new Category($row['name'], $row['code'], $row['isActivity']);
+            } else {
+                throw new DatabaseException(self::NOT_EXISTS_CATEGORY);
+            }
+
+            return $category;
         }
 
         public function setCategoryModel($category_model)

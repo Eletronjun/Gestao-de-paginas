@@ -12,6 +12,8 @@ namespace configuration{
     //Defining the path of constant
     define("IMG_PATCH", "http://" . $_SERVER['HTTP_HOST'] . "/site/res/img/");
     define("PROJECT_ROOT", "http://" . $_SERVER['HTTP_HOST'] . "/site/");
+    define("FILE_PATCH", PROJECT_ROOT . "res/file/");
+    define("UPLOAD_ROOT", __DIR__ . "/../../res/file/");
 
     class Globals
     {

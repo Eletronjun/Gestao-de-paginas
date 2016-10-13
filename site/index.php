@@ -1,29 +1,43 @@
 <?php
     require_once __DIR__ . "/class/autoload.php";
-    
+
     use \utilities\Session as Session;
     use \html\Page as Page;
-    use \html\Menu as Menu;
+    use \html\CommunityMenu as CommunityMenu;
+    use \dao\WebPageDao as WebPageDao;
+    use \dao\CategoryDao as CategoryDao;
+    use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
     Page::header(Globals::ENTERPRISE_NAME);
 
-    $session = new Session();
-    $session->verifyIfSessionIsStarted();
-    
-    Menu::startMenu();
-        Menu::startItem();
-        Menu::addItem(PROJECT_ROOT . "#", "Páginas");
-            Menu::initSubItem();
-                Menu::addItem(PROJECT_ROOT . "category.php", "Edição de Categoria");
-            Menu::endSubItem();
-        Menu::endItem();
-    Menu::endMenu();
+    $menu = new CommunityMenu();
+    $menu->construct();
+
 ?>
 
-<h1>Home Page</h1>
+<h1>Eletronjun - Engenharia Eletrônica Jr.</h1>
 
+<h2>Últimas Publicações</h2>
 <?php
-    Page::footer();
-    Page::closeBody();
+foreach (WebPageDao::returnLast4() as $code => $title) {
+    echo "<a href=\"publications.php?code={$code}\">{$title}</a><br>";
+}
+foreach (CategoryDao::returnActiveCategories() as $code => $name) {
+    echo "<p><strong>{$name}</strong></p>";
+    $hasPage = false;
+    foreach (WebPageDao::returnLast5byCategory($code) as $pageCode => $title) {
+        $hasPage = true;
+        echo "<a href=\"publications.php?code={$pageCode}\">{$title}</a><br>";
+    }
+    if (!$hasPage) {
+        echo "Não há Publicações";
+    } else {
+        //Nothing to do
+    }
+}
+
+Page::footer();
+Page::closeBody();
+
 ?>

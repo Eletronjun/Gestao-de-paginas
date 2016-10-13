@@ -1,0 +1,25 @@
+<?php
+    require_once __DIR__ . "/../class/autoload.php";
+
+    use \utilities\Session as Session;
+    use \html\Page as Page;
+    use \html\AdministratorMenu as AdministratorMenu;
+    use \configuration\Globals as Globals;
+
+    Page::header(Globals::ENTERPRISE_NAME);
+
+    $session = new Session();
+    $session->verifyIfSessionIsStarted();
+
+    $menu = new AdministratorMenu();
+    $menu->construct();
+
+
+?>
+
+<h1>Home Page</h1>
+
+<?php
+    Page::footer();
+    Page::closeBody();
+?>

@@ -75,6 +75,20 @@ CREATE TABLE CATEGORY
 
 ) ENGINE=InnoDB CHARSET=utf8;
 
+CREATE TABLE WEB_PAGE(
+	code INT AUTO_INCREMENT ,
+	title VARCHAR( 100 ) NOT NULL ,
+	author VARCHAR( 100 ) NOT NULL ,
+	code_category INT NOT NULL ,
+	creation_date DATETIME NOT NULL,
+	last_modified DATETIME NOT NULL,
+	content VARCHAR(5000) NULL,
+	image VARCHAR(200) NULL,
+
+    PRIMARY KEY web_page_pk (code),
+    FOREIGN KEY web_category_fk (code_category) REFERENCES CATEGORY(code) ON UPDATE RESTRICT ON DELETE RESTRICT
+
+) ENGINE=InnoDB CHARSET=utf8;
 
 INSERT INTO OFFICE (office) VALUES ('Presidente');
 INSERT INTO OFFICE (office) VALUES ('Diretor');

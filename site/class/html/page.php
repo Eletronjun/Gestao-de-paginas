@@ -31,7 +31,7 @@ namespace html{
                 echo "  <title>{$title}</title>";
                 echo "  <meta charset=\"utf-8\">";
                 echo "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">";
-                echo "  <link rel=\"icon\" type=\"image/png\" href=\"res/img/favicon.png\" />";
+                echo "  <link rel=\"icon\" type=\"image/png\" href=\"" . IMG_PATCH . "favicon.png\" />";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/styles.css\" />";
                 echo "  <meta name=\"description\" content=\"{$description}\">";
                 echo "  <meta name=\"keywords\" content=\"EletronJun, Gama, UnB, ";
@@ -66,7 +66,7 @@ namespace html{
             echo "          &#9993; </span> eletronjun@gmail.com</a>";
             echo "      </p>";
             echo "      <p><a href=\"https://www.facebook.com/eletronjun\"><img ";
-            echo "          class=\"link-img\" src=\"res/img/icon_face.png\" alt=\"face\"></a>";
+            echo "          class=\"link-img\" src=\"" . IMG_PATCH . "icon_face.png\" alt=\"face\"></a>";
             echo "          <a href=\"https://www.facebook.com/eletronjun\">facebook.com/eletronjun</a>";
             echo "      </p>";
             echo "  </address>";
@@ -80,7 +80,7 @@ namespace html{
             echo "            <input type=\"checkbox\" id=\"control-autoria\"/>";
             echo "            <br>";
             echo "            <p>Salvo fotografia de capa - ";
-            echo "                <a href=\"res/img/imgcapa_circuito.png\" target=\"_BLANK\">";
+            echo "                <a href=\"" . IMG_PATCH . "imgcapa_circuito.png\" target=\"_BLANK\">";
             echo "                    Circuito Eletrônico";
             echo "                </a>. ";
             echo "                Fornecida pela ";

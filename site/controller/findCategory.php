@@ -15,4 +15,13 @@ use \utilities\Session as Session;
 $session = new Session();
 $session->verifyIfSessionIsStarted();
 
-FindCategories::getOptions();
+if (isset($_GET['checkbox'])) {
+    echo '<tr><th><strong>Categoria</strong></th><th><strong>Está ativo</strong></th></tr>';
+    FindCategories::getCheckboxTable();
+} else {
+    if (isset($_GET['code'])) {
+        FindCategories::getOptions($_GET['code']);
+    } else {
+        FindCategories::getOptions();
+    }
+}
