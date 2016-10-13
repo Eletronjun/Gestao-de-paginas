@@ -43,7 +43,7 @@ try {
 
     <div class="fb-like" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
     <br>
-    <div class="fb-comments" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>" data-numposts="5"></div>
+    <div class="fb-comments" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>" data-numposts="10"></div>
 
 <?php
 } catch (Exception $msg) {
