@@ -1,5 +1,5 @@
 <?php
-    require_once realpath('.') . "/class/autoload.php";
+    require_once __DIR__ . "/class/autoload.php";
     use \html\Page as Page;
     use \html\Menu as Menu;
     use \configuration\Globals as Globals;

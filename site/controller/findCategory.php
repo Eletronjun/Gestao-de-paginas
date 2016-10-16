@@ -4,17 +4,24 @@
  *
  *@author  Vinicius Pinheiro <viny-pinheiro@hotmail.com>
  *@license MIT License
- *@link    http://eletronjun.com.br/controller/registerCategory.php
+ *@link    http://eletronjun.com.br/controller/findCategory.php
  */
 require_once __DIR__ . "/../class/autoload.php";
 
-use \model\Category as Category;
-use \dao\CategoryDAO as CategoryDAO;
-use \exception\CategoryException as CategoryException;
-use \exception\DatabaseException as DatabaseException;
+use \html\FindCategories as FindCategories;
 
-$data = CategoryDAO::getCategories();
+use \utilities\Session as Session;
 
-for ($i=0; $i < count($data); $i++) {
-    echo "<option value=\"{$data[$i][0]}\">{$data[$i][1]}</option>";
+$session = new Session();
+$session->verifyIfSessionIsStarted();
+
+if (isset($_GET['checkbox'])) {
+    echo '<tr><th><strong>Categoria</strong></th><th><strong>Está ativo</strong></th></tr>';
+    FindCategories::getCheckboxTable();
+} else {
+    if (isset($_GET['code'])) {
+        FindCategories::getOptions($_GET['code']);
+    } else {
+        FindCategories::getOptions();
+    }
 }

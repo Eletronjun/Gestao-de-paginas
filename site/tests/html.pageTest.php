@@ -6,7 +6,11 @@
 namespace htmlTests{
 
     use \html\Page as Page;
+    use \html\AdministratorMenu as AdministratorMenu;
+    use \html\CommunityMenu as CommunityMenu;
+    use \html\FindCategories as FindCategories;
     use \exception\PageException as PageException;
+    use \utilities\Session as Session;
 
     class PageTest extends \PHPUnit_Framework_TestCase
     {
@@ -14,6 +18,8 @@ namespace htmlTests{
         public function testValidtitle()
         {
             Page::header("nova", "Description of this page");
+            $menu = new CommunityMenu();
+            $menu->construct();
             Page::footer();
             Page::closeBody();
         }
@@ -21,6 +27,8 @@ namespace htmlTests{
         public function testValidtitleWithNullDescription()
         {
             Page::header("nova");
+            $menu = new CommunityMenu();
+            $menu->construct();
             Page::footer();
             Page::closeBody();
         }
@@ -43,6 +51,12 @@ namespace htmlTests{
             Page::header("");
             Page::footer();
             Page::closeBody();
+        }
+
+        public function testgetCategoriesOptions()
+        {
+            FindCategories::getOptions();
+            FindCategories::getCheckboxTable();
         }
     }
 }

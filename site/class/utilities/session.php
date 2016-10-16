@@ -31,7 +31,12 @@ namespace utilities{
          */
         public function __construct()
         {
-            session_start();
+            if (session_id() == '' || !isset($_SESSION)) {
+                // session isn't started
+                session_start();
+            } else {
+                //Nothing to do
+            }
         }
     
         /**
@@ -54,7 +59,7 @@ namespace utilities{
         {
             //Database select data
             parent::__construct(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
-            $query = "SELECT isActivity,password from MEMBERS WHERE email = '{$email}'";
+            $query = "SELECT isActivity,password,code_directorate,code_office from MEMBERS WHERE email = '{$email}'";
             $result_set = parent::query($query);
 
             //Save result of consult
@@ -71,6 +76,8 @@ namespace utilities{
                     if ($line_result['isActivity'] == "y") {
                         $_SESSION["loggin"] = 1;
                         $_SESSION["email"] = $email;
+                        $_SESSION["code_office"] = $line_result['code_office'];
+                        $_SESSION["code_directorate"] = $line_result['code_directorate'];
                     } else {
                         $_SESSION["loggin"] = 0;
                         throw new SessionException(self::INATIVE_USER);

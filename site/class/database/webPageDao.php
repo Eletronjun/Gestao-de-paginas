@@ -26,6 +26,8 @@ namespace dao{
         const WEB_PAGE_MODEL_ISNT_OBJECT = "Objeto da Página Web Inválido.";
         const NOT_UPDATE_WEB_PAGE = "Não foi possível atualizar a página web.";
         const NOT_DELETE_WEB_PAGE = "Não foi possível excluir a página web.";
+        const NOT_FIND_PAGE = "Página não encontrada.";
+        const INVALID_CODE = "Código inválido.";
 
         /**
          * @param WebPage $WebPageModel not null value
@@ -38,7 +40,7 @@ namespace dao{
 
         public static function getWebPages()
         {
-            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content FROM WEB_PAGE";
+            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image FROM WEB_PAGE";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
@@ -54,8 +56,8 @@ namespace dao{
                 $data[$i][4] = $row['creation_date'];
                 $data[$i][5] = $row['last_modified'];
                 $data[$i][6] = $row['content'];
+                $data[$i][6] = $row['image'];
             }
-
             return $data;
         }
 
@@ -65,14 +67,17 @@ namespace dao{
          * @param String  $new_author
          * @param Int  $new_category
          * @param String  $new_postage
+         * @param String  $image path of the new image or null if not change image
          */
-        public function updatePage($new_title, $new_author, $new_category, $new_postage)
+        public function updatePage($new_title, $new_author, $new_category, $new_postage, $image = null)
         {
+            $changeImage = ($image == null)? "" : ", image = '{$image}'";
             if (!is_null($this->getWebPageModel()->getCode())) {
-                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', last_modified = NOW() WHERE code = " . $this->getWebPageModel()->getCode();
+                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', last_modified = NOW(){$changeImage} WHERE code = " . $this->getWebPageModel()->getCode();
                 parent::query($query);
-                $this->getPage();
-
+                if ($image != null) {
+                    unlink(UPLOAD_ROOT . $this->getWebPageModel()->getImage());
+                }
             } else {
                 throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
             }
@@ -84,9 +89,10 @@ namespace dao{
          */
         public function register()
         {
-            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`, `content`)
+            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`, `content`, `image`)
             VALUES ('{$this->getWebPageModel()->getTitle()}', '{$this->getWebPageModel()->getAuthor()}',
-            {$this->getWebPageModel()->getCategory()}, NOW(),NOW(),'{$this->getWebPageModel()->getContent()}')";
+            {$this->getWebPageModel()->getCategory()}, NOW(),NOW(),'{$this->getWebPageModel()->getContent()}',
+            '{$this->getWebPageModel()->getImage()}')";
 
             parent::query($query);
 
@@ -131,33 +137,109 @@ namespace dao{
                 $query = "DELETE FROM WEB_PAGE WHERE code = " . $this->getWebPageModel()->getCode();
 
                 parent::query($query);
-
             } else {
                 throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
             }
         }
 
-        public function getPage()
+        /**
+         * Method to find and return page, if exists
+         * @param Int  $code only integer and contain code of the page to return
+         * @throws WebPageException invalid code value
+         * @throws WebPageException not page returned
+         */
+        public static function getPage($code)
         {
-          if (!is_null($this->getWebPageModel()->getCode())) {
-            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content FROM WEB_PAGE WHERE code = " . $this->getWebPageModel()->getCode();
+            if (is_numeric($code)) {
+                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image FROM WEB_PAGE WHERE code = {$code}";
 
+                $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+                $resultSet = $dao->query($query);
+
+                if ($row = $resultSet->fetch_assoc()) {
+                    return new WebPage(
+                        $row['title'],
+                        $row['author'],
+                        $row['code_category'],
+                        $row['content'],
+                        $code,
+                        $row['creation_date'],
+                        $row['last_modified'],
+                        $row['image']
+                    );
+                } else {
+                    throw new DatabaseException(self::NOT_FIND_PAGE);
+                }
+            } else {
+                throw new DatabaseException(self::INVALID_CODE);
+            }
+        }
+
+        /**
+         * Method to return the last 4 publications
+         * @return Array code => title
+         */
+        public static function returnLast4()
+        {
+            $query = "SELECT WEB_PAGE.code, title " .
+                "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
+                "WHERE CATEGORY.isActivity = 'y' ORDER BY last_modified DESC LIMIT 4";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
-
             $resultSet = $dao->query($query);
 
-            $row = $resultSet->fetch_assoc();
+            $data = array();
 
-            $this->getWebPageModel()->setTitle($row['title']);
-            $this->getWebPageModel()->setAuthor($row['author']);
-            $this->getWebPageModel()->setCategory($row['code_category']);
-            $this->getWebPageModel()->setCreationDate($row['creation_date']);
-            $this->getWebPageModel()->setLastModified($row['last_modified']);
-            $this->getWebPageModel()->setContent($row['content']);
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $data[$row['code']] = $row['title'];
+            }
 
-          } else {
-              throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
-          }
+            return $data;
+        }
+
+        /**
+         * Method to return the last 5 publications with a category
+         * @param int $codeCategory only positive numbers and contain the code of category
+         * @return Array code => title
+         */
+        public static function returnLast5byCategory($codeCategory)
+        {
+
+            $query = "SELECT code, title FROM WEB_PAGE " .
+                "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC LIMIT 5";
+
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+            $resultSet = $dao->query($query);
+
+            $data = array();
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $data[$row['code']] = $row['title'];
+            }
+
+            return $data;
+        }
+
+        /**
+         * Method to return all publications with a category
+         * @param int $codeCategory only positive numbers and contain the code of category
+         * @return Array index => publication object
+         */
+        public static function returnByCategory($codeCategory)
+        {
+
+            $query = "SELECT code, title,author,creation_date,last_modified,content FROM WEB_PAGE " .
+                "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC";
+
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+            $resultSet = $dao->query($query);
+
+            $data = array();
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $data[$i] = new WebPage($row['title'], $row['author'], $codeCategory, $row['content'], $row['code'], $row['creation_date'], $row['last_modified']);
+            }
+
+            return $data;
         }
     }
 }

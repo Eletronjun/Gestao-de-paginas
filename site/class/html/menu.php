@@ -13,7 +13,7 @@ namespace html{
 
     class Menu
     {
-        public static function startMenu()
+        protected static function startMenu()
         {
             echo "<div id=\"header\">";
             echo "<figure id=\"logo\">";
@@ -23,41 +23,34 @@ namespace html{
             echo "<input type=\"checkbox\" id=\"control-nav\"/>";
             echo "<label for=\"control-nav\" class=\"control-nav\"></label>";
             echo "<nav>";
-            self::startItem();
-            self::addItem(
-                PROJECT_ROOT . "controller/destroySession.php\" 
-                OnClick=\"return confirm('Tem certeza que deseja sair?');",
-                "Sair"
-            );
-            self::endItem();
         }
         
-        public static function startItem()
+        protected static function startItem()
         {
             echo "<div class=\"item\">";
         }
 
-        public static function endItem()
+        protected static function endItem()
         {
             echo "</div>";
         }
 
-        public static function addItem($host, $name)
+        protected static function addItem($host, $name)
         {
             echo "<a href=\"{$host}\">{$name}</a>";
         }
 
-        public static function initSubItem()
+        protected static function initSubItem()
         {
             echo "<div class=\"sub-item neue-font\">";
         }
 
-        public static function endSubItem()
+        protected static function endSubItem()
         {
             echo "</div>";
         }
 
-        public static function endMenu()
+        protected static function endMenu()
         {
             echo "</nav></div>";
             echo "</div>";
