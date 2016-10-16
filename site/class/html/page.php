@@ -34,6 +34,7 @@ namespace html{
                 echo "  <link rel=\"icon\" type=\"image/png\" href=\"" . IMG_PATCH . "favicon.png\" />";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/styles.css\" />";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/footer.css\" />";
+                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/form.css\" />";
                 echo "  <meta name=\"description\" content=\"{$description}\">";
                 echo "  <meta name=\"keywords\" content=\"EletronJun, Gama, UnB, ";
                 echo "  Universidade de Brasília, FGA, eletrônica, desenvolvimento de ";
