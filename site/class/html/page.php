@@ -33,6 +33,7 @@ namespace html{
                 echo "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">";
                 echo "  <link rel=\"icon\" type=\"image/png\" href=\"" . IMG_PATCH . "favicon.png\" />";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/styles.css\" />";
+                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/footer.css\" />";
                 echo "  <meta name=\"description\" content=\"{$description}\">";
                 echo "  <meta name=\"keywords\" content=\"EletronJun, Gama, UnB, ";
                 echo "  Universidade de Brasília, FGA, eletrônica, desenvolvimento de ";
@@ -46,7 +47,7 @@ namespace html{
         }
 
         /**
-         * Method to close html body
+         * Method to include stylesheets
          */
         public static function closeBody()
         {
@@ -63,19 +64,19 @@ namespace html{
             echo "<div class=\"footer\">";
             echo "  <address class=\"right\">";
             echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Youtube.png\" alt=\"YouTube\"
+                            title=\"EletronTube\"></a>";
+            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Instagram.png\" alt=\"Instagram\"
+                            title=\"Instagram\"></a>";
+            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
             echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Facebook.png\" alt=\"face\"
                             title=\"EletronFace\"></a>";
             echo "      <a href=\"mailto:eletronjun@gmail.com\"><img ";
             echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Email.png\" alt=\"Email\"
                             title=\"eletronjun@gmail.com\"></a>";
-            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
-            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Instagram.png\" alt=\"Instagram\"
-                            title=\"Instagram\"></a>";
-            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
-            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Youtube.png\" alt=\"YouTube\"
-                            title=\"EletronTube\"></a>";
             echo "  </address>";
-            echo "<div class=\"left\">";
+            echo "<div class=\"authorship\">";
             echo "    EletronJun - Engenharia Eletrônica Júnior<br>";
             echo "      @2016 Todos os direitos reservados<br>";
             echo "</div>";
