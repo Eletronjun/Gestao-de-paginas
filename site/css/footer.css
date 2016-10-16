@@ -1,7 +1,7 @@
 .footer{
     width:94%;
     min-height:3rem;
-    position:relative;
+    position: absolute;
     bottom: 0;
     display: table;
     background-color:#3b4544;
