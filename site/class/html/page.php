@@ -44,7 +44,7 @@ namespace html{
                 throw new \exception\PageException(self::INVALID_TITLE);
             }
         }
-        
+
         /**
          * Method to close html body
          */
@@ -62,33 +62,22 @@ namespace html{
         {
             echo "<div class=\"footer\">";
             echo "  <address class=\"right\">";
-            echo "      <p><a href=\"mailto:eletronjun@gmail.com\"><span class=\"icon\">";
-            echo "          &#9993; </span> eletronjun@gmail.com</a>";
-            echo "      </p>";
-            echo "      <p><a href=\"https://www.facebook.com/eletronjun\"><img ";
-            echo "          class=\"link-img\" src=\"" . IMG_PATCH . "icon_face.png\" alt=\"face\"></a>";
-            echo "          <a href=\"https://www.facebook.com/eletronjun\">facebook.com/eletronjun</a>";
-            echo "      </p>";
+            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Facebook.png\" alt=\"face\"
+                            title=\"EletronFace\"></a>";
+            echo "      <a href=\"mailto:eletronjun@gmail.com\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Email.png\" alt=\"Email\"
+                            title=\"eletronjun@gmail.com\"></a>";
+            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Instagram.png\" alt=\"Instagram\"
+                            title=\"Instagram\"></a>";
+            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Youtube.png\" alt=\"YouTube\"
+                            title=\"EletronTube\"></a>";
             echo "  </address>";
             echo "<div class=\"left\">";
-            echo "    <p>EletronJun - Engenharia Eletrônica Júnior</p>";
-            echo "        <div class=\"autoria\">";
-            echo "            <label for=\"control-autoria\" ";
-            echo "                class=\"control-autoria helvetica-font\">";
-            echo "                @2016 Todos os direitos Reservados &#9654;";
-            echo "            </label>";
-            echo "            <input type=\"checkbox\" id=\"control-autoria\"/>";
-            echo "            <br>";
-            echo "            <p>Salvo fotografia de capa - ";
-            echo "                <a href=\"" . IMG_PATCH . "imgcapa_circuito.png\" target=\"_BLANK\">";
-            echo "                    Circuito Eletrônico";
-            echo "                </a>. ";
-            echo "                Fornecida pela ";
-            echo "                <a href=\"https://pixabay.com/pt/\" target=\"_BLANK\">";
-            echo "                    Pixabay";
-            echo "                </a> ";
-            echo "                e livre de direitos autorais sob Creative Commons CC0.</p>";
-            echo "        </div>";
+            echo "    EletronJun - Engenharia Eletrônica Júnior<br>";
+            echo "      @2016 Todos os direitos reservados<br>";
             echo "</div>";
             echo "</div>";
             echo "<script type=\"text/javascript\" src=\"http://code.jquery.com/jquery-1.4.3.min.js\"></script>";
