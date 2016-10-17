@@ -71,7 +71,7 @@ span{
     background-color:#3b4544;
     font-size: 1em;
     display:block;
-    position:fixed;
+    position:absolute;
     top:0;
     z-index:5;
 
@@ -154,13 +154,15 @@ span{
 
 /*Estilização do Conteúdo*/
 #content{
-    margin:auto;
-    width:100%;
-    max-width:1024px;
-    margin-top:2rem;
+    width: 70%;
+    max-width:1366px;
     text-align:center;
     background-color:#fff;
     display:table;
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 .index{
     display: table;
