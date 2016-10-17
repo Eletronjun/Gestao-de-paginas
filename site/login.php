@@ -1,19 +1,13 @@
 <?php
     require_once __DIR__ . "/class/autoload.php";
     use \html\Page as Page;
-    use \html\Menu as Menu;
+    use \html\CommunityMenu as CommunityMenu;
     use \configuration\Globals as Globals;
 
     Page::header(Globals::ENTERPRISE_NAME);
 
-    Menu::startMenu();
-        Menu::startItem();
-        Menu::addItem(PROJECT_ROOT . "#", "Páginas");
-            Menu::initSubItem();
-                Menu::addItem(PROJECT_ROOT . "category.php", "Gerenciar de Categoria");
-            Menu::endSubItem();
-        Menu::endItem();
-    Menu::endMenu();
+    $menu = new CommunityMenu();
+    $menu->construct();
 
 ?>
     <div id="content">

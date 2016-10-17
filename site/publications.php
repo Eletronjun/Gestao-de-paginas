@@ -19,19 +19,38 @@ try {
 
     $category = CategoryDao::findCategory($page->getCategory());
 ?>
-    
-    <h1><?php echo $category->getName(); ?></h1>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
-    <h2><?php echo $page->getTitle(); ?></h2>
+    <article>
+        <h1><?php echo $category->getName(); ?></h1>
 
-    <hr>
-    <i> Autor: <?php echo $page->getAuthor(); ?> <br>
-        Publicação: <?php echo $page->getCreationDate(); ?><br>
-        Última atualização: <?php echo $page->getLastModified(); ?>
-    </i>
-    <hr>
-    <?php echo $page->getContent(); ?>
-    <img src="<?php echo FILE_PATCH . $page->getImage(); ?>" alt="<?php echo $category->getName(); ?>">
+        <h2><?php echo $page->getTitle(); ?></h2>
+
+        <hr>
+        <i> Autor: <?php echo $page->getAuthor(); ?> <br>
+            Publicação: <?php echo $page->getCreationDate(); ?><br>
+            Última atualização: <?php echo $page->getLastModified(); ?>
+        </i>
+        <hr>
+
+        <figure class="img-leftt" >
+            <img src="<?php echo FILE_PATCH . $page->getImage(); ?>" alt="<?php echo $category->getName(); ?>">
+        </figure>
+        
+        <?php echo $page->getContent(); ?>
+        <br>
+
+        <div class="fb-like" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+        <br>
+        <div class="fb-comments" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>" data-numposts="10"></div>
+    </article>
 
 <?php
 } catch (Exception $msg) {
