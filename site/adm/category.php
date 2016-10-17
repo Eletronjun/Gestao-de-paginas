@@ -20,7 +20,7 @@
 <div id="content" style="text-align: left;">
     <article>
 
-        <h1>Cadastrar Nome de Categoria</h1>
+        <h1>Cadastrar Categoria</h1>
         <div id="register"></div>
         <form>
             <label>Nome:</label><br>
@@ -32,7 +32,7 @@
 
         <hr>
 
-        <h1>Atualizar Nome de Categoria</h1>
+        <h1>Atualizar Categoria</h1>
         <div id="update"></div>
         <form>
             <fieldset>
