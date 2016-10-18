@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__ . "/../class/autoload.php";
-    
+
     use \utilities\Session as Session;
     use \html\Page as Page;
     use \html\AdministratorMenu as AdministratorMenu;
@@ -8,7 +8,7 @@
     use \configuration\Globals as Globals;
 
     Page::header(Globals::ENTERPRISE_NAME);
-    
+
     $session = new Session();
     $session->verifyIfSessionIsStarted();
 
@@ -20,21 +20,26 @@
 <div id="content" style="text-align: left;">
     <article>
 
-        <h1>Cadastrar Nome de Categoria</h1>
+        <h1>Cadastrar Categoria</h1>
         <div id="register"></div>
         <form>
-            <label>Nome:</label><br>
-            <input type="text" name="category" id="new_category" size="50%" maxlength="50" required>
-            <input type="button" name="submit" value="Salvar" id="register_button">
+            <fieldset>
+              <label>Nome:</label><br>
+              <input type="text" name="category" id="new_category" size="50%" maxlength="50" required>
+              <label>Descrição:</label><br>
+              <textarea name="description" id="description" maxlength="200" rows="5" cols="50"></textarea><br>
+            </fieldset>
+              <input type="button" name="submit" value="Salvar" id="register_button">
         </form>
 
         <br><br>
 
         <hr>
 
-        <h1>Atualizar Nome de Categoria</h1>
+        <h1>Atualizar Categoria</h1>
         <div id="update"></div>
         <form>
+          <fieldset>
             <label>Cadastradas</label><br>
             <select name="categories" id="select_update">
             <?php FindCategories::getOptions(); ?>
@@ -42,10 +47,11 @@
 
             <label>Novo Nome:</label><br>
             <input type="text" name="category" id="update_category" size="50%" required>
-            <input type="button" name="submit" value="Salvar" id="update_button">
+          </fieldset>
+          <input type="button" name="submit" value="Salvar" id="update_button">
         </form>
 
-        <h1>Ativar/Desativar Visualização de categoria</h1>
+        <h1>Categoras Ativas</h1>
         <div id="enable"></div>
         <table id="enableCategory">
         <tr>
@@ -73,11 +79,11 @@
 </style>
 
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
 
     $('#update_button').click(function(){
         $.ajax({
-            url: '../controller/updateCategory.php?id=' + $('#select_update').val() + 
+            url: '../controller/updateCategory.php?id=' + $('#select_update').val() +
                 '&name=' + $('#select_update option:selected').text() +
                 '&new_name=' + $('#update_category').val(),
             success: function(data) {
