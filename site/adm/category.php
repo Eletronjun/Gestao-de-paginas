@@ -1,17 +1,17 @@
 <?php
+
     require_once __DIR__ . "/../class/autoload.php";
-    
-    use \utilities\Session as Session;
+
     use \html\Page as Page;
     use \html\AdministratorMenu as AdministratorMenu;
     use \html\FindCategories as FindCategories;
     use \configuration\Globals as Globals;
+    use \utilities\Session as Session;
 
     Page::header(Globals::ENTERPRISE_NAME);
     
     $session = new Session();
     $session->verifyIfSessionIsStarted();
-
     $menu = new AdministratorMenu();
     $menu->construct();
 ?>
@@ -35,27 +35,17 @@
         <h1>Atualizar Nome de Categoria</h1>
         <div id="update"></div>
         <form>
-            <label>Cadastradas</label><br>
-            <select name="categories" id="select_update">
-            <?php FindCategories::getOptions(); ?>
-            </select><br>
+            <fieldset>
+              <label>Categoria</label><br>
+              <select name="categories" id="select_update">            
+                <?php FindCategories::getOptions(); ?>
 
-            <label>Novo Nome:</label><br>
-            <input type="text" name="category" id="update_category" size="50%" required>
-            <input type="button" name="submit" value="Salvar" id="update_button">
+              </select><br>
+              <label>Novo Nome:</label><br>
+              <input type="text" name="category" id="update_category" size="50%" required>
+              <input type="button" name="submit" value="Salvar" id="update_button">
+            </fieldset>
         </form>
-
-        <h1>Ativar/Desativar Visualização de categoria</h1>
-        <div id="enable"></div>
-        <table id="enableCategory">
-        <tr>
-            <th><strong>Categoria</strong></th>
-            <th><strong>Está ativo</strong></th>
-        </tr>
-            <?php FindCategories::getCheckboxTable(); ?>
-        </table>
-
-    </article>
 </div>
 <?php
     Page::footer();
@@ -66,18 +56,16 @@
         margin:  auto;
         border-collapse: collapse;
     }
-
     table, th, td {
         border: 2px solid black;
     }
 </style>
 
 <script type="text/javascript">
-$(document).ready(function(){ 
-
+$(document).ready(function(){
     $('#update_button').click(function(){
         $.ajax({
-            url: '../controller/updateCategory.php?id=' + $('#select_update').val() + 
+            url: '../controller/updateCategory.php?id=' + $('#select_update').val() +
                 '&name=' + $('#select_update option:selected').text() +
                 '&new_name=' + $('#update_category').val(),
             success: function(data) {
@@ -105,9 +93,6 @@ $(document).ready(function(){
             },
         });
     });
-
-
-
     $('#register_button').click(function(){
         $.ajax({
             url: '../controller/registerCategory.php?name=' + $('#new_category').val(),
@@ -135,7 +120,7 @@ $(document).ready(function(){
             },
         });
     });
-
+    
     $("input:checkbox[name='categories']").live('click',function(){
         $("input:checkbox[name='categories']").map(function()
         {
@@ -150,7 +135,6 @@ $(document).ready(function(){
                     $('#enable').html("Salvo com sucesso");
                 },
             });
-
         });
     });
 });

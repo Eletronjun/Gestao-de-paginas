@@ -1,13 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html,body {
    margin:0;
    padding:0;
-   min-height:100%;
-     width:100%;
+   height:100%;
+   width:100%;
+   font-family: 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
 address{
     font-style: normal;
     font-weight: normal;
-    
+
 }
 article{
     width: 90%;
@@ -22,13 +28,16 @@ figure{
 }
 h1, h2, h3, h4, h5, h6{
     color: #88c665;
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-family: 'eightone', 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
     text-align: center;
+    font-weight: 400;
 }
 h1{
+    color: #111F1E;
     margin-top:4rem;
-    font-size:1.8rem;
+    margin-bottom: 2rem;
+    font-size:3.125rem;
 }
 img{
     max-width:100%;
@@ -37,9 +46,10 @@ img{
 p{
     font-family: /*'Helvetica',*/'Helvetica neue', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
     text-align: justify;
-  text-justify: inter-word;
+    text-justify: inter-word;
     text-indent: 2rem;
     display: block;
+    color: #111F1E;
 }
 span{
     margin:0;
@@ -48,9 +58,10 @@ span{
 
 #container{
     width:100%;
-    min-height:100%;
+    height:100%;
     background-color:#fff;
     display: table;/*O display table garante que a seção englobara também os elementos flutuantes.*/
+    position: relative;
 }
 
 /*Estilização Header*/
@@ -60,10 +71,10 @@ span{
     background-color:#3b4544;
     font-size: 1em;
     display:block;
-    position:fixed;
+    position:absolute;
     top:0;
     z-index:5;
-    
+
 }
 #logo{
     height:4rem;
@@ -112,7 +123,7 @@ span{
     display:block;
     border-radius:0.5rem;
     opacity:0;
-    
+
     /*Essa parte do código controla o tempo até aparecer o item na tela*/
             -webkit-transition: all 300ms ease;
  -moz-transition: all 300ms ease;
@@ -143,14 +154,15 @@ span{
 
 /*Estilização do Conteúdo*/
 #content{
-    margin:auto;
-    width:100%;
-    max-width:1024px;
-    margin-top:2rem;
+    width: 70%;
+    max-width:1366px;
     text-align:center;
     background-color:#fff;
     display:table;
-    
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 .index{
     display: table;
@@ -313,26 +325,6 @@ span{
     margin-bottom: 3rem;
     font-weight:bold;
 }
-.footer{
-    width:96%;
-    height:5rem;
-    position:relative;
-    bottom: 0;
-    display: table;
-    background-color:#3b4544;
-    margin-top:1.5rem;
-    padding-left: 2%;
-    padding-right: 2%;
-    font-size:0.8rem;
-    color: #d2d3d5;
-}
-.footer p{
-    text-indent: 0;
-}
-.footer a{
-    color: #d2d3d5;
-    text-decoration: none;
-}
 .icon{
     font-size:1rem;
 }
@@ -355,41 +347,7 @@ span{
     bottom:0 !important;
 }
 
-/*Check Direitos Autorais*/
-.autoria{
-    display:table;
-}
-.autoria a{
-    color: #d2d3d5;
-    text-decoration: underline dotted;
-}
-.autoria p{
-    padding-bottom: 0.5rem;
-    font-size: 0.7rem;
-    opacity: 0;
-    
-            -webkit-transition: all 300ms ease;
- -moz-transition: all 500ms ease;
- -ms-transition: all 500ms ease;
- -o-transition: all 500ms ease;
- transition: all 500ms ease;
-}
-
-#control-autoria{
-    visibility:hidden;
-    display:inline;
-    float:left;
-}
-#control-autoria:checked ~ p{
-        opacity:1;
-}
-.control-autoria{
-    cursor:pointer;
-    float:left;
-    display:inline;
-}
-
-/*Adaptação screen(max-width:1024px)*/
+/*Adaptação screen(max-width:1024px)*
 @media only screen and (max-width: 1023px){
 #logo{
     padding-left:0.2rem;
@@ -449,7 +407,7 @@ span{
     width: 90%;
     margin:auto;
 }
-/*Menu Mobile*/
+/*Menu Mobile*
 .menu nav{
     background-color: rgba(42,55,55,0.7);
     position:fixed;
@@ -462,7 +420,7 @@ span{
     padding:0.5rem;
     visibility:hidden;
     opacity:0;
-    
+
          -webkit-transition: all 300ms ease;
  -moz-transition: all 400ms ease;
  -ms-transition: all 400ms ease;
@@ -496,7 +454,7 @@ span{
         opacity:1;
 }
 
-/*Controle do Menu*/
+/*Controle do Menu*
 .control-nav {
     position: absolute;
     right: 0.5rem;
@@ -507,7 +465,7 @@ span{
     border: solid #333;
     border-width: 0.2rem 0;
     z-index: 2;
-    cursor: pointer;/*Responsável por fazer o label clicavel, sem a necessidade de acessar direto o chekbox*/
+    cursor: pointer;/*Responsável por fazer o label clicavel, sem a necessidade de acessar direto o chekbox*
 }
 .control-nav:before{
       content: "";
@@ -515,7 +473,7 @@ span{
     height: 0.2rem;
     background: #333;
 }
-/*rodapé*/
+/*rodapé*
 .right{
     float:left;
     position:relative;
@@ -558,14 +516,13 @@ ul{
     width: 100%;
 }
 
-}/*Fim da estilização Mobile*/
+}*Fim da estilização Mobile*/
 
 /*Declaração de fontes e classes para as mesmas*/
 @font-face{
  font-family: 'eightone';
  src: url('font/eightone.ttf') format('truetype');
 }
-
 .eightone-font{
  font-family: 'eightone', 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
@@ -574,16 +531,22 @@ ul{
  font-family: 'helvetica';
  src: url('font/helvetica.ttf') format('truetype');
 }
-
 .helvetica-font{
  font-family: 'helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
 }
+
 @font-face{
  font-family: 'helveticaneue';
  src: url('font/helveticaneue.ttf') format('truetype');
 }
-
 .neue-font{
  font-family: 'helveticaneue', 'Helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
 }
 
+@font-face{
+ font-family: 'helvetica-light';
+ src: url('font/helvetica-light.ttf') format('truetype');
+}
+.neue-font{
+ font-family:  'helvetica-light', 'helveticaneue', 'Helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
+}

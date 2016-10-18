@@ -30,8 +30,7 @@ echo "<h1>Atualização de Página</h1>";
 try {
     $web_page = WebPageDAO::getPage($_POST['code']);
     $web_page_dao = new WebPageDAO($web_page);
-
-    if (isset($_FILES['imageFile'])) {
+    if (!empty($_FILES['imageFile']['tmp_name'])) {
         date_default_timezone_set("Brazil/East"); //Define TimeZone
         $ext = strtolower(substr($_FILES['imageFile']['name'], -4)); //Get extension of file
         $new_name = md5(date("Y.m.d-H.i.s")) . $ext; //Define a new name for file
