@@ -10,7 +10,7 @@
     $session->verifyIfSessionIsStarted();
 
     Page::header(Globals::ENTERPRISE_NAME);
-
+    
     $menu = new AdministratorMenu();
     $menu->construct();
 ?>
@@ -22,12 +22,10 @@
 
         <h1>Gerência de Páginas</h1>
         <form method="GET" action='editPage.php'>
-            <fieldset>
-              <label>Páginas Atuais</label><br>
-              <select name="pages" id="select_page">
-                  <?php include '../controller/findPage.php'; ?>
-              </select><br>
-            </fieldset>
+            <label>Páginas Atuais</label><br>
+            <select name="pages" id="select_page">
+                <?php include '../controller/findPage.php'; ?>
+            </select><br>
             <input type="button" name="submit" value="Excluir" id="delete_button">
             <input type="submit" name="submit" value="Editar" id="edit_button">
         </form>

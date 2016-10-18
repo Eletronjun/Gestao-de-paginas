@@ -1,17 +1,17 @@
 <?php
-
     require_once __DIR__ . "/../class/autoload.php";
-
+    
+    use \utilities\Session as Session;
     use \html\Page as Page;
     use \html\AdministratorMenu as AdministratorMenu;
     use \html\FindCategories as FindCategories;
     use \configuration\Globals as Globals;
-    use \utilities\Session as Session;
 
     Page::header(Globals::ENTERPRISE_NAME);
     
     $session = new Session();
     $session->verifyIfSessionIsStarted();
+
     $menu = new AdministratorMenu();
     $menu->construct();
 ?>
@@ -20,7 +20,7 @@
 <div id="content" style="text-align: left;">
     <article>
 
-        <h1>Cadastrar Categoria</h1>
+        <h1>Cadastrar Nome de Categoria</h1>
         <div id="register"></div>
         <form>
             <label>Nome:</label><br>
@@ -32,20 +32,30 @@
 
         <hr>
 
-        <h1>Atualizar Categoria</h1>
+        <h1>Atualizar Nome de Categoria</h1>
         <div id="update"></div>
         <form>
-            <fieldset>
-              <label>Categoria</label><br>
-              <select name="categories" id="select_update">            
-                <?php FindCategories::getOptions(); ?>
+            <label>Cadastradas</label><br>
+            <select name="categories" id="select_update">
+            <?php FindCategories::getOptions(); ?>
+            </select><br>
 
-              </select><br>
-              <label>Novo Nome:</label><br>
-              <input type="text" name="category" id="update_category" size="50%" required>
-              <input type="button" name="submit" value="Salvar" id="update_button">
-            </fieldset>
+            <label>Novo Nome:</label><br>
+            <input type="text" name="category" id="update_category" size="50%" required>
+            <input type="button" name="submit" value="Salvar" id="update_button">
         </form>
+
+        <h1>Ativar/Desativar Visualização de categoria</h1>
+        <div id="enable"></div>
+        <table id="enableCategory">
+        <tr>
+            <th><strong>Categoria</strong></th>
+            <th><strong>Está ativo</strong></th>
+        </tr>
+            <?php FindCategories::getCheckboxTable(); ?>
+        </table>
+
+    </article>
 </div>
 <?php
     Page::footer();
@@ -56,13 +66,15 @@
         margin:  auto;
         border-collapse: collapse;
     }
+
     table, th, td {
         border: 2px solid black;
     }
 </style>
 
 <script type="text/javascript">
-$(document).ready(function(){
+$(document).ready(function(){ 
+
     $('#update_button').click(function(){
         $.ajax({
             url: '../controller/updateCategory.php?id=' + $('#select_update').val() + 
@@ -93,6 +105,9 @@ $(document).ready(function(){
             },
         });
     });
+
+
+
     $('#register_button').click(function(){
         $.ajax({
             url: '../controller/registerCategory.php?name=' + $('#new_category').val(),
@@ -135,6 +150,7 @@ $(document).ready(function(){
                     $('#enable').html("Salvo com sucesso");
                 },
             });
+
         });
     });
 });
