@@ -11,7 +11,7 @@
     $session->verifyIfSessionIsStarted();
 
     Page::header(Globals::ENTERPRISE_NAME);
-    
+
     $menu = new AdministratorMenu();
     $menu->construct();
 ?>

@@ -1,8 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html,body {
    margin:0;
    padding:0;
-   min-height:100%;
-     width:100%;
+   height:100%;
+   width:100%;
+   font-family: 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
 address{
     font-style: normal;
@@ -30,6 +36,7 @@ h1, h2, h3, h4, h5, h6{
 h1{
     color: #111F1E;
     margin-top:4rem;
+    margin-bottom: 2rem;
     font-size:3.125rem;
 }
 img{
@@ -49,71 +56,12 @@ span{
     padding: 0;
 }
 
-/*Estilização dos Formularios*/
-form{
-    text-align: center;
-
-}
-
-fieldset{
-  text-align: left;
-  border:none;
-}
-
-input{
-    border: solid 0.125rem;
-    border-color: #111F1E;
-    margin-top: 0.625rem;
-    margin-bottom: 1.25rem;
-    width: 18.75rem;
-    height: 1.5rem;
-}
-
-input[type=submit], input[type=button]{
-  color: #FFF;
-  background-color: #111F1E;
-  border-color: #111F1E;
-  border-radius: 0.7rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  width: auto;
-  height: auto;
-}
-
-input[type=submit]:hover, input[type=button]:hover{
-  color: #111F1E;
-  background-color: #88c665;
-  border-color: #88c665;
-}
-
-textarea{
-    border: solid 0.125rem;
-    border-color: #111F1E;
-    margin-top: 0.625rem;
-    margin-bottom: 1.25rem;
-}
-
-select{
-  -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
-  -moz-appearance: none; /* Remove estilo padrão do FireFox */
-  appearance: none; /* Remove estilo padrão do FireFox*/
-  background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #EEE;
-  background-position: 100%;
-  border: solid 0.125rem;
-  border-color: #111F1E;
-  margin-top: 0.625rem;
-  margin-bottom: 1.25rem;
-  width: 18.75rem;
-  height: 2rem;
-}
-
 #container{
     width:100%;
-    min-height:100%;
+    height:100%;
     background-color:#fff;
     display: table;/*O display table garante que a seção englobara também os elementos flutuantes.*/
+    position: relative;
 }
 
 /*Estilização Header*/
@@ -123,7 +71,7 @@ select{
     background-color:#3b4544;
     font-size: 1em;
     display:block;
-    position:fixed;
+    position:absolute;
     top:0;
     z-index:5;
 
@@ -206,13 +154,15 @@ select{
 
 /*Estilização do Conteúdo*/
 #content{
-    margin:auto;
-    width:100%;
-    max-width:1024px;
-    margin-top:2rem;
+    width: 70%;
+    max-width:1366px;
     text-align:center;
     background-color:#fff;
     display:table;
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 .index{
     display: table;
@@ -375,26 +325,6 @@ select{
     margin-bottom: 3rem;
     font-weight:bold;
 }
-.footer{
-    width:96%;
-    height:5rem;
-    position:relative;
-    bottom: 0;
-    display: table;
-    background-color:#3b4544;
-    margin-top:1.5rem;
-    padding-left: 2%;
-    padding-right: 2%;
-    font-size:0.8rem;
-    color: #d2d3d5;
-}
-.footer p{
-    text-indent: 0;
-}
-.footer a{
-    color: #d2d3d5;
-    text-decoration: none;
-}
 .icon{
     font-size:1rem;
 }
@@ -417,41 +347,7 @@ select{
     bottom:0 !important;
 }
 
-/*Check Direitos Autorais*/
-.autoria{
-    display:table;
-}
-.autoria a{
-    color: #d2d3d5;
-    text-decoration: underline dotted;
-}
-.autoria p{
-    padding-bottom: 0.5rem;
-    font-size: 0.7rem;
-    opacity: 0;
-
-            -webkit-transition: all 300ms ease;
- -moz-transition: all 500ms ease;
- -ms-transition: all 500ms ease;
- -o-transition: all 500ms ease;
- transition: all 500ms ease;
-}
-
-#control-autoria{
-    visibility:hidden;
-    display:inline;
-    float:left;
-}
-#control-autoria:checked ~ p{
-        opacity:1;
-}
-.control-autoria{
-    cursor:pointer;
-    float:left;
-    display:inline;
-}
-
-/*Adaptação screen(max-width:1024px)*/
+/*Adaptação screen(max-width:1024px)*
 @media only screen and (max-width: 1023px){
 #logo{
     padding-left:0.2rem;
@@ -511,7 +407,7 @@ select{
     width: 90%;
     margin:auto;
 }
-/*Menu Mobile*/
+/*Menu Mobile*
 .menu nav{
     background-color: rgba(42,55,55,0.7);
     position:fixed;
@@ -558,7 +454,7 @@ select{
         opacity:1;
 }
 
-/*Controle do Menu*/
+/*Controle do Menu*
 .control-nav {
     position: absolute;
     right: 0.5rem;
@@ -569,7 +465,7 @@ select{
     border: solid #333;
     border-width: 0.2rem 0;
     z-index: 2;
-    cursor: pointer;/*Responsável por fazer o label clicavel, sem a necessidade de acessar direto o chekbox*/
+    cursor: pointer;/*Responsável por fazer o label clicavel, sem a necessidade de acessar direto o chekbox*
 }
 .control-nav:before{
       content: "";
@@ -577,7 +473,7 @@ select{
     height: 0.2rem;
     background: #333;
 }
-/*rodapé*/
+/*rodapé*
 .right{
     float:left;
     position:relative;
@@ -620,7 +516,7 @@ ul{
     width: 100%;
 }
 
-}/*Fim da estilização Mobile*/
+}*Fim da estilização Mobile*/
 
 /*Declaração de fontes e classes para as mesmas*/
 @font-face{

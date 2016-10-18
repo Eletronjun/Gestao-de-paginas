@@ -12,28 +12,27 @@
     
     $session = new Session();
     $session->verifyIfSessionIsStarted();
-
     $menu = new AdministratorMenu();
     $menu->construct();
 ?>
 
 <!--Conteúdo da página-->
 <div id="content" style="text-align: left;">
-        <h1>Cadastrar Nova Categoria</h1>
+    <article>
+
+        <h1>Cadastrar Nome de Categoria</h1>
         <div id="register"></div>
         <form>
-            <fieldset>
-              <label>Nome:</label><br>
-              <input type="text" name="category" id="new_category" size="50%" maxlength="50" required><br>
-              <label>Descrição:</label><br>
-              <textarea name="description" id="description" maxlength="200" rows="5" cols="50"></textarea><br>
-              <input type="button" name="submit" value="Salvar" id="register_button">
-            </fieldset>
+            <label>Nome:</label><br>
+            <input type="text" name="category" id="new_category" size="50%" maxlength="50" required>
+            <input type="button" name="submit" value="Salvar" id="register_button">
         </form>
+
+        <br><br>
 
         <hr>
 
-        <h1>Atualizar Categoria</h1>
+        <h1>Atualizar Nome de Categoria</h1>
         <div id="update"></div>
         <form>
             <fieldset>
@@ -57,7 +56,6 @@
         margin:  auto;
         border-collapse: collapse;
     }
-
     table, th, td {
         border: 2px solid black;
     }
@@ -65,10 +63,9 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-
     $('#update_button').click(function(){
         $.ajax({
-            url: '../controller/updateCategory.php?id=' + $('#select_update').val() + 
+            url: '../controller/updateCategory.php?id=' + $('#select_update').val() +
                 '&name=' + $('#select_update option:selected').text() +
                 '&new_name=' + $('#update_category').val(),
             success: function(data) {
@@ -96,9 +93,6 @@ $(document).ready(function(){
             },
         });
     });
-
-
-
     $('#register_button').click(function(){
         $.ajax({
             url: '../controller/registerCategory.php?name=' + $('#new_category').val(),
@@ -126,7 +120,7 @@ $(document).ready(function(){
             },
         });
     });
-
+    
     $("input:checkbox[name='categories']").live('click',function(){
         $("input:checkbox[name='categories']").map(function()
         {
@@ -141,7 +135,6 @@ $(document).ready(function(){
                     $('#enable').html("Salvo com sucesso");
                 },
             });
-
         });
     });
 });

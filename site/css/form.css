@@ -1,0 +1,101 @@
+form{
+    text-align: center;
+}
+
+fieldset{
+  text-align: left;
+  margin: 0 auto;
+  display: table;
+  border:none;
+}
+
+input{
+    border: solid 0.125rem;
+    border-color: #111F1E;
+    margin-top: 0.625rem;
+    margin-bottom: 1.25rem;
+    width: 100%;
+    height: 1.5rem;
+}
+
+input[type=submit], input[type=button], button{
+  color: #FFF;
+  background-color: #111F1E;
+  border: none;
+  border-color: #111F1E;
+  border-radius: 0.7rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: auto;
+  height: auto;
+}
+
+input[type=submit]:hover, input[type=button]:hover, button:hover{
+  color: #111F1E;
+  background-color: #88c665;
+  cursor: pointer;
+}
+
+input[type=file] {
+  border: none;
+}
+
+button{
+  margin-top: 0.625rem;
+}
+
+textarea{
+    border: solid 0.125rem;
+    border-color: #111F1E;
+    margin-top: 0.625rem;
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+
+select{
+  -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+  -moz-appearance: none; /* Remove estilo padrão do FireFox */
+  appearance: none; /* Remove estilo padrão do FireFox*/
+  background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #EEE;
+  background-position: 100%;
+  border: solid 0.125rem;
+  border-color: #111F1E;
+  margin-top: 0.625rem;
+  margin-bottom: 1.25rem;
+  width: 18.75rem;
+  height: 2rem;
+}
+/*
+.upload-button {
+  height: 3rem;
+  width: 10.5rem;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+.upload-button input[type=file] {
+    opacity: 1;
+    z-index: 102;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+.upload-button button {
+  display: block;
+  z-index: 101;
+}
+
+.upload-button a {
+  text-decoration: none;
+}
+
+.upload-button input[type=text]{
+  width: 3rem;
+  height: 1rem;
+}
+*/
