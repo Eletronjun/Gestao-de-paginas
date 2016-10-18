@@ -22,7 +22,7 @@
         <fieldset>
           <label>Categoria</label><br>
           <select name="category" id="select_update">
-              <?php FindCategories::getOptions(); ?>
+                <?php FindCategories::getOptions(); ?>
           </select><br><br>
           <label>Título</label><br>
           <input type="text" id="title" name="title" required><br><br>
