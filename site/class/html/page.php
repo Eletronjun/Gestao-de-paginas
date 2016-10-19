@@ -64,10 +64,10 @@ namespace html{
         {
             echo "<div class=\"footer\">";
             echo "  <address class=\"right\">";
-            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
+            echo "      <a href=\"https://www.youtube.com/channel/UCMyP5qIbM_UXFHJjvwhc_Ow\"><img ";
             echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Youtube.png\" alt=\"YouTube\"
                             title=\"EletronTube\"></a>";
-            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
+            echo "      <a href=\"https://www.instagram.com/eletronjun\"><img ";
             echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Instagram.png\" alt=\"Instagram\"
                             title=\"Instagram\"></a>";
             echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
