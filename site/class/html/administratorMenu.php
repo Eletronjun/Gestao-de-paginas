@@ -37,7 +37,7 @@ namespace html{
             if ($_SESSION['code_directorate'] == self::MARKETING) {
                 $this->pageOptions();
             }
-            
+
             parent::endMenu();
         }
 
@@ -46,9 +46,9 @@ namespace html{
             parent::startItem();
                 parent::addItem("#", "Páginas");
                     parent::initSubItem();
-                        parent::addItem(PROJECT_ROOT . "adm/category.php", "Edição de Categoria");
-                        parent::addItem(PROJECT_ROOT . "adm/newPage.php", "Nova Página");
+                        parent::addItem(PROJECT_ROOT . "adm/category.php", "Gerenciar Categorias");
                         parent::addItem(PROJECT_ROOT . "adm/pages.php", "Gerenciar Páginas");
+                        parent::addItem(PROJECT_ROOT . "adm/newPage.php", "Nova Página");
                     parent::endSubItem();
                 parent::endItem();
         }
@@ -57,7 +57,7 @@ namespace html{
         {
             self::startItem();
             self::addItem(
-                PROJECT_ROOT . "controller/destroySession.php\" 
+                PROJECT_ROOT . "controller/destroySession.php\"
                 OnClick=\"return confirm('Tem certeza que deseja sair?');",
                 "Sair"
             );
