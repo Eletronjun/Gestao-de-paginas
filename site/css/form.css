@@ -2,6 +2,9 @@ form{
     text-align: center;
 }
 
+form h2{
+  text-align: left;
+}
 fieldset{
   text-align: left;
   margin: 0 auto;
@@ -67,35 +70,18 @@ select{
   width: 18.75rem;
   height: 2rem;
 }
-/*
-.upload-button {
-  height: 3rem;
-  width: 10.5rem;
-  overflow: hidden;
-  position: relative;
-  display: block;
-  text-decoration: none;
-}
-.upload-button input[type=file] {
-    opacity: 1;
-    z-index: 102;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-    position: absolute;
+
+.check-table table{
+  /*background-color: #88c665;*/
+/* background: -moz-linear-gradient(right, #88c665, 60%) repeat-X;*/
+  background: -webkit-gradient(linear, left top, right top, from(#88c665), to(#B7E39F)) repeat-X;
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 0.2rem;
+  font-size: 1rem;
 }
 
-.upload-button button {
-  display: block;
-  z-index: 101;
+.check-table td, th, input[type=checkbox]{
+  margin: 0;
+  padding: 0 0.5rem;
 }
-
-.upload-button a {
-  text-decoration: none;
-}
-
-.upload-button input[type=text]{
-  width: 3rem;
-  height: 1rem;
-}
-*/

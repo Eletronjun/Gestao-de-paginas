@@ -17,66 +17,68 @@
 ?>
 
 <!--Conteúdo da página-->
-<div id="content" style="text-align: left;">
-    <article>
+<div id="content">
 
-        <h1>Cadastrar Categoria</h1>
+      <h1>Gerência de Categorias</h1>
+
+      <form style="display:block; float:right; width:30%;" class="check-table">
+        <h2></h2>
+        <fieldset>
+          <div id="enable"></div>
+          <table id="enableCategory">
+          <tr>
+              <th>Categoria</th>
+              <th>Ativa</th>
+          </tr>
+              <?php FindCategories::getCheckboxTable(); ?>
+          </table>
+        </fieldset>
+      </form>
+
+      <div style="display:block; float:left; width:55%;">
         <div id="register"></div>
         <form>
+            <h2>Nova Categoria</h2>
             <fieldset>
               <label>Nome:</label><br>
               <input type="text" name="category" id="new_category" size="50%" maxlength="50" required>
               <label>Descrição:</label><br>
               <textarea name="description" id="description" maxlength="200" rows="5" cols="50"></textarea><br>
             </fieldset>
-              <input type="button" name="submit" value="Salvar" id="register_button">
+            <input type="button" name="submit" value="Salvar" id="register_button">
         </form>
-
-        <br><br>
 
         <hr>
 
-        <h1>Atualizar Categoria</h1>
         <div id="update"></div>
         <form>
+          <h2>Atualizar Categoria</h2>
           <fieldset>
             <label>Cadastradas</label><br>
             <select name="categories" id="select_update">
             <?php FindCategories::getOptions(); ?>
             </select><br>
-
             <label>Novo Nome:</label><br>
             <input type="text" name="category" id="update_category" size="50%" required>
           </fieldset>
           <input type="button" name="submit" value="Salvar" id="update_button">
         </form>
-
-        <h1>Categoras Ativas</h1>
-        <div id="enable"></div>
-        <table id="enableCategory">
-        <tr>
-            <th><strong>Categoria</strong></th>
-            <th><strong>Está ativo</strong></th>
-        </tr>
-            <?php FindCategories::getCheckboxTable(); ?>
-        </table>
-
-    </article>
+      </div>
 </div>
 <?php
     Page::footer();
 ?>
 
-<style type="text/css">
+<!--style type="text/css">
     table {
         margin:  auto;
-        border-collapse: collapse;
+
     }
 
     table, th, td {
         border: 2px solid black;
     }
-</style>
+</style-->
 
 <script type="text/javascript">
 $(document).ready(function(){
