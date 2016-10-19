@@ -23,6 +23,7 @@
 
         <h1>Gerência de Páginas</h1>
         <form method="GET" action='editPage.php'>
+          <fieldset style="margin: 0 auto">
             <label>Categoria</label><br>
             <select name="categories" id="select_categories">
                 <option value='-1'>Selecione uma categoria</option>
@@ -34,6 +35,7 @@
             </select><br>
             <input type="button" name="submit" value="Excluir" id="delete_button">
             <input type="submit" name="submit" value="Editar" id="edit_button">
+          </fieldset>
         </form>
 
     </article>

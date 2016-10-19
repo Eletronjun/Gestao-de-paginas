@@ -33,6 +33,7 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'eightone', 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
     text-align: center;
     font-weight: 400;
+    text-align: left;
 }
 h1{
     font-size:3.125rem;
