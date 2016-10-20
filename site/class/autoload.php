@@ -19,9 +19,10 @@
     require_once __DIR__ . '/html/findCategory.php';
     require_once __DIR__ . '/html/findPage.php';
     require_once __DIR__ . '/html/forms.php';
-    
+
     //Utilities
     require_once __DIR__ . '/utilities/session.php';
+    require_once __DIR__ . '/utilities/date.php';
 
     //Exception
     require_once __DIR__ . '/exception/pageException.php';
