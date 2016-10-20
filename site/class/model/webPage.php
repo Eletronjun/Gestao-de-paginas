@@ -27,6 +27,7 @@ namespace model{
         private $last_modified; //Date and time of last page modifier in format yyyy-MM-dd hh:mm:ss,
                     //if receive null command 'now()' is used
         private $content; //Content of the page.
+        private $references; //References used in content
         private $image; //image path or null if not exists
 
         //Exception messengers
@@ -37,6 +38,7 @@ namespace model{
         const NO_CATEGORY_ID = "Categoria não identificada.";
         const NO_NUMERIC_ID = "Id deve ser um número.";
         const CHARACTER_LIMIT_EXCEEDED = "O limite do conteúdo é 5000 caracteres.";
+        const REFERENCES_LARGER = "O campo referência não pode ter mais que 300 caracteres.";
 
         /**
          * Method to create a category instance
@@ -49,8 +51,9 @@ namespace model{
          * @param string    $content        Content of the page.
          * @param int       $code           web page code, only numbers
          * @param string    $image          imagePath
+         * @param string    $references     References used in content
          */
-        public function __construct($title, $author, $id_category, $content = null, $code = null, $creation_date = null, $last_modified = null, $image = null)
+        public function __construct($title, $author, $id_category, $content = null, $code = null, $creation_date = null, $last_modified = null, $image = null, $references = null)
         {
             $this->setTitle($title);
             $this->setAuthor($author);
@@ -60,6 +63,7 @@ namespace model{
             $this->setCode($code);
             $this->setCategory($id_category);
             $this->setImage($image);
+            $this->setReferences($references);
         }
 
         public function setTitle($title)
@@ -82,8 +86,7 @@ namespace model{
             return $this->title;
         }
 
-        public function setAuthor($author)
-        {
+        public function setAuthor($author){
             $author = trim($author);
 
             if ($author != null) {
@@ -180,6 +183,22 @@ namespace model{
         public function getImage()
         {
             return $this->image;
+        }
+
+
+        public function setReferences($references)
+        {
+          if(strlen($references) <= 300) {
+            $this->references = $references;
+          }
+          else {
+            throw new WebPageException(self::REFERENCES_LARGER);
+          }
+        }
+
+        public function getReferences()
+        {
+          return $this->references;
         }
     }
 }
