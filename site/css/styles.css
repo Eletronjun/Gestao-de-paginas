@@ -28,8 +28,6 @@ figure{
 }
 h1, h2, h3, h4, h5, h6{
     color: #111F1E;
-    margin-top:4rem;
-    margin-bottom: 2rem;
     font-family: 'eightone', 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
     text-align: center;
     font-weight: 400;
@@ -37,6 +35,8 @@ h1, h2, h3, h4, h5, h6{
 }
 h1{
     font-size:3.125rem;
+    margin-top:4rem;
+    margin-bottom: 2rem;
 }
 h2{
     font-size:2rem;
@@ -55,6 +55,7 @@ p{
     text-indent: 2rem;
     display: block;
     color: #111F1E;
+    padding: 1rem 0;
 }
 span{
     margin:0;
@@ -158,7 +159,7 @@ span{
 }/*Fim da Estilização da Header*/
 
 /*Estilização do Conteúdo*/
-#content{
+#content, article{
     width: 70%;
     max-width:1366px;
     text-align:center;

@@ -2,6 +2,7 @@
     require_once __DIR__ . "/class/autoload.php";
 
     use \utilities\Session as Session;
+    use \utilities\Date as Date;
     use \html\Page as Page;
     use \html\CommunityMenu as CommunityMenu;
     use \dao\WebPageDao as WebPageDao;
@@ -28,36 +29,36 @@ try {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-    <article>
-        <h1><?php echo $category->getName(); ?></h1>
+      <article class="publication">
 
-        <h2><?php echo $page->getTitle(); ?></h2>
+        <div id="category">
+          <h1><?php echo $category->getName(); ?></h1>
+          <img src="res/img/Circuito.png">
+        </div>
 
-        <hr>
-        <i> Autor: <?php echo $page->getAuthor(); ?> <br>
-            Publicação: <?php echo $page->getCreationDate(); ?><br>
-            Última atualização: <?php echo $page->getLastModified(); ?>
-        </i>
-        <hr>
-
-        <figure class="img-leftt" >
+        <figure>
             <img src="<?php echo FILE_PATCH . $page->getImage(); ?>" alt="<?php echo $category->getName(); ?>">
         </figure>
-        
+
+        <header>
+          <h2><?php echo $page->getTitle(); ?></h2>
+          Publicado em <?php echo Date::formatDate($page->getCreationDate()); ?>
+          por <?php echo $page->getAuthor(); ?><br>
+          Última atualização em <?php echo Date::formatDate($page->getLastModified()); ?>
+        </header>
+
         <?php echo $page->getContent(); ?>
         <br>
 
         <div class="fb-like" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         <br>
         <div class="fb-comments" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>" data-numposts="10"></div>
-    </article>
+      </article>
 
 <?php
 } catch (Exception $msg) {
     echo "<h1>Página não encontrada</h1>";
     echo "<p>Desculpe-nos, mas essa publicação não existe ou foi retirada do ar.</p>";
 }
-
 Page::footer();
 ?>
-
