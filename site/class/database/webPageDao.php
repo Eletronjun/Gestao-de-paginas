@@ -56,7 +56,8 @@ namespace dao{
                 $data[$i][4] = $row['creation_date'];
                 $data[$i][5] = $row['last_modified'];
                 $data[$i][6] = $row['content'];
-                $data[$i][6] = $row['image'];
+                $data[$i][7] = $row['reference'];
+                $data[$i][8] = $row['image'];
             }
             return $data;
         }
@@ -69,11 +70,11 @@ namespace dao{
          * @param String  $new_postage
          * @param String  $image path of the new image or null if not change image
          */
-        public function updatePage($new_title, $new_author, $new_category, $new_postage, $image = null)
+        public function updatePage($new_title, $new_author, $new_category, $new_postage, $image = null, $new_reference = null)
         {
             $changeImage = ($image == null)? "" : ", image = '{$image}'";
             if (!is_null($this->getWebPageModel()->getCode())) {
-                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', last_modified = NOW(){$changeImage} WHERE code = " . $this->getWebPageModel()->getCode();
+                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', reference = '{$new_reference}', last_modified = NOW(){$changeImage} WHERE code = " . $this->getWebPageModel()->getCode();
                 parent::query($query);
                 if ($image != null) {
                     unlink(UPLOAD_ROOT . $this->getWebPageModel()->getImage());
@@ -89,10 +90,10 @@ namespace dao{
          */
         public function register()
         {
-            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`, `content`, `image`)
+            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`, `content`, `image`, `reference`)
             VALUES ('{$this->getWebPageModel()->getTitle()}', '{$this->getWebPageModel()->getAuthor()}',
             {$this->getWebPageModel()->getCategory()}, NOW(),NOW(),'{$this->getWebPageModel()->getContent()}',
-            '{$this->getWebPageModel()->getImage()}')";
+            '{$this->getWebPageModel()->getImage()}', '{$this->getWebPageModel()->getReferences()}')";
 
             parent::query($query);
 
@@ -151,7 +152,7 @@ namespace dao{
         public static function getPage($code)
         {
             if (is_numeric($code)) {
-                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image FROM WEB_PAGE WHERE code = {$code}";
+                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference FROM WEB_PAGE WHERE code = {$code}";
 
                 $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
                 $resultSet = $dao->query($query);
@@ -165,7 +166,8 @@ namespace dao{
                         $code,
                         $row['creation_date'],
                         $row['last_modified'],
-                        $row['image']
+                        $row['image'],
+                        $row['reference']
                     );
                 } else {
                     throw new DatabaseException(self::NOT_FIND_PAGE);

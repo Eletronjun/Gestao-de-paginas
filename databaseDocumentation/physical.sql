@@ -31,7 +31,7 @@ CREATE TABLE ADDRESS
 	state  VARCHAR(2) NOT NULL,
 	complement  VARCHAR(50) NULL,
 	PRIMARY KEY address_pk (code)
-	
+
 ) ENGINE=InnoDB CHARSET=utf8;
 
 
@@ -55,14 +55,14 @@ CREATE TABLE MEMBERS
 	image VARCHAR(150) NOT NULL DEFAULT 'default.png', /* Save file locate. */
 
 	PRIMARY KEY members_pk (email),
-    
+
 	CONSTRAINT UNIQUE email_uk(email),
     CONSTRAINT UNIQUE cpf_uk(cpf),
-    
+
 	FOREIGN KEY members_address_fk (code_address) REFERENCES ADDRESS(code) ON UPDATE RESTRICT ON DELETE RESTRICT,
 	FOREIGN KEY members_directorate_fk (code_directorate) REFERENCES DIRECTORATE(code) ON UPDATE RESTRICT ON DELETE RESTRICT,
 	FOREIGN KEY members_office_fk (code_office) REFERENCES OFFICE(code) ON UPDATE RESTRICT ON DELETE RESTRICT
-	
+
 ) ENGINE=InnoDB CHARSET=utf8;
 
 CREATE TABLE CATEGORY
@@ -70,7 +70,7 @@ CREATE TABLE CATEGORY
 	code INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
 	isActivity ENUM(  "y",  "n" ) NOT NULL DEFAULT  'y',
-	
+
 	PRIMARY KEY members_pk (code)
 
 ) ENGINE=InnoDB CHARSET=utf8;
@@ -83,6 +83,7 @@ CREATE TABLE WEB_PAGE(
 	creation_date DATETIME NOT NULL,
 	last_modified DATETIME NOT NULL,
 	content VARCHAR(5000) NULL,
+	reference VARCHAR(300) NULL,
 	image VARCHAR(200) NULL,
 
     PRIMARY KEY web_page_pk (code),
@@ -106,7 +107,7 @@ INSERT INTO DIRECTORATE (directorate) VALUES ('Gestão de Projetos');
 INSERT INTO ADDRESS (cep, address, neighborhood, residence, city, state, complement)
 	VALUES('72450-100',	'Q10', 'Gama Oeste','Lote 09', 'Gama', 'DF','apto 102');
 /*password is 1234*/
-INSERT INTO MEMBERS (email, registration, member_name, sex, nick, password, birthDate, rg, 
+INSERT INTO MEMBERS (email, registration, member_name, sex, nick, password, birthDate, rg,
 	rg_agency, cpf, phone, code_address, code_directorate,code_office,isActivity) VALUES
 	('marketing@eletronjun.com.br', '14/0066543', 'Eletronjun', ' ', 'eletronjun','$2a$05$JD2WU824jsfhs23hu233D.0EbJKRpRMa8cI/4dKusO.yCyTiHuqvO',
 		'2013-01-01','', '', '', '', 1, 3, 1,'y');
