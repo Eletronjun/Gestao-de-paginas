@@ -11,7 +11,7 @@
 
     $session = new Session();
     $session->verifyIfSessionIsStarted();
-    
+
     $menu = new AdministratorMenu();
     $menu->construct();
 ?>
@@ -23,7 +23,9 @@
 
         <h1>Edição de Página </h1>
         <form action="<?php echo PROJECT_ROOT;?>controller/updatePage.php" method="POST">
+          <fieldset>
             <?php Forms::updatePageForm($_GET['pages']); ?>
+          </fieldset>
           <input type="submit" value="Atualizar">
         </form>
 
