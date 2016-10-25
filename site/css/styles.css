@@ -10,18 +10,6 @@ html,body {
    width:100%;
    font-family: 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
-address{
-    font-style: normal;
-    font-weight: normal;
-}
-
-article{
-    width: 90%;
-    max-width:1024px;
-    margin:auto;
-    padding:1rem;
-    display:block;
-}
 figure{
     margin:0;
     padding:0;
