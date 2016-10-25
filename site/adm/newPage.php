@@ -28,15 +28,10 @@
           <input type="text" id="title" name="title" required><br><br>
           <label>Publicação</label>
           <textarea rows="20" cols="80" id="postage" name="postage"></textarea><br><br>
-          <!--a href="#upload-button" class="upload-button">
-            <button type="button">Selecionar Imagem</button>
-            <input type="file" name="imageFile">
-          </a>
-          <input type="text" readOnly="true" value=""  class="upload-button"-->
           <label>Imagem</label>
           <input type="file" name="imageFile">
           <label>Referências</label><br>
-          <input type="text" id="reference" name="reference"><br><br>
+          <textarea rows="4" cols="80" id="reference" maxlenght="300" name="reference"></textarea><br><br>
           <label>Autor</label><br>
           <input type="text" id="author" name="author" required><br><br>
         </fieldset>
