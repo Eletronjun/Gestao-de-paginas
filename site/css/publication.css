@@ -24,7 +24,6 @@
   color: #3D3D3D;
   text-align: left;
   margin-bottom: 1.25rem;
-
 }
 .publication h2{
   font-family: 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
@@ -38,4 +37,11 @@
   float:left;
   margin-right: 4rem;
   margin-bottom: 2rem;
+}
+.publication address{
+  font-size: 0.8rem;
+  color: #3D3D3D;
+  text-align: left;
+  margin-bottom: 1.25rem;
+  font-style: italic;
 }
