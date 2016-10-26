@@ -56,6 +56,12 @@
   margin-right: 0.5rem;
 }
 
+.last_publications a{
+  text-decoration: none;
+  text-align: left;
+  color:#fff;
+}
+
 .category_banner {
   margin: 1.875rem 0;
 }
@@ -64,8 +70,8 @@
   margin-bottom: 0.375rem;
 }
 .category_banner section{
-  width:45%;
-  margin-left:2.5%;
+  width:24rem;
+  margin-left:2.5rem;
   float:left;
   height:20rem;
 }
@@ -103,6 +109,7 @@
   text-decoration:none;
   display:table;
   width:24rem;
-  margin:0.325rem;
+  margin-bottom:0.625rem;
   text-align:left;
+  overflow: hidden;
 }
