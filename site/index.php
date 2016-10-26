@@ -74,6 +74,57 @@
     max-height: 3rem;
     margin-right: 0.5rem;
   }
+
+  .category_banner {
+    margin: 1.875rem 0;
+  }
+
+  .category_banner h2{
+    margin-bottom: 0.375rem;
+  }
+  .category_banner section{
+    width:45%;
+    margin-left:2.5%;
+    float:left;
+    height:20rem;
+  }
+  .category_banner div{
+    width:4.6875rem;
+    height:4.6875rem;
+    display:block;
+    float:left;
+    margin:0;
+    padding:0;
+  }
+  .category_banner img{
+    width:4.6875rem;
+    height:auto;
+  }
+  .category_banner p{
+    text-indent:0;
+    margin:0;
+    padding:0;
+    display:block;
+    float:left;
+    max-width:75%;
+    font-size:0.8rem;
+    margin-left:0.5rem;
+  }
+  .category_banner .title{
+    font-weight:bold;
+    font-size:1rem;
+  }
+  .category_banner a,
+  .category_banner a:hover,
+  .category_banner a:active,
+  .category_banner a:visited{
+    color:inherit;
+    text-decoration:none;
+    display:table;
+    width:24rem;
+    margin:0.325rem;
+    text-align:left;
+  }
 </style>
 
 <div id="content">
@@ -128,19 +179,29 @@
   while(list($code, $title, $content, $image) = each($arr)){
     echo "$code $title $image<br>";
   }*/
-  foreach (CategoryDao::returnActiveCategories() as $code => $name) {
-      echo "<p><strong>{$name}</strong></p>";
-      $hasPage = false;
-      foreach (WebPageDao::returnLast5byCategory($code) as $pageCode => $title) {
-          $hasPage = true;
-          echo "<a href=\"publications.php?code={$pageCode}\">{$title}</a><br>";
-      }
-      if (!$hasPage) {
-          echo "Não há Publicações";
-      } else {
-          //Nothing to do
-      }
-  }
+  echo "<div class=\"category_banner\">";
+    foreach (CategoryDao::returnActiveCategories() as $code => $name) {
+        $data = WebPageDao::returnLast3byCategory($code);
+        if(!$data[0]){
+          // Nothing do
+        }
+        else{
+          echo "<section>";
+          echo "<h2>{$name}</h2>";
+          foreach ($data as $list) {
+              echo "<a href=\"publications.php?code={$list[0]}\">
+                      <div><img src=\"res/file/{$list[3]}\" alt=\"\"></div>
+                      <p class=\"title\">{$list[1]}</p><br>";
+
+                    if(strlen($list[2]))
+                      echo  "{$list[2]}</p>";
+
+                    echo "</a>";
+          }
+          echo "</section>";
+        }
+    }
+  echo "</div>";
 echo "</div>";
 Page::footer();
 Page::closeBody();
