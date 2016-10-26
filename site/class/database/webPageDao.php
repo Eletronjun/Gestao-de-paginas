@@ -202,6 +202,31 @@ namespace dao{
         }
 
         /**
+         * Method to return the last 3 publications with a category
+         * @param int $codeCategory only positive numbers and contain the code of category
+         * @return Array code => title
+         */
+        public static function returnLast3byCategory($codeCategory)
+        {
+            $query = "SELECT WEB_PAGE.code, title, content, image " .
+                "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
+                "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC LIMIT 3";
+
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+            $resultSet = $dao->query($query);
+
+            $data = array(array());
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+              $data[$i][0] = $row['code'];
+              $data[$i][1] = $row['title'];
+              $data[$i][2] = substr($row['content'], 0, 150);
+              $data[$i][3] = $row['image'];
+            }
+            return $data;
+        }
+
+        /**
          * Method to return the last 4 publications
          * @return Array code => title
          */
