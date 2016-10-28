@@ -28,7 +28,14 @@
         <ul>
           <a href="publications.php?code=<?php echo $last_publications[0][0]?>">
             <li>
-               <h2><?php echo $last_publications[0][1]?></h2>
+              <?php
+                if(strlen($last_publications[0][1]) <= 24)
+                  echo "<h2>{$last_publications[0][1]}</h2>";
+                else{
+                  $length_title = 23/(strlen($last_publications[0][1])*0.45);
+                  echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[0][1]}</h2>";
+                }
+              ?>
                <?php
                  if(strlen($last_publications[0][2]))
                    echo $last_publications[0][2] . "...</p>";
@@ -44,7 +51,14 @@
       <ul>
         <a href="publications.php?code=<?php echo $last_publications[1][0]?>">
           <li>
-             <h2><?php echo $last_publications[1][1]?></h2>
+            <?php
+              if(strlen($last_publications[1][1]) <= 24)
+                echo "<h2>{$last_publications[1][1]}</h2>";
+              else{
+                $length_title = 23/(strlen($last_publications[1][1])*0.45);
+                echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[1][1]}</h2>";
+              }
+            ?>
              <?php
                if(strlen($last_publications[1][2]))
                  echo $last_publications[1][2] . "...</p>";
@@ -59,7 +73,14 @@
       <ul>
         <a href="publications.php?code=<?php echo $last_publications[2][0]?>">
           <li>
-            <h2><?php echo $last_publications[2][1]?></h2>
+            <?php
+            if(strlen($last_publications[2][1]) <= 24)
+              echo "<h2>{$last_publications[2][1]}</h2>";
+            else{
+              $length_title = 23/(strlen($last_publications[2][1])*0.45);
+              echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[2][1]}</h2>";
+            }
+            ?>
             <?php
               if(strlen($last_publications[2][2]))
                 echo $last_publications[2][2] . "...</p>";
@@ -88,7 +109,7 @@
                       <p class=\"title\">{$list[1]}</p><br>";
 
                     if(strlen($list[2]))
-                      echo  "{$list[2]}</p>";
+                      echo  "{$list[2]}...</p>";
 
                     echo "</a>";
           }
