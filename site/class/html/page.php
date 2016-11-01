@@ -67,6 +67,7 @@ namespace html{
         {
             echo "<div class=\"footer\">";
             echo "  <address class=\"right\">";
+            echo "      <h4>Encontre a EletronJun</h4>";
             echo "      <a href=\"https://www.youtube.com/channel/UCMyP5qIbM_UXFHJjvwhc_Ow\"><img ";
             echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Youtube.png\" alt=\"YouTube\"
                             title=\"EletronTube\"></a>";
