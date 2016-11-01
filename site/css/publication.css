@@ -1,17 +1,17 @@
-.publication #category {
+#category_title {
   margin-top:4rem;
   margin-bottom: 2rem;
   display: table;
   padding:0;
 }
 
-.publication #category h1{
+#category_title h1{
   margin:0;
   display:block;
   float:left;
 }
 
-.publication #category img{
+#category_title img{
   padding-left: 1.25rem;
   padding-top: 1.1rem;
   height: 1.8rem;

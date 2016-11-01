@@ -31,7 +31,7 @@ try {
 
       <article class="publication">
 
-        <div id="category">
+        <div id="category_title">
           <h1><?php echo $category->getName(); ?></h1>
           <img src="res/img/Circuito.png">
         </div>
