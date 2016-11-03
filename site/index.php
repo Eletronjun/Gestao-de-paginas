@@ -113,7 +113,7 @@
       <ul>
         <li>
            <h2><?php echo $last_publications[2][1]?></h2>
-           <?php echo $last_publications[1][2]?></p>
+           <?php echo $last_publications[2][2]?></p>
         </li>
         <li>
           <a href="publications.php?code=<?php echo $last_publications[2][0]?>">
