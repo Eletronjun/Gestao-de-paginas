@@ -40,7 +40,7 @@ namespace dao{
 
         public static function getWebPages()
         {
-            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image FROM WEB_PAGE";
+            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference FROM WEB_PAGE";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 

@@ -37,14 +37,14 @@ try {
 
         //Verify if mime-type is image
         if (eregi("^image\/(pjpeg|jpeg|png|gif|bmp)$", $_FILES['imageFile']["type"])) {
-            $web_page_dao->updatePage($_POST['title'], $_POST['author'], $_POST['categories'], $_POST['postage'], $new_name);
+            $web_page_dao->updatePage($_POST['title'], $_POST['author'], $_POST['categories'], $_POST['postage'], $new_name, $_POST['reference']);
 
             move_uploaded_file($_FILES['imageFile']['tmp_name'], UPLOAD_ROOT . $new_name); //Save upload of file
         } else {
             throw new Exception("O arquivo precisa ser uma imagem.");
         }
     } else {
-        $web_page_dao->updatePage($_POST['title'], $_POST['author'], $_POST['categories'], $_POST['postage']);
+        $web_page_dao->updatePage($_POST['title'], $_POST['author'], $_POST['categories'], $_POST['postage'], null, $_POST['reference']);
     }
 
     echo "Salvo com sucesso.";
