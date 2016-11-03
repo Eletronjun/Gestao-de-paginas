@@ -36,9 +36,9 @@ namespace html{
                 echo "<label>Título</label><br>";
                 echo "<input type='text' id='title' name='title' value='{$web_page->getTitle()}' required><br><br>";
                 echo "<textarea rows='20' cols='80' id='postage' name='postage'>{$web_page->getContent()}</textarea><br><br>";
-                echo "<label>Imagem</label>";
-                echo "<input type=\"file\" name=\"imageFile\" />";
-                echo "<label>Referências</label>";
+                echo "<label>Imagem</label><br>";
+                echo "<input type=\"file\" name=\"imageFile\" /><br>";
+                echo "<label>Referências</label><br>";
                 echo "<textarea rows='4' cols='80' id='reference' name='reference'>{$web_page->getReferences()}</textarea><br><br>";
             } catch (WebPageException $msg) {
                 echo $msg;
