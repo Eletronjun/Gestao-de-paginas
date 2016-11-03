@@ -16,7 +16,7 @@
     $menu->construct();
 
 ?>
-  <div id="content">
+  <main>
     <h1>Nova Página</h1>
     <form method="POST" action="<?php echo PROJECT_ROOT; ?>controller/savePage.php" enctype="multipart/form-data">
         <fieldset>
@@ -37,7 +37,7 @@
         </fieldset>
         <input type="submit" value="Salvar">
     </form>
-  </div>
+  </main>
 
 <?php
     Page::footer();

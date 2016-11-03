@@ -16,7 +16,7 @@
 
 ?>
 
-<div id="content">
+<main>
 
   <h1></h1>
   <h2>Últimas Publicações</h2>
@@ -117,7 +117,7 @@
         }
         }
   echo "</div>";
-echo "</div>";
+echo "</main>";
 Page::footer();
 Page::closeBody();
 

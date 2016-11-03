@@ -17,7 +17,7 @@
 ?>
 
 <!--Conteúdo da página-->
-<div id="content">
+<main>
 
       <h1>Gerência de Categorias</h1>
 
@@ -64,21 +64,10 @@
           <input type="button" name="submit" value="Salvar" id="update_button">
         </form>
       </div>
-</div>
+</main>
 <?php
     Page::footer();
 ?>
-
-<!--style type="text/css">
-    table {
-        margin:  auto;
-
-    }
-
-    table, th, td {
-        border: 2px solid black;
-    }
-</style-->
 
 <script type="text/javascript">
 $(document).ready(function(){

@@ -18,7 +18,7 @@
 
 <!--Conteúdo da página-->
 <div id="delete"></div>
-<div id="content">
+<main>
         <h1>Gerência de Páginas</h1>
         <form method="GET" action='editPage.php'>
           <fieldset style="margin: 0 auto">
@@ -35,7 +35,7 @@
             <input type="submit" name="submit" value="Editar" id="edit_button">
           </fieldset>
         </form>
-</div>
+</main>
 <?php
     Page::footer();
 ?>

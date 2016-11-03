@@ -3,6 +3,7 @@
 
     use \utilities\Session as Session;
     use \html\Page as Page;
+    use \utilities\Date as Date;
     use \html\CommunityMenu as CommunityMenu;
     use \dao\WebPageDao as WebPageDao;
     use \dao\CategoryDao as CategoryDao;
@@ -16,8 +17,12 @@
 
 try {
 ?>
-    
-    <h1><?php echo CategoryDao::findCategory($_GET['code'])->getName(); ?></h1>
+
+  <main>
+    <div id="category_title">
+      <h1><?php echo CategoryDao::findCategory($_GET['code'])->getName(); ?></h1>
+      <img src="res/img/Circuito.png">
+    </div>
 
     <table>
     <tr>
@@ -25,7 +30,27 @@ try {
         <td>Data de Publicação</td>
     </tr>
     <?php
-    
+
+    $data = WebPageDao::returnLast3byCategory($_GET['code']);
+    if(!$data[0]){
+      // Nothing do
+    }
+    else{
+      echo "<section class=\"category_banner_2\">";
+      foreach ($data as $list) {
+          echo "<a href=\"publications.php?code={$list[0]}\">
+                  <figure><img src=\"res/file/{$list[3]}\" alt=\"\"></figure>
+                  <p class=\"title\">{$list[1]}</p><p class=\"date\">";
+                  echo Date::formatDate($list[4]) . "</p>";
+
+                if(strlen($list[2]))
+                  echo  "{$list[2]}...</p>";
+
+                echo "</a>";
+      }
+      echo "</section>";
+    }
+
     $allPublications = WebPageDao::returnByCategory($_GET['code']);
     for ($i=0; $i < count($allPublications); $i++) {
         echo "<tr> <td>";
@@ -34,9 +59,11 @@ try {
         echo "<td><i>{$allPublications[$i]->getLastModified()}</i></td>";
         //echo $allPublications[$i] . "</td></tr>";
     }
-    
+
     ?>
     </table>
+
+  </main>
 
 <?php
 } catch (Exception $msg) {
@@ -46,4 +73,3 @@ try {
 
 Page::footer();
 ?>
-
