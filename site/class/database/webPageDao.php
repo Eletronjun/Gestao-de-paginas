@@ -152,7 +152,7 @@ namespace dao{
         public static function getPage($code)
         {
             if (is_numeric($code)) {
-                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference FROM WEB_PAGE WHERE code = {$code}";
+                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference,isActivity FROM WEB_PAGE WHERE code = {$code}";
 
                 $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
                 $resultSet = $dao->query($query);
@@ -167,7 +167,8 @@ namespace dao{
                         $row['creation_date'],
                         $row['last_modified'],
                         $row['image'],
-                        $row['reference']
+                        $row['reference'],
+                        $row['isActivity']
                     );
                 } else {
                     throw new DatabaseException(self::NOT_FIND_PAGE);
@@ -192,10 +193,10 @@ namespace dao{
             $data = array(array());
 
             for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
-              $data[$i][0] = $row['code'];
-              $data[$i][1] = $row['title'];
-              $data[$i][2] = substr($row['content'], 0, 150) . "...";
-              $data[$i][3] = $row['image'];
+                $data[$i][0] = $row['code'];
+                $data[$i][1] = $row['title'];
+                $data[$i][2] = substr($row['content'], 0, 150) . "...";
+                $data[$i][3] = $row['image'];
             }
 
             return $data;

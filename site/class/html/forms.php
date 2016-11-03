@@ -24,6 +24,15 @@ namespace html{
             try {
                 $web_page = WebPageDAO::getPage($code);
 
+                $yes = "";
+                $no = "";
+
+                if ($web_page->getIsActivity() == 'y') {
+                    $yes = "checked";
+                } else {
+                    $no = "checked";
+                }
+
                 echo "<label>Id</label><br>";
                 echo "<input type='text' id='code' name ='code' value='{$web_page->getCode()}' readonly='true'><br><br>";
                 echo "<label>Autor</label><br>";
@@ -42,8 +51,8 @@ namespace html{
 
                 echo "<div style='width:100%;text-align:center;'>";
                 echo "<label class='center'>Oculto?</label><br><br>";
-                echo "<input class='center' type='radio' name='isActivity' value='n'>Sim";
-                echo "<input class='center' type='radio' name='isActivity' value='y'>Não";
+                echo "<input class='center' type='radio' name='isActivity' value='n' {$yes}>Sim";
+                echo "<input class='center' type='radio' name='isActivity' value='y' {$no}>Não";
                 echo "</div>";
                 echo "<br>";
             } catch (WebPageException $msg) {
