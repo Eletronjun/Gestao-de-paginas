@@ -178,6 +178,10 @@ section{
     list-style-type: square;
 }
 
+.center{
+    text-align: center;
+}
+
 /*Link - classe que configura os links dentro do espaço de conteúdo.*/
 .link{
     text-align: left;

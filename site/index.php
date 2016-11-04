@@ -20,9 +20,9 @@
 
   <h1></h1>
   <h2>Últimas Publicações</h2>
-  <?php
+    <?php
     $last_publications = WebPageDao::returnLast3();
-  ?>
+    ?>
     <section class="last_publications">
       <div id="first">
         <ul>

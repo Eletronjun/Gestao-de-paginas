@@ -82,6 +82,7 @@ CREATE TABLE WEB_PAGE(
 	code_category INT NOT NULL ,
 	creation_date DATETIME NOT NULL,
 	last_modified DATETIME NOT NULL,
+	isActivity ENUM(  "y",  "n" ) NOT NULL DEFAULT  'y',
 	content VARCHAR(5000) NULL,
 	reference VARCHAR(300) NULL,
 	image VARCHAR(200) NULL,

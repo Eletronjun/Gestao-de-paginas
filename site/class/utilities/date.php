@@ -10,17 +10,16 @@
 
 namespace utilities{
 
-  class Date{
-
-    public function formatDate($date)
+    class Date
     {
-      if($date){
-        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-        date_default_timezone_set('America/Sao_Paulo');
-        return strftime('%d de %B de %Y', strtotime(substr($date, 0, 10)));
-      }
-    }
-  }
-}
 
-?>
+        public function formatDate($date)
+        {
+            if ($date) {
+                setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+                date_default_timezone_set('America/Sao_Paulo');
+                return strftime('%d de %B de %Y', strtotime(substr($date, 0, 10)));
+            }
+        }
+    }
+}
