@@ -28,11 +28,14 @@ try {
     
     $allPublications = WebPageDao::returnByCategory($_GET['code']);
     for ($i=0; $i < count($allPublications); $i++) {
-        echo "<tr> <td>";
-        echo "<a href=\"publications.php?code={$allPublications[$i]->getCode()}\">".
-            "{$allPublications[$i]->getTitle()}</a></td>";
-        echo "<td><i>{$allPublications[$i]->getLastModified()}</i></td>";
-        //echo $allPublications[$i] . "</td></tr>";
+        if ($allPublications[$i]->getIsActivity() == 'y') {
+            echo "<tr> <td>";
+            echo "<a href=\"publications.php?code={$allPublications[$i]->getCode()}\">".
+                "{$allPublications[$i]->getTitle()}</a></td>";
+            echo "<td><i>{$allPublications[$i]->getLastModified()}</i></td>";
+        } else {
+            // Nothing to do.
+        }
     }
     
     ?>
@@ -41,7 +44,7 @@ try {
 <?php
 } catch (Exception $msg) {
     echo "<h1>Página não encontrada</h1>";
-    echo "<p>Desculpe-nos, mas essa publicação não existe ou foi retirada do ar.</p>";
+    echo "<p>Desculpe-nos, mas essa categoria não existe ou foi retirada do ar.</p>";
 }
 
 Page::footer();
