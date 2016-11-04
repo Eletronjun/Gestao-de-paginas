@@ -27,7 +27,7 @@ namespace html{
                 $yes = "";
                 $no = "";
 
-                if ($web_page->getIsActivity() == 'y') {
+                if ($web_page->getIsActivity() == 'n') {
                     $yes = "checked";
                 } else {
                     $no = "checked";

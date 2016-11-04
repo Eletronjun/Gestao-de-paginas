@@ -70,11 +70,11 @@ namespace dao{
          * @param String  $new_postage
          * @param String  $image path of the new image or null if not change image
          */
-        public function updatePage($new_title, $new_author, $new_category, $new_postage, $image = null, $new_reference = null)
+        public function updatePage($new_title, $new_author, $new_category, $new_postage, $is_activity, $image = null, $new_reference = null)
         {
             $changeImage = ($image == null)? "" : ", image = '{$image}'";
             if (!is_null($this->getWebPageModel()->getCode())) {
-                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', reference = '{$new_reference}', last_modified = NOW(){$changeImage} WHERE code = " . $this->getWebPageModel()->getCode();
+                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', reference = '{$new_reference}', last_modified = NOW(){$changeImage}, isActivity = '{$is_activity}' WHERE code = " . $this->getWebPageModel()->getCode();
                 parent::query($query);
                 if ($image != null) {
                     unlink(UPLOAD_ROOT . $this->getWebPageModel()->getImage());
@@ -186,7 +186,7 @@ namespace dao{
         {
             $query = "SELECT WEB_PAGE.code, title, content, image " .
                 "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
-                "WHERE CATEGORY.isActivity = 'y' ORDER BY last_modified DESC LIMIT 3";
+                "WHERE CATEGORY.isActivity = 'y' AND WEB_PAGE.isActivity = 'y' ORDER BY last_modified DESC LIMIT 3";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
 
@@ -232,7 +232,7 @@ namespace dao{
         {
 
             $query = "SELECT code, title FROM WEB_PAGE " .
-                "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC LIMIT 5";
+                "WHERE code_category = {$codeCategory} AND isActivity = 'y' ORDER BY last_modified DESC LIMIT 5";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);

@@ -18,6 +18,12 @@
 try {
     $page = WebPageDao::getPage($_GET['code']);
 
+    if ($page->getIsActivity() == 'y') {
+        // Nothing to do
+    } else {
+        throw new Exception("Inative Page");
+    }
+
     $category = CategoryDao::findCategory($page->getCategory());
 ?>
     <div id="fb-root"></div>
@@ -51,7 +57,7 @@ try {
         <br>
         <address>
           <b>Fontes de Referência</b><br>
-          <?php echo $page->getReferences(); ?>
+            <?php echo $page->getReferences(); ?>
         </address>
         <br>
 
