@@ -210,7 +210,7 @@ namespace dao{
         {
             $query = "SELECT WEB_PAGE.code, title " .
                 "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
-                "WHERE CATEGORY.isActivity = 'y' ORDER BY last_modified DESC LIMIT 4";
+                "WHERE CATEGORY.isActivity = 'y' AND WEB_PAGE.isActivity = 'y' ORDER BY last_modified DESC LIMIT 4";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
 
@@ -254,7 +254,7 @@ namespace dao{
         public static function returnByCategory($codeCategory)
         {
 
-            $query = "SELECT code, title,author,creation_date,last_modified,content FROM WEB_PAGE " .
+            $query = "SELECT code, title,author,creation_date,last_modified,content, image,reference, isActivity FROM WEB_PAGE " .
                 "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
@@ -263,7 +263,7 @@ namespace dao{
             $data = array();
 
             for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
-                $data[$i] = new WebPage($row['title'], $row['author'], $codeCategory, $row['content'], $row['code'], $row['creation_date'], $row['last_modified']);
+                $data[$i] = new WebPage($row['title'], $row['author'], $codeCategory, $row['content'], $row['code'], $row['creation_date'], $row['last_modified'], $row['image'], $row['reference'], $row['isActivity']);
             }
 
             return $data;
