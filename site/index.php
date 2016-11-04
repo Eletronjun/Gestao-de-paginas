@@ -80,15 +80,15 @@
 
   <h1></h1>
   <h2>Últimas Publicações</h2>
-  <?php
+    <?php
     $last_publications = WebPageDao::returnLast3();
-  ?>
+    ?>
     <section class="last_publications">
       <div id="first">
         <ul>
             <li>
                <h2><?php echo $last_publications[0][1]?></h2>
-               <?php echo $last_publications[0][2]?></p>
+                <?php echo $last_publications[0][2]?></p>
             </li>
             <li>
               <a href="publications.php?code=<?php echo $last_publications[0][0]?>">
@@ -101,7 +101,7 @@
       <ul>
         <li>
            <h2><?php echo $last_publications[1][1]?></h2>
-           <?php echo $last_publications[1][2]?></p>
+            <?php echo $last_publications[1][2]?></p>
         </li>
         <li>
           <a href="publications.php?code=<?php echo $last_publications[1][0]?>">
@@ -113,7 +113,7 @@
       <ul>
         <li>
            <h2><?php echo $last_publications[2][1]?></h2>
-           <?php echo $last_publications[2][2]?></p>
+            <?php echo $last_publications[2][2]?></p>
         </li>
         <li>
           <a href="publications.php?code=<?php echo $last_publications[2][0]?>">
@@ -123,26 +123,26 @@
       </ul>
     </section>
 
-  <?php
+    <?php
   /*$arr = WebPageDao::returnLast3();
   while(list($code, $title, $content, $image) = each($arr)){
     echo "$code $title $image<br>";
   }*/
-  foreach (CategoryDao::returnActiveCategories() as $code => $name) {
-      echo "<p><strong>{$name}</strong></p>";
-      $hasPage = false;
-      foreach (WebPageDao::returnLast5byCategory($code) as $pageCode => $title) {
-          $hasPage = true;
-          echo "<a href=\"publications.php?code={$pageCode}\">{$title}</a><br>";
-      }
-      if (!$hasPage) {
-          echo "Não há Publicações";
-      } else {
-          //Nothing to do
-      }
-  }
-echo "</div>";
-Page::footer();
-Page::closeBody();
+    foreach (CategoryDao::returnActiveCategories() as $code => $name) {
+        echo "<p><strong>{$name}</strong></p>";
+        $hasPage = false;
+        foreach (WebPageDao::returnLast5byCategory($code) as $pageCode => $title) {
+            $hasPage = true;
+            echo "<a href=\"publications.php?code={$pageCode}\">{$title}</a><br>";
+        }
+        if (!$hasPage) {
+            echo "Não há Publicações";
+        } else {
+            //Nothing to do
+        }
+    }
+    echo "</div>";
+    Page::footer();
+    Page::closeBody();
 
 ?>
