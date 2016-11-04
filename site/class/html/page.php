@@ -36,6 +36,7 @@ namespace html{
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/header.css\" />";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/footer.css\" />";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/form.css\" />";
+                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/index.css\" />";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/publication.css\" />";
                 echo "  <meta name=\"description\" content=\"{$description}\">";
                 echo "  <meta name=\"keywords\" content=\"EletronJun, Gama, UnB, ";
@@ -66,6 +67,7 @@ namespace html{
         {
             echo "<div class=\"footer\">";
             echo "  <address class=\"right\">";
+            echo "      <h4>Encontre a EletronJun</h4>";
             echo "      <a href=\"https://www.youtube.com/channel/UCMyP5qIbM_UXFHJjvwhc_Ow\"><img ";
             echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Youtube.png\" alt=\"YouTube\"
                             title=\"EletronTube\"></a>";

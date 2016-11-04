@@ -16,66 +16,6 @@
 
 ?>
 
-<style>
-  .last_publications section{
-    width: 50.5rem;
-    max-width: 808px;
-  }
-  .last_publications ul {
-    position:relative;
-    height: 12.25rem;
-    width: 25rem;
-    overflow:hidden;
-    float:left;
-    background-color:#111F1E;
-    list-style: none;
-    margin-left: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: solid #111F1E 0.1rem;
-    border-radius: 1rem;
-  }
-  .last_publications img {
-    position:absolute;
-    left:0;
-    bottom:-6.125rem;
-    cursor:pointer;
-    width: 100%;
-    height: auto;
-    margin: -3rem 0;
-    -webkit-transition:bottom .3s ease-in-out;
-    -moz-transition:bottom .3s ease-in-out;
-    -o-transition:bottom .3s ease-in-out;
-    transition:bottom .3s ease-in-out
-  }
-  .last_publications img.top:hover {
-    bottom:-17rem;
-    padding-top:17rem;
-  }
-  .last_publications #first ul {
-    height: 25rem;
-    width: 25rem;
-    margin: 0;
-  }
-  .last_publications #first img {
-    bottom:0;
-    margin: 0;
-  }
-  .last_publications #first img.top:hover {
-    bottom:-7rem;
-    padding-top:7rem;
-  }
-  .last_publications h2, .last_publications p{
-    margin: 0.5rem 0 0 0.5rem;
-    padding: 0;
-    color: #fff;
-  }
-  .last_publications p{
-    font-size: 0.9rem;
-    max-height: 3rem;
-    margin-right: 0.5rem;
-  }
-</style>
-
 <div id="content">
 
   <h1></h1>
@@ -86,63 +26,99 @@
     <section class="last_publications">
       <div id="first">
         <ul>
+          <a href="publications.php?code=<?php echo $last_publications[0][0]?>">
             <li>
-               <h2><?php echo $last_publications[0][1]?></h2>
-                <?php echo $last_publications[0][2]?></p>
+              <?php
+                if(strlen($last_publications[0][1]) <= 24)
+                  echo "<h2>{$last_publications[0][1]}</h2>";
+                else{
+                  $length_title = 23/(strlen($last_publications[0][1])*0.45);
+                  echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[0][1]}</h2>";
+                }
+              ?>
+               <?php
+                 if(strlen($last_publications[0][2]))
+                   echo $last_publications[0][2] . "...</p>";
+               ?>
             </li>
             <li>
-              <a href="publications.php?code=<?php echo $last_publications[0][0]?>">
                 <img class="top" src="res/file/<?php echo $last_publications[0][3]?>" alt=""/>
-              </a>
             </li>
+          </a>
         </ul>
       </div>
 
       <ul>
-        <li>
-           <h2><?php echo $last_publications[1][1]?></h2>
-            <?php echo $last_publications[1][2]?></p>
-        </li>
-        <li>
-          <a href="publications.php?code=<?php echo $last_publications[1][0]?>">
-            <img class="top" src="res/file/<?php echo $last_publications[1][3]?>" alt=""/>
-          </a>
-        </li>
+        <a href="publications.php?code=<?php echo $last_publications[1][0]?>">
+          <li>
+            <?php
+              if(strlen($last_publications[1][1]) <= 24)
+                echo "<h2>{$last_publications[1][1]}</h2>";
+              else{
+                $length_title = 23/(strlen($last_publications[1][1])*0.45);
+                echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[1][1]}</h2>";
+              }
+            ?>
+             <?php
+               if(strlen($last_publications[1][2]))
+                 echo $last_publications[1][2] . "...</p>";
+             ?>
+          </li>
+          <li>
+              <img class="top" src="res/file/<?php echo $last_publications[1][3]?>" alt=""/>
+          </li>
+        </a>
       </ul>
 
       <ul>
-        <li>
-           <h2><?php echo $last_publications[2][1]?></h2>
-            <?php echo $last_publications[2][2]?></p>
-        </li>
-        <li>
-          <a href="publications.php?code=<?php echo $last_publications[2][0]?>">
-            <img class="top" src="res/file/<?php echo $last_publications[2][3]?>" alt=""/>
-          </a>
-        </li>
+        <a href="publications.php?code=<?php echo $last_publications[2][0]?>">
+          <li>
+            <?php
+            if(strlen($last_publications[2][1]) <= 24)
+              echo "<h2>{$last_publications[2][1]}</h2>";
+            else{
+              $length_title = 23/(strlen($last_publications[2][1])*0.45);
+              echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[2][1]}</h2>";
+            }
+            ?>
+            <?php
+              if(strlen($last_publications[2][2]))
+                echo $last_publications[2][2] . "...</p>";
+            ?>
+          </li>
+          <li>
+              <img class="top" src="res/file/<?php echo $last_publications[2][3]?>" alt=""/>
+          </li>
+        </a>
       </ul>
     </section>
 
-    <?php
-  /*$arr = WebPageDao::returnLast3();
-  while(list($code, $title, $content, $image) = each($arr)){
-    echo "$code $title $image<br>";
-  }*/
+  <?php
+  echo "<div class=\"category_banner\">";
     foreach (CategoryDao::returnActiveCategories() as $code => $name) {
-        echo "<p><strong>{$name}</strong></p>";
-        $hasPage = false;
-        foreach (WebPageDao::returnLast5byCategory($code) as $pageCode => $title) {
-            $hasPage = true;
-            echo "<a href=\"publications.php?code={$pageCode}\">{$title}</a><br>";
+        $data = WebPageDao::returnLast3byCategory($code);
+        if(!$data[0]){
+          // Nothing do
         }
-        if (!$hasPage) {
-            echo "Não há Publicações";
-        } else {
-            //Nothing to do
+        else{
+          echo "<section>";
+          echo "<h2>{$name}</h2>";
+          foreach ($data as $list) {
+              echo "<a href=\"publications.php?code={$list[0]}\">
+                      <div><img src=\"res/file/{$list[3]}\" alt=\"\"></div>
+                      <p class=\"title\">{$list[1]}</p><br>";
+
+                    if(strlen($list[2]))
+                      echo  "{$list[2]}...</p>";
+
+                    echo "</a>";
+          }
+          echo "</section>";
         }
-    }
-    echo "</div>";
-    Page::footer();
-    Page::closeBody();
+        }
+  echo "</div>";
+echo "</div>";
+Page::footer();
+Page::closeBody();
 
 ?>
