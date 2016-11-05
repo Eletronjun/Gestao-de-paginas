@@ -16,15 +16,15 @@ namespace html{
         protected static function startMenu()
         {
             echo "<div id=\"header\">";
-            echo "<figure id=\"logo\">";
-            echo "<img src=\"".IMG_PATCH."logoh_sidebar.png\" alt=\"eletronjun\" />";
+            echo "<figure>";
+            echo "<a href=" . PROJECT_ROOT . "><img src=\"".IMG_PATCH."Menu.png\" alt=\"eletronjun\" /></a>";
             echo "</figure>";
             echo "<div class=\"menu eightone-font\">";
             echo "<input type=\"checkbox\" id=\"control-nav\"/>";
             echo "<label for=\"control-nav\" class=\"control-nav\"></label>";
             echo "<nav>";
         }
-        
+
         protected static function startItem()
         {
             echo "<div class=\"item\">";
