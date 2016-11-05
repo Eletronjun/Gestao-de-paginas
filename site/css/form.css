@@ -78,9 +78,14 @@ select{
   text-align: center;
   padding: 0.2rem;
   font-size: 1rem;
+  width:15rem;
 }
 
+.check-table tr,
+.check-table td {
+  border:none;
+}
 .check-table td, th, input[type=checkbox]{
   margin: 0;
-  padding: 0 0.5rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
 }
