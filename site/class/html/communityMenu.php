@@ -29,7 +29,16 @@ namespace html{
         {
 
             parent::startItem();
-                parent::addItem(PROJECT_ROOT, "Home");
+                parent::addItem(PROJECT_ROOT ."/enterprise.php", "A Empresa");
+            parent::endItem();
+            parent::startItem();
+                parent::addItem(PROJECT_ROOT ."/projects.php", "Projetos");
+            parent::endItem();
+            parent::startItem();
+                parent::addItem(PROJECT_ROOT ."/events.php", "Eventos");
+            parent::endItem();
+            parent::startItem();
+                parent::addItem(PROJECT_ROOT ."/selective_process.php", "Processos Seletivos");
             parent::endItem();
             $this->publicationOptions();
             parent::endMenu();
@@ -44,7 +53,7 @@ namespace html{
             foreach (CategoryDao::returnActiveCategories() as $code => $name) {
                 parent::addItem(PROJECT_ROOT . "categories.php?code={$code}", $name);
             }
-            
+
             parent::endItem();
         }
     }
