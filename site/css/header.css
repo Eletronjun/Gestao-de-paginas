@@ -1,23 +1,18 @@
 /*Estilização Header*/
 #header{
     width:100%;
-    height:4rem;
+    height:5rem;
     background-color:#111F1E;
-    font-size: 1.25rem;
+    font-size: 1.625rem;
     display:block;
     position:absolute;
     top:0;
     z-index:5;
 }
-#logo{
-    height:4rem;
-    padding-left: 5rem;
+#header figure{
+    height:5rem;
     width: auto;
     float:left;
-}
-#logo img{
-    height:4rem;
-    width: auto;
 }
 .menu nav{
     float:right;
@@ -31,7 +26,7 @@
     border: solid 0.1rem #111F1E;
     border-radius:0.5rem;
     padding: 0.5rem;
-    margin:0.05rem;
+    margin-right: 1.5rem;
 }
 .menu a:visited{
     border-color: #111F1E;
