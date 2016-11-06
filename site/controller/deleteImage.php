@@ -2,9 +2,9 @@
 /**
  *Delete image of web_page
  *
- *@author  Vinicius Pinheiro <viny-pinheiro@hotmail.com>
+ *@author  Iasmin Mendes <mendesiasmin96@gmail.com>
  *@license MIT License
- *@link    http://eletronjun.com.br/controller/updateCategory.php
+ *@link    http://eletronjun.com.br/controller/deleteImage.php
  */
 require_once __DIR__ . "/../class/autoload.php";
 
