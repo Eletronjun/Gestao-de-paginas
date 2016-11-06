@@ -13,7 +13,7 @@ fieldset{
 
 input{
     border: solid 0.125rem;
-    border-color: #111F1E;
+    border-color: #111e14;
     margin-top: 0.625rem;
     margin-bottom: 1.25rem;
     width: 100%;
@@ -22,9 +22,9 @@ input{
 
 input[type=submit], input[type=button], button{
   color: #FFF;
-  background-color: #111F1E;
+  background-color: #111e14;
   border: none;
-  border-color: #111F1E;
+  border-color: #111e14;
   border-radius: 0.7rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -35,7 +35,7 @@ input[type=submit], input[type=button], button{
 }
 
 input[type=submit]:hover, input[type=button]:hover, button:hover{
-  color: #111F1E;
+  color: #111e14;
   background-color: #88c665;
   cursor: pointer;
 }
@@ -50,7 +50,7 @@ button{
 
 textarea{
     border: solid 0.125rem;
-    border-color: #111F1E;
+    border-color: #111e14;
     margin-top: 0.625rem;
     margin-bottom: 1.25rem;
     width: 100%;
@@ -63,7 +63,7 @@ select{
   background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #EEE;
   background-position: 100%;
   border: solid 0.125rem;
-  border-color: #111F1E;
+  border-color: #111e14;
   margin-top: 0.625rem;
   margin-bottom: 1.25rem;
   width: 20rem;
