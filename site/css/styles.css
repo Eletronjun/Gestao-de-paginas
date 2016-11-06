@@ -114,6 +114,7 @@ article, main{
     padding-left: 10%;
     padding-right: 10%;
 }
+/*
 .index{
     display: table;
     margin-top:8rem;
@@ -214,7 +215,7 @@ article, main{
     text-align: center;
 }
 
-/*Link - classe que configura os links dentro do espaço de conteúdo.*/
+/*Link - classe que configura os links dentro do espaço de conteúdo.*
 .link{
     text-align: left;
 }
@@ -233,12 +234,12 @@ article, main{
     margin: 0.4rem;
     float:left;
 }
-/*Estiliação de Texto*/
+/*Estiliação de Texto*
 .custom-title{
     color: #3b4544;
 }
 
-/*Classes para formatação de imagens*/
+/*Classes para formatação de imagens*
 .img-left{
     margin: 1rem;
     width: 40%;
@@ -283,7 +284,7 @@ article, main{
     font-size:1rem;
 }
 .left{
-    /*float:left;*/
+    /*float:left;*
 }
 .right{
     float:right;
@@ -300,7 +301,7 @@ article, main{
     position:absolute;
     bottom:0 !important;
 }
-
+*/
 /*Adaptação screen(max-width:1024px)*
 @media only screen and (max-width: 1023px){
 #logo{

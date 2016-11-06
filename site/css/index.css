@@ -8,11 +8,11 @@
   width: 25rem;
   overflow:hidden;
   float:left;
-  background-color:#111F1E;
+  background-color:#111e14;
   list-style: none;
   margin-left: 0.5rem;
   margin-bottom: 0.5rem;
-  border: solid #111F1E 0.1rem;
+  border: solid #111e14 0.1rem;
   border-radius: 1rem;
 }
 .last_publications img {
