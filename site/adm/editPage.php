@@ -40,12 +40,17 @@
 $(document).ready(function(){
 
   $('#delete_image').click(function(){
+    if(confirm("A imagem será apagada, continuar?")) {
       $.ajax({
         url: '../controller/deleteImage.php?code=' + $('#page_code').val(),
         success: function(data){
            alert(data);
         }
       });
+    } else {
+      //Nothing do
+    }
     });
   });
+
 </script>
