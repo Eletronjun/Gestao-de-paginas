@@ -84,6 +84,12 @@ namespace dao{
             }
         }
 
+        public function deleteImage()
+        {
+          $query = "UPDATE WEB_PAGE SET image = NULL, last_modified = NOW() WHERE code = " . $this->getWebPageModel()->getCode();
+          parent::query($query);
+        }
+
 
         /**
          * Method to persist web page data
