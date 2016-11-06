@@ -36,7 +36,7 @@ input[type=submit], input[type=button], button{
 
 input[type=submit]:hover, input[type=button]:hover, button:hover{
   color: #111e14;
-  background-color: #88c665;
+  background-color: #87c665;
   cursor: pointer;
 }
 
@@ -71,9 +71,9 @@ select{
 }
 
 .check-table table{
-  /*background-color: #88c665;*/
-/* background: -moz-linear-gradient(right, #88c665, 60%) repeat-X;*/
-  background: -webkit-gradient(linear, left top, right top, from(#88c665), to(#B7E39F)) repeat-X;
+  /*background-color: #87c665;*/
+/* background: -moz-linear-gradient(right, #87c665, 60%) repeat-X;*/
+  background: -webkit-gradient(linear, left top, right top, from(#87c665), to(#B7E39F)) repeat-X;
   border-radius: 0.5rem;
   text-align: center;
   padding: 0.2rem;
@@ -94,4 +94,4 @@ input[type=radio]{
   vertical-align: -2px;
   width: auto;
   height: auto;
-}
+}87c665
