@@ -25,6 +25,8 @@
         <fieldset>
           <?php Forms::updatePageForm($_GET['pages']); ?>
         </fieldset>
+        <input type="hidden" value="<?php echo $_GET['pages']?>" id="page_code">
+        <input type="button" value="Excluir Imagem" id="delete_image">
         <input type="submit" value="Atualizar">
       </form>
 
@@ -33,3 +35,17 @@
     Page::footer();
     Page::closeBody();
 ?>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $('#delete_image').click(function(){
+      $.ajax({
+        url: '../controller/deleteImage.php?code=' + $('#page_code').val(),
+        success: function(data){
+           alert(data);
+        }
+      });
+    });
+  });
+</script>
