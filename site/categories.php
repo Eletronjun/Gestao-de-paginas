@@ -19,7 +19,7 @@ try {
 ?>
 
   <main id="category">
-    <div id="category_title">
+    <div id="page_title">
       <h1><?php echo CategoryDao::findCategory($_GET['code'])->getName(); ?></h1>
       <img src="res/img/Circuito.png">
     </div>
