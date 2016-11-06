@@ -25,27 +25,28 @@ namespace html{
         public static function header($title, $description = null)
         {
             if ($title != null && $title != "") {
-                echo "<!DOCTYPE html>";
-                echo "<html>";
-                echo "<head>";
-                echo "  <title>{$title}</title>";
-                echo "  <meta charset=\"utf-8\">";
-                echo "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">";
-                echo "  <link rel=\"icon\" type=\"image/png\" href=\"" . IMG_PATCH . "favicon.png\" />";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/styles.css\" />";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/header.css\" />";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/footer.css\" />";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/form.css\" />";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/index.css\" />";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/publication.css\" />";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/category.css\" />";
-                echo "  <meta name=\"description\" content=\"{$description}\">";
+                echo "<!DOCTYPE html>\n";
+                echo "<html>\n";
+                echo "<head>\n";
+                echo "  <title>{$title}</title>\n";
+                echo "  <meta charset=\"utf-8\">\n";
+                echo "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n";
+                echo "  <link rel=\"icon\" type=\"image/png\" href=\"" . IMG_PATCH . "favicon.png\" />\n";
+                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/styles.css\" />\n";
+                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/header.css\" />\n";
+                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/footer.css\" />\n";
+                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/form.css\" />\n";
+                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/index.css\" />\n";
+                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/publication.css\" />\n";
+                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/category.css\" />\n";
+                echo "  <meta name=\"description\" content=\"{$description}\">\n";
                 echo "  <meta name=\"keywords\" content=\"EletronJun, Gama, UnB, ";
                 echo "  Universidade de Brasília, FGA, eletrônica, desenvolvimento de ";
-                echo "  projetos, empresa, empresa júnior\">";
-                echo "</head>";
-                echo "<body>";
-                echo "  <div id=\"container\">";
+                echo "  projetos, empresa, empresa júnior\">\n";
+                echo "  <script type=\"text/javascript\" src=\"" . PROJECT_ROOT . "css/dropdown.js\"></script>";
+                echo "</head>\n";
+                echo "<body>\n";
+                echo "  <div id=\"container\">\n";
             } else {
                 throw new \exception\PageException(self::INVALID_TITLE);
             }

@@ -27,34 +27,21 @@ namespace html{
 
         public function construct()
         {
-
-            parent::startItem();
-                parent::addItem(PROJECT_ROOT ."/enterprise.php", "A Empresa");
-            parent::endItem();
-            parent::startItem();
-                parent::addItem(PROJECT_ROOT ."/projects.php", "Projetos");
-            parent::endItem();
-            parent::startItem();
-                parent::addItem(PROJECT_ROOT ."/events.php", "Eventos");
-            parent::endItem();
-            parent::startItem();
-                parent::addItem(PROJECT_ROOT ."/selective_process.php", "Processos Seletivos");
-            parent::endItem();
+            parent::addItem(PROJECT_ROOT ."/enterprise.php", "A Empresa");
+            parent::addItem(PROJECT_ROOT ."/projects.php", "Projetos");
+            parent::addItem(PROJECT_ROOT ."/events.php", "Eventos");
+            parent::addItem(PROJECT_ROOT ."/selective_process.php", "Processos Seletivos");
             $this->publicationOptions();
             parent::endMenu();
         }
 
         private function publicationOptions()
         {
-            parent::startItem();
-            parent::addItem("#", "Publicações");
-            parent::initSubItem();
-
+            parent::startDropdown("Publicações");
             foreach (CategoryDao::returnActiveCategories() as $code => $name) {
                 parent::addItem(PROJECT_ROOT . "categories.php?code={$code}", $name);
             }
-
-            parent::endItem();
+            parent::endDropdown();
         }
     }
 }

@@ -43,25 +43,20 @@ namespace html{
 
         private function pageOptions()
         {
-            parent::startItem();
-                parent::addItem("#", "Páginas");
-                    parent::initSubItem();
-                        parent::addItem(PROJECT_ROOT . "adm/category.php", "Gerenciar Categorias");
-                        parent::addItem(PROJECT_ROOT . "adm/pages.php", "Gerenciar Páginas");
-                        parent::addItem(PROJECT_ROOT . "adm/newPage.php", "Nova Página");
-                    parent::endSubItem();
-                parent::endItem();
+                parent::startDropdown("Páginas");
+                  parent::addItem(PROJECT_ROOT . "adm/category.php", "Gerenciar Categorias");
+                  parent::addItem(PROJECT_ROOT . "adm/pages.php", "Gerenciar Páginas");
+                  parent::addItem(PROJECT_ROOT . "adm/newPage.php", "Nova Página");
+                parent::endDropdown();
         }
 
         private function logout()
         {
-            self::startItem();
             self::addItem(
                 PROJECT_ROOT . "controller/destroySession.php\"
                 OnClick=\"return confirm('Tem certeza que deseja sair?');",
                 "Sair"
             );
-            self::endItem();
         }
     }
 }
