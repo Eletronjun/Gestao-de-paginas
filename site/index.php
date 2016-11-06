@@ -20,79 +20,81 @@
 
   <h1></h1>
   <h2>Últimas Publicações</h2>
-  <?php
+    <?php
     $last_publications = WebPageDao::returnLast3();
-  ?>
-    <section class="last_publications">
-      <div id="first">
+    ?>
+      <section class="last_publications">
+        <div id="first">
+          <ul>
+            <?php if(count($last_publications) > 0){ ?>
+            <a href="publications.php?code=<?php echo $last_publications[0][0]?>">
+              <li>
+                <?php
+                  if(strlen($last_publications[0][1]) <= 24)
+                    echo "<h2>{$last_publications[0][1]}</h2>";
+                  else{
+                    $length_title = 23/(strlen($last_publications[0][1])*0.45);
+                    echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[0][1]}</h2>";
+                  }
+                ?>
+                 <?php
+                   if(strlen($last_publications[0][2]))
+                     echo $last_publications[0][2] . "...</p>";
+                 ?>
+              </li>
+              <li>
+                  <img class="top" src="res/file/<?php echo $last_publications[0][3]?>" alt=""/>
+              </li>
+            </a>
+          </ul>
+        </div>
+        <?php if(count($last_publications) == 3){ ?>
         <ul>
-          <a href="publications.php?code=<?php echo $last_publications[0][0]?>">
+
+          <a href="publications.php?code=<?php echo $last_publications[1][0]?>">
             <li>
               <?php
-                if(strlen($last_publications[0][1]) <= 24)
-                  echo "<h2>{$last_publications[0][1]}</h2>";
+                if(strlen($last_publications[1][1]) <= 24)
+                  echo "<h2>{$last_publications[1][1]}</h2>";
                 else{
-                  $length_title = 23/(strlen($last_publications[0][1])*0.45);
-                  echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[0][1]}</h2>";
+                  $length_title = 23/(strlen($last_publications[1][1])*0.45);
+                  echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[1][1]}</h2>";
                 }
               ?>
                <?php
-                 if(strlen($last_publications[0][2]))
-                   echo $last_publications[0][2] . "...</p>";
+                 if(strlen($last_publications[1][2]))
+                   echo $last_publications[1][2] . "...</p>";
                ?>
             </li>
             <li>
-                <img class="top" src="res/file/<?php echo $last_publications[0][3]?>" alt=""/>
+                <img class="top" src="res/file/<?php echo $last_publications[1][3]?>" alt=""/>
             </li>
           </a>
         </ul>
-      </div>
 
-      <ul>
-        <a href="publications.php?code=<?php echo $last_publications[1][0]?>">
-          <li>
-            <?php
-              if(strlen($last_publications[1][1]) <= 24)
-                echo "<h2>{$last_publications[1][1]}</h2>";
+        <ul>
+          <a href="publications.php?code=<?php echo $last_publications[2][0]?>">
+            <li>
+              <?php
+              if(strlen($last_publications[2][1]) <= 24)
+                echo "<h2>{$last_publications[2][1]}</h2>";
               else{
-                $length_title = 23/(strlen($last_publications[1][1])*0.45);
-                echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[1][1]}</h2>";
+                $length_title = 23/(strlen($last_publications[2][1])*0.45);
+                echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[2][1]}</h2>";
               }
-            ?>
-             <?php
-               if(strlen($last_publications[1][2]))
-                 echo $last_publications[1][2] . "...</p>";
-             ?>
-          </li>
-          <li>
-              <img class="top" src="res/file/<?php echo $last_publications[1][3]?>" alt=""/>
-          </li>
-        </a>
-      </ul>
-
-      <ul>
-        <a href="publications.php?code=<?php echo $last_publications[2][0]?>">
-          <li>
-            <?php
-            if(strlen($last_publications[2][1]) <= 24)
-              echo "<h2>{$last_publications[2][1]}</h2>";
-            else{
-              $length_title = 23/(strlen($last_publications[2][1])*0.45);
-              echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[2][1]}</h2>";
-            }
-            ?>
-            <?php
-              if(strlen($last_publications[2][2]))
-                echo $last_publications[2][2] . "...</p>";
-            ?>
-          </li>
-          <li>
-              <img class="top" src="res/file/<?php echo $last_publications[2][3]?>" alt=""/>
-          </li>
-        </a>
-      </ul>
-    </section>
-
+              ?>
+              <?php
+                if(strlen($last_publications[2][2]))
+                  echo $last_publications[2][2] . "...</p>";
+              ?>
+            </li>
+            <li>
+                <img class="top" src="res/file/<?php echo $last_publications[2][3]?>" alt=""/>
+            </li>
+          </a>
+        </ul>
+        <?php } } ?>
+      </section>
   <?php
   echo "<div class=\"category_banner\">";
     foreach (CategoryDao::returnActiveCategories() as $code => $name) {

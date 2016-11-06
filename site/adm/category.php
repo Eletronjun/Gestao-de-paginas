@@ -30,7 +30,7 @@
               <th>Categoria</th>
               <th>Ativa</th>
           </tr>
-              <?php FindCategories::getCheckboxTable(); ?>
+                <?php FindCategories::getCheckboxTable(); ?>
           </table>
         </fieldset>
       </form>

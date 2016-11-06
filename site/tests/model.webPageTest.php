@@ -33,8 +33,12 @@ namespace htmlTests{
          */
         public function testTitleLarger()
         {
-            new WebPage("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678900",
-             "EletronJun", 1, "Post Teste");
+            new WebPage(
+                "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678900",
+                "EletronJun",
+                1,
+                "Post Teste"
+            );
         }
 
         /**
@@ -104,16 +108,10 @@ namespace htmlTests{
 
         /**
          * @expectedException \exception\WebPageException
-         */
+        */
         public function testCategoryInvalid()
         {
-<<<<<<< HEAD
             new WebPage("Page Test", "EletronJun", null, "Post Teste");
         }
-=======
-            new WebPage("Page Test", "EletronJun", NULL, "Post Teste");
-        }
-
->>>>>>> 9c241385ba02917012d5938f4cb1832ee262077d
     }
 }
