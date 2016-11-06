@@ -481,22 +481,6 @@ ul{
  font-family: 'eighton', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
 
-/*@font-face{
- font-family: 'helvetica';
- src: url('font/helvetica.ttf') format('truetype');
-}*
-.helvetica-font{
- font-family: 'helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
-}
-
-@font-face{
- font-family: 'helvetica-light';
- src: url('font/helveticaneue.ttf') format('truetype');
-}
-.neue-font{
- font-family: 'helveticaneue', 'Helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
-}*/
-
 @font-face{
  font-family: 'helvetica-light';
  src: url('font/helvetica_light.ttf') format('truetype');
