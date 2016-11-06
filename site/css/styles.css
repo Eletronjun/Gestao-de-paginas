@@ -8,7 +8,7 @@ html,body {
    padding:0;
    height:100%;
    width:100%;
-   font-family: 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
+   font-family: 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
 
 a.clean_link,
@@ -26,7 +26,7 @@ figure{
 }
 h1, h2, h3, h4, h5, h6{
     color: #111F1E;
-    font-family: 'eightone', 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
+    font-family: 'eightone', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
     text-align: center;
     font-weight: 400;
     text-align: left;
@@ -54,7 +54,7 @@ img{
     height:auto;
 }
 p{
-    font-family: /*'Helvetica',*/'Helvetica neue', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
+    font-family: 'helvetica-light', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
     text-align: justify;
     text-justify: inter-word;
     text-indent: 2rem;
@@ -478,29 +478,29 @@ ul{
  src: url('font/eightone.ttf') format('truetype');
 }
 .eightone-font{
- font-family: 'eightone', 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
+ font-family: 'eighton', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
 
-@font-face{
+/*@font-face{
  font-family: 'helvetica';
  src: url('font/helvetica.ttf') format('truetype');
-}
+}*
 .helvetica-font{
  font-family: 'helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
 }
 
 @font-face{
- font-family: 'helveticaneue';
+ font-family: 'helvetica-light';
  src: url('font/helveticaneue.ttf') format('truetype');
 }
 .neue-font{
  font-family: 'helveticaneue', 'Helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
-}
+}*/
 
 @font-face{
  font-family: 'helvetica-light';
- src: url('font/helvetica-light.ttf') format('truetype');
+ src: url('font/helvetica_light.ttf') format('truetype');
 }
-.neue-font{
- font-family:  'helvetica-light', 'helveticaneue', 'Helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
+.light-font{
+ font-family:  'helvetica-light', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
 }
