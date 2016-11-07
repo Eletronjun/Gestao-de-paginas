@@ -157,6 +157,14 @@ article, main{
   color:#87c665;
 }
 
+.list {
+  text-align: left;
+}
+
+.list li{
+  list-style-type:disc;
+}
+
 /*
 .index{
     display: table;
