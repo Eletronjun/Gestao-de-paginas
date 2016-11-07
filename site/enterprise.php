@@ -33,7 +33,6 @@
 
   <p>A EletronJun sempre busca trazer ao seu ambiente de trabalho valores como ética, transparência, respeito a todos e aos serviços prestados. Visando atingir a qualidade em todos os nossos projetos e a Democracia no processo administrativo-decisório. Valorizando os nossos profissinais e os preparando não como indivíduos, mas como membros importantes de um coletivo, o qual escreve a nossa história.</p><br><br>
 
-
 </main>
 <?php
 Page::footer();
