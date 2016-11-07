@@ -61,9 +61,9 @@
     display: block;
 }
 
-#itemDropdown a,
-#itemDropdown a:visited,
-#itemDropdown a:focus{
+.dropdown-content a,
+.dropdown-content a:visited,
+.dropdown-content a:focus{
   padding: 0;
   background-color: inherit;
   padding: 0.5rem;
@@ -73,7 +73,7 @@
   outline: none;
 }
 
-#itemDropdown a:hover{
+.dropdown-content a:hover{
   color: #3dde1e;
 }
 

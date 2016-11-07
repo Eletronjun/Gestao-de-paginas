@@ -30,10 +30,11 @@ namespace html{
 
         protected static function startDropdown($name)
         {
+          $id = "itemDD_" . str_replace(" ", "", $name);
           echo "
             <div class=\"dropdown\">
-            <button onclick=\"dropdownClick()\" class=\"dropbtn\">{$name}</button>
-              <div id=\"itemDropdown\" class=\"dropdown-content\">";
+            <button onclick=\"dropdownClick('{$id}')\" class=\"dropbtn\">{$name}</button>";
+            echo  "<div id=\"{$id}\" class=\"dropdown-content\">";
         }
 
         protected static function endDropdown()
