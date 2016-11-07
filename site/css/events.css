@@ -1,6 +1,7 @@
 #courses,
 #eletronday {
   margin: 2rem 0;
+  width: 100%;
 }
 #courses h3 {
   color:#87c665;
@@ -9,11 +10,11 @@
 }
 #courses li {
   width: 28.75rem;
-  margin: 0 3.5rem 3.125rem 0;
+  margin-bottom:3.125rem;
   height: 10rem;
   display: table;
-  float:left;
 }
+
 #courses figure,
 #courses img {
   width:7.5rem;

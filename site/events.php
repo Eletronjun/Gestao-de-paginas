@@ -26,39 +26,42 @@
   <section id="courses">
     <h2>Cursos</h2>
     <ul>
-      <li>
-        <figure><img src="res/img/Arduino.png"></figure>
-        <h3>Arduino</h3>
-        <p>Neste curso será ensinado conceitos básicos das placas de Arduino, não sendo necessário ter nenhum conhecimento prévio do assunto.<br>
-          <a href="#Conteudo">Conteúdo Programático</a><br>
-          <a href="#Inscricoes">Inscrições</a>
-        </p>
+      <span class="left">
+        <li>
+          <figure><img src="res/img/Arduino.png"></figure>
+          <h3>Arduino</h3>
+          <p>Neste curso será ensinado conceitos básicos das placas de Arduino, não sendo necessário ter nenhum conhecimento prévio do assunto.<br>
+            <a href="#Conteudo">Conteúdo Programático</a><br>
+            <a href="#Inscricoes">Inscrições</a>
+          </p>
+        </li>
+        <li>
+          <figure><img src="res/img/C.png"></figure>
+          <h3>C Básico</h3>
+          <p>Este curso tem como objetivo apresentar os conceitos básicos da linguagem C, uma das linguagens de programação mais conhecidas.<br>
+            <a href="#Conteudo">Conteúdo Programático</a><br>
+            <a href="#Inscricoes">Inscrições</a>
+          </p>
+        </li>
+    </span>
+    <span class="right">
+        <li>
+          <figure><img src="res/img/Java.png"></figure>
+          <h3>Java</h3>
+          <p>O objetivo deste curso é introduzir conceitos básicos de Java, linguagem de programação orientada a objetos.<br>
+            <a href="#Conteudo">Conteúdo Programático</a><br>
+            <a href="#Inscricoes">Inscrições</a>
+          </p>
+        </li>
+        <li>
+          <figure><img src="res/img/C.png"></figure>
+          <h3>C Avançado</h3>
+          <p>Este curso tem como objetivo ensinar técnicas e conceitos mais avançados da linguagem de programação C.<br>
+            <a href="#Conteudo">Conteúdo Programático</a><br>
+            <a href="#Inscricoes">Inscrições</a>
+          </p>
       </li>
-      <li>
-        <figure><img src="res/img/Java.png"></figure>
-        <h3>Java</h3>
-        <p>O objetivo deste curso é introduzir conceitos básicos de Java, linguagem de programação orientada a objetos.<br>
-          <a href="#Conteudo">Conteúdo Programático</a><br>
-          <a href="#Inscricoes">Inscrições</a>
-        </p>
-      </li>
-      <br>
-      <li>
-        <figure><img src="res/img/C.png"></figure>
-        <h3>C Básico</h3>
-        <p>Este curso tem como objetivo apresentar os conceitos básicos da linguagem C, uma das linguagens de programação mais conhecidas.<br>
-          <a href="#Conteudo">Conteúdo Programático</a><br>
-          <a href="#Inscricoes">Inscrições</a>
-        </p>
-      </li>
-      <li>
-        <figure><img src="res/img/C.png"></figure>
-        <h3>C Avançado</h3>
-        <p>Este curso tem como objetivo ensinar técnicas e conceitos mais avançados da linguagem de programação C.<br>
-          <a href="#Conteudo">Conteúdo Programático</a><br>
-          <a href="#Inscricoes">Inscrições</a>
-        </p>
-      </li>
+    </span>
     </ul>
   </section>
 
