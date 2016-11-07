@@ -11,12 +11,16 @@ html,body {
    font-family: 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
 
-a {
-
+a,
+a:visited {
   color: #87c665;
   text-decoration:none;
   outline: none;
   cursor: pointer;
+}
+a:hover,
+a:active {
+  color:#62A040;
 }
 
 figure{
@@ -139,6 +143,9 @@ article, main{
   max-width: 131px;
 }
 
+.green_font {
+  color:#87c665;
+}
 
 /*
 .index{
