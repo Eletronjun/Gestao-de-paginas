@@ -1,0 +1,53 @@
+#courses,
+#eletronday {
+  margin: 2rem 0;
+}
+#courses h3 {
+  color:#87c665;
+  font-weight:bold;
+  margin-bottom:0.5rem;
+}
+#courses li {
+  width: 28.75rem;
+  margin: 0 3.5rem 3.125rem 0;
+  height: 10rem;
+  display: table;
+  float:left;
+}
+#courses figure,
+#courses img {
+  width:7.5rem;
+  height:auto;
+  float:left;
+  display: block;
+}
+#courses figure {
+  margin-right:1.5rem;
+  padding-top: 0.5rem;
+}
+#courses p {
+  text-indent:0;
+  padding:0;
+  margin:0;
+  display: block;
+  float:left;
+  width:18.75rem;
+}
+#courses a,
+#courses a:visited {
+  padding-top:0.2rem;
+  font-weight: bold;
+  font-size:0.9rem;
+}
+
+#eletronday a {
+  width:auto;
+  display:table;
+  text-align:center;
+  float:left;
+}
+
+#eletronday a h3 {
+  margin:1rem auto;
+  width: 10rem;
+}
