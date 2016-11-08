@@ -23,7 +23,15 @@ namespace html{
         {
             try {
                 $web_page = WebPageDAO::getPage($code);
-                $web_page_dao = new WebPageDAO($web_page);
+
+                $yes = "";
+                $no = "";
+
+                if ($web_page->getIsActivity() == 'n') {
+                    $yes = "checked";
+                } else {
+                    $no = "checked";
+                }
 
                 echo "<label>Id</label><br>";
                 echo "<input type='text' id='code' name ='code' value='{$web_page->getCode()}' readonly='true'><br><br>";
@@ -36,10 +44,17 @@ namespace html{
                 echo "<label>Título</label><br>";
                 echo "<input type='text' id='title' name='title' value='{$web_page->getTitle()}' required><br><br>";
                 echo "<textarea rows='20' cols='80' id='postage' name='postage'>{$web_page->getContent()}</textarea><br><br>";
-                echo "<label>Imagem</label>";
-                echo "<input type=\"file\" name=\"imageFile\" />";
-                echo "<label>Referências</label>";
+                echo "<label>Imagem</label><br>";
+                echo "<input type=\"file\" name=\"imageFile\" /><br>";
+                echo "<label>Referências</label><br>";
                 echo "<textarea rows='4' cols='80' id='reference' name='reference'>{$web_page->getReferences()}</textarea><br><br>";
+
+                echo "<div style='width:100%;text-align:center;'>";
+                echo "<label class='center'>Oculto?</label><br><br>";
+                echo "<input class='center' type='radio' name='isActivity' value='n' {$yes}>Sim";
+                echo "<input class='center' type='radio' name='isActivity' value='y' {$no}>Não";
+                echo "</div>";
+                echo "<br>";
             } catch (WebPageException $msg) {
                 echo $msg;
             }

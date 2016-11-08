@@ -10,9 +10,9 @@
     $menu->construct();
 
 ?>
-    <div id="content">
+    <main style="margin-top: 2rem;">
       <img src="res/img/Etron.png" style="max-width:230px; display:block; float:left; margin-top:2rem"/>
-      <form action="controller/initSession.php" method="POST" style="display:block; float:left; margin-left:5rem;">
+      <form action="controller/initSession.php" method="POST" style="width: auto; display:block; float:left; margin-left:5rem;">
           <h1>Bem-vindo de volta!</h1>
             <fieldset style="width:20rem">
               <label>Email</label><br>
@@ -22,7 +22,7 @@
             </fieldset>
           <input type="submit" value="Logar" style="margin-top: 1.875rem"/>
       </form>
-  </div>
+  </main>
 <?php
     Page::footer();
     Page::closeBody();

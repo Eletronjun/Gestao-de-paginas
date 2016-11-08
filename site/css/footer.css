@@ -2,35 +2,41 @@
     width:94%;
     min-height:3rem;
     position: absolute;
-    bottom: 0;
-    display: table;
-    background-color:#111F1E;
+    bottom:0;
+    display:table;
+    background-color:#111e14;
     margin-top:1.5rem;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-top:2%;
+    padding-bottom:2%;
+    padding-left:3%;
+    padding-right:3%;
     font-size:0.8rem;
-    color: #d2d3d5;
+    color:#d2d3d5;
 }
 
 .footer address {
   display: table;
   float: right;
+  font-style: normal;
+}
+
+.footer h4 {
+  color:#FFF;
+  margin: 0  0  0.3rem 3rem;
 }
 
 .footer-img {
-  height: 1.5rem;
-  width: auto;
-  margin-left: 3rem;
-  display: inline;
-  float: right;
+  height:1.25rem;
+  width:auto;
+  margin-left:3rem;
+  display:inline;
+  float:right;
 }
 
 .authorship {
-  max-width: 20rem;
-  display: block;
-  float: left;
+  max-width:20rem;
+  display:block;
+  float:left;
 }
 
 @media only screen and (max-width: 1023px){

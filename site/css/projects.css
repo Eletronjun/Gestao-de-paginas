@@ -1,0 +1,25 @@
+#main_project {
+  display: table;
+  margin-bottom: 4.375rem;
+}
+#main_project figure{
+  border: solid;
+  width: 31.25rem;
+  height: 25rem;
+  float:left;
+  margin-right:3.125rem;
+  overflow:hidden;
+}
+
+.project_banner {
+  width: 100%;
+  margin-bottom:3.125rem;
+}
+.project_banner figure {
+  border: solid;
+  width: 15.625rem;
+  height: 12.5rem;
+  float:left;
+  margin-right:6.25rem;
+  overflow:hidden;
+}

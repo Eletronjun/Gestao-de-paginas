@@ -16,43 +16,36 @@ namespace html{
         protected static function startMenu()
         {
             echo "<div id=\"header\">";
-            echo "<figure id=\"logo\">";
-            echo "<img src=\"".IMG_PATCH."logoh_sidebar.png\" alt=\"eletronjun\" />";
+            echo "<figure>";
+            echo "<a href=" . PROJECT_ROOT . "><img src=\"".IMG_PATCH."Menu.png\" alt=\"eletronjun\" /></a>";
             echo "</figure>";
-            echo "<div class=\"menu eightone-font\">";
-            echo "<input type=\"checkbox\" id=\"control-nav\"/>";
-            echo "<label for=\"control-nav\" class=\"control-nav\"></label>";
-            echo "<nav>";
-        }
-        
-        protected static function startItem()
-        {
-            echo "<div class=\"item\">";
+            echo "<nav class=\"menu\">\n";
         }
 
-        protected static function endItem()
-        {
-            echo "</div>";
-        }
 
         protected static function addItem($host, $name)
         {
-            echo "<a href=\"{$host}\">{$name}</a>";
+            echo "<a href=\"{$host}\" class=\"clean_link\">{$name}</a>\n";
         }
 
-        protected static function initSubItem()
+        protected static function startDropdown($name)
         {
-            echo "<div class=\"sub-item neue-font\">";
+          $id = "itemDD_" . str_replace(" ", "", $name);
+          echo "
+            <div class=\"dropdown\">
+            <button onclick=\"dropdownClick('{$id}')\" class=\"dropbtn\">{$name}</button>";
+            echo  "<div id=\"{$id}\" class=\"dropdown-content\">";
         }
 
-        protected static function endSubItem()
+        protected static function endDropdown()
         {
-            echo "</div>";
+          echo "  </div>";
+          echo "</div>";
         }
 
         protected static function endMenu()
         {
-            echo "</nav></div>";
+            echo "</nav>";
             echo "</div>";
             echo "<br>";
         }

@@ -40,7 +40,7 @@ namespace dao{
 
         public static function getWebPages()
         {
-            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image FROM WEB_PAGE";
+            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference FROM WEB_PAGE";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
@@ -70,11 +70,11 @@ namespace dao{
          * @param String  $new_postage
          * @param String  $image path of the new image or null if not change image
          */
-        public function updatePage($new_title, $new_author, $new_category, $new_postage, $image = null, $new_reference = null)
+        public function updatePage($new_title, $new_author, $new_category, $new_postage, $is_activity, $image = null, $new_reference = null)
         {
             $changeImage = ($image == null)? "" : ", image = '{$image}'";
             if (!is_null($this->getWebPageModel()->getCode())) {
-                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', reference = '{$new_reference}', last_modified = NOW(){$changeImage} WHERE code = " . $this->getWebPageModel()->getCode();
+                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', reference = '{$new_reference}', last_modified = NOW(){$changeImage}, isActivity = '{$is_activity}' WHERE code = " . $this->getWebPageModel()->getCode();
                 parent::query($query);
                 if ($image != null) {
                     unlink(UPLOAD_ROOT . $this->getWebPageModel()->getImage());
@@ -82,6 +82,12 @@ namespace dao{
             } else {
                 throw new WebPageException(self::NOT_UPDATE_WEB_PAGE);
             }
+        }
+
+        public function deleteImage()
+        {
+          $query = "UPDATE WEB_PAGE SET image = NULL, last_modified = NOW() WHERE code = " . $this->getWebPageModel()->getCode();
+          parent::query($query);
         }
 
 
@@ -152,7 +158,7 @@ namespace dao{
         public static function getPage($code)
         {
             if (is_numeric($code)) {
-                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference FROM WEB_PAGE WHERE code = {$code}";
+                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference,isActivity FROM WEB_PAGE WHERE code = {$code}";
 
                 $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
                 $resultSet = $dao->query($query);
@@ -167,7 +173,8 @@ namespace dao{
                         $row['creation_date'],
                         $row['last_modified'],
                         $row['image'],
-                        $row['reference']
+                        $row['reference'],
+                        $row['isActivity']
                     );
                 } else {
                     throw new DatabaseException(self::NOT_FIND_PAGE);
@@ -185,19 +192,46 @@ namespace dao{
         {
             $query = "SELECT WEB_PAGE.code, title, content, image " .
                 "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
-                "WHERE CATEGORY.isActivity = 'y' ORDER BY last_modified DESC LIMIT 3";
+                "WHERE CATEGORY.isActivity = 'y' AND WEB_PAGE.isActivity = 'y' ORDER BY last_modified DESC LIMIT 3";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
 
             $data = array(array());
 
             for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
-              $data[$i][0] = $row['code'];
-              $data[$i][1] = $row['title'];
-              $data[$i][2] = substr($row['content'], 0, 150) . "...";
-              $data[$i][3] = $row['image'];
+                $data[$i][0] = $row['code'];
+                $data[$i][1] = $row['title'];
+                $data[$i][2] = substr($row['content'], 0, 150);
+                $data[$i][3] = $row['image'];
             }
 
+            return $data;
+        }
+
+        /**
+         * Method to return the last 3 publications with a category
+         * @param int $codeCategory only positive numbers and contain the code of category
+         * @return Array code => title
+         */
+        public static function returnLast3byCategory($codeCategory)
+        {
+            $query = "SELECT WEB_PAGE.code, title, content, image, creation_date " .
+                "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
+                "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC LIMIT 3";
+
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+            $resultSet = $dao->query($query);
+
+            $data = array(array());
+
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+
+              $data[$i][0] = $row['code'];
+              $data[$i][1] = $row['title'];
+              $data[$i][2] = substr($row['content'], 0, 150);
+              $data[$i][3] = $row['image'];
+              $data[$i][4] = $row['creation_date'];
+            }
             return $data;
         }
 
@@ -209,7 +243,7 @@ namespace dao{
         {
             $query = "SELECT WEB_PAGE.code, title " .
                 "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
-                "WHERE CATEGORY.isActivity = 'y' ORDER BY last_modified DESC LIMIT 4";
+                "WHERE CATEGORY.isActivity = 'y' AND WEB_PAGE.isActivity = 'y' ORDER BY last_modified DESC LIMIT 4";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
 
@@ -231,7 +265,7 @@ namespace dao{
         {
 
             $query = "SELECT code, title FROM WEB_PAGE " .
-                "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC LIMIT 5";
+                "WHERE code_category = {$codeCategory} AND isActivity = 'y' ORDER BY last_modified DESC LIMIT 5";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
@@ -252,8 +286,7 @@ namespace dao{
          */
         public static function returnByCategory($codeCategory)
         {
-
-            $query = "SELECT code, title,author,creation_date,last_modified,content FROM WEB_PAGE " .
+            $query = "SELECT code, title,author,creation_date,last_modified,content, image,reference, isActivity FROM WEB_PAGE " .
                 "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
@@ -262,7 +295,7 @@ namespace dao{
             $data = array();
 
             for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
-                $data[$i] = new WebPage($row['title'], $row['author'], $codeCategory, $row['content'], $row['code'], $row['creation_date'], $row['last_modified']);
+                $data[$i] = new WebPage($row['title'], $row['author'], $codeCategory, $row['content'], $row['code'], $row['creation_date'], $row['last_modified'], $row['image'], $row['reference'], $row['isActivity']);
             }
 
             return $data;

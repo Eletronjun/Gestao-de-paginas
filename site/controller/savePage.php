@@ -27,7 +27,7 @@ Page::header(Globals::ENTERPRISE_NAME);
 
 //use \exception\DatabaseException as DatabaseException;*/
 
-echo "<h1>Nova Página</h1>";
+echo "<main><h1>Nova Página</h1>";
 
 try {
     date_default_timezone_set("Brazil/East"); //Define TimeZone
@@ -57,6 +57,6 @@ try {
 } catch (Exception $msg) {
     echo "<script>alert({$msg}); history.go(-1);</script>";
 }
-
+echo "</main>";
 Page::footer();
 Page::closeBody();

@@ -8,15 +8,28 @@ html,body {
    padding:0;
    height:100%;
    width:100%;
-   font-family: 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
+   font-family: 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
+
+a,
+a:visited {
+  color: #87c665;
+  text-decoration:none;
+  outline: none;
+  cursor: pointer;
+}
+a:hover,
+a:active {
+  color:#62A040;
+}
+
 figure{
     margin:0;
     padding:0;
 }
 h1, h2, h3, h4, h5, h6{
     color: #111F1E;
-    font-family: 'eightone', 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
+    font-family: 'eightone', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
     text-align: center;
     font-weight: 400;
     text-align: left;
@@ -30,6 +43,15 @@ h2{
     font-size:2rem;
     margin-bottom: 1rem;
 }
+h3{
+  font-size:1.5rem;
+  color:#87c665;
+  font-weight:bold;
+  margin-bottom:0.5rem;
+}
+h4{
+  font-size:1rem;
+}
 hr{
   margin: 1rem auto;
 }
@@ -38,7 +60,7 @@ img{
     height:auto;
 }
 p{
-    font-family: /*'Helvetica',*/'Helvetica neue', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
+    font-family: 'helvetica-light', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
     text-align: justify;
     text-justify: inter-word;
     text-indent: 2rem;
@@ -55,6 +77,46 @@ section{
   margin: auto;
 }
 
+/*Estilizacao Geral de Tabelas*/
+table {
+  width:60rem;
+  border-collapse:collapse;
+  margin-left:1rem;
+}
+tr {
+  font-size: 0.8rem;
+  border: solid 1px;
+}
+tr.title {
+  font-weight:bold;
+  font-size:1rem;
+}
+td{
+  padding:0.8rem;
+  border: solid 1px;
+}
+table p {
+  padding: 0;
+}
+
+ul {
+  list-style:none;
+}
+/*Fim da Estilizacao da Tabelas*/
+
+/*Estilização do Conteúdo*/
+article, main{
+    width: 80%;
+    max-width:1366px;
+    text-align:center;
+    background-color:#fff;
+    display:table;
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 #container{
     width:100%;
     height:100%;
@@ -63,19 +125,47 @@ section{
     position: relative;
 }
 
-
-/*Estilização do Conteúdo*/
-#content, article{
-    width: 70%;
-    max-width:1366px;
-    text-align:center;
-    background-color:#fff;
-    display:table;
-    padding-top: 2rem;
-    padding-bottom: 10rem;
-    padding-left: 15%;
-    padding-right: 15%;
+#page_title {
+  margin-top:4rem;
+  margin-bottom: 2rem;
+  display: table;
+  padding:0;
 }
+
+#page_title h1{
+  margin:0;
+  display:block;
+  float:left;
+}
+
+#page_title img{
+  padding-left: 1.25rem;
+  padding-top: 1.1rem;
+  height: 1.8rem;
+  width: auto;
+  max-width: 131px;
+}
+
+.left {
+  float:left;
+}
+.right {
+  float:right;
+}
+
+.green_font {
+  color:#87c665;
+}
+
+.list {
+  text-align: left;
+}
+
+.list li{
+  list-style-type:disc;
+}
+
+/*
 .index{
     display: table;
     margin-top:8rem;
@@ -172,7 +262,11 @@ section{
     list-style-type: square;
 }
 
-/*Link - classe que configura os links dentro do espaço de conteúdo.*/
+.center{
+    text-align: center;
+}
+
+/*Link - classe que configura os links dentro do espaço de conteúdo.*
 .link{
     text-align: left;
 }
@@ -191,12 +285,12 @@ section{
     margin: 0.4rem;
     float:left;
 }
-/*Estiliação de Texto*/
+/*Estiliação de Texto*
 .custom-title{
     color: #3b4544;
 }
 
-/*Classes para formatação de imagens*/
+/*Classes para formatação de imagens*
 .img-left{
     margin: 1rem;
     width: 40%;
@@ -241,7 +335,7 @@ section{
     font-size:1rem;
 }
 .left{
-    /*float:left;*/
+    /*float:left;*
 }
 .right{
     float:right;
@@ -258,7 +352,7 @@ section{
     position:absolute;
     bottom:0 !important;
 }
-
+*/
 /*Adaptação screen(max-width:1024px)*
 @media only screen and (max-width: 1023px){
 #logo{
@@ -436,29 +530,13 @@ ul{
  src: url('font/eightone.ttf') format('truetype');
 }
 .eightone-font{
- font-family: 'eightone', 'helveticaneue', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
-}
-
-@font-face{
- font-family: 'helvetica';
- src: url('font/helvetica.ttf') format('truetype');
-}
-.helvetica-font{
- font-family: 'helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
-}
-
-@font-face{
- font-family: 'helveticaneue';
- src: url('font/helveticaneue.ttf') format('truetype');
-}
-.neue-font{
- font-family: 'helveticaneue', 'Helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
+ font-family: 'eighton', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
 
 @font-face{
  font-family: 'helvetica-light';
- src: url('font/helvetica-light.ttf') format('truetype');
+ src: url('font/helvetica_light.ttf') format('truetype');
 }
-.neue-font{
- font-family:  'helvetica-light', 'helveticaneue', 'Helvetica', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
+.light-font{
+ font-family:  'helvetica-light', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
 }
