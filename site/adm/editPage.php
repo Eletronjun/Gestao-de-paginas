@@ -24,7 +24,7 @@
       <h1>Edição de Página </h1>
       <form action="<?php echo PROJECT_ROOT;?>controller/updatePage.php" method="POST">
         <fieldset>
-          <?php Forms::updatePageForm($_GET['pages']); ?>
+            <?php Forms::updatePageForm($_GET['pages']); ?>
         </fieldset>
         <input type="hidden" value="<?php echo $_GET['pages']?>" id="page_code">
         <input type="button" value="Excluir Imagem" id="delete_image">

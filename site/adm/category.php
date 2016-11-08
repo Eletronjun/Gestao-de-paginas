@@ -135,7 +135,9 @@ $(document).ready(function(){
     });
 
     $("button").live('click', function(){
-        if(confirm('A operação não poderá ser desfeita.\nTodas as páginas pertencentes a esta categoria também serão removidas.\nTem certeza que deseja remover a categoria ' +
+        if(confirm('A operação não poderá ser desfeita.\n' + 
+            'Todas as páginas pertencentes a esta categoria também serão removidas.\n' +
+            'Tem certeza que deseja remover a categoria ' +
              $(this).val().split("-_-")[1] + 
              '?'))
         {
