@@ -165,6 +165,9 @@ article, main{
   list-style-type:disc;
 }
 
+#img_error img{
+  margin: 5rem;
+}
 /*
 .index{
     display: table;
