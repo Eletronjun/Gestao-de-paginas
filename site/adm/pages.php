@@ -71,7 +71,7 @@ $(document).ready(function(){
 
 
     $('#delete_button').click(function(){
-        if(confirm("tem certeza?") && pageIsSelected()) {
+        if(confirm("Confirmar exclusão?") && pageIsSelected()) {
             $.ajax({
                 url: '../controller/deletePage.php?code=' + $('#select_page').val() +
                     '&title=' + $('#select_page option:selected').text(),
