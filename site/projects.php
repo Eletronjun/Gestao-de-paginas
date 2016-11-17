@@ -32,14 +32,14 @@
 
   <section class="project_banner">
     <figure></figure>
-    <h3>Video-aulas</h3>
+    <h5>Video-aulas</h5>
     <p>O projeto de vídeo-aulas surge como complemento à criação do canal EletronJun, onde serão expostos vídeos didáticos e entrevistas com figuras importantes dentro do curdo de Engenharia Eletrônica da <abbr title="Faculdade do Gama">FGA</abbr> e especialistas em demais áreas de tecnologia e eletrônica.</p>
     <p>Assim, as vídeo-aulas propôem disseminar conhecimento prático e teórico em eletrônica de forma a permitir que leigos na área possam realizar sem dificuldades as atividades propostas e construir um conhecimento sólido sobre eletrônica. Finalmente, as vídeo-aulas servirão como complemento para aulas presenciais ministradas pela EletronJun.</p>
   </section>
 
   <section class="project_banner">
     <figure></figure>
-    <h3>Impressora 3d</h3>
+    <h5>Impressora 3d</h5>
     <p>A EletronJun conta com uma impressora 3D, modelo Mendel Prusa, com ela fornecemos a facilidade de imprimir projetos e adquirir acessórios personalizados tanto a clientes internos e externos a nossa comunidade acadêmica. Atualmente, nossa equipe está trabalhando na manuntenção do nosso equipamento para melhorar nossa qualidade de impressão.</p>
     <p>Em breve, disponibilizaremos um catálogo de peças com acessórios personalizados e um espaço para enviarem seus projetos para levantar o orçamento.</p>
   </section>

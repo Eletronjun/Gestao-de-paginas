@@ -29,7 +29,7 @@
     </figure>
 
     <p>É com muita alegria que a EletronJun anuncia a relação de alunos aprovados no Processo Seletivo de 2016! Agradecemos a participação de todos. Sejam bem-vindos.</p>
-    <h3>Aprovados 2016</h3>
+    <h5>Aprovados 2016</h5>
 
     <ul class="list left" style="font-size:0.9rem;">
       <li>Ana Paula Gomes Matos</li>

@@ -27,12 +27,12 @@ figure{
     margin:0;
     padding:0;
 }
-h1, h2, h3, h4, h5, h6{
-    color: #111F1E;
+h1, h2, h5, h6, h5, h6{
+    /*color: #111F1E;*/
+    color: #000;
     font-family: 'eightone', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
     text-align: center;
     font-weight: 400;
-    text-align: left;
 }
 h1{
     font-size:3.125rem;
@@ -43,13 +43,13 @@ h2{
     font-size:2rem;
     margin-bottom: 1rem;
 }
-h3{
+h5{
   font-size:1.5rem;
   color:#87c665;
   font-weight:bold;
   margin-bottom:0.5rem;
 }
-h4{
+h6{
   font-size:1rem;
 }
 hr{
@@ -227,17 +227,17 @@ article, main{
     float:left;
     margin:0.5rem;
 }
-.banner li p, h3{
+.banner li p, h5{
     padding: 0rem;
     margin: 0rem;
 }
 .banner a{
     text-decoration:none;
 }
-.banner a:hover h3{
+.banner a:hover h5{
     color: #3b4544;
 }
-.banner a:hover h3 span{
+.banner a:hover h5 span{
     color: #88c665;
 }
 .curso{
