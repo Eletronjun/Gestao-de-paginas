@@ -18,9 +18,16 @@ $session = new Session();
 $session->verifyIfSessionIsStarted();
 
 try {
-    $web_page = new WebPage($_GET['title'], "IASMIN", 1, "", $_GET['code']);
 
+    $web_page = WebPageDAO::getPage($_GET['code']);
     $web_page_dao = new WebPageDAO($web_page);
+
+    if($image = $web_page->getImage()) {
+      $image_delete = "/var/www/html/site/res/file/" . $image;
+      trim($image_delete);
+      unlink($image_delete);
+      $web_page_dao->deleteImage();
+    }
 
     $web_page_dao->delete();
 
