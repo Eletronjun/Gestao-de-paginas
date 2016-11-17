@@ -28,10 +28,9 @@ figure{
     padding:0;
 }
 h1, h2, h5, h6, h5, h6{
-    /*color: #111F1E;*/
     color: #000;
     font-family: 'eightone', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
-    text-align: center;
+    text-align: left;
     font-weight: 400;
 }
 h1{
@@ -42,6 +41,14 @@ h1{
 h2{
     font-size:2rem;
     margin-bottom: 1rem;
+}
+h3 {
+  font-size:1.875rem;
+  color: #87C665;
+}
+h4 {
+  font-size:1.5625rem;
+  /*color: #111E14;*/
 }
 h5{
   font-size:1.5rem;
