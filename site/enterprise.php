@@ -89,19 +89,42 @@
     <p>O MEJ tem impacto positivo também na sociedade, através de empresas juniores fornecendo serviços de boa qualidade com preços acessíveis, dos quais toda a arrecadação é utilizada apenas para a manutenção e crescimento da empresa. Compromisso com resultados, transparência e sinergia são alguns dos valores que sustentam o Movimento, capaz de transformar universitários em empreendedores a partir do aprendizado por projetos, por gestão e por cultura empreendedora.</p>
   </section>
 
+  <h3 class="center">Parceiros</h3>
+  <!--The margin-top attributes were calculated individually for each logo-->
   <section class="max_width flex">
-    <h3 class="center max_width">Parceiros</h3>
-    <figure class="left">
-      <img src="res/img/Zenit.png">
-    </figure>
+    <div class="set_flex">
+      <figure class="left" style="margin-top:35.5%;">
+        <img src="res/img/Zenit.png">
+      </figure>
+    </div>
+    <div class="set_flex">
+      <figure>
+        <img src="res/img/Matriz.png">
+      </figure>
+    </div>
+    <div class="set_flex">
+      <figure class="right" style="margin-top:35.5%;">
+        <img src="res/img/Zenit.png">
+      </figure>
+    </div>
+  </section>
 
-    <figure>
-      <img src="res/img/Matriz.png">
-    </figure>
-
-    <figure class="right">
-      <img src="res/img/Zenit.png">
-    </figure>
+  <section class="max_width flex">
+    <div class="set_flex">
+      <figure class="left" style="margin-top:20%;">
+        <img src="res/img/LEI.png">
+      </figure>
+    </div>
+    <div class="set_flex">
+      <figure>
+        <img src="res/img/Matriz.png">
+      </figure>
+    </div>
+    <div class="set_flex">
+      <figure class="right" style="margin-top:28.7%;">
+        <img src="res/img/LabPro.png">
+      </figure>
+    </div>
   </section>
 
 </main>
