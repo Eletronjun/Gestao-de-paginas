@@ -10,13 +10,16 @@
     use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
-    Page::header(Globals::ENTERPRISE_NAME);
-
-    $menu = new CommunityMenu();
-    $menu->construct();
 
 try {
     $page = WebPageDao::getPage($_GET['code']);
+
+    Page::startHeader($page->getTitle());
+    Page::styleSheet("publication");
+    Page::closeHeader();
+
+    $menu = new CommunityMenu();
+    $menu->construct();
 
     if ($page->getIsActivity() == 'y') {
         // Nothing to do

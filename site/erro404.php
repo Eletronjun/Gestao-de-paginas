@@ -6,7 +6,8 @@
     use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader("Página não encontrada");
+    Page::closeHeader();
 
     $menu = new CommunityMenu();
     $menu->construct();

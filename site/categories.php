@@ -1,7 +1,6 @@
 <?php
     require_once __DIR__ . "/class/autoload.php";
 
-    use \utilities\Session as Session;
     use \html\Page as Page;
     use \utilities\Date as Date;
     use \html\CommunityMenu as CommunityMenu;
@@ -10,7 +9,9 @@
     use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader(CategoryDao::findCategory($_GET['code'])->getName());
+    Page::styleSheet("category");
+    Page::closeHeader();
 
     $menu = new CommunityMenu();
     $menu->construct();

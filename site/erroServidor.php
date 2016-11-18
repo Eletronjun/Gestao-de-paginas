@@ -6,7 +6,8 @@
     use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader("Falha no Servidor");
+    Page::closeHeader();
 
     $menu = new CommunityMenu();
     $menu->construct();

@@ -4,7 +4,8 @@
     use \html\Page as Page;
     use \html\CommunityMenu as CommunityMenu;
 
-    Page::header("Processo Seletivo 2016");
+    Page::startHeader("Etron - Mascote Oficial");
+    Page::closeHeader();
 
     $menu = new CommunityMenu();
     $menu->construct();

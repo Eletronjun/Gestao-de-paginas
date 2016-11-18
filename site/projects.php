@@ -1,15 +1,13 @@
 <?php
     require_once __DIR__ . "/class/autoload.php";
 
-    use \utilities\Session as Session;
     use \html\Page as Page;
     use \html\CommunityMenu as CommunityMenu;
-    use \dao\WebPageDao as WebPageDao;
-    use \dao\CategoryDao as CategoryDao;
-    use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader(Globals::ENTERPRISE_NAME);
+    Page::styleSheet("projects");
+    Page::closeHeader();
 
     $menu = new CommunityMenu();
     $menu->construct();

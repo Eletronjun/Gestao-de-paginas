@@ -7,7 +7,9 @@
     use \configuration\Globals as Globals;
     use \utilities\Session as Session;
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader("Editar Página");
+    Page::styleSheet("form");
+    Page::closeHeader();
 
     $session = new Session();
     $session->verifyIfSessionIsStarted();
@@ -18,7 +20,7 @@
 
 <!--Conteúdo da página-->
 <div id="update"></div>
-<<<<<<< HEAD
+
   <main style="text-align: left;">
 
       <h1>Edição de Página </h1>

@@ -9,7 +9,9 @@
     use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader("Eletron Eventos");
+    Page::styleSheet("events");
+    Page::closeHeader();
 
     $menu = new CommunityMenu();
     $menu->construct();

@@ -7,7 +7,9 @@
     use \html\FindCategories as FindCategories;
     use \configuration\Globals as Globals;
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader("Categorias");
+    Page::styleSheet("form");
+    Page::closeHeader();
 
     $session = new Session();
     $session->verifyIfSessionIsStarted();
