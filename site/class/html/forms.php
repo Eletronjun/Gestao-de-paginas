@@ -33,8 +33,7 @@ namespace html{
                     $no = "checked";
                 }
 
-                echo "<label>Id</label><br>";
-                echo "<input type='text' id='code' name ='code' value='{$web_page->getCode()}' readonly='true'><br><br>";
+                echo "<input type='hidden' id='code' name ='code' value='{$web_page->getCode()}'>";
                 echo "<label>Autor</label><br>";
                 echo "<input type='text' id='author' name='author' value='{$web_page->getAuthor()}' required><br><br>";
                 echo "<label>Categoria</label><br>";
