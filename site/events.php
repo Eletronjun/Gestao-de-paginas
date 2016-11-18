@@ -71,7 +71,7 @@
 
     <div style="display:table; width:auto; margin:auto; padding-top:1.25rem;">
       <a href="#eletronday_1" style="margin-right:18.75rem;">
-        <figure><img src="res/img/EletronDay2.png"></figure>
+        <figure><img src="res/img/EletronDay1.png"></figure>
         <h5>1º Eletron<span class="green_font">Day</span></h5>
       </a>
       <a href="#eletronday_2">
