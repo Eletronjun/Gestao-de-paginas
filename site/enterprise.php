@@ -39,7 +39,7 @@
       <div class="left">
         <h4 class="center">
           <img src="res/img/pdf.png" class="icon"><br>
-          <a href="#">Conheça nosso<br>Mascote</a>
+          <a href="etron.php">Conheça nosso<br>Mascote</a>
         </h4>
       </div>
     </div>
