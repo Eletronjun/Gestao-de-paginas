@@ -199,6 +199,7 @@ article, main{
 
 .list li{
   list-style-type:disc;
+  padding: 0.1rem 0;
 }
 
 #img_error img{
