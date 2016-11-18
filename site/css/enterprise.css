@@ -6,7 +6,8 @@
   margin-top:2rem;
 }
 
-#section_logo div{
+#section_logo div,
+.partner div{
   flex:1;
 }
 

@@ -24,7 +24,7 @@
   </div>
 
   <section>
-    <h5 style="text-align:center;">Quem somos?</h5>
+    <h3 style="text-align:center;">Quem somos?</h3>
 
     <p>Com o intuito de aplicar e repassar os conhecimentos adquiridos academicamente ao mercado de trabalho, de gerar uma visão empreendedora em estudantes universitários e suprir as necessidades do campus Gama da Universidade de Brasília, surgiu a ideia da criação de uma empresa júnior capaz de desenvolver projetos em grupo, aplicar cursos preparatórios para os estudantes e para o público em geral e trazer mais conhecimento para os graduandos.</p>
 
@@ -89,38 +89,38 @@
     <p>O MEJ tem impacto positivo também na sociedade, através de empresas juniores fornecendo serviços de boa qualidade com preços acessíveis, dos quais toda a arrecadação é utilizada apenas para a manutenção e crescimento da empresa. Compromisso com resultados, transparência e sinergia são alguns dos valores que sustentam o Movimento, capaz de transformar universitários em empreendedores a partir do aprendizado por projetos, por gestão e por cultura empreendedora.</p>
   </section>
 
-  <h3 class="center">Parceiros</h3>
+  <h3 class="center" style="padding-top:2rem;">Parceiros</h3>
   <!--The margin-top attributes were calculated individually for each logo-->
-  <section class="max_width flex">
-    <div class="set_flex">
+  <section class="max_width flex partner">
+    <div>
       <figure class="left" style="margin-top:35.5%;">
         <img src="res/img/Zenit.png">
       </figure>
     </div>
-    <div class="set_flex">
+    <div>
       <figure>
         <img src="res/img/Matriz.png">
       </figure>
     </div>
-    <div class="set_flex">
+    <div>
       <figure class="right" style="margin-top:35.5%;">
         <img src="res/img/Zenit.png">
       </figure>
     </div>
   </section>
 
-  <section class="max_width flex">
-    <div class="set_flex">
+  <section class="max_width flex partner">
+    <div>
       <figure class="left" style="margin-top:20%;">
         <img src="res/img/LEI.png">
       </figure>
     </div>
-    <div class="set_flex">
+    <div>
       <figure>
         <img src="res/img/Matriz.png">
       </figure>
     </div>
-    <div class="set_flex">
+    <div>
       <figure class="right" style="margin-top:28.7%;">
         <img src="res/img/LabPro.png">
       </figure>
