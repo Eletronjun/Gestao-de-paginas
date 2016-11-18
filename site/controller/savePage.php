@@ -23,7 +23,8 @@ $session->verifyIfSessionIsStarted();
 $menu = new AdministratorMenu();
 $menu->construct();
 
-Page::header(Globals::ENTERPRISE_NAME);
+Page::startHeader(Globals::ENTERPRISE_NAME);
+Page::closeHeader();
 
 //use \exception\DatabaseException as DatabaseException;*/
 
