@@ -116,5 +116,35 @@ namespace model{
         {
             return $this->layout;
         }
+
+        public function validateName($name)
+        {
+            $name = trim($name);
+
+            if ($name != null) {
+                if (strlen($name) <= 100) {
+                    //Nothing do
+                } else {
+                    throw new CategoryException(self::NAME_LARGER);
+                }
+            } else {
+                throw new CategoryException(self::NULL_NAME);
+            }
+        }
+
+        public function validateLayout($layout)
+        {
+            $layout = trim($layout);
+
+            if ($layout != null) {
+                if ($layout == "publication" || $layout == "short_publication" || $layout == "video") {
+                    //Nothing do
+                } else {
+                    throw new CategoryException(self::INVALID_LAYOUT);
+                }
+            } else {
+                throw new CategoryException(self::INVALID_LAYOUT);
+            }
+        }
     }
 }
