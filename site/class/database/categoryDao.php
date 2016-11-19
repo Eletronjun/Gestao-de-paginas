@@ -59,10 +59,10 @@ namespace dao{
          * Method to update data
          * @param String  $new_name
          */
-        public function update($new_name)
+        public function update($new_name, $new_layout)
         {
             if (!is_null($this->getCategoryModel()->getId())) {
-                $query = "UPDATE CATEGORY SET name = '{$new_name}' WHERE code = " . $this->getCategoryModel()->getId();
+                $query = "UPDATE CATEGORY SET name = '{$new_name}', layout = '{$new_layout}' WHERE code = " . $this->getCategoryModel()->getId();
 
                 parent::query($query);
 
@@ -141,7 +141,7 @@ namespace dao{
 
         public static function findCategory($code)
         {
-            $query = "SELECT code, name, isActivity FROM CATEGORY WHERE code = {$code}";
+            $query = "SELECT code, name, isActivity, layout FROM CATEGORY WHERE code = {$code}";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
             $resultSet = $dao->query($query);
@@ -149,7 +149,7 @@ namespace dao{
             $category = null;
 
             if ($row = $resultSet->fetch_assoc()) {
-                $category = new Category($row['name'], $row['code'], $row['isActivity']);
+                $category = new Category($row['name'], $row['code'], $row['isActivity'], $row['layout']);
             } else {
                 throw new DatabaseException(self::NOT_EXISTS_CATEGORY);
             }
