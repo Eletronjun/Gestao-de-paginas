@@ -19,6 +19,8 @@ $session->verifyIfSessionIsStarted();
 
 try {
     $category = new Category($_GET['name'], $_GET['id']);
+    $category->validateName($_GET['new_name']);
+    $category->validateLayout($_GET['new_layout']);
 
     $category_dao = new CategoryDAO($category);
 
