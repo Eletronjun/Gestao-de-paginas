@@ -80,7 +80,7 @@ namespace dao{
          */
         public function register()
         {
-            $query = "INSERT INTO CATEGORY(name) VALUES('{$this->getCategoryModel()->getName()}')";
+            $query = "INSERT INTO CATEGORY(name, layout) VALUES('{$this->getCategoryModel()->getName()}', '{$this->getCategoryModel()->getLayout()}')";
 
             parent::query($query);
 
