@@ -49,8 +49,8 @@
               <label>Layout Padrão:</label><br>
               <select id="layout" name="layout">
                 <option value="publication">Geral</option>
-                <option value="publication">Publicação Curta</option>
-                <option value="publication">Vídeo</option>
+                <option value="short_publication">Publicação Curta</option>
+                <option value="video">Vídeo</option>
               </select>
             </fieldset>
             <input type="button" name="submit" value="Salvar" id="register_button">
@@ -64,16 +64,15 @@
           <fieldset>
             <label>Cadastradas</label><br>
             <select name="categories" id="select_update">
-            <?php FindCategories::getOptions(); ?>
+              <?php FindCategories::getOptions(); ?>
             </select><br>
-            <label>Novo Nome:</label><br>
-            <input type="text" name="category" id="update_category" size="50%" required>
-            <label>Layout Padrão:</label><br>
-            <select id="update_layout" name="update_layout">
-              <option value="publication">Geral</option>
-              <option value="publication">Publicação Curta</option>
-              <option value="publication">Vídeo</option>
-            </select>
+            <fieldset id="update_category">
+              <label>Novo Nome:</label><br>
+              <input type='text' name='category' id='category_name' value='' size='50%' required>
+              <label>Layout Padrão:</label><br>
+              <select id='update_layout' name='update_layout'>
+              </select>
+            </fieldset>
           </fieldset>
           <input type="button" name="submit" value="Salvar" id="update_button">
         </form>
@@ -84,20 +83,35 @@
 ?>
 
 <script type="text/javascript">
+
+function ajaxReload(){
+    $.ajax({
+        url: '../controller/findCategoryData.php?code=' + $('#select_update').val(),
+            success: function(data) {
+            $('#update_category').html(data);
+        }
+    });
+}
+
 $(document).ready(function(){
+
+    $('#select_update').click(function(){
+        ajaxReload();
+    });
 
     $('#update_button').click(function(){
         $.ajax({
             url: '../controller/updateCategory.php?id=' + $('#select_update').val() +
                 '&name=' + $('#select_update option:selected').text() +
-                '&new_name=' + $('#update_category').val(),
+                '&new_name=' + $('#category_name').val() +
+                '&new_layout=' + $('#update_layout').val(),
             success: function(data) {
                 alert(data);
                 $.ajax({
                     url: '../controller/findCategory.php',
                     success: function(data){
                         $('#select_update').html(data);
-                        $('#update_category').val("");
+                        $('#category_name').val("");
                     }
                 });
                 $.ajax({
