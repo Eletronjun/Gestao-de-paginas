@@ -18,7 +18,7 @@ $session = new Session();
 $session->verifyIfSessionIsStarted();
 
 try {
-    $category = new Category($_GET['name']);
+    $category = new Category($_GET['name'], null, 'y', $_GET['layout']);
 
     $category_dao = new CategoryDAO($category);
     $category_dao->register();
