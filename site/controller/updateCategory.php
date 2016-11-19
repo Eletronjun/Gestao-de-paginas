@@ -22,8 +22,8 @@ try {
 
     $category_dao = new CategoryDAO($category);
 
-    $category_dao->update($_GET['new_name']);
-    
+    $category_dao->update($_GET['new_name'], $_GET['new_layout']);
+
     echo "Atualizado com sucesso!";
 } catch (Exception $msg) {
     echo $msg;
