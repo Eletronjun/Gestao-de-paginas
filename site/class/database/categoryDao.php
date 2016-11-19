@@ -38,7 +38,7 @@ namespace dao{
 
         public static function getCategories()
         {
-            $query = "SELECT code, name, isActivity FROM CATEGORY";
+            $query = "SELECT code, name, isActivity, layout FROM CATEGORY";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
             $resultSet = $dao->query($query);
@@ -49,6 +49,7 @@ namespace dao{
                 $data[$i][0] = $row['code'];
                 $data[$i][1] = $row['name'];
                 $data[$i][2] = $row['isActivity'];
+                $data[$i][3] = $row['layout'];
             }
 
             return $data;
