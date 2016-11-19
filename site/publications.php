@@ -38,7 +38,7 @@ try {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-      <article class="publication">
+      <main class="publication">
 
         <div id="page_title">
           <h1><?php echo $category->getName(); ?></h1>
@@ -56,20 +56,22 @@ try {
           Última atualização em <?php echo Date::formatDate($page->getLastModified()); ?>
         </header>
 
-        <?php echo $page->getContent(); ?>
-        <br>
+        <article>
+          <?php echo $page->getContent(); ?>
+        </article>
+
         <address>
           <b>Fontes de Referência</b><br>
             <?php echo $page->getReferences(); ?>
         </address>
         <br>
-
+        
         <div class="fb-like" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>"
         data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         <br>
         <div class="fb-comments" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>"
          data-numposts="10"></div>
-      </article>
+      </main>
 
 <?php
 } catch (Exception $msg) {
