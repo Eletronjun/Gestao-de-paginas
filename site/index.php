@@ -28,7 +28,7 @@
         <div id="first">
           <ul>
             <?php if(count($last_publications) > 0){ ?>
-            <a href="publications.php?code=<?php echo $last_publications[0][0]?>">
+            <a href="controller/generatePublication.php?code=<?php echo $last_publications[0][0]?>">
               <li>
                 <?php
                   if(strlen($last_publications[0][1]) <= 24)
@@ -52,7 +52,7 @@
         <?php if(count($last_publications) == 3){ ?>
         <ul>
 
-          <a href="publications.php?code=<?php echo $last_publications[1][0]?>">
+          <a href="controller/generatePublication.php?code=<?php echo $last_publications[1][0]?>">
             <li>
               <?php
                 if(strlen($last_publications[1][1]) <= 24)
@@ -74,7 +74,7 @@
         </ul>
 
         <ul>
-          <a href="publications.php?code=<?php echo $last_publications[2][0]?>">
+          <a href="controller/generatePublication.php?code=<?php echo $last_publications[2][0]?>">
             <li>
               <?php
               if(strlen($last_publications[2][1]) <= 24)
@@ -107,7 +107,7 @@
           echo "<section>";
           echo "<h2>{$name}</h2>";
           foreach ($data as $list) {
-              echo "<a href=\"publications.php?code={$list[0]}\">
+              echo "<a href=\"controller/generatePublication.php?code={$list[0]}\">
                       <div><img src=\"res/file/{$list[3]}\" alt=\"\"></div>
                       <p class=\"title\">{$list[1]}</p><br>";
 
