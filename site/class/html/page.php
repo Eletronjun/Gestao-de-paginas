@@ -68,23 +68,27 @@ namespace html{
          */
         public static function footer()
         {
-            echo "<div class=\"footer\">";
-            echo "  <address class=\"right\">";
-            echo "      <h6>Encontre a EletronJun</h6>";
-            echo "      <a href=\"https://www.youtube.com/channel/UCMyP5qIbM_UXFHJjvwhc_Ow\"><img ";
-            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Youtube.png\" alt=\"YouTube\"
-                            title=\"EletronTube\"></a>";
-            echo "      <a href=\"https://www.instagram.com/eletronjun\"><img ";
-            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Instagram.png\" alt=\"Instagram\"
-                            title=\"Instagram\"></a>";
-            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
-            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Facebook.png\" alt=\"face\"
-                            title=\"EletronFace\"></a>";
-            echo "      <a href=\"mailto:eletronjun@gmail.com\"><img ";
+            echo "<div class=\"footer flex\">";
+            echo "  <section>";
+            echo "  <h6>Encontre a EletronJun</h6>";
+            echo "  <address class=\"right set_flex\">";
+            echo "      <div class=\"flex right\" id=\"contacts\">";
+            echo "      <a href=\"mailto:eletronjun@gmail.com\" class=\"set_flex\"><img ";
             echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Email.png\" alt=\"Email\"
                             title=\"eletronjun@gmail.com\"></a>";
+            echo "      <a href=\"https://www.facebook.com/eletronjun\" class=\"set_flex\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Facebook.png\" alt=\"face\"
+                            title=\"EletronFace\"></a>";
+            echo "      <a href=\"https://www.instagram.com/eletronjun\" class=\"set_flex\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Instagram.png\" alt=\"Instagram\"
+                            title=\"Instagram\"></a>";
+            echo "      <a href=\"https://www.youtube.com/channel/UCMyP5qIbM_UXFHJjvwhc_Ow\" class=\"set_flex\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Youtube.png\" alt=\"YouTube\"
+                            title=\"EletronTube\"></a>";
+            echo "      </div>";
             echo "  </address>";
-            echo "<div class=\"authorship\">";
+            echo "  </section>";
+            echo "<div class=\"authorship set_flex\">";
             echo "    EletronJun - Engenharia Eletrônica Júnior<br>";
             echo "      @2016 Todos os direitos reservados<br>";
             echo "</div>";
