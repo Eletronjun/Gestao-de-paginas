@@ -86,8 +86,8 @@ namespace dao{
 
         public function deleteImage()
         {
-          $query = "UPDATE WEB_PAGE SET image = NULL, last_modified = NOW() WHERE code = " . $this->getWebPageModel()->getCode();
-          parent::query($query);
+            $query = "UPDATE WEB_PAGE SET image = NULL, last_modified = NOW() WHERE code = " . $this->getWebPageModel()->getCode();
+            parent::query($query);
         }
 
 
@@ -225,12 +225,11 @@ namespace dao{
             $data = array(array());
 
             for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
-
-              $data[$i][0] = $row['code'];
-              $data[$i][1] = $row['title'];
-              $data[$i][2] = substr($row['content'], 0, 150);
-              $data[$i][3] = $row['image'];
-              $data[$i][4] = $row['creation_date'];
+                $data[$i][0] = $row['code'];
+                $data[$i][1] = $row['title'];
+                $data[$i][2] = substr($row['content'], 0, 150);
+                $data[$i][3] = $row['image'];
+                $data[$i][4] = $row['creation_date'];
             }
             return $data;
         }

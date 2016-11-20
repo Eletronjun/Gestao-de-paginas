@@ -24,7 +24,6 @@
   <section id="main_project">
     <figure><img src="res/img/Projetos.jpg"></figure>
     <p>A EletronJun procura sempre se envolver em projetos de engenharia, que possibilitem aos membros não somente adiquirir conhecimento, mas também se preparar para o mercado de trabalho, colocando na prática o que é aprendido em um curso de engenharia.</p>
-
     <p>Conheça um pouco mais dos nossos projetos abaixo.</p>
   </section>
 

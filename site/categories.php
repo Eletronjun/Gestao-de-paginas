@@ -28,7 +28,7 @@ try {
     <?php
 
     $data = WebPageDao::returnLast3byCategory($_GET['code']);
-    if(!$data[0]){
+    if (!$data[0]) {
       // Nothing do
     }
     else{
@@ -39,12 +39,13 @@ try {
                   <p class=\"title\">{$list[1]}</p><p class=\"date\">";
                   echo Date::formatDate($list[4]) . "</p>";
 
-                if(strlen($list[2]))
-                  echo  "{$list[2]}...</p>";
+            if (strlen($list[2])) {
+                echo  "{$list[2]}...</p>";
+            }
 
                 echo "</a>";
-      }
-      echo "</section>";
+        }
+        echo "</section>";
     }
 
 ?>
@@ -75,7 +76,6 @@ try {
 
 <?php
 } catch (Exception $msg) {
-
     echo "<main><h1>Página não encontrada</h1>";
     echo "<p>Desculpe-nos, mas essa publicação não existe ou foi retirada do ar.</p></main>";
 }

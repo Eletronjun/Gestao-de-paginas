@@ -69,7 +69,13 @@
 
   <section id="eletronday">
     <h2>EletronDay</h2>
-    <p>Com o intuito de divulgar e tornar mais próximos os graduandos do mercado de trabalho, a EletronJun se dedica a organização do EletronDay, buscando a cada ano apresentar um dos diversos ramos que a Engenharia Eletrônica oferece para atuação. O evento conta com a contribuição de excelentes profissionais, dispostos a um papo reto sobre as vantagens e dificuldades de seguir a carreira. Além de instrução educacional a respeito de conhecimentos importantes de se ter no currículo profissional de quem pretende atuar na área. São oferecidos workshops voltados a introdução e aprimoramento das técinicas e ferramentas necessárias a cada ramo, paletras e uma excelente Mesa Redonda. Confira abaixo temas e fotos dos eventos passados.</p>
+    <p>Com o intuito de divulgar e tornar mais próximos os graduandos do mercado de trabalho, a EletronJun se
+    dedica a organização do EletronDay, buscando a cada ano apresentar um dos diversos ramos que a Engenharia
+    Eletrônica oferece para atuação. O evento conta com a contribuição de excelentes profissionais, dispostos
+    a um papo reto sobre as vantagens e dificuldades de seguir a carreira. Além de instrução educacional a
+    respeito de conhecimentos importantes de se ter no currículo profissional de quem pretende atuar na área.
+    São oferecidos workshops voltados a introdução e aprimoramento das técinicas e ferramentas necessárias a
+    cada ramo, paletras e uma excelente Mesa Redonda. Confira abaixo temas e fotos dos eventos passados.</p>
 
     <div style="display:table; width:auto; margin:auto; padding-top:1.25rem;">
       <a href="#eletronday_1" style="margin-right:18.75rem;">

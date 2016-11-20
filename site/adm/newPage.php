@@ -33,7 +33,8 @@
           <label>Imagem</label>
           <input type="file" name="imageFile">
           <label>Referências</label><br>
-          <textarea rows="4" cols="80" id="reference" maxlenght="300" name="reference" required="true"></textarea><br><br>
+          <textarea rows="4" cols="80" id="reference" maxlenght="300" name="reference" required="true">
+            </textarea><br><br>
           <label>Autor</label><br>
           <input type="text" id="author" name="author" required><br><br>
         </fieldset>
