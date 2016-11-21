@@ -105,8 +105,8 @@
       </figure>
     </div>
     <div>
-      <figure class="right" style="margin-top:35.5%;">
-        <img src="res/img/Zenit.png">
+      <figure class="right" style="margin-top:22.7%;">
+        <img src="res/img/orc_estra.png">
       </figure>
     </div>
   </section>
