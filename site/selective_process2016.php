@@ -17,7 +17,7 @@
 
 <main>
 
-  <div class="border" style="max-width:700px;width:43.75rem;">
+  <div  id="page_title">
     <h1>Processo Seletivo 2016</h1>
     <img src="res/img/Circuito.png"><br>
   </div>
