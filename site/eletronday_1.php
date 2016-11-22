@@ -31,9 +31,9 @@ try {
       <section>
         <figure class="left"><img src="res/img/EletronDay1.png"></figure>
         <h2>Engenharia Eletrônica</h2>
-        <p><b>SUBUSTITUIR ESSE TEXTO !!!</b> O 2º EletronDay veio com tudo, trazendo como tema principal para a vida dos graduandos Engenharia e Biomédica. Contando com um excelente repertório de palestras sobre os diversos ramos desta área, as oportunidades do meio acadêmico e a experiência de quem vivencia esse mercado de trabalho. Além de Workshops de Phyton e Machine Learning, modalidades essenciais para quem pretende atuar na área. Fechando o seu ponto alto em uma maravilhosa Mesa Redonda com quem realmente entende do assunto.</p>
-        <p>A EletronJun agradece em especial a todo o corpo de formidáveis profisionais que se dispuseram a nos prestigiar com seus conhecimentos durante o evento.</p>
-        <p>A todos aqueles que participaram, o nosso Muito Obrigado.</p>
+        <p>A EletronJun tem o orgulho de anunciar o EletronDay. EletronDay é um evento feito para a comunidade acadêmica e possui como intuito evidenciar características inerentes ao curso de Engenharia Eletrônica. O evento é GRATUITO, pois a Eletronjun irá bancar todos os custos. Considerem isso como um presente da Eletronjun para nós alunos.</p>
+        <p>Para animar mais ainda, teremos sorteios de prêmios, como a camisa da Eletronjun e coffee break gratuito para todos os inscritos! Teremos diversas atrações/mini-cursos: Arduíno Básico, MSP 430, Eletrônica Básica, Matlab Express. Teremos também a mesa redonda, em que os alunos já formados em Engenharia Eletrônica e os formandos irão evidenciar o que acharam do curso, suas expectativas para o mercado futuro, entre outros assuntos. Chamamos de mesa redonda, porque não haverá palestra, será um bate papo mesmo em que todos poderão expor suas opiniões.</p>
+        <p>Teremos a presenças dos ilustres professores em workshops: Adson Rocha, Euler Garcia, Andrade Marcelino, Diogo Caetano.</p>
       </section>
 
 
