@@ -64,6 +64,16 @@
           </p>
       </li>
     </span>
+    <span class="left">
+        <li>
+          <figure><img src="res/img/VHDL.png"></figure>
+          <h5>VHDL</h5>
+          <p>Curso voltado a programação VHDL, introduzindo conceitos desde portas combinacionais à ULAs.<br>
+            <a href="#Conteudo">Conteúdo Programático</a><br>
+            <a href="#Inscricoes">Inscrições</a>
+          </p>
+        </li>
+    </span>
     </ul>
   </section>
 
