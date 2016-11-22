@@ -14,6 +14,7 @@ section.category_banner_2{
   padding: 0;
   text-indent: 0;
   font-size:0.8rem;
+  display: block;
 }
 .category_banner_2 .title{
   font-weight:bold;
@@ -39,7 +40,8 @@ section.category_banner_2{
   margin-right:3%;
 }
 #category tr {
-  min-height:3.75;
+  min-height:3.75rem;
+  vertical-align:top;
 }
 
 #category table {
