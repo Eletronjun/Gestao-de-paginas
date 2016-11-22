@@ -17,7 +17,7 @@
 
 <main>
 
-  <div id="page_title">
+  <div class="border" style="max-width:700px;width:43.75rem;">
     <h1>Processo Seletivo 2016</h1>
     <img src="res/img/Circuito.png"><br>
   </div>
@@ -28,8 +28,8 @@
     </figure>
 
     <p>É com muita alegria que a EletronJun anuncia a relação de alunos aprovados no Processo Seletivo de 2016! Agradecemos a participação de todos. Sejam bem-vindos.</p>
-    <h5>Aprovados 2016</h5>
-    
+    <h5 class="center">Aprovados 2016</h5>
+
     <div class="flex">
       <ul class="list set_flex" style="font-size:0.9rem;">
         <li>Ana Paula Gomes Matos</li>
