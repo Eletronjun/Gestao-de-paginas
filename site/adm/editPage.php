@@ -18,7 +18,7 @@
 
 <!--Conteúdo da página-->
 <div id="update"></div>
-<<<<<<< HEAD
+
   <main style="text-align: left;">
 
       <h1>Edição de Página </h1>

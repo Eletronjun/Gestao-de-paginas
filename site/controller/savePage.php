@@ -44,7 +44,8 @@ try {
             null,
             null,
             $new_name,
-            $_POST['reference']
+            $_POST['reference'],
+            $_POST['isActivity']
         );
         $web_page_dao = new WebPageDAO($new_page);
         $web_page_dao->register();

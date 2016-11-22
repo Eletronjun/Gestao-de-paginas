@@ -35,6 +35,15 @@
             </textarea><br><br>
           <label>Autor</label><br>
           <input type="text" id="author" name="author" required><br><br>
+
+
+
+          <div style='width:100%;text-align:center;'>
+            <label class='center'>Oculto?</label><br><br>
+            <input class='center' type='radio' name='isActivity' value='n' checked="">Sim
+            <input class='center' type='radio' name='isActivity' value='y'>Não;
+          </div>
+          <br>
         </fieldset>
         <input type="submit" value="Salvar">
     </form>

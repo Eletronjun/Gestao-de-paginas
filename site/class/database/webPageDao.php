@@ -96,10 +96,11 @@ namespace dao{
          */
         public function register()
         {
-            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`, `content`, `image`, `reference`)
+            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`, `content`, `image`, `reference`, `isActivity`)
             VALUES ('{$this->getWebPageModel()->getTitle()}', '{$this->getWebPageModel()->getAuthor()}',
             {$this->getWebPageModel()->getCategory()}, NOW(),NOW(),'{$this->getWebPageModel()->getContent()}',
-            '{$this->getWebPageModel()->getImage()}', '{$this->getWebPageModel()->getReferences()}')";
+            '{$this->getWebPageModel()->getImage()}', '{$this->getWebPageModel()->getReferences()}',
+            '{$this->getWebPageModel()->getIsActivity()}')";
 
             parent::query($query);
 
@@ -217,8 +218,8 @@ namespace dao{
         {
             $query = "SELECT WEB_PAGE.code, title, content, image, creation_date " .
                 "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
-                "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC LIMIT 3";
-
+                "WHERE CATEGORY.isActivity = 'y' AND WEB_PAGE.isActivity = 'y' AND code_category = {$codeCategory} ORDER BY last_modified DESC LIMIT 3";
+            
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
 
