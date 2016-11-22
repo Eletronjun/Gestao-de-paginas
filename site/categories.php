@@ -42,7 +42,6 @@ try {
             if (strlen($list[2])) {
                 echo  "{$list[2]}...</p>";
             }
-
                 echo "</a>";
         }
         echo "</section>";
@@ -60,13 +59,12 @@ try {
 <?php
     $allPublications = WebPageDao::returnByCategory($_GET['code']);
     for ($i=0; $i < count($allPublications); $i++) {
-
         if ($allPublications[$i]->getIsActivity() == 'y') {
           echo "<tr> <td class=\"col_1\">";
           echo "<a href=\"controller/generatePublication.php?code={$allPublications[$i]->getCode()}\" class=\"clean_link\">".
               "{$allPublications[$i]->getTitle()}</a></td>";
-          echo "<td <td class=\"col_2\">" . substr($allPublications[$i]->getContent(), 0, 200) ."...</p></td>";
-          echo "<td <td class=\"col_3\">" . Date::formatDate($allPublications[$i]->getLastModified()) ."</td></tr>";
+          echo "<td class=\"col_2\">" . substr($allPublications[$i]->getContent(), 0, 200) ."...</p></td>";
+          echo "<td class=\"col_3\">" . Date::formatDate($allPublications[$i]->getLastModified()) ."</td></tr>";
         }
     }
     ?>
