@@ -21,24 +21,29 @@ namespace model{
         private $name; //name of category, not null value
         private $id; //category code, only numbers or null if not exists in database
         private $is_activity; //'y' or 'n' to register if category is visible
+        private $description; //Description of category
 
         /* Exception messengers */
         const NULL_NAME = "Nome não pode ser nulo.";
         const NAME_LARGER = "Nome não pode ter mais que 100 caracteres.";
+        const NULL_DESCRIPTION = "Descrição não pode ser nulo.";
+        const DESCRIPTION_LARGER = "Descrição não pode ter mais que 500 caracteres.";
         const NO_NUMERIC_ID = "Id deve ser um número.";
         const INVALID_ACTIVITY = "A category só pode ser Ativa ou Não Ativa";
 
         /**
          * Method to create a category instance
          *
-         * @param string $name          name of category, not null value
-         * @param int    $id            category code, only numbers or null if not exists in database
-         * @param string $is_activity   'y' or 'n' to register if category is visible, default is 'y'
+         * @param string    $name          name of category, not null value
+         * @param string    $description   description of category
+         * @param int       $id            category code, only numbers or null if not exists in database
+         * @param string    $is_activity   'y' or 'n' to register if category is visible, default is 'y'
          */
-        public function __construct($name, $id = null, $is_activity = "y")
+        public function __construct($name, $description, $id = null, $is_activity = "y")
         {
             $this->setName($name);
             $this->setId($id);
+            $this->setDescription($description);
             $this->setIsActivity($is_activity);
         }
 
@@ -92,6 +97,26 @@ namespace model{
         public function getIsActivity()
         {
             return $this->is_activity;
+        }
+
+        private function setDescription($description)
+        {
+            $description = trim($description);
+
+            if ($description != null) {
+                if (strlen($description) <= 500) {
+                    $this->description = $description;
+                } else {
+                    throw new CategoryException(self::DESCRIPTION_LARGER);
+                }
+            } else {
+                throw new CategoryException(self::NULL_DESCRIPTION);
+            }
+        }
+
+        public function getDescription()
+        {
+            return $this->description;
         }
     }
 }

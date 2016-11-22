@@ -12,15 +12,16 @@ namespace htmlTests{
     {
         public function testCreateValidCategory()
         {
-            $category = new Category("PCBS - ....", 1);
+            $category = new Category("PCBS - ....", "aaaaa", 1);
             assert($category->getName() == "PCBS - ....");
+            assert($category->getDescription() == "aaaaa");
             assert($category->getId() == 1);
             assert($category->getIsActivity() == "y");
         }
 
         public function testCreateValidCategoryWithoutId()
         {
-            new Category("PCBS - ....");
+            new Category("PCBS - ....", "aaaaa");
         }
 
         /**
@@ -28,7 +29,7 @@ namespace htmlTests{
          */
         public function testNameInvalid()
         {
-            new Category("");
+            new Category("", "aaaaa");
         }
 
 
@@ -38,7 +39,7 @@ namespace htmlTests{
         public function testLargeName()
         {
             new Category("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" .
-                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaa");
         }
 
         /**
@@ -46,7 +47,7 @@ namespace htmlTests{
          */
         public function testIdInvalid()
         {
-            new Category("aa", "1a");
+            new Category("aa", "aaaaa", "1a");
         }
     }
 }

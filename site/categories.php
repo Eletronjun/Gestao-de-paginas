@@ -26,6 +26,8 @@ try {
 
     <?php
 
+    echo CategoryDao::findCategory($_GET['code'])->getDescription();
+
     $data = WebPageDao::returnLast3byCategory($_GET['code']);
     if (!$data[0]) {
       // Nothing do
@@ -73,6 +75,7 @@ for ($i=0; $i < count($allPublications); $i++) {
 
 <?php
 } catch (Exception $msg) {
+    echo $msg;
     echo "<main><h1>Página não encontrada</h1>";
     echo "<p>Desculpe-nos, mas essa publicação não existe ou foi retirada do ar.</p></main>";
 }

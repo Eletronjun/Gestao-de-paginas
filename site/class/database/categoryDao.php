@@ -38,7 +38,7 @@ namespace dao{
 
         public static function getCategories()
         {
-            $query = "SELECT code, name, isActivity FROM CATEGORY";
+            $query = "SELECT code, name, isActivity, description FROM CATEGORY";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
             $resultSet = $dao->query($query);
@@ -49,6 +49,7 @@ namespace dao{
                 $data[$i][0] = $row['code'];
                 $data[$i][1] = $row['name'];
                 $data[$i][2] = $row['isActivity'];
+                $data[$i][3] = $row['description'];
             }
 
             return $data;
@@ -79,12 +80,14 @@ namespace dao{
          */
         public function register()
         {
-            $query = "INSERT INTO CATEGORY(name) VALUES('{$this->getCategoryModel()->getName()}')";
+            $query = "INSERT INTO CATEGORY(name,description) VALUES('
+            {$this->getCategoryModel()->getName()}','{$this->getCategoryModel()->getDescription()}')";
 
             parent::query($query);
 
             $category = new Category(
                 $this->getCategoryModel()->getName(),
+                $this->getCategoryModel()->getDescription(),
                 parent::insertId()
             );
 
@@ -145,7 +148,7 @@ namespace dao{
          */
         public static function findCategory($code)
         {
-            $query = "SELECT code, name, isActivity FROM CATEGORY WHERE code = {$code}";
+            $query = "SELECT code, name, description, isActivity FROM CATEGORY WHERE code = {$code}";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
             $resultSet = $dao->query($query);
@@ -153,7 +156,7 @@ namespace dao{
             $category = null;
 
             if ($row = $resultSet->fetch_assoc()) {
-                $category = new Category($row['name'], $row['code'], $row['isActivity']);
+                $category = new Category($row['name'], $row['description'], $row['code'], $row['isActivity']);
             } else {
                 throw new DatabaseException(self::NOT_EXISTS_CATEGORY);
             }

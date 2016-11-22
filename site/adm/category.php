@@ -44,7 +44,7 @@
               <label>Nome:</label><br>
               <input type="text" name="category" id="new_category" size="50%" maxlength="50" required>
               <label>Descrição:</label><br>
-              <textarea name="description" id="description" maxlength="200" rows="5" cols="50"></textarea><br>
+              <textarea name="description" id="new_description" maxlength="200" rows="5" cols="50"></textarea><br>
             </fieldset>
             <input type="button" name="submit" value="Salvar" id="register_button">
         </form>
@@ -57,10 +57,13 @@
           <fieldset>
             <label>Cadastradas</label><br>
             <select name="categories" id="select_update">
+            <option value="-1">Selecione uma categoria</option>
             <?php FindCategories::getOptions(); ?>
             </select><br>
             <label>Novo Nome:</label><br>
             <input type="text" name="category" id="update_category" size="50%" required>
+              <label>Nova Descrição:</label><br>
+              <textarea name="description" id="update_description" maxlength="200" rows="5" cols="50"></textarea><br>
           </fieldset>
           <input type="button" name="submit" value="Salvar" id="update_button">
         </form>
@@ -73,42 +76,58 @@
 <script type="text/javascript">
 $(document).ready(function(){
 
+    $('#select_update').change(function(){
+        if($('#select_update').val() != -1){
+            $('#update_category').val($('#select_update option:selected').text());
+        } else{
+            $('#update_category').val('');
+        }
+    });
+
     $('#update_button').click(function(){
-        $.ajax({
-            url: '../controller/updateCategory.php?id=' + $('#select_update').val() +
-                '&name=' + $('#select_update option:selected').text() +
-                '&new_name=' + $('#update_category').val(),
-            success: function(data) {
-                alert(data);
-                $.ajax({
-                    url: '../controller/findCategory.php',
-                    success: function(data){
-                        $('#select_update').html(data);
-                        $('#update_category').val("");
-                    }
-                });
-                $.ajax({
-                    url: '../controller/findCategory.php?checkbox=yes',
-                    success: function(data){
-                        $('#enableCategory').html(data);
-                        $('#new_category').val("");
-                    }
-                });
-            },
-            beforeSend: function(){
-                $('#update').html("Carregando...");
-            },
-            complete: function(){
-                $('#update').html("");
-            },
-        });
+
+        if($('#select_update').val() != -1){
+            $.ajax({
+                url: '../controller/updateCategory.php?id=' + $('#select_update').val() +
+                    '&name=' + $('#select_update option:selected').text() +
+                    '&new_name=' + $('#update_category').val() + '&description=' + $('#update_description').val(),
+                success: function(data) {
+                    alert(data);
+                    $.ajax({
+                        url: '../controller/findCategory.php',
+                        success: function(data){
+                            $('#select_update').html(data);
+                            $('#update_category').val("");
+                            $('#update_description').val("");
+                        }
+                    });
+                    $.ajax({
+                        url: '../controller/findCategory.php?checkbox=yes',
+                        success: function(data){
+                            $('#enableCategory').html(data);
+                            $('#update_category').val("");
+                        }
+                    });
+                },
+                beforeSend: function(){
+                    $('#update').html("Carregando...");
+                },
+                complete: function(){
+                    $('#update').html("");
+                },
+            });
+        } else {
+            alert("Selecione uma categoria");
+            $('#update_category').val('');
+        }
     });
 
 
 
     $('#register_button').click(function(){
         $.ajax({
-            url: '../controller/registerCategory.php?name=' + $('#new_category').val(),
+            url: '../controller/registerCategory.php?name=' + 
+                $('#new_category').val() + '&description=' + $('#new_description').val(),
             success: function(data) {
                 alert(data);
                 $.ajax({
@@ -122,6 +141,7 @@ $(document).ready(function(){
                     success: function(data){
                         $('#enableCategory').html(data);
                         $('#new_category').val("");
+                        $('#new_description').val("");
                     }
                 });
             },
@@ -134,7 +154,7 @@ $(document).ready(function(){
         });
     });
 
-    $("button").live('click', function(){
+    $(".button_category").live('click', function(){
         if(confirm('A operação não poderá ser desfeita.\n' + 
             'Todas as páginas pertencentes a esta categoria também serão removidas.\n' +
             'Tem certeza que deseja remover a categoria ' +

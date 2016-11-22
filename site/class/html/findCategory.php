@@ -69,7 +69,7 @@ namespace html{
             for ($i=0; $i < count($data); $i++) {
                 echo "<tr>\n";
                 FindCategories::getCheckboxData($data, $i);
-                echo "<td><button type='button' value='{$data[$i][0]}-_-{$data[$i][1]}'>Remover</button></td>";
+                echo "<td><button type='button' value='{$data[$i][0]}-_-{$data[$i][1]}' class='button_category'>Remover</button></td>";
                 echo "</tr>\n";
             }
         }
