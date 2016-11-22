@@ -25,7 +25,7 @@ try {
 
       <div id="page_title">
         <h1>#° Eletron<span class="green_font">Day</span></h1>
-        <img src="res/img/circuito_maior.png">
+        <img src="res/img/Circuito.png">
       </div>
 
       <section>
