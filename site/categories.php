@@ -40,7 +40,7 @@ try {
                   echo Date::formatDate($list[4]) . "</p>";
 
             if (strlen($list[2])) {
-                echo  "{$list[2]}...</p>";
+                echo  substr($list[2], 0, 72) . "...</p>";
             }
                 echo "</a>";
         }
