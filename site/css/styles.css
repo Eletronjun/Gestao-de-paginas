@@ -88,7 +88,7 @@ section{
 table {
   width:60rem;
   border-collapse:collapse;
-  margin-left:1rem;
+  margin:auto;
 }
 tr {
   font-size: 0.8rem;
