@@ -78,7 +78,8 @@ select{
   text-align: center;
   padding: 0.2rem;
   font-size: 1rem;
-  width:15rem;
+  width:auto;
+  max-width:18rem;
 }
 
 .check-table tr,
@@ -87,11 +88,19 @@ select{
 }
 .check-table td, th, input[type=checkbox]{
   margin: 0;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  padding: 0.5rem ;
 }
 
 input[type=radio]{
   vertical-align: -2px;
   width: auto;
   height: auto;
-}87c665
+}
+
+.img_button {
+  padding:0.1rem;
+  border:0;
+  border-radius:0.5rem;
+  margin:0;
+  background-color:transparent;
+}

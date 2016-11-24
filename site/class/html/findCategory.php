@@ -8,7 +8,7 @@
  */
 
 namespace html{
-    
+
     require_once __DIR__ . "/../autoload.php";
 
     use \model\Category as Category;
@@ -29,7 +29,7 @@ namespace html{
             } else {
                 for ($i=0; $i < count($data); $i++) {
                     $selected = "";
-                
+
                     if ($data[$i][0] == $code) {
                         $selected = " selected";
                     } else {
@@ -45,7 +45,7 @@ namespace html{
             echo "<td>{$data[$index][1]}</td>\n";
             echo "<td><input type=\"checkbox\" name=\"categories\" value=\"{$data[$index][0]}-_-{$data[$index][1]}\"";
             if ($data[$index][2] == "y") {
-                echo "checked";
+                echo " checked";
             }
             echo "></td>";
         }
@@ -69,7 +69,7 @@ namespace html{
             for ($i=0; $i < count($data); $i++) {
                 echo "<tr>\n";
                 FindCategories::getCheckboxData($data, $i);
-                echo "<td><button type='button' value='{$data[$i][0]}-_-{$data[$i][1]}'>Remover</button></td>";
+                echo "<td><button type='button' value='{$data[$i][0]}-_-{$data[$i][1]}' class='img_button'><img src=\"../res/img/Lixeira.png\"></button></td>";
                 echo "</tr>\n";
             }
         }
