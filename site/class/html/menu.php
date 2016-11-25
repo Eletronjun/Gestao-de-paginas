@@ -13,12 +13,15 @@ namespace html{
 
     class Menu
     {
-        protected static function startMenu()
+        protected static function startMenu(){
+          echo "<div id=\"header\">";
+          echo "<figure id=\"logo\">";
+          echo "<a href=" . PROJECT_ROOT . "><img src=\"".IMG_PATCH."Menu.png\" alt=\"eletronjun\" /></a>";
+          echo "</figure>";
+        }
+
+        protected static function startMenuOptions()
         {
-            echo "<div id=\"header\">";
-            echo "<figure>";
-            echo "<a href=" . PROJECT_ROOT . "><img src=\"".IMG_PATCH."Menu.png\" alt=\"eletronjun\" /></a>";
-            echo "</figure>";
             echo "<nav class=\"menu\">\n";
         }
 
@@ -48,6 +51,14 @@ namespace html{
             echo "</nav>";
             echo "</div>";
             echo "<br>";
+        }
+
+        protected function wellcomeUser()
+        {
+            echo "<section id=\"wellcomeUser\" class=\"flex\">";
+            echo "<figure><img src=" . IMG_PATCH . "user.png></figure>";
+            echo "<p>Olá, Usuário!<br><span class=\"right\" style=\"font-size:0.9rem\">logout | conta</span></p>";
+            echo "</section>";
         }
     }
 }
