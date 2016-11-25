@@ -23,6 +23,7 @@ namespace html{
         public function __construct()
         {
             parent::startMenu();
+            parent::startMenuOptions();
         }
 
         public function construct()
