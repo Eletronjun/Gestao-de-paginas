@@ -8,7 +8,7 @@
     top:0;
     z-index: 5;
 }
-#header figure{
+#logo{
     height:5rem;
     width: auto;
     float:left;
@@ -78,3 +78,20 @@
 }
 
 .show {display:block;}
+
+#wellcomeUser {
+  float:left;
+  width:13rem;
+  height: 3rem;
+  margin:1rem 0 0 3rem;
+}
+
+#wellcomeUser figure {
+  width:2.1857rem;
+  height:auto;
+  float:left;
+  margin: 0.4rem 0.5rem 0 0;
+}
+#wellcomeUser p {
+  color: #fff;
+}
