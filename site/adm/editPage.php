@@ -8,6 +8,7 @@
     use \utilities\Session as Session;
 
     Page::startHeader("Editar Página");
+    Page::styleSheet("user");
     Page::styleSheet("form");
     Page::closeHeader();
 

@@ -7,6 +7,7 @@
     use \configuration\Globals as Globals;
 
     Page::startHeader("Organograma");
+    Page::styleSheet("user");
     Page::styleSheet("form");
     Page::closeHeader();
 

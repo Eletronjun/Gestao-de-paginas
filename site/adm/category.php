@@ -8,6 +8,7 @@
     use \configuration\Globals as Globals;
 
     Page::startHeader("Categorias");
+    Page::styleSheet("user");
     Page::styleSheet("form");
     Page::closeHeader();
 

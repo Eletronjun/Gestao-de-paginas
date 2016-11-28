@@ -11,6 +11,7 @@
     $session->verifyIfSessionIsStarted();
 
     Page::startHeader("Gerência de Páginas");
+    Page::styleSheet("user");
     Page::styleSheet("form");
     Page::closeHeader();
 
