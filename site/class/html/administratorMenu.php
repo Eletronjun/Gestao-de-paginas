@@ -36,6 +36,7 @@ namespace html{
         public function construct()
         {
             $this->logout();
+            parent::addItem(PROJECT_ROOT . "adm/organization_chart.php", "Organograma");
             if ($_SESSION['code_directorate'] == self::MARKETING) {
                 $this->pageOptions();
             }
