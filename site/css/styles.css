@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6{
 }
 h1 {
     font-size:3.125rem;
-    margin-top:4rem;
+    margin-top:6.25rem;
     margin-bottom: 2rem;
 }
 h2 {
@@ -566,7 +566,7 @@ ul{
  src: url('font/eightone.ttf') format('truetype');
 }
 .eightone-font{
- font-family: 'eighton', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
+ font-family: 'eightone', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
 
 @font-face{
