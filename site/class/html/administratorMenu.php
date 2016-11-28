@@ -35,7 +35,6 @@ namespace html{
 
         public function construct()
         {
-            $this->logout();
             parent::addItem(PROJECT_ROOT . "adm/organization_chart.php", "Organograma");
             if ($_SESSION['code_directorate'] == self::MARKETING) {
                 $this->pageOptions();
@@ -55,18 +54,17 @@ namespace html{
 
         private function logout()
         {
-            self::addItem(
-                PROJECT_ROOT . "controller/destroySession.php\"
-                OnClick=\"return confirm('Tem certeza que deseja sair?');",
-                "Sair"
-            );
+            echo "<a href=\"" . PROJECT_ROOT . "controller/destroySession.php\"
+                OnClick=\"return confirm('Tem certeza que deseja sair?');\" class=\"clean_link\">logout</a>";
         }
 
         protected function wellcomeUser()
         {
             echo "<section id=\"wellcomeUser\" class=\"flex\">";
             echo "<figure><img src=" . IMG_PATCH . "user.png></figure>";
-            echo "<p>Olá, Usuário!<br><span class=\"right\" style=\"font-size:0.9rem\">logout | conta</span></p>";
+            echo "<p>Olá, Usuário!<br><span class=\"right\" style=\"font-size:0.9rem\">";
+            $this->logout();
+            echo " | conta</span></p>";
             echo "</section>";
         }
     }

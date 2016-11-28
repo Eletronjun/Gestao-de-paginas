@@ -11,8 +11,16 @@
   float:left;
   margin: 0.4rem 0.5rem 0 0;
 }
-#wellcomeUser p {
+#wellcomeUser p,
+#wellcomeUser a,
+#wellcomeUser a:focus,
+#wellcomeUser a:visited,
+#wellcomeUser a:active {
   color: #fff;
+}
+
+#wellcomeUser a:hover {
+  color: #3dde1e;
 }
 
 #user_img{
