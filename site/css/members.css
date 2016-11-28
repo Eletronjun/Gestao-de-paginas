@@ -1,0 +1,36 @@
+#organization_chart {
+  margin:auto;
+  width: 57.5rem;
+  display: table;
+}
+
+.president {
+  height: 22.5rem;
+  overflow: hidden;
+}
+
+.director {
+  height: 23.125rem;
+  overflow: hidden;
+}
+
+.acessor {
+  text-align: center;
+  width: 57.5rem;
+  margin:1.875rem auto;
+}
+
+.acessor p {
+  text-align: center;
+}
+
+.acessor strong {
+  color: #000;
+}
+
+#team {
+  width:43.75rem;
+  height:25rem;
+  margin:3.125rem auto;
+  border:solid;
+}
