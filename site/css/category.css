@@ -4,16 +4,18 @@ section.category_banner_2{
 }
 .category_banner_2 figure {
   width:5rem;
-  height: 4rem;
+  height:6rem;
   float:left;
-  padding: 0 0.5rem 0.5rem 0;
+  padding-right:0.5rem;
   overflow:hidden;
 }
+
 .category_banner_2 p {
   margin: 0;
   padding: 0;
   text-indent: 0;
   font-size:0.8rem;
+  display: block;
 }
 .category_banner_2 .title{
   font-weight:bold;
@@ -29,8 +31,7 @@ section.category_banner_2{
 .category_banner_2 a:hover,
 .category_banner_2 a:active,
 .category_banner_2 a:visited{
-/*  color:inherit;
-  text-decoration:none; */
+  color:#000;
   display:table;
   width:30%;
   text-align:left;
@@ -39,7 +40,8 @@ section.category_banner_2{
   margin-right:3%;
 }
 #category tr {
-  min-height:3.75;
+  min-height:3.75rem;
+  vertical-align:top;
 }
 
 #category table {
@@ -47,11 +49,11 @@ section.category_banner_2{
 }
 
 td.col_1 {
-  width:18.75rem;
+  width:14.625rem;
 }
 td.col_2 {
   width:28.75rem;
 }
 td.col_3 {
-  width:12.5rem;
+  width:16.625rem;
 }

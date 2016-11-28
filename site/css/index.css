@@ -11,8 +11,6 @@
   background-color:#111e14;
   margin-left: 0.5rem;
   margin-bottom: 0.5rem;
-  border: solid #111e14 0.1rem;
-  /*border-radius: 1rem;*/
 }
 .last_publications img {
   position:absolute;
@@ -21,15 +19,15 @@
   cursor:pointer;
   width: 100%;
   height: auto;
-  margin: -3rem 0;
+  margin: -7.3rem 0;
   -webkit-transition:bottom .3s ease-in-out;
   -moz-transition:bottom .3s ease-in-out;
   -o-transition:bottom .3s ease-in-out;
   transition:bottom .3s ease-in-out
 }
 .last_publications img.top:hover {
-  bottom:-17rem;
-  padding-top:17rem;
+  bottom:-13rem;
+  padding-top:13rem;
 }
 .last_publications #first ul {
   height: 25rem;
@@ -41,8 +39,8 @@
   margin: 0;
 }
 .last_publications #first img.top:hover {
-  bottom:-7rem;
-  padding-top:7rem;
+  bottom:-8rem;
+  padding-top:8rem;
 }
 .last_publications h2, .last_publications p{
   margin: 0.5rem 0 0 0.5rem;

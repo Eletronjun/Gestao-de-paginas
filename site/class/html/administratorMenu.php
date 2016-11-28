@@ -29,6 +29,8 @@ namespace html{
             $session = new Session();
             $session->verifyIfSessionIsStarted();
             parent::startMenu();
+            parent::wellcomeUser();
+            parent::startMenuOptions();
         }
 
         public function construct()

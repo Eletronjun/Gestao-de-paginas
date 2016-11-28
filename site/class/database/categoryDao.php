@@ -139,6 +139,11 @@ namespace dao{
             return $data;
         }
 
+        /**
+         * Method to find a category using his code
+         * @param   int     $code   only number values
+         * @return  Category        category data
+         */
         public static function findCategory($code)
         {
             $query = "SELECT code, name, isActivity, layout FROM CATEGORY WHERE code = {$code}";
@@ -155,6 +160,13 @@ namespace dao{
             }
 
             return $category;
+        }
+
+        public function remove()
+        {
+            $query = "DELETE FROM CATEGORY WHERE code = {$this->getCategoryModel()->getId()}";
+
+            parent::query($query);
         }
 
         public function setCategoryModel($category_model)

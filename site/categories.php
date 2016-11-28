@@ -28,7 +28,7 @@ try {
     <?php
 
     $data = WebPageDao::returnLast3byCategory($_GET['code']);
-    if(!$data[0]){
+    if (!$data[0]) {
       // Nothing do
     }
     else{
@@ -39,12 +39,12 @@ try {
                   <p class=\"title\">{$list[1]}</p><p class=\"date\">";
                   echo Date::formatDate($list[4]) . "</p>";
 
-                if(strlen($list[2]))
-                  echo  "{$list[2]}...</p>";
-
+            if (strlen($list[2])) {
+                echo  substr($list[2], 0, 72) . "...</p>";
+            }
                 echo "</a>";
-      }
-      echo "</section>";
+        }
+        echo "</section>";
     }
 
 ?>
@@ -59,13 +59,12 @@ try {
 <?php
     $allPublications = WebPageDao::returnByCategory($_GET['code']);
     for ($i=0; $i < count($allPublications); $i++) {
-
         if ($allPublications[$i]->getIsActivity() == 'y') {
           echo "<tr> <td class=\"col_1\">";
           echo "<a href=\"controller/generatePublication.php?code={$allPublications[$i]->getCode()}\" class=\"clean_link\">".
               "{$allPublications[$i]->getTitle()}</a></td>";
-          echo "<td <td class=\"col_2\">" . substr($allPublications[$i]->getContent(), 0, 200) ."...</p></td>";
-          echo "<td <td class=\"col_3\">" . Date::formatDate($allPublications[$i]->getLastModified()) ."</td></tr>";
+          echo "<td class=\"col_2\">" . substr($allPublications[$i]->getContent(), 0, 200) ."...</p></td>";
+          echo "<td class=\"col_3\">" . Date::formatDate($allPublications[$i]->getLastModified()) ."</td></tr>";
         }
     }
     ?>
@@ -75,7 +74,6 @@ try {
 
 <?php
 } catch (Exception $msg) {
-
     echo "<main><h1>Página não encontrada</h1>";
     echo "<p>Desculpe-nos, mas essa publicação não existe ou foi retirada do ar.</p></main>";
 }

@@ -6,7 +6,6 @@
     use \configuration\Globals as Globals;
 
     Page::startHeader("Processo Seletivo 2015");
-    Page::styleSheet("short_publication");
     Page::closeHeader();
 
     $menu = new CommunityMenu();
@@ -17,21 +16,12 @@
 <main>
 
   <div id="page_title">
-    <h1>Processo Seletivo 2015</h1>
+    <h1>Processos Seletivos</h1>
     <img src="res/img/Circuito.png"><br>
   </div>
 
-  <div id="short_content" style="max-width:700px;width:43.75rem">
-
-    <article>
-      <p>É com muita alegria que a EletronJun anuncia a relação de alunos aprovados no Processo Seletivo de 2015! Agradecemos a participação de todos. Sejam bem-vindos.</p>
-    </article>
-
-    <figure>
-        <img src="res/img/processo_seletivo2015.jpg">
-    </figure>
-  </div>
-
+  <a href="selective_process2015.php">2015</a>
+  <a href="selective_process2016.php">2016</a>
 </main>
 <?php
 Page::footer();

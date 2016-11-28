@@ -31,8 +31,9 @@
           <tr>
               <th>Categoria</th>
               <th>Ativa</th>
+              <th>Remover</th>
           </tr>
-                <?php FindCategories::getCheckboxTable(); ?>
+                <?php FindCategories::getCheckboxTableRemoveButton(); ?>
           </table>
         </fieldset>
       </form>
@@ -160,6 +161,26 @@ $(document).ready(function(){
                 $('#register').html("");
             },
         });
+    });
+
+    $("button").live('click', function(){
+        if(confirm('A operação não poderá ser desfeita.\n' +
+            'Todas as páginas pertencentes a esta categoria também serão removidas.\n' +
+            'Tem certeza que deseja remover a categoria ' +
+             $(this).val().split("-_-")[1] +
+             '?'))
+        {
+            $.ajax({
+                url: '../controller/removeCategory.php?name=' + $(this).val().split("-_-")[1]
+                +'&id=' + $(this).val().split("-")[0],
+                beforeSend: function() {
+                    $('#enable').html("Carregando...");
+                },
+                success: function(data) {
+                    $('#enable').html(data);
+                },
+            });
+        }
     });
 
     $("input:checkbox[name='categories']").live('click',function(){

@@ -40,7 +40,6 @@
     <div class="set_flex">
       <div class="left">
         <h4 class="center">
-          <img src="res/img/pdf.png" class="icon"><br>
           <a href="etron.php">Conheça nosso<br>Mascote</a>
         </h4>
       </div>
@@ -49,19 +48,15 @@
     <div class="set_flex">
       <div>
         <h4 class="center">
-          <img src="res/img/pdf.png" class="icon"><br>
           <a href="#">Membros</a>
         </h4>
       </div>
     </div>
 
     <div class="set_flex">
-      <div class="right">
-        <h4 class="center">
-          <img src="res/img/pdf.png" class="icon"><br>
+        <h4 class="center" style="display:block;float:right">
           <a href="#">Manual de<br>Identidade Visual</a>
         </h4>
-      </div>
     </div>
   </section>
 
@@ -105,8 +100,8 @@
       </figure>
     </div>
     <div>
-      <figure class="right" style="margin-top:35.5%;">
-        <img src="res/img/Zenit.png">
+      <figure class="right" style="margin-top:22.7%;">
+        <img src="res/img/orc_estra.png">
       </figure>
     </div>
   </section>

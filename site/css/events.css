@@ -19,21 +19,13 @@
 }
 #courses figure {
   margin-right:1.5rem;
-  padding-top: 0.5rem;
 }
 #courses p {
   text-indent:0;
-  padding:0;
   margin:0;
   display: block;
   float:left;
   width:18.75rem;
-}
-#courses a,
-#courses a:visited {
-  padding-top:0.2rem;
-  font-weight: bold;
-  font-size:0.9rem;
 }
 
 #eletronday a {
@@ -43,7 +35,7 @@
   float:left;
 }
 
-#eletronday a h5 {
+#eletronday a h4 {
   margin:1rem auto;
-  width: 10rem;
+  text-align:center;
 }

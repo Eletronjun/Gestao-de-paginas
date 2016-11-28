@@ -23,14 +23,15 @@ namespace html{
         public function __construct()
         {
             parent::startMenu();
+            parent::startMenuOptions();
         }
 
         public function construct()
         {
-            parent::addItem(PROJECT_ROOT ."/enterprise.php", "A Empresa");
-            parent::addItem(PROJECT_ROOT ."/projects.php", "Projetos");
-            parent::addItem(PROJECT_ROOT ."/events.php", "Eventos");
-            $this->selectiveProcessOptions();
+            parent::addItem(PROJECT_ROOT ."enterprise.php", "A Empresa");
+            parent::addItem(PROJECT_ROOT ."projects.php", "Projetos");
+            parent::addItem(PROJECT_ROOT ."events.php", "Eventos");
+            parent::addItem(PROJECT_ROOT ."selective_process.php", "Processos Seletivos");
             $this->publicationOptions();
             parent::endMenu();
         }
@@ -41,14 +42,6 @@ namespace html{
             foreach (CategoryDao::returnActiveCategories() as $code => $name) {
                 parent::addItem(PROJECT_ROOT . "categories.php?code={$code}", $name);
             }
-            parent::endDropdown();
-        }
-
-        private function selectiveProcessOptions()
-        {
-            parent::startDropdown("Processos Seletivos");
-              parent::addItem(PROJECT_ROOT . "selective_process2015.php", "Processo Seletivo 2015");
-              parent::addItem(PROJECT_ROOT . "selective_process2016.php", "Processo Seletivo 2016");
             parent::endDropdown();
         }
     }

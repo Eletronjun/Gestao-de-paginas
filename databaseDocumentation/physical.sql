@@ -89,7 +89,7 @@ CREATE TABLE WEB_PAGE(
 	image VARCHAR(200) NULL,
 
     PRIMARY KEY web_page_pk (code),
-    FOREIGN KEY web_category_fk (code_category) REFERENCES CATEGORY(code) ON UPDATE RESTRICT ON DELETE RESTRICT
+    FOREIGN KEY web_category_fk (code_category) REFERENCES CATEGORY(code) ON UPDATE CASCADE ON DELETE CASCADE
 
 ) ENGINE=InnoDB CHARSET=utf8;
 

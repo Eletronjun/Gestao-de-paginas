@@ -13,7 +13,7 @@ html,body {
 
 a,
 a:visited {
-  color: #87c665;
+  color: #000;
   text-decoration:none;
   outline: none;
   cursor: pointer;
@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6{
 }
 h1 {
     font-size:3.125rem;
-    margin-top:4rem;
+    margin-top:6.25rem;
     margin-bottom: 2rem;
 }
 h2 {
@@ -49,7 +49,7 @@ h3 {
 }
 h4 {
   font-size:1.5625rem;
-  /*color: #111E14;*/
+  color: #111E14;
 }
 h5{
   font-size:1.5rem;
@@ -71,7 +71,6 @@ p{
     font-family: 'helvetica-light', 'Arial', 'Verdana', 'Trebuchet MS', 'sans-serif';
     text-align: justify;
     text-justify: inter-word;
-    text-indent: 2rem;
     display: block;
     color: #111F1E;
     padding: 0.5rem 0;
@@ -89,11 +88,10 @@ section{
 table {
   width:60rem;
   border-collapse:collapse;
-  margin-left:1rem;
+  margin:auto;
 }
 tr {
   font-size: 0.8rem;
-  border: solid 1px;
 }
 tr.title {
   font-weight:bold;
@@ -101,7 +99,6 @@ tr.title {
 }
 td{
   padding:0.8rem;
-  border: solid 1px;
 }
 table p {
   padding: 0;
@@ -109,6 +106,7 @@ table p {
 
 ul {
   list-style:none;
+  padding-left:0.7rem;
 }
 /*Fim da Estilizacao da Tabelas*/
 
@@ -152,7 +150,7 @@ article {
 
 #page_title img{
   padding-left: 1.25rem;
-  padding-top: 1.1rem;
+  padding-top: 0.7rem;
   height: auto;
   width: 9rem;
   max-width: 131px;
@@ -198,11 +196,6 @@ article {
 
 .list {
   text-align: left;
-}
-
-.list li{
-  list-style-type:disc;
-  padding: 0.1rem 0;
 }
 
 #img_error img{
@@ -573,7 +566,7 @@ ul{
  src: url('font/eightone.ttf') format('truetype');
 }
 .eightone-font{
- font-family: 'eighton', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
+ font-family: 'eightone', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
 }
 
 @font-face{
