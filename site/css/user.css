@@ -1,0 +1,29 @@
+#wellcomeUser {
+  float:left;
+  width:13rem;
+  height: 3rem;
+  margin:1rem 0 0 3rem;
+}
+
+#wellcomeUser figure {
+  width:2.1857rem;
+  height:auto;
+  float:left;
+  margin: 0.4rem 0.5rem 0 0;
+}
+#wellcomeUser p {
+  color: #fff;
+}
+
+#user_img{
+  height:20em;
+  width: 20rem;
+  overflow:hidden;
+  margin:auto;
+  border-radius:10rem;
+  clear: both;
+}
+
+#user_img img {
+  height:20rem;
+}
