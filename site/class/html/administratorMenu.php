@@ -29,7 +29,7 @@ namespace html{
             $session = new Session();
             $session->verifyIfSessionIsStarted();
             parent::startMenu();
-            parent::wellcomeUser();
+            $this->wellcomeUser();
             parent::startMenuOptions();
         }
 
@@ -60,6 +60,14 @@ namespace html{
                 OnClick=\"return confirm('Tem certeza que deseja sair?');",
                 "Sair"
             );
+        }
+
+        protected function wellcomeUser()
+        {
+            echo "<section id=\"wellcomeUser\" class=\"flex\">";
+            echo "<figure><img src=" . IMG_PATCH . "user.png></figure>";
+            echo "<p>Olá, Usuário!<br><span class=\"right\" style=\"font-size:0.9rem\">logout | conta</span></p>";
+            echo "</section>";
         }
     }
 }

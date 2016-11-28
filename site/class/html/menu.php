@@ -52,13 +52,5 @@ namespace html{
             echo "</div>";
             echo "<br>";
         }
-
-        protected function wellcomeUser()
-        {
-            echo "<section id=\"wellcomeUser\" class=\"flex\">";
-            echo "<figure><img src=" . IMG_PATCH . "user.png></figure>";
-            echo "<p>Olá, Usuário!<br><span class=\"right\" style=\"font-size:0.9rem\">logout | conta</span></p>";
-            echo "</section>";
-        }
     }
 }
