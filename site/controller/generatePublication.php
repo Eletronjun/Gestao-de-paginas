@@ -21,14 +21,13 @@ try {
     $page = WebPageDao::getPage($_GET['code']);
     $layout = CategoryDao::findCategory($page->getCategory())->getLayout();
 
-    if($layout == "short_publication") {
-      header("Location: ../short_publication.php?code={$_GET['code']}");
-    } else if($layout == "video") {
-      header("Location: ../video_publication.php?code={$_GET['code']}");
+    if ($layout == "short_publication") {
+        header("Location: ../short_publication.php?code={$_GET['code']}");
+    } elseif ($layout == "video") {
+        header("Location: ../video_publication.php?code={$_GET['code']}");
     } else {
-      header("Location: ../publications.php?code={$_GET['code']}");
+        header("Location: ../publications.php?code={$_GET['code']}");
     }
-
 } catch (Exception $msg) {
     echo $msg;
 }

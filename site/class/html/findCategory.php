@@ -40,18 +40,36 @@ namespace html{
             }
         }
 
+        private static function getCheckboxData($data, $index)
+        {
+            echo "<td>{$data[$index][1]}</td>\n";
+            echo "<td><input type=\"checkbox\" name=\"categories\" value=\"{$data[$index][0]}-_-{$data[$index][1]}\"";
+            if ($data[$index][2] == "y") {
+                echo "checked";
+            }
+            echo "></td>";
+        }
+
         public static function getCheckboxTable()
         {
             $data = CategoryDAO::getCategories();
 
             for ($i=0; $i < count($data); $i++) {
                 echo "<tr>\n";
-                echo "<td>{$data[$i][1]}</td>\n";
-                echo "<td><input type=\"checkbox\" name=\"categories\" value=\"{$data[$i][0]}-_-{$data[$i][1]}\"";
-                if ($data[$i][2] == "y") {
-                    echo "checked";
-                }
-                echo "></td>";
+                FindCategories::getCheckboxData($data, $i);
+                echo "</tr>\n";
+            }
+        }
+
+        public static function getCheckboxTableRemoveButton()
+        {
+
+            $data = CategoryDAO::getCategories();
+
+            for ($i=0; $i < count($data); $i++) {
+                echo "<tr>\n";
+                FindCategories::getCheckboxData($data, $i);
+                echo "<td><button type='button' value='{$data[$i][0]}-_-{$data[$i][1]}' class='button_category'>Remover</button></td>";
                 echo "</tr>\n";
             }
         }

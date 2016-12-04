@@ -27,8 +27,9 @@
       <img src="res/img/processo_seletivo2016.jpg">
     </figure>
 
-    <p>É com muita alegria que a EletronJun anuncia a relação de alunos aprovados no Processo Seletivo de 2016! Agradecemos a participação de todos. Sejam bem-vindos.</p>
-    <h5>Aprovados 2016</h5>
+    <p>É com muita alegria que a EletronJun anuncia a relação de alunos aprovados no Processo Seletivo de 2016! 
+    Agradecemos a participação de todos. Sejam bem-vindos.</p>
+    <h3>Aprovados 2016</h3>
 
     <div class="flex">
       <ul class="list set_flex" style="font-size:0.9rem;">

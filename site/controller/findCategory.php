@@ -16,8 +16,8 @@ $session = new Session();
 $session->verifyIfSessionIsStarted();
 
 if (isset($_GET['checkbox'])) {
-    echo '<tr><th><strong>Categoria</strong></th><th><strong>Está ativo</strong></th></tr>';
-    FindCategories::getCheckboxTable();
+    echo '<tr><th>Categoria</th><th>Está ativo</th><th>Remover?</th></tr>';
+    FindCategories::getCheckboxTableRemoveButton();
 } else {
     if (isset($_GET['code'])) {
         FindCategories::getOptions($_GET['code']);

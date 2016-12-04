@@ -10,7 +10,6 @@
     use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
-
 try {
     $page = WebPageDao::getPage($_GET['code']);
 
@@ -57,7 +56,7 @@ try {
         </header>
 
         <article>
-          <?php echo $page->getContent(); ?>
+            <?php echo $page->getContent(); ?>
         </article>
 
         <address>

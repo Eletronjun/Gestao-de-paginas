@@ -9,7 +9,6 @@
     use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
-
 try {
     $page = WebPageDao::getPage($_GET['code']);
     $layout = CategoryDao::findCategory($page->getCategory())->getLayout();
@@ -53,7 +52,7 @@ try {
         <div id="video"></div>
 
         <article>
-          <?php echo $page->getContent(); ?>
+            <?php echo $page->getContent(); ?>
         </articel>
 
         <br>

@@ -1,3 +1,4 @@
 # config files
 .vagrant/
 site/coverage/
+site/res/file/

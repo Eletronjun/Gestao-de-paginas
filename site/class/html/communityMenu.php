@@ -27,9 +27,9 @@ namespace html{
 
         public function construct()
         {
-            parent::addItem(PROJECT_ROOT ."/enterprise.php", "A Empresa");
-            parent::addItem(PROJECT_ROOT ."/projects.php", "Projetos");
-            parent::addItem(PROJECT_ROOT ."/events.php", "Eventos");
+            parent::addItem(PROJECT_ROOT ."enterprise.php", "A Empresa");
+            parent::addItem(PROJECT_ROOT ."projects.php", "Projetos");
+            parent::addItem(PROJECT_ROOT ."events.php", "Eventos");
             $this->selectiveProcessOptions();
             $this->publicationOptions();
             parent::endMenu();

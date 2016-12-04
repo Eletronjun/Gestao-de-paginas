@@ -38,7 +38,8 @@ namespace dao{
 
         public static function getCategories()
         {
-            $query = "SELECT code, name, isActivity, layout FROM CATEGORY";
+            $query = "SELECT code, name, isActivity, description, layout FROM CATEGORY";
+
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
             $resultSet = $dao->query($query);
@@ -50,6 +51,7 @@ namespace dao{
                 $data[$i][1] = $row['name'];
                 $data[$i][2] = $row['isActivity'];
                 $data[$i][3] = $row['layout'];
+                $data[$i][4] = $row['description'];
             }
 
             return $data;
@@ -80,12 +82,15 @@ namespace dao{
          */
         public function register()
         {
-            $query = "INSERT INTO CATEGORY(name, layout) VALUES('{$this->getCategoryModel()->getName()}', '{$this->getCategoryModel()->getLayout()}')";
+            $query = "INSERT INTO CATEGORY(name,description,layout) VALUES('
+            {$this->getCategoryModel()->getName()}','{$this->getCategoryModel()->getDescription()}', 
+            '{$this->getCategoryModel()->getLayout()}')";
 
             parent::query($query);
 
             $category = new Category(
                 $this->getCategoryModel()->getName(),
+                $this->getCategoryModel()->getDescription(),
                 parent::insertId()
             );
 
@@ -139,9 +144,14 @@ namespace dao{
             return $data;
         }
 
+        /**
+         * Method to find a category using his code
+         * @param   int     $code   only number values
+         * @return  Category        category data
+         */
         public static function findCategory($code)
         {
-            $query = "SELECT code, name, isActivity, layout FROM CATEGORY WHERE code = {$code}";
+            $query = "SELECT code, name, description, isActivity,layout FROM CATEGORY WHERE code = {$code}";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
             $resultSet = $dao->query($query);
@@ -149,12 +159,25 @@ namespace dao{
             $category = null;
 
             if ($row = $resultSet->fetch_assoc()) {
-                $category = new Category($row['name'], $row['code'], $row['isActivity'], $row['layout']);
+                $category = new Category(
+                    $row['name'],
+                    $row['description'],
+                    $row['code'],
+                    $row['isActivity'],
+                    $row['layout']
+                );
             } else {
                 throw new DatabaseException(self::NOT_EXISTS_CATEGORY);
             }
 
             return $category;
+        }
+
+        public function remove()
+        {
+            $query = "DELETE FROM CATEGORY WHERE code = {$this->getCategoryModel()->getId()}";
+
+            parent::query($query);
         }
 
         public function setCategoryModel($category_model)

@@ -69,6 +69,7 @@ CREATE TABLE CATEGORY
 (
 	code INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
+	description VARCHAR(500) NOT NULL,
 	layout ENUM("publication", "short_publication", "video") NOT NULL DEFAULT "publication",
 	isActivity ENUM(  "y",  "n" ) NOT NULL DEFAULT  'y',
 
@@ -89,7 +90,7 @@ CREATE TABLE WEB_PAGE(
 	image VARCHAR(200) NULL,
 
     PRIMARY KEY web_page_pk (code),
-    FOREIGN KEY web_category_fk (code_category) REFERENCES CATEGORY(code) ON UPDATE RESTRICT ON DELETE RESTRICT
+    FOREIGN KEY web_category_fk (code_category) REFERENCES CATEGORY(code) ON UPDATE CASCADE ON DELETE CASCADE
 
 ) ENGINE=InnoDB CHARSET=utf8;
 
