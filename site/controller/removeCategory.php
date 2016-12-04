@@ -18,9 +18,7 @@ $session = new Session();
 $session->verifyIfSessionIsStarted();
 
 try {
-    $category = new Category($_GET['name'], $_GET['id']);
-
-    $category_dao = new CategoryDAO($category);
+    $category_dao = new CategoryDAO(CategoryDAO::findCategory($_GET['id']));
 
     $category_dao->remove();
     

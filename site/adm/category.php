@@ -197,6 +197,18 @@ $(document).ready(function(){
                 },
                 success: function(data) {
                     $('#enable').html(data);
+                        $.ajax({
+                            url: '../controller/findCategory.php',
+                            success: function(data){
+                                $('#select_update').html(data);
+                            }
+                        });
+                            $.ajax({
+                            url: '../controller/findCategory.php?checkbox=yes',
+                            success: function(data){
+                                $('#enableCategory').html(data);
+                            }
+                        });
                 },
             });
         }
