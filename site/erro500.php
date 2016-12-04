@@ -3,9 +3,10 @@
 
     use \html\Page as Page;
     use \html\CommunityMenu as CommunityMenu;
+    use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
-    Page::startHeader("Processo Seletivo 2015");
+    Page::startHeader("Página Inexistente");
     Page::closeHeader();
 
     $menu = new CommunityMenu();
@@ -15,13 +16,13 @@
 
 <main>
 
-  <div id="page_title">
-    <h1>Processo Seletivo 2015</h1>
-    <img src="res/img/Circuito.png"><br>
-  </div>
-
+  <h1></h1>
+  <figure id="img_error">
+    <img src="res/img/erro500.jpg">
+  </figure>
 
 </main>
+
 <?php
 Page::footer();
 Page::closeBody();

@@ -22,7 +22,7 @@ namespace html{
           *@param string $title       title of the page, not null value or empty
           *@param string $description string with the meta tag descritpion
           */
-        public static function header($title, $description = null)
+        public static function startHeader($title)
         {
             if ($title != null && $title != "") {
                 echo "<!DOCTYPE html>\n";
@@ -35,12 +35,13 @@ namespace html{
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/styles.css\" />\n";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/header.css\" />\n";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/footer.css\" />\n";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/form.css\" />\n";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/index.css\" />\n";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/events.css\" />\n";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/publication.css\" />\n";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/category.css\" />\n";
-                echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/projects.css\" />\n";
+            } else {
+                throw new \exception\PageException(self::INVALID_TITLE);
+            }
+        }
+
+        public static function closeHeader($description = null)
+        {
                 echo "  <meta name=\"description\" content=\"{$description}\">\n";
                 echo "  <meta name=\"keywords\" content=\"EletronJun, Gama, UnB, ";
                 echo "  Universidade de Brasília, FGA, eletrônica, desenvolvimento de ";
@@ -49,13 +50,10 @@ namespace html{
                 echo "</head>\n";
                 echo "<body>\n";
                 echo "  <div id=\"container\">\n";
-            } else {
-                throw new \exception\PageException(self::INVALID_TITLE);
-            }
         }
 
         /**
-         * Method to include stylesheets
+         * Method to close main tags of page
          */
         public static function closeBody()
         {
@@ -69,28 +67,37 @@ namespace html{
          */
         public static function footer()
         {
-            echo "<div class=\"footer\">";
-            echo "  <address class=\"right\">";
-            echo "      <h4>Encontre a EletronJun</h4>";
-            echo "      <a href=\"https://www.youtube.com/channel/UCMyP5qIbM_UXFHJjvwhc_Ow\"><img ";
-            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Youtube.png\" alt=\"YouTube\"
-                            title=\"EletronTube\"></a>";
-            echo "      <a href=\"https://www.instagram.com/eletronjun\"><img ";
-            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Instagram.png\" alt=\"Instagram\"
-                            title=\"Instagram\"></a>";
-            echo "      <a href=\"https://www.facebook.com/eletronjun\"><img ";
-            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Facebook.png\" alt=\"face\"
-                            title=\"EletronFace\"></a>";
-            echo "      <a href=\"mailto:eletronjun@gmail.com\"><img ";
+            echo "<div class=\"footer flex\">";
+            echo "  <section>";
+            echo "  <h6>Encontre a EletronJun</h6>";
+            echo "  <address class=\"right set_flex\">";
+            echo "      <div class=\"flex right\" id=\"contacts\">";
+            echo "      <a href=\"mailto:eletronjun@gmail.com\" class=\"set_flex\"><img ";
             echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Email.png\" alt=\"Email\"
                             title=\"eletronjun@gmail.com\"></a>";
+            echo "      <a href=\"https://www.facebook.com/eletronjun\" class=\"set_flex\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Facebook.png\" alt=\"face\"
+                            title=\"EletronFace\"></a>";
+            echo "      <a href=\"https://www.instagram.com/eletronjun\" class=\"set_flex\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Instagram.png\" alt=\"Instagram\"
+                            title=\"Instagram\"></a>";
+            echo "      <a href=\"https://www.youtube.com/channel/UCMyP5qIbM_UXFHJjvwhc_Ow\" class=\"set_flex\"><img ";
+            echo "         class=\"footer-img\" src=\"" . IMG_PATCH . "Youtube.png\" alt=\"YouTube\"
+                            title=\"EletronTube\"></a>";
+            echo "      </div>";
             echo "  </address>";
-            echo "<div class=\"authorship\">";
+            echo "  </section>";
+            echo "<div class=\"authorship set_flex\">";
             echo "    EletronJun - Engenharia Eletrônica Júnior<br>";
             echo "      @2016 Todos os direitos reservados<br>";
             echo "</div>";
             echo "</div>";
             echo "<script type=\"text/javascript\" src=\"http://code.jquery.com/jquery-1.4.3.min.js\"></script>";
+        }
+
+        public static function StyleSheet($file)
+        {
+            echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/{$file}.css\" />\n";
         }
     }
 }

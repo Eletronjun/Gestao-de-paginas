@@ -6,7 +6,8 @@
     use \html\AdministratorMenu as AdministratorMenu;
     use \configuration\Globals as Globals;
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader(Globals::ENTERPRISE_NAME);
+    Page::closeHeader();
 
     $session = new Session();
     $session->verifyIfSessionIsStarted();

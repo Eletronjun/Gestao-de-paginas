@@ -1,7 +1,6 @@
 <?php
     require_once __DIR__ . "/class/autoload.php";
 
-    use \utilities\Session as Session;
     use \utilities\Date as Date;
     use \html\Page as Page;
     use \html\CommunityMenu as CommunityMenu;
@@ -12,9 +11,10 @@
 
 try {
     $page = WebPageDao::getPage($_GET['code']);
+    $layout = CategoryDao::findCategory($page->getCategory())->getLayout();
 
     Page::startHeader($page->getTitle());
-    Page::styleSheet("publication");
+    Page::styleSheet("short_publication");
     Page::closeHeader();
 
     $menu = new CommunityMenu();
@@ -37,34 +37,29 @@ try {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-      <main class="publication">
+      <main>
 
         <div id="page_title">
           <h1><?php echo $category->getName(); ?></h1>
-          <img src="res/img/Circuito.png">
+          <img src="res/img/circuito_maior.png">
         </div>
 
-        <figure>
-            <img src="<?php echo FILE_PATCH . $page->getImage(); ?>" alt="<?php echo $category->getName(); ?>">
-        </figure>
+        <div id="short_content">
+          <header>
+            <h2><?php echo $page->getTitle(); ?></h2>
+            Publicado em <?php echo Date::formatDate($page->getCreationDate()); ?>
+          </header>
 
-        <header>
-          <h2><?php echo $page->getTitle(); ?></h2>
-          Publicado em <?php echo Date::formatDate($page->getCreationDate()); ?>
-          por <?php echo $page->getAuthor(); ?><br>
-          Última atualização em <?php echo Date::formatDate($page->getLastModified()); ?>
-        </header>
-
-        <article>
+          <article>
             <?php echo $page->getContent(); ?>
-        </article>
+          </article>
 
-        <address>
-          <b>Fontes de Referência</b><br>
-            <?php echo $page->getReferences(); ?>
-        </address>
+          <figure>
+              <img src="<?php echo FILE_PATCH . $page->getImage(); ?>" alt="<?php echo $category->getName(); ?>">
+          </figure>
+        </div>
+
         <br>
-        
         <div class="fb-like" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>"
         data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         <br>

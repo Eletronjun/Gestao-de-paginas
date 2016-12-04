@@ -23,9 +23,11 @@ $session->verifyIfSessionIsStarted();
 $menu = new AdministratorMenu();
 $menu->construct();
 
-Page::header(Globals::ENTERPRISE_NAME);
+Page::startHeader(Globals::ENTERPRISE_NAME);
+Page::closeHeader();
 
-echo "<h1>Atualização de Página</h1>";
+echo "<main>";
+echo "  <h1>Atualização de Página</h1>";
 
 try {
     $web_page = WebPageDAO::getPage($_POST['code']);
@@ -52,5 +54,6 @@ try {
     echo $msg;
 }
 
+echo "</main>";
 Page::footer();
 Page::closeBody();

@@ -1,0 +1,16 @@
+#enterprise h4 a {
+  color: #111E14;
+}
+
+#enterprise section {
+  margin-top:2rem;
+}
+
+#section_logo div,
+.partner div{
+  flex:1;
+}
+
+#section_logo figure {
+  margin: 0 3rem;
+}

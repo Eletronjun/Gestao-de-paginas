@@ -16,12 +16,13 @@ namespace model{
 
     class Category
     {
-        
+
         /* Class attributes */
         private $name; //name of category, not null value
         private $id; //category code, only numbers or null if not exists in database
         private $is_activity; //'y' or 'n' to register if category is visible
         private $description; //Description of category
+        private $layout; //"publication", "short_publication" or "video" to define default layout
 
         /* Exception messengers */
         const NULL_NAME = "Nome não pode ser nulo.";
@@ -29,7 +30,8 @@ namespace model{
         const NULL_DESCRIPTION = "Descrição não pode ser nulo.";
         const DESCRIPTION_LARGER = "Descrição não pode ter mais que 500 caracteres.";
         const NO_NUMERIC_ID = "Id deve ser um número.";
-        const INVALID_ACTIVITY = "A category só pode ser Ativa ou Não Ativa";
+        const INVALID_ACTIVITY = "A categoria só pode ser Ativa ou Não Ativa";
+        const INVALID_LAYOUT = "Layout padrão inválido para a categoria";
 
         /**
          * Method to create a category instance
@@ -39,12 +41,15 @@ namespace model{
          * @param int       $id            category code, only numbers or null if not exists in database
          * @param string    $is_activity   'y' or 'n' to register if category is visible, default is 'y'
          */
-        public function __construct($name, $description, $id = null, $is_activity = "y")
+
+
+        public function __construct($name, $description, $id = null, $is_activity = "y", $layout = "publication")
         {
             $this->setName($name);
             $this->setId($id);
             $this->setDescription($description);
             $this->setIsActivity($is_activity);
+            $this->setLayout($layout);
         }
 
         private function setName($name)
@@ -117,6 +122,56 @@ namespace model{
         public function getDescription()
         {
             return $this->description;
+        }
+
+        private function setLayout($layout)
+        {
+            $layout = trim($layout);
+
+            if ($layout != null) {
+                if ($layout == "publication" || $layout == "short_publication" || $layout == "video") {
+                    $this->layout = $layout;
+                } else {
+                    throw new CategoryException(self::INVALID_LAYOUT);
+                }
+            } else {
+                throw new CategoryException(self::INVALID_LAYOUT);
+            }
+        }
+
+        public function getLayout()
+        {
+            return $this->layout;
+        }
+
+        public function validateName($name)
+        {
+            $name = trim($name);
+
+            if ($name != null) {
+                if (strlen($name) <= 100) {
+                    //Nothing do
+                } else {
+                    throw new CategoryException(self::NAME_LARGER);
+                }
+            } else {
+                throw new CategoryException(self::NULL_NAME);
+            }
+        }
+
+        public function validateLayout($layout)
+        {
+            $layout = trim($layout);
+
+            if ($layout != null) {
+                if ($layout == "publication" || $layout == "short_publication" || $layout == "video") {
+                    //Nothing do
+                } else {
+                    throw new CategoryException(self::INVALID_LAYOUT);
+                }
+            } else {
+                throw new CategoryException(self::INVALID_LAYOUT);
+            }
         }
     }
 }

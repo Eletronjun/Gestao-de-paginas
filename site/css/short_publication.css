@@ -1,0 +1,39 @@
+#video {
+  width:53.375rem;
+  height:26.25rem;
+  margin: 3.75rem auto;
+  border:solid;
+}
+
+header {
+  margin-bottom: 1.25rem;
+  font-size: 0.8rem;
+  color: #3D3D3D;
+  text-align:left;
+}
+
+header h2{
+  font-family: 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
+  font-size: 1.875rem;
+  margin-bottom: 0;
+}
+
+article {
+  max-width:41.625rem;
+  margin: 3rem auto;
+}
+
+#page_title img {
+  margin-top: -0.3rem;
+}
+
+#short_content {
+  max-width: 500px;
+  width: 31.25rem;
+  margin:auto;
+}
+
+p {
+  text-indent:0;
+  text-align:center;
+}

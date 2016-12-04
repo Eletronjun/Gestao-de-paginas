@@ -217,7 +217,7 @@ namespace dao{
         {
             $query = "SELECT WEB_PAGE.code, title, content, image, creation_date " .
                 "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
-                "WHERE code_category = {$codeCategory} ORDER BY last_modified DESC LIMIT 3";
+                "WHERE code_category = {$codeCategory}  AND WEB_PAGE.isActivity = 'y' ORDER BY last_modified DESC LIMIT 3";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);

@@ -7,7 +7,9 @@
     use \html\AdministratorMenu as AdministratorMenu;
     use \configuration\Globals as Globals;
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader("Nova Página");
+    Page::styleSheet("form");
+    Page::closeHeader();
 
     $session = new Session();
     $session->verifyIfSessionIsStarted();

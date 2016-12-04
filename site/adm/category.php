@@ -7,7 +7,9 @@
     use \html\FindCategories as FindCategories;
     use \configuration\Globals as Globals;
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader("Categorias");
+    Page::styleSheet("form");
+    Page::closeHeader();
 
     $session = new Session();
     $session->verifyIfSessionIsStarted();
@@ -45,6 +47,12 @@
               <input type="text" name="category" id="new_category" size="50%" maxlength="50" required>
               <label>Descrição:</label><br>
               <textarea name="description" id="new_description" maxlength="200" rows="5" cols="50"></textarea><br>
+              <label>Layout Padrão:</label><br>
+              <select id="layout" name="layout">
+                <option value="publication">Geral</option>
+                <option value="short_publication">Publicação Curta</option>
+                <option value="video">Vídeo</option>
+              </select>
             </fieldset>
             <input type="button" name="submit" value="Salvar" id="register_button">
         </form>
@@ -60,10 +68,17 @@
             <option value="-1">Selecione uma categoria</option>
             <?php FindCategories::getOptions(); ?>
             </select><br>
-            <label>Novo Nome:</label><br>
-            <input type="text" name="category" id="update_category" size="50%" required>
+            <fieldset id="update_category">
+              <label>Novo Nome:</label><br>
+              <input type='text' name='category' id='category_name' value='' size='50%' required>
               <label>Nova Descrição:</label><br>
               <textarea name="description" id="update_description" maxlength="200" rows="5" cols="50"></textarea><br>
+              
+              
+              <label>Layout Padrão:</label><br>
+              <select id='update_layout' name='update_layout'>
+              </select>
+            </fieldset>
           </fieldset>
           <input type="button" name="submit" value="Salvar" id="update_button">
         </form>
@@ -74,6 +89,16 @@
 ?>
 
 <script type="text/javascript">
+
+function ajaxReload(){
+    $.ajax({
+        url: '../controller/findCategoryData.php?code=' + $('#select_update').val(),
+            success: function(data) {
+            $('#update_category').html(data);
+        }
+    });
+}
+
 $(document).ready(function(){
 
     $('#select_update').change(function(){
@@ -90,14 +115,15 @@ $(document).ready(function(){
             $.ajax({
                 url: '../controller/updateCategory.php?id=' + $('#select_update').val() +
                     '&name=' + $('#select_update option:selected').text() +
-                    '&new_name=' + $('#update_category').val() + '&description=' + $('#update_description').val(),
+                    '&new_name=' + $('#category_name').val() +
+                    '&new_layout=' + $('#update_layout').val() + '&description=' + $('#update_description').val(),
                 success: function(data) {
                     alert(data);
                     $.ajax({
                         url: '../controller/findCategory.php',
                         success: function(data){
                             $('#select_update').html(data);
-                            $('#update_category').val("");
+                            $('#category_name').val("");
                             $('#update_description').val("");
                         }
                     });
@@ -105,7 +131,7 @@ $(document).ready(function(){
                         url: '../controller/findCategory.php?checkbox=yes',
                         success: function(data){
                             $('#enableCategory').html(data);
-                            $('#update_category').val("");
+                            $('#new_category').val("");
                         }
                     });
                 },
@@ -120,14 +146,16 @@ $(document).ready(function(){
             alert("Selecione uma categoria");
             $('#update_category').val('');
         }
+
     });
-
-
+    $('#select_update').click(function(){
+        ajaxReload();
+    });
 
     $('#register_button').click(function(){
         $.ajax({
-            url: '../controller/registerCategory.php?name=' + 
-                $('#new_category').val() + '&description=' + $('#new_description').val(),
+            url: '../controller/registerCategory.php?name=' + $('#new_category').val() +
+                    '&layout=' + $('#layout').val() + '&description=' + $('#new_description').val(),
             success: function(data) {
                 alert(data);
                 $.ajax({

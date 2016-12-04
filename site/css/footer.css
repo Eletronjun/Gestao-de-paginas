@@ -1,17 +1,23 @@
 .footer{
-    width:94%;
-    min-height:3rem;
+    width:95.4%;
+    height:3.75rem;
+    background-color:#111e14;
     position: absolute;
     bottom:0;
     display:table;
-    background-color:#111e14;
-    margin-top:1.5rem;
+    padding: 1rem 1.875rem 0 1.875rem;
+    /*margin-top:1.5rem;
     padding-top:2%;
     padding-bottom:2%;
     padding-left:3%;
-    padding-right:3%;
+    padding-right:3%;*/
     font-size:0.8rem;
     color:#d2d3d5;
+    /*overflow: hidden;*/
+}
+
+.footer section {
+  float: right;
 }
 
 .footer address {
@@ -20,7 +26,7 @@
   font-style: normal;
 }
 
-.footer h4 {
+.footer h6 {
   color:#FFF;
   margin: 0  0  0.3rem 3rem;
 }
@@ -28,7 +34,7 @@
 .footer-img {
   height:1.25rem;
   width:auto;
-  margin-left:3rem;
+  /*margin-left:1rem;*/
   display:inline;
   float:right;
 }
@@ -37,6 +43,11 @@
   max-width:20rem;
   display:block;
   float:left;
+  margin-top:0.5rem;
+}
+
+#contacts {
+  width:12.2rem;
 }
 
 @media only screen and (max-width: 1023px){
@@ -44,23 +55,19 @@
   .footer{
       padding-left:0;
       padding-right: 0;
-      /*border: solid black;*/
       padding-left: 0%;
       padding-right: 0%;
   }
 
   .authorship {
       margin-top: 1rem;
-      /*border: solid green;*/
   }
 
   .footer address {
-    /*border: solid pink;*/
     margin: 0;
   }
 
   .footer-img{
     margin-left: 1rem;
-  /*  border: solid red;*/
   }
 }

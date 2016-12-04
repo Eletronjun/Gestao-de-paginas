@@ -19,11 +19,13 @@ $session->verifyIfSessionIsStarted();
 
 try {
     $category = new Category($_GET['name'], $_GET['description'], $_GET['id']);
+    $category->validateName($_GET['new_name']);
+    $category->validateLayout($_GET['new_layout']);
 
     $category_dao = new CategoryDAO($category);
 
-    $category_dao->update($_GET['new_name']);
-    
+    $category_dao->update($_GET['new_name'], $_GET['new_layout']);
+
     echo "Atualizado com sucesso!";
 } catch (Exception $msg) {
     echo $msg;

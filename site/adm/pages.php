@@ -10,7 +10,9 @@
     $session = new Session();
     $session->verifyIfSessionIsStarted();
 
-    Page::header(Globals::ENTERPRISE_NAME);
+    Page::startHeader("Gerência de Páginas");
+    Page::styleSheet("form");
+    Page::closeHeader();
 
     $menu = new AdministratorMenu();
     $menu->construct();
@@ -71,7 +73,7 @@ $(document).ready(function(){
 
 
     $('#delete_button').click(function(){
-        if(confirm("tem certeza?") && pageIsSelected()) {
+        if(confirm("Confirmar exclusão?") && pageIsSelected()) {
             $.ajax({
                 url: '../controller/deletePage.php?code=' + $('#select_page').val() +
                     '&title=' + $('#select_page option:selected').text(),
