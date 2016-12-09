@@ -39,8 +39,8 @@ try {
       $new_name = md5(date("Y.m.d-H.i.s")) . $ext; //Define a new name for file
       //Verify if mime-type is image
       if (eregi("^image\/(pjpeg|jpeg|png|gif|bmp)$", $_FILES['imageFile']["type"])) {
-
           move_uploaded_file($_FILES['imageFile']['tmp_name'], UPLOAD_ROOT . $new_name); //Save upload of file
+          echo $new_name;
       } else {
           throw new Exception("O arquivo precisa ser uma imagem.");
       }
