@@ -25,6 +25,8 @@ try {
       header("Location: ../short_publication.php?code={$_GET['code']}");
     } else if($layout == "video") {
       header("Location: ../video_publication.php?code={$_GET['code']}");
+    } else if($layout == "form") {
+      header("Location: ../form_publication.php?code={$_GET['code']}");
     } else {
       header("Location: ../publications.php?code={$_GET['code']}");
     }
