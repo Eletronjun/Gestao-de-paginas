@@ -21,7 +21,7 @@ namespace model{
         private $name; //name of category, not null value
         private $id; //category code, only numbers or null if not exists in database
         private $is_activity; //'y' or 'n' to register if category is visible
-        private $layout; //"publication", "short_publication" or "video" to define default layout
+        private $layout; //"publication", "short_publication", "video" or "form" to define default layout
 
         /* Exception messengers */
         const NULL_NAME = "Nome não pode ser nulo.";
@@ -102,7 +102,7 @@ namespace model{
             $layout = trim($layout);
 
             if ($layout != null) {
-                if ($layout == "publication" || $layout == "short_publication" || $layout == "video") {
+                if ($layout == "publication" || $layout == "short_publication" || $layout == "video" || $layout == "form") {
                     $this->layout = $layout;
                 } else {
                     throw new CategoryException(self::INVALID_LAYOUT);
@@ -137,7 +137,7 @@ namespace model{
             $layout = trim($layout);
 
             if ($layout != null) {
-                if ($layout == "publication" || $layout == "short_publication" || $layout == "video") {
+                if ($layout == "publication" || $layout == "short_publication" || $layout == "video" || $layout == "form") {
                     //Nothing do
                 } else {
                     throw new CategoryException(self::INVALID_LAYOUT);
