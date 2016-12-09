@@ -29,6 +29,7 @@ namespace model{
         private $content; //Content of the page.
         private $references; //References used in content
         private $image; //image path or null if not exists
+        private $form; //Google Docs form link or null if not exists
         private $is_activity; // y or n only
 
         //Exception messengers
@@ -40,6 +41,7 @@ namespace model{
         const NO_NUMERIC_ID = "Id deve ser um número.";
         const CHARACTER_LIMIT_EXCEEDED = "O limite do conteúdo é 5000 caracteres.";
         const REFERENCES_LARGER = "O campo referência não pode ter mais que 300 caracteres.";
+        const FORMS_LARGER = "O campo formulário não pode ter mais que 300 caracteres.";
         const INVALID_ACTIVITY = "O campo que verifica se é ativo recebe apenas y para verdadeiro e n para falso";
 
         /**
@@ -56,7 +58,7 @@ namespace model{
          * @param string    $references     References used in content
          * @param string    $is_activity    y or n only
          */
-        public function __construct($title, $author, $id_category, $content = null, $code = null, $creation_date = null, $last_modified = null, $image = null, $references = null, $is_activity = 'y')
+        public function __construct($title, $author, $id_category, $content = null, $code = null, $creation_date = null, $last_modified = null, $image = null, $references = null, $is_activity = 'y', $form = null)
         {
             $this->setTitle($title);
             $this->setAuthor($author);
@@ -68,6 +70,7 @@ namespace model{
             $this->setImage($image);
             $this->setReferences($references);
             $this->setIsActivity($is_activity);
+            $this->setForm($form);
         }
 
         public function setTitle($title)
@@ -218,6 +221,20 @@ namespace model{
         public function getIsActivity()
         {
             return $this->is_activity;
+        }
+
+        public function setForm($form)
+        {
+            if (strlen($form) <= 300) {
+                $this->form = $form;
+            } else {
+                throw new WebPageException(self::FORM_LARGER);
+            }
+        }
+
+        public function getForm()
+        {
+            return $this->form;
         }
     }
 }
