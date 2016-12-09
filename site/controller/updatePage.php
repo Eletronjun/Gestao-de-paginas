@@ -46,7 +46,7 @@ try {
             throw new Exception("O arquivo precisa ser uma imagem.");
         }
     } else {
-        $web_page_dao->updatePage($_POST['title'], $_POST['author'], $_POST['categories'], $_POST['postage'], $_POST['isActivity'], null, $_POST['reference']);
+        $web_page_dao->updatePage($_POST['title'], $_POST['author'], $_POST['categories'], $_POST['postage'], $_POST['isActivity'], null, $_POST['reference'], $_POST['formLink']);
     }
 
     echo "Salvo com sucesso.";
