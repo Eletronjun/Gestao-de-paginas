@@ -97,10 +97,15 @@ input[type=radio]{
   height: auto;
 }
 
-.img_button {
-  padding:0.1rem;
-  border:0;
+input[type=image] {
+  width: auto;
+  height: auto;
+  border:none;
+  padding: 0.2rem;
   border-radius:0.5rem;
   margin:0;
-  background-color:transparent;
+}
+
+input[type=image]:hover {
+  background-color:#111F1E;
 }
