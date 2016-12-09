@@ -87,6 +87,7 @@ CREATE TABLE WEB_PAGE(
 	content VARCHAR(5000) NULL,
 	reference VARCHAR(300) NULL,
 	image VARCHAR(200) NULL,
+	form VARCHAR(300) NULL,
 
     PRIMARY KEY web_page_pk (code),
     FOREIGN KEY web_category_fk (code_category) REFERENCES CATEGORY(code) ON UPDATE CASCADE ON DELETE CASCADE
