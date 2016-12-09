@@ -28,16 +28,25 @@ try {
       echo "<option value=\"publication\">Geral</option>";
       echo "<option value=\"short_publication\">Publicação Curta</option>";
       echo "<option value=\"video\" selected>Vídeo</option>";
+      echo "<option value=\"form\">Formulário</option>";
     }
     else if($category->getLayout() == "short_publication") {
       echo "<option value=\"publication\">Geral</option>";
       echo "<option value=\"short_publication\" selected>Publicação Curta</option>";
       echo "<option value=\"video\">Vídeo</option>";
+      echo "<option value=\"form\">Formulário</option>";
+    }
+    else if($category->getLayout() == "form") {
+      echo "<option value=\"publication\">Geral</option>";
+      echo "<option value=\"short_publication\">Publicação Curta</option>";
+      echo "<option value=\"video\">Vídeo</option>";
+      echo "<option value=\"form\" selected>Formulário</option>";
     }
     else {
       echo "<option value=\"publication\" selected >Geral</option>";
       echo "<option value=\"short_publication\">Publicação Curta</option>";
       echo "<option value=\"video\">Vídeo</option>";
+      echo "<option value=\"form\">Formulário</option>";
     }
     echo "</select>";
   }

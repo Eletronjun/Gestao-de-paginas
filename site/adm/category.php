@@ -53,6 +53,7 @@
                 <option value="publication">Geral</option>
                 <option value="short_publication">Publicação Curta</option>
                 <option value="video">Vídeo</option>
+                <option value="form">Formulário</option>
               </select>
             </fieldset>
             <input type="button" name="submit" value="Salvar" id="register_button">
