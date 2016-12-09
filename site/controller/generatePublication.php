@@ -28,9 +28,8 @@ try {
     } else if($layout == "form") {
       header("Location: ../form_publication.php?code={$_GET['code']}");
     } else {
-      header("Location: ../publications.php?code={$_GET['code']}");
+        header("Location: ../publications.php?code={$_GET['code']}");
     }
-
 } catch (Exception $msg) {
     echo $msg;
 }

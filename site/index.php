@@ -27,7 +27,9 @@
       <section class="last_publications">
         <div id="first">
           <ul>
-            <?php if(count($last_publications) > 0){ ?>
+
+          <?php if(count($last_publications) > 0){ ?>
+
             <a href="controller/generatePublication.php?code=<?php echo $last_publications[0][0]?>">
               <li>
                 <?php
@@ -106,12 +108,11 @@
         $data = WebPageDao::returnLast3byCategory($code);
         if (!$data[0]) {
           // Nothing do
-        }
-        else{
-          echo "<section>";
-          echo "<h2>{$name}</h2>";
-          foreach ($data as $list) {
-              echo "<a href=\"controller/generatePublication.php?code={$list[0]}\">
+        } else {
+            echo "<section>";
+            echo "<h2>{$name}</h2>";
+            foreach ($data as $list) {
+                echo "<a href=\"controller/generatePublication.php?code={$list[0]}\">
                       <div><img src=\"res/file/{$list[3]}\" alt=\"\"></div>
                       <p class=\"title\">{$list[1]}</p><br>";
 

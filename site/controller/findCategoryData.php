@@ -48,13 +48,6 @@ try {
       echo "<option value=\"video\">Vídeo</option>";
       echo "<option value=\"form\">Formulário</option>";
     }
-    echo "</select>";
-  }
-  else {
-    echo "<input type=\"text\" name=\"category\" id=\"category_name\" size=\"50%\" required>";
-    echo "<label>Layout Padrão:</label><br>";
-    echo "<select id=\"update_layout\" name=\"update_layout'>";
-    echo "</select>";
   }
 } catch (Exception $e) {
     echo $e;

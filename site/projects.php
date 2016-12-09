@@ -28,6 +28,7 @@
   </section>
 
   <section class="project_banner">
+
     <figure><img src="res/img/video_aulas.png"></figure>
     <h5>Video-aulas</h5>
     <p>O projeto de vídeo-aulas surge como complemento à criação do canal EletronJun, onde serão expostos vídeos didáticos e entrevistas com figuras importantes dentro do curdo de Engenharia Eletrônica da <abbr title="Faculdade do Gama">FGA</abbr> e especialistas em demais áreas de tecnologia e eletrônica.</p>

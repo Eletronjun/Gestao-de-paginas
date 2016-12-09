@@ -35,10 +35,9 @@ namespace html{
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/styles.css\" />\n";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/header.css\" />\n";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/footer.css\" />\n";
-              } else {
-                  throw new \exception\PageException(self::INVALID_TITLE);
-              }
-
+            } else {
+                throw new \exception\PageException(self::INVALID_TITLE);
+            }
         }
 
         public static function closeHeader($description = null)
@@ -98,7 +97,7 @@ namespace html{
 
         public static function StyleSheet($file)
         {
-          echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/{$file}.css\" />\n";
+            echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/{$file}.css\" />\n";
         }
     }
 }

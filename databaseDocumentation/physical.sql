@@ -70,6 +70,7 @@ CREATE TABLE CATEGORY
 	code INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
 	layout ENUM("publication", "short_publication", "video", "form") NOT NULL DEFAULT "publication",
+	description VARCHAR(500) NOT NULL,
 	isActivity ENUM(  "y",  "n" ) NOT NULL DEFAULT  'y',
 
 	PRIMARY KEY members_pk (code)

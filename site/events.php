@@ -31,14 +31,16 @@
       <span class="left">
         <li>
           <figure><img src="res/img/Arduino.png"></figure>
+
           <h4>Arduino</h4>
-          <p>Neste curso será ensinado conceitos básicos das placas de Arduino, não sendo necessário ter nenhum conhecimento prévio do assunto.<br>
+          <p>Neste curso será ensinado conceitos básicos das placas de Arduino, não sendo necessário ter nenhum conhecimento prévio do assunto.
           </p>
         </li>
         <li>
           <figure><img src="res/img/C.png"></figure>
+
           <h4>C Básico</h4>
-          <p>Este curso tem como objetivo apresentar os conceitos básicos da linguagem C, uma das linguagens de programação mais conhecidas.<br>
+          <p>Este curso tem como objetivo apresentar os conceitos básicos da linguagem C, uma das linguagens de programação mais conhecidas.
           </p>
         </li>
     </span>
@@ -46,13 +48,13 @@
         <li>
           <figure><img src="res/img/Java.png"></figure>
           <h4>Java</h4>
-          <p>O objetivo deste curso é introduzir conceitos básicos de Java, linguagem de programação orientada a objetos.<br>
+          <p>O objetivo deste curso é introduzir conceitos básicos de Java, linguagem de programação orientada a objetos.
           </p>
         </li>
         <li>
           <figure><img src="res/img/C.png"></figure>
           <h4>C Avançado</h4>
-          <p>Este curso tem como objetivo ensinar técnicas e conceitos mais avançados da linguagem de programação C.<br>
+          <p>Este curso tem como objetivo ensinar técnicas e conceitos mais avançados da linguagem de programação C.
           </p>
       </li>
     </span>

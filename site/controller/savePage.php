@@ -63,7 +63,7 @@ try {
     echo "Salvo com Sucesso!";
 
 } catch (Exception $msg) {
-    echo "<script>alert({$msg}); history.go(-1);</script>";
+    echo "<script>alert(\"{$msg}\"); history.go(-1);</script>";
 }
 echo "</main>";
 Page::footer();
