@@ -40,7 +40,6 @@ try {
       //Verify if mime-type is image
       if (eregi("^image\/(pjpeg|jpeg|png|gif|bmp)$", $_FILES['imageFile']["type"])) {
           move_uploaded_file($_FILES['imageFile']['tmp_name'], UPLOAD_ROOT . $new_name); //Save upload of file
-          echo $new_name;
       } else {
           throw new Exception("O arquivo precisa ser uma imagem.");
       }
@@ -56,7 +55,8 @@ try {
         $new_name,
         $_POST['reference'],
         'y',
-        $_POST['formLink']
+        $_POST['formLink'],
+        $_POST['videoLink']
     );
     $web_page_dao = new WebPageDAO($new_page);
     $web_page_dao->register();
