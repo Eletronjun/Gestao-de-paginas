@@ -30,6 +30,7 @@ namespace model{
         private $references; //References used in content
         private $image; //image path or null if not exists
         private $form; //Google Docs form link or null if not exists
+        private $video; //Video link or null if not exists
         private $is_activity; // y or n only
 
         //Exception messengers
@@ -42,6 +43,7 @@ namespace model{
         const CHARACTER_LIMIT_EXCEEDED = "O limite do conteúdo é 5000 caracteres.";
         const REFERENCES_LARGER = "O campo referência não pode ter mais que 300 caracteres.";
         const FORMS_LARGER = "O campo formulário não pode ter mais que 300 caracteres.";
+        const VIDEO_LARGER = "A url não pode ter mais que 300 caracteres.";
         const INVALID_ACTIVITY = "O campo que verifica se é ativo recebe apenas y para verdadeiro e n para falso";
 
         /**
@@ -58,7 +60,7 @@ namespace model{
          * @param string    $references     References used in content
          * @param string    $is_activity    y or n only
          */
-        public function __construct($title, $author, $id_category, $content = null, $code = null, $creation_date = null, $last_modified = null, $image = null, $references = null, $is_activity = 'y', $form = null)
+        public function __construct($title, $author, $id_category, $content = null, $code = null, $creation_date = null, $last_modified = null, $image = null, $references = null, $is_activity = 'y', $form = null, $video = null)
         {
             $this->setTitle($title);
             $this->setAuthor($author);
@@ -71,6 +73,7 @@ namespace model{
             $this->setReferences($references);
             $this->setIsActivity($is_activity);
             $this->setForm($form);
+            $this->setVideo($video);
         }
 
         public function setTitle($title)
@@ -235,6 +238,19 @@ namespace model{
         public function getForm()
         {
             return $this->form;
+        }
+        public function setVideo($video)
+        {
+            if (strlen($video) <= 300) {
+                $this->video = $video;
+            } else {
+                throw new WebPageException(self::VIDEO_LARGER);
+            }
+        }
+
+        public function getVideo()
+        {
+            return $this->video;
         }
     }
 }

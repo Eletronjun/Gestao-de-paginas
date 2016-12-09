@@ -40,7 +40,7 @@ namespace dao{
 
         public static function getWebPages()
         {
-            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference, form FROM WEB_PAGE";
+            $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference, form, video FROM WEB_PAGE";
 
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
 
@@ -59,6 +59,7 @@ namespace dao{
                 $data[$i][7] = $row['reference'];
                 $data[$i][8] = $row['image'];
                 $data[$i][9] = $row['form'];
+                $data[$i][10] = $row['video'];
             }
             return $data;
         }
@@ -71,11 +72,11 @@ namespace dao{
          * @param String  $new_postage
          * @param String  $image path of the new image or null if not change image
          */
-        public function updatePage($new_title, $new_author, $new_category, $new_postage, $is_activity, $image = null, $new_reference = null, $new_form = null)
+        public function updatePage($new_title, $new_author, $new_category, $new_postage, $is_activity, $image = null, $new_reference = null, $new_form = null, $new_video = null)
         {
             $changeImage = ($image == null)? "" : ", image = '{$image}'";
             if (!is_null($this->getWebPageModel()->getCode())) {
-                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', reference = '{$new_reference}', form = '{$new_form}', last_modified = NOW(){$changeImage}, isActivity = '{$is_activity}' WHERE code = " . $this->getWebPageModel()->getCode();
+                $query = "UPDATE WEB_PAGE SET title = '{$new_title}', author = '{$new_author}', code_category = {$new_category}, content = '{$new_postage}', reference = '{$new_reference}', form = '{$new_form}', video = '{$new_video}', last_modified = NOW(){$changeImage}, isActivity = '{$is_activity}' WHERE code = " . $this->getWebPageModel()->getCode();
                 parent::query($query);
                 if ($image != null) {
                     unlink(UPLOAD_ROOT . $this->getWebPageModel()->getImage());
@@ -97,10 +98,9 @@ namespace dao{
          */
         public function register()
         {
-            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`, `content`, `image`, `reference`, `form`)
+            $query = "INSERT INTO `WEB_PAGE`(`title`, `author`, `code_category`, `creation_date`, `last_modified`,  `content`, `reference`, `image`, `form`, `video`)
             VALUES ('{$this->getWebPageModel()->getTitle()}', '{$this->getWebPageModel()->getAuthor()}',
-            {$this->getWebPageModel()->getCategory()}, NOW(),NOW(),'{$this->getWebPageModel()->getContent()}',
-            '{$this->getWebPageModel()->getImage()}', '{$this->getWebPageModel()->getReferences()}', '{$this->getWebPageModel()->getForm()}')";
+            {$this->getWebPageModel()->getCategory()}, NOW(),NOW(),'{$this->getWebPageModel()->getContent()}', '{$this->getWebPageModel()->getReferences()}', '{$this->getWebPageModel()->getImage()}', '{$this->getWebPageModel()->getForm()}', '{$this->getWebPageModel()->getVideo()}')";
 
             parent::query($query);
 
@@ -159,7 +159,7 @@ namespace dao{
         public static function getPage($code)
         {
             if (is_numeric($code)) {
-                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference,isActivity, form FROM WEB_PAGE WHERE code = {$code}";
+                $query = "SELECT code, title, author, code_category, creation_date, last_modified, content, image, reference,isActivity, form, video FROM WEB_PAGE WHERE code = {$code}";
 
                 $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
                 $resultSet = $dao->query($query);
@@ -176,7 +176,8 @@ namespace dao{
                         $row['image'],
                         $row['reference'],
                         $row['isActivity'],
-                        $row['form']
+                        $row['form'],
+                        $row['video']
                     );
                 } else {
                     throw new DatabaseException(self::NOT_FIND_PAGE);
