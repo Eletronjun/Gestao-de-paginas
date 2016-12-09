@@ -31,11 +31,8 @@
           <input type="text" id="title" name="title" required><br><br>
           <label>Publicação</label>
           <textarea rows="20" cols="80" id="postage" name="postage"></textarea><br><br>
-          <label>Imagem</label>
-          <input type="file" name="imageFile">
-          <label>Referências</label><br>
-          <textarea rows="4" cols="80" id="reference" maxlenght="300" name="reference" required="true">
-            </textarea><br><br>
+          <fieldset id="type_page">
+          </fieldset>
           <label>Autor</label><br>
           <input type="text" id="author" name="author" required><br><br>
         </fieldset>
@@ -45,5 +42,26 @@
 
 <?php
     Page::footer();
+?>
+  <script type="text/javascript">
+
+  function ajaxReload(){
+      $.ajax({
+          url: '../controller/updateNewPageForm.php?code=' + $('#select_update').val(),
+              success: function(data) {
+              $('#type_page').html(data);
+          }
+      });
+  }
+
+  $(document).ready(function(){
+      $('#select_update').click(function(){
+          ajaxReload();
+      });
+
+  });
+  </script>
+
+<?php
     Page::closeBody();
 ?>
