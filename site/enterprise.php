@@ -132,7 +132,7 @@
     </div>
     <div>
       <figure>
-        <img src="res/img/Matriz.png">
+        <img src="res/img/engrena.png">
       </figure>
     </div>
     <div>
