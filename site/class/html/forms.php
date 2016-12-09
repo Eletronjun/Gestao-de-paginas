@@ -48,7 +48,7 @@ namespace html{
 
                 if($layout == "video") {
                   echo "<input type=\"hidden\" name=\"imageFile\">";
-                  echo "<label>Video</label><input type=\"text\" name=\"videoLink\">";
+                  echo "<label>Video</label><input type=\"text\" name=\"videoLink\" value=\"{$web_page->getVideo()}\">";
                   echo "<input type=\"hidden\" name=\"formLink\">";
                   echo "<input type=\"hidden\" name=\"reference\">";
                 }
