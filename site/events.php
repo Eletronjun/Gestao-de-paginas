@@ -29,7 +29,8 @@
     <h3>Cursos</h3>
     <ul>
       <div class="flex">
-        <div class="set_flex">
+        <div class="set_flex padding_right">
+          <div class="left">
           <li>
             <figure><img src="res/img/Arduino.png"></figure>
 
@@ -44,8 +45,10 @@
             <p>Este curso tem como objetivo apresentar os conceitos básicos da linguagem C, uma das linguagens de programação mais conhecidas.
             </p>
           </li>
+        </div>
       </div>
-      <div class="set_flex">
+      <div class="set_flex padding_left">
+        <div class="right">
           <li>
             <figure><img src="res/img/Java.png"></figure>
             <h4>Java</h4>
@@ -57,19 +60,25 @@
             <h4>C Avançado</h4>
             <p>Este curso tem como objetivo ensinar técnicas e conceitos mais avançados da linguagem de programação C.
             </p>
-        </li>
+          </li>
+        </div>
       </div>
     </div>
   <div class="flex">
-    <span class="set_flex">
-        <li>
-          <figure><img src="res/img/VHDL.png"></figure>
-          <h4>VHDL</h4>
-          <p>Curso voltado a programação VHDL, introduzindo conceitos desde portas combinacionais à ULAs.<br>
-          </p>
-        </li>
-    </span>
-    <span class="set_flex"></span>
+      <div class="set_flex padding_right">
+        <div class="left">
+          <li>
+            <figure><img src="res/img/VHDL.png"></figure>
+            <h4>VHDL</h4>
+            <p>Curso voltado a programação VHDL, introduzindo conceitos desde portas combinacionais à ULAs.<br>
+            </p>
+          </li>
+        </div>
+      </div>
+      <div class="set_flex padding_left">
+        <div class="right">
+        </div>
+      </div>
   </div>
     </ul>
   </section>

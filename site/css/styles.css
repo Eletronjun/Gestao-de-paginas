@@ -163,6 +163,13 @@ article {
   float:right;
 }
 
+.padding_left {
+  padding-left: 2rem;
+}
+.padding_right {
+  padding-right: 2rem;
+}
+
 .center {
   text-align:center;
 }
