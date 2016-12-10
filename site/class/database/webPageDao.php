@@ -230,7 +230,7 @@ namespace dao{
             for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
                 $data[$i][0] = $row['code'];
                 $data[$i][1] = $row['title'];
-                $data[$i][2] = substr($row['content'], 0, 150);
+                $data[$i][2] = substr($row['content'], 0, 100);
                 $data[$i][3] = $row['image'];
                 $data[$i][4] = $row['creation_date'];
             }
