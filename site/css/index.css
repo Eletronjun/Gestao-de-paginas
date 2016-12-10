@@ -1,98 +1,104 @@
-.last_publications section{
-  width: 50.5rem;
-  max-width: 808px;
+.last_publications {
+  width: 100%;
+  max-width: 50rem;
+  height: 25rem;
+  max-height: 400px;
+  overflow: hidden;
+  margin: 0;
 }
 .last_publications ul {
-  position:relative;
-  height: 12.25rem;
-  width: 25rem;
-  overflow:hidden;
-  float:left;
-  background-color:#111e14;
-  margin-left: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.last_publications img {
-  position:absolute;
-  left:0;
-  bottom:-6.125rem;
-  cursor:pointer;
   width: 100%;
-  height: auto;
-  margin: -7.3rem 0;
+  max-width: 25rem;
+  height: 100%;
+  max-height: 200px;
+  overflow:hidden;
+  background-color:#111e14;
+  position: relative;
+  padding: 0; /*Tira a identação natural das listas*/
+}
+
+.last_publications h2, .last_publications p{
+  color: #fff;
+  margin: 0.5rem 1.5rem;
+  padding: 0;
+}
+
+.last_publications p{
+  font-size: 0.9rem;
+  max-height: 3rem;
+}
+
+.last_publications img {
+  position: absolute;
+  bottom: -12.5rem;
+  left: 0;
+  width: 100%;
+  margin: 0;
   -webkit-transition:bottom .3s ease-in-out;
   -moz-transition:bottom .3s ease-in-out;
   -o-transition:bottom .3s ease-in-out;
   transition:bottom .3s ease-in-out
 }
-.last_publications img.top:hover {
-  bottom:-13rem;
-  padding-top:13rem;
-}
-.last_publications #first ul {
-  height: 25rem;
-  width: 25rem;
-  margin: 0;
-}
-.last_publications #first img {
-  bottom:0;
-  margin: 0;
-}
-.last_publications #first img.top:hover {
-  bottom:-8rem;
-  padding-top:8rem;
-}
-.last_publications h2, .last_publications p{
-  margin: 0.5rem 0 0 0.5rem;
-  padding: 0;
-  color: #fff;
-}
-.last_publications p{
-  font-size: 0.9rem;
-  max-height: 3rem;
-  margin-right: 0.5rem;
+
+.last_publications img:hover {
+  padding-top: 19rem;/*Padding-top para quando a imagem afastar, ele ainda identificar que o mouse esta em cima da imagem*/
+  bottom: -19rem;
 }
 
-.last_publications a{
-  text-decoration: none;
-  text-align: left;
-  color:#fff;
+#first_publication {
+  max-height: 400px;
 }
 
-div .category_banner {
-  display: table;
-  width: 55rem;
-  max-width: 880px;
-  margin: 1.875rem auto;
+#first_publication img {
+  bottom: 0;
 }
-.category_banner h2{
-  margin-bottom: 0.375rem;
+
+#first_publication img:hover {
+  padding-top: 8rem;
+  bottom: -8rem;
 }
-.category_banner section{
-  width:24rem;
-  margin-left:2.5rem;
-  float:left;
+
+.category_banner {
+  width: 100%;
+  max-width: 50rem;
+  margin: 2.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category_banner section {
+  display: inline;
+  flex: 1;
+  min-width: 25rem;
   height:20rem;
+  margin:0;
 }
-.category_banner div{
+
+.category_banner div {
+  max-width: 22rem;
+  overflow: hidden;
+}
+
+.category_banner figure{
   width:4.6875rem;
   height:4.6875rem;
   display:block;
   float:left;
   margin:0;
   padding:0;
+  overflow: hidden;
 }
 .category_banner img{
   width:4.6875rem;
   height:auto;
 }
+
 .category_banner p{
-  text-indent:0;
   margin:0;
   padding:0;
   display:block;
   float:left;
-  max-width:75%;
+  max-width:16.8125rem;
   font-size:0.8rem;
   margin-left:0.5rem;
 }
@@ -100,6 +106,7 @@ div .category_banner {
   font-weight:bold;
   font-size:1rem;
 }
+
 .category_banner a,
 .category_banner a:hover,
 .category_banner a:active,
