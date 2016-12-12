@@ -10,6 +10,7 @@
     Page::startHeader("Editar Página");
     Page::styleSheet("user");
     Page::styleSheet("form");
+    echo "<script src=\"../css/ckeditor/ckeditor.js\"></script>";
     Page::closeHeader();
 
     $session = new Session();

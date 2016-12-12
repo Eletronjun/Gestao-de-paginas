@@ -44,7 +44,7 @@ try {
       echo "<input type=\"hidden\" name=\"formLink\">";
       echo "<label>Referências</label><br>
             <textarea rows=\"4\" cols=\"80\" id=\"reference\" maxlenght=\"300\" name=\"reference\" required=\"true\">
-            </textarea><br><br>";
+            </textarea><br><br>\n<script>CKEDITOR.replace( 'reference' );</script>";
     }
   }
 } catch (Exception $e) {

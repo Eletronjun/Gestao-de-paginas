@@ -45,6 +45,7 @@ namespace html{
                 echo "<label>Título</label><br>";
                 echo "<input type='text' id='title' name='title' value='{$web_page->getTitle()}' required><br><br>";
                 echo "<textarea rows='20' cols='80' id='postage' name='postage'>{$web_page->getContent()}</textarea><br><br>";
+                echo "<script>CKEDITOR.replace( 'postage' );</script>";
 
                 if($layout == "video") {
                   echo "<input type=\"hidden\" name=\"imageFile\">";
@@ -70,7 +71,7 @@ namespace html{
                   echo "<input type=\"hidden\" name=\"formLink\">";
                   echo "<label>Referências</label><br>
                         <textarea rows=\"4\" cols=\"80\" id=\"reference\" maxlenght=\"300\" name=\"reference\" required=\"true\">
-                        </textarea><br><br>";
+                        </textarea><br><br>\n<script>CKEDITOR.replace( 'reference' );</script>";
                 }
 
                 echo "<div style='width:100%;text-align:center;'>";

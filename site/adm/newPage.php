@@ -10,6 +10,7 @@
     Page::startHeader("Nova Página");
     Page::styleSheet("user");
     Page::styleSheet("form");
+    echo "<script src=\"../css/ckeditor/ckeditor.js\"></script>";
     Page::closeHeader();
 
     $session = new Session();
@@ -31,6 +32,7 @@
           <input type="text" id="title" name="title" required><br><br>
           <label>Publicação</label>
           <textarea rows="20" cols="80" id="postage" name="postage"></textarea><br><br>
+          <script>CKEDITOR.replace( 'postage' );</script>
           <fieldset id="type_page">
             <input type="hidden" name="imageFile">
             <input type="hidden" name="videoLink">
