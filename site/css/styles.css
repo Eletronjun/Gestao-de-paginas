@@ -201,6 +201,10 @@ article {
   flex-direction: column;
 }
 
+.dispaly_table {
+  display: table;
+}
+
 .green_font {
   color:#87c665;
 }

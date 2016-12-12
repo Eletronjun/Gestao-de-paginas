@@ -30,8 +30,15 @@
   margin:auto;
   border-radius:10rem;
   clear: both;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-#user_img img {
-  height:20rem;
+select {
+  width: 100%;
+}
+
+form {
+  margin-top:6.25rem;
 }
