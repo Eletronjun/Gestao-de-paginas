@@ -13,6 +13,7 @@ use \html\Page as Page;
 use \html\AdministratorMenu as AdministratorMenu;
 use \model\webPage as WebPage;
 use \dao\WebPageDAO as WebPageDAO;
+use \dao\CategoryDao as CategoryDao;
 use \configuration\Globals as Globals;
 use \exception\WebPageException as WebPageException;
 
@@ -42,6 +43,10 @@ try {
           move_uploaded_file($_FILES['imageFile']['tmp_name'], UPLOAD_ROOT . $new_name); //Save upload of file
       } else {
           throw new Exception("O arquivo precisa ser uma imagem.");
+      }
+    } else {
+      if(CategoryDao::findCategory($_POST['category'])->getLayout() == "video"){
+        $new_name = "Youtube.png";
       }
     }
     $new_page = new WebPage(
