@@ -16,9 +16,18 @@
   margin-bottom:3.125rem;
 }
 .project_banner figure {
-  width: 15.625rem;
-  height: 12.5rem;
+  width: 30%;
+  height: 100%;
   float:left;
   margin-right:6.25rem;
   overflow:hidden;
+}
+
+.project_banner img {
+  width: 15.625rem;
+  height: 12.5rem;
+}
+
+.project_banner div {
+  width: 57%;
 }
