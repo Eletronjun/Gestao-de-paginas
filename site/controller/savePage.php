@@ -20,12 +20,12 @@ use \exception\WebPageException as WebPageException;
 $session = new Session();
 $session->verifyIfSessionIsStarted();
 
+Page::startHeader(Globals::ENTERPRISE_NAME);
+Page::styleSheet("user");
+Page::closeHeader();
 
 $menu = new AdministratorMenu();
 $menu->construct();
-
-Page::startHeader(Globals::ENTERPRISE_NAME);
-Page::closeHeader();
 
 //use \exception\DatabaseException as DatabaseException;*/
 
