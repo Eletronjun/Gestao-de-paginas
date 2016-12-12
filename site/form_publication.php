@@ -39,11 +39,11 @@ try {
           <h2><?php echo $page->getTitle(); ?></h2>
         </header>
 
-        <section>
+        <section style="text-align:left;margin-bottom:3rem;width:100%;">
           <?php echo $page->getContent(); ?>
         </section>
 
-        <iframe src="<?php echo $page->getForm(); ?>" >Carregando…</iframe>
+        <iframe src="<?php echo $page->getForm(); ?>">Carregando…</iframe>
 
         <br>
         <div class="fb-like" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>"
@@ -58,5 +58,6 @@ try {
     echo "<h1>Página não encontrada</h1>";
     echo "<p>Desculpe-nos, mas essa publicação não existe ou foi retirada do ar.</p>";
 }
-Page::footer();
+  Page::footer();
+  Page::closeBody();
 ?>
