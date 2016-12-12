@@ -42,6 +42,11 @@
           <label>Autor</label><br>
           <input type="text" id="author" name="author" required><br><br>
         </fieldset>
+        <fieldset>
+        <label>Página Oculta</label><br>
+        <input type='radio' name='isActivity' value='n' checked>Sim<span class="padding_left"></span>
+        <input type='radio' name='isActivity' value='y'>Não
+        </fieldset>
         <input type="submit" value="Salvar">
     </form>
   </main>
