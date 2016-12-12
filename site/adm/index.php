@@ -7,8 +7,8 @@
     use \configuration\Globals as Globals;
 
     Page::startHeader(Globals::ENTERPRISE_NAME);
-    Page::styleSheet("user");
     Page::styleSheet("form");
+    Page::styleSheet("user");
     Page::closeHeader();
 
     $session = new Session();
@@ -26,65 +26,89 @@
     <p style="font-size:1.5625rem;margin-top:-1.7rem;">Camila Ferrer</p>
   </section>
 
-  <figure id="user_img">
-    <img src="<?php echo IMG_PATCH?>eletronday1_1.jpg">
-  </figure>
+  <?php
+    echo "<div id=\"user_img\" style=\"background-image:url('../res/img/eletronday1_1.jpg')\">
+    </div>";
+  ?>
 
   <form>
-    <fieldset>
-      <label>Nome Completo</label>
-      <input type="text">
-      <label>NickName</label>
-      <input type="text">
-      <label>Sexo</label><br>
-      <select>
-        <option>Feminino</option>
-        <option>Masculino</option>
-      </select><br>
-      <label>Data de Nascimento</label>
-      <input type="text">
-      <label>RG</label>
-      <input type="text">
-      <label>CPF</label>
-      <input type="text">
-      <label>Matrícula</label>
-      <input type="text">
-      <label>Curso</label>
-      <input type="text">
-      <label>Semestre</label>
-      <input type="text">
-    </fieldset>
-    <fieldset>
-      <label>Senha</label>
-      <input type="password">
-      <label>Confirmação de Senha</label>
-      <input type="password">
-    </fieldset>
-    <fieldset>
-      <label>CEP</label>
-      <input type="text">
-      <label>Logradouro</label>
-      <input type="text">
-      <label>Bairro</label>
-      <input type="text">
-      <label>Número</label>
-      <input type="text">
-      <label>Cidade</label>
-      <input type="text">
-      <label>Estado</label>
-      <input type="text">
-      <label>Complemento</label>
-      <input type="text">
-    </fieldset>
-    <fieldeset>
-      <label>Cargo</label><br>
-      <select>
-        <option>Acessor</option>
-        <option>Gerente</option>
-        <option>Diretor</option>
-        <option>Presidente</option>
-      </select>
-    </fieldset>
+    <div class="flex">
+    <div class="set_flex padding_right">
+      <fieldset>
+        <label>Nome Completo</label>
+        <input type="text">
+        <label>NickName</label>
+        <input type="text">
+        <label>Sexo</label><br>
+        <select>
+          <option>Feminino</option>
+          <option>Masculino</option>
+        </select><br>
+        <label>Data de Nascimento</label>
+        <input type="date">
+        <label>RG</label>
+        <input type="text">
+        <label>CPF</label>
+        <input type="text">
+      </fieldset>
+      <fieldset>
+        <label>Senha</label>
+        <input type="password">
+        <label>Confirmação de Senha</label>
+        <input type="password">
+      </fieldset>
+      <fieldset>
+        <label>Matrícula</label>
+        <input type="text">
+        <label>Curso</label>
+        <input type="text">
+        <label>Semestre</label>
+        <input type="text">
+      </fieldset>
+    </div>
+    <div class="set_flex padding_left">
+      <fieldset>
+        <label>Diretoria</label><br>
+        <select>
+          <option>Presidência</option>
+          <option>Administrativo e Financeiro</option>
+          <option>Gestão de Pessoa e Projetos</option>
+          <option>Marketing</option>
+          <option>Projetos</option>
+        </select><br>
+        <label>Cargo</label><br>
+        <select>
+          <option>Acessor</option>
+          <option>Gerente</option>
+          <option>Diretor</option>
+          <option>Presidente</option>
+        </select><br>
+      </fieldset>
+      <fieldset>
+        <label>Telefone</label>
+        <input type="text">
+        <label>E-mail</label>
+        <input type="email">
+      </fieldset>
+      <fieldset>
+        <label>CEP</label>
+        <input type="text">
+        <label>Logradouro</label>
+        <input type="text">
+        <label>Bairro</label>
+        <input type="text">
+        <label>Número</label>
+        <input type="text">
+        <label>Cidade</label>
+        <input type="text">
+        <label>Estado</label>
+        <input type="text">
+        <label>Complemento</label>
+        <input type="text">
+      </fieldset>
+    </div>
+  </div>
+    <input type="submit" value="Salvar">
   </form>
 </main>
 
