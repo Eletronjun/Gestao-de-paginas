@@ -44,6 +44,7 @@ namespace html{
                 echo "</select><br><br>";
                 echo "<label>Título</label><br>";
                 echo "<input type='text' id='title' name='title' value='{$web_page->getTitle()}' required><br><br>";
+                echo "<label>Postagem</label><br>";
                 echo "<textarea rows='20' cols='80' id='postage' name='postage'>{$web_page->getContent()}</textarea><br><br>";
                 echo "<script>CKEDITOR.replace( 'postage' );</script>";
 
@@ -74,12 +75,11 @@ namespace html{
                         </textarea><br><br>\n<script>CKEDITOR.replace( 'reference' );</script>";
                 }
 
-                echo "<div style='width:100%;text-align:center;'>";
-                echo "<label class='center'>Oculto?</label><br><br>";
-                echo "<input class='center' type='radio' name='isActivity' value='n' {$yes}>Sim";
-                echo "<input class='center' type='radio' name='isActivity' value='y' {$no}>Não";
-                echo "</div>";
-                echo "<br>";
+                echo "<fieldset>";
+                echo "<label>Página Oculta</label><br>";
+                echo "<input type='radio' name='isActivity' value='n' {$yes}>Sim<span class=\"padding_left\"></span>";
+                echo "<input type='radio' name='isActivity' value='y' {$no}>Não";
+                echo "</fieldset>";
             } catch (WebPageException $msg) {
                 echo $msg;
             }
