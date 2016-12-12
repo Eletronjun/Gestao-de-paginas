@@ -32,6 +32,10 @@
           <label>Publicação</label>
           <textarea rows="20" cols="80" id="postage" name="postage"></textarea><br><br>
           <fieldset id="type_page">
+            <input type="hidden" name="imageFile">
+            <input type="hidden" name="videoLink">
+            <input type="hidden" name="formLink">
+            <input type="hidden" name="reference">
           </fieldset>
           <label>Autor</label><br>
           <input type="text" id="author" name="author" required><br><br>
