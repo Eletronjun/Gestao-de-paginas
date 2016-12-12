@@ -23,29 +23,45 @@ try {
     <div id="page_title">
       <h1><?php echo CategoryDao::findCategory($_GET['code'])->getName(); ?></h1>
       <img src="res/img/Circuito.png">
+      <p><em><?php echo CategoryDao::findCategory($_GET['code'])->getDescription();?></em></p>
     </div>
 
     <?php
-
-    echo CategoryDao::findCategory($_GET['code'])->getDescription();
 
     $data = WebPageDao::returnLast3byCategory($_GET['code']);
     if (!$data[0]) {
       // Nothing do
     } else {
-        echo "<section class=\"category_banner_2\">";
-        foreach ($data as $list) {
-            echo "<a href=\"controller/generatePublication.php?code={$list[0]}\" class=\"clean_link\">
-                  <figure><img src=\"res/file/{$list[3]}\" alt=\"\"></figure>
-                  <p class=\"title\">{$list[1]}</p><p class=\"date\">";
-                  echo Date::formatDate($list[4]) . "</p>";
+      echo "<div class=\"flex category_banner\">\n";
+      for($index = 0; $index < 3; $index++) {
+        echo "  <div class=\"set_flex\">\n";
+          if(isset($data[$index])){
+            echo "    <div class=\"dispaly_table max_width\"><a href=\"controller/generatePublication.php?code={$data[$index][0]}\" class=\"clean_link ";
 
-            if (strlen($list[2])) {
-                echo  substr($list[2], 0, 72) . "...</p>";
-            }
-                echo "</a>";
-        }
-        echo "</section>";
+              if($index == 0) {
+                echo "left\">\n";
+              }
+              else if($index == 2) {
+                echo "right\">\n";
+              } else {
+                echo "\" style=\"margin:0 auto;\">\n";
+              }
+              echo "      <figure>";
+              if(strlen($data[$index][3]) > 1){
+                echo "<img src=\"res/file/{$data[$index][3]}\">";
+              }
+              echo "</figure>\n";
+              echo "      <p class=\"title\">{$data[$index][1]}</p><p class=\"date\">";
+              echo Date::formatDate($data[$index][4]) . "</p>\n";
+
+              if (strlen($data[$index][2])) {
+                  echo  "       <p>" . substr($data[$index][2], 0, 72) . "...</p>\n";
+              }
+            echo "    </a></div>\n";
+          }
+        echo "  </div>\n";
+      }
+      echo "</div>\n";
     }
 
 ?>
@@ -58,7 +74,8 @@ try {
     </tr>
 
 <?php
-    $allPublications = WebPageDao::returnByCategory($_GET['code']);
+
+  $allPublications = WebPageDao::returnByCategory($_GET['code']);
 
   for ($i=0; $i < count($allPublications); $i++) {
       if ($allPublications[$i]->getIsActivity() == 'y') {
@@ -71,7 +88,6 @@ try {
   }
 ?>
     </table>
-
   </main>
 
 <?php
