@@ -59,7 +59,7 @@ try {
         null,
         $new_name,
         $_POST['reference'],
-        'y',
+        $_POST['isActivity'],
         $_POST['formLink'],
         $_POST['videoLink']
     );
