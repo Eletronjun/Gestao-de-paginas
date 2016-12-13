@@ -46,7 +46,7 @@ namespace html{
                 echo "  <meta name=\"keywords\" content=\"EletronJun, Gama, UnB, ";
                 echo "  Universidade de Brasília, FGA, eletrônica, desenvolvimento de ";
                 echo "  projetos, empresa, empresa júnior\">\n";
-                echo "  <script type=\"text/javascript\" src=\"" . PROJECT_ROOT . "css/dropdown.js\"></script>";
+                echo "  <script type=\"text/javascript\" src=\"" . PROJECT_ROOT . "css/js/dropdown.js\"></script>";
                 echo "</head>\n";
                 echo "<body>\n";
                 echo "  <div id=\"container\">\n";
@@ -98,6 +98,11 @@ namespace html{
         public static function StyleSheet($file)
         {
             echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/{$file}.css\" />\n";
+        }
+
+        public static function JavaScript($file)
+        {
+            echo "  <script type=\"text/javascript\" src=\"" . PROJECT_ROOT . "css/js/{$file}.js\"></script>\n";
         }
     }
 }
