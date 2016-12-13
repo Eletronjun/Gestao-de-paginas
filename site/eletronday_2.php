@@ -14,6 +14,8 @@ try {
 
     Page::startHeader("1º EletronDay");
     Page::styleSheet("eletronday");
+    Page::styleSheet("galery");
+    Page::JavaScript("galery");
     Page::closeHeader();
 
     $menu = new CommunityMenu();
@@ -23,7 +25,7 @@ try {
     <main>
 
       <div id="page_title">
-        <h1>#° Eletron<span class="green_font">Day</span></h1>
+        <h1>2° Eletron<span class="green_font">Day</span></h1>
         <img src="res/img/Circuito.png">
       </div>
 
@@ -36,6 +38,74 @@ try {
       </section>
 
       <br>
+
+      <section class="galery">
+        <h4>Galeria de Fotos</h4>
+
+        <div class="photo effect" style="display:block">
+          <figure  style="background-image: url(res/img/eletronday2_abertura.jpg)">
+            <div class="number">1 / 7</div>
+            <figcaption>Abertura do Evento</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo effect">
+          <figure  style="background-image: url(res/img/eletronday2_biomedica.jpg)">
+            <div class="number">2 / 7</div>
+            <figcaption>Palestra - Biomédica no Meio Acadêmico</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo effect">
+          <figure  style="background-image: url(res/img/eletronday2_workshopPython.jpg)">
+            <div class="number">3 / 7</div>
+            <figcaption>Workshop de Introdução a Linguagem Python</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo effect">
+          <figure  style="background-image: url(res/img/eletronday2_palestramercado.jpg)">
+            <div class="number">4 / 7</div>
+            <figcaption>Workshop de Introdução a Linguagem Python</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo effect">
+          <figure  style="background-image: url(res/img/eletronday2_palestramercado2.jpg)">
+            <div class="number">5 / 7</div>
+            <figcaption>Workshop de Introdução a Linguagem Python</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo effect">
+          <figure  style="background-image: url(res/img/eletronday2_mesaRedonda.jpg)">
+            <div class="number">6 / 7</div>
+            <figcaption>Mesa Redonda</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo effect">
+          <figure  style="background-image: url(res/img/eletronday2_mesaRedonda2.jpg)">
+            <div class="number">7 / 7</div>
+            <figcaption>Mesa Redonda</figcaption>
+          </figure>
+        </div>
+
+        <a class="prev" onclick="nextPhoto(-1)">&#10094;</a>
+        <a class="next" onclick="nextPhoto(1)">&#10095;</a>
+
+        <div class="dots_group">
+          <span class="dot active" onclick="currentPhoto(1)"></span>
+          <span class="dot" onclick="currentPhoto(2)"></span>
+          <span class="dot" onclick="currentPhoto(3)"></span>
+          <span class="dot" onclick="currentPhoto(4)"></span>
+          <span class="dot" onclick="currentPhoto(5)"></span>
+          <span class="dot" onclick="currentPhoto(6)"></span>
+          <span class="dot" onclick="currentPhoto(7)"></span>
+        </div>
+
+      </section>
+
     </main>
 
 <?php
