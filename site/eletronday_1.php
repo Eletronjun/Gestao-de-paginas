@@ -15,6 +15,7 @@ try {
     Page::startHeader("1º EletronDay");
     Page::styleSheet("eletronday");
     Page::styleSheet("galery");
+    Page::JavaScript("galery");
     Page::closeHeader();
 
     $menu = new CommunityMenu();
@@ -24,7 +25,7 @@ try {
     <main>
 
       <div id="page_title">
-        <h1>#° Eletron<span class="green_font">Day</span></h1>
+        <h1>1° Eletron<span class="green_font">Day</span></h1>
         <img src="res/img/Circuito.png">
       </div>
 
@@ -38,45 +39,45 @@ try {
 
 
       <section class="galery">
-        <h2>Galeria</h2>
-        <div class="galery_conteiner">
-          <div class="photo effect">
-            <div class="numbertext">1 / 4</div>
-              <img src="res/img/eletronday1_1.jpg">
-            <div class="text"></div>
-          </div>
+        <h4>Galeria de Fotos</h4>
 
-         <div class="photo effect">
-           <div class="numbertext">2 / 4</div>
-            <img src="res/img/eletronday1_2.jpg">
-           <div class="text"></div>
-         </div>
-
-         <div class="photo effect">
-           <div class="numbertext">3 / 4</div>
-            <img src="res/img/eletronday1_3.jpg">
-           <div class="text">Equipe EletronJun</div>
-         </div>
-
-         <div class="photo effect">
-           <div class="numbertext">4 / 4</div>
-            <img src="res/img/eletronday1_4.jpg">
-           <div class="text">Comissão Organizadora e Participantes</div>
-         </div>
-
-         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-         <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="photo effect" style="display:block">
+          <figure  style="background-image: url(res/img/eletronday1_1.jpg)">
+            <div class="number">1 / 4</div>
+          </figure>
         </div>
-        <br>
 
-        <div style="text-align:center">
-         <span class="dot" onclick="currentSlide(1)"></span>
-         <span class="dot" onclick="currentSlide(2)"></span>
-         <span class="dot" onclick="currentSlide(3)"></span>
-         <span class="dot" onclick="currentSlide(4)"></span>
+        <div class="photo effect">
+          <figure  style="background-image: url(res/img/eletronday1_2.jpg)">
+            <div class="number">2 / 4</div>
+          </figure>
         </div>
+
+        <div class="photo effect">
+          <figure  style="background-image: url(res/img/eletronday1_3.jpg)">
+            <div class="number">3 / 4</div>
+            <figcaption>Equipe EletronJun</figcaption>
+          </figure>
+        </div>
+
+        <div class="photo effect">
+          <figure  style="background-image: url(res/img/eletronday1_4.jpg)">
+            <div class="number">4 / 4</div>
+            <figcaption>Comissão Organizadora e Participantes</figcaption>
+          </figure>
+        </div>
+
+        <a class="prev" onclick="nextPhoto(-1)">&#10094;</a>
+        <a class="next" onclick="nextPhoto(1)">&#10095;</a>
+
+        <div class="dots_group">
+          <span class="dot active" onclick="currentPhoto(1)"></span>
+          <span class="dot" onclick="currentPhoto(2)"></span>
+          <span class="dot" onclick="currentPhoto(3)"></span>
+          <span class="dot" onclick="currentPhoto(4)"></span>
+        </div>
+
       </section>
-
     </main>
 
 <?php
