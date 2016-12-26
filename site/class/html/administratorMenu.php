@@ -64,7 +64,7 @@ namespace html{
             echo "<figure><img src=" . IMG_PATCH . "user.png></figure>";
             echo "<p>Olá, Usuário!<br><span class=\"right\" style=\"font-size:0.9rem\">";
             $this->logout();
-            echo " | conta</span></p>";
+            echo " | <a href='index.php'>conta</a></span></p>";
             echo "</section>";
         }
     }

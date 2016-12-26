@@ -5,6 +5,8 @@
     use \html\Page as Page;
     use \html\AdministratorMenu as AdministratorMenu;
     use \configuration\Globals as Globals;
+    use \dao\MemberDao as MemberDao;
+    use \model\Member as Member;
 
     Page::startHeader(Globals::ENTERPRISE_NAME);
     Page::styleSheet("form");
@@ -17,35 +19,51 @@
     $menu = new AdministratorMenu();
     $menu->construct();
 
-
+    $member = MemberDao::findCategory($session->getEmail());
 ?>
 <main>
   <h1></h1>
   <section class="left" style="margin-bottom:3.125rem">
     <h2>Bem-vindo à EletronJun!</h2>
-    <p style="font-size:1.5625rem;margin-top:-1.7rem;">Camila Ferrer</p>
+    <p style="font-size:1.5625rem;margin-top:-1.7rem;"><?php echo $member->getNick();?></p>
   </section>
 
-  <?php
-    echo "<div id=\"user_img\" style=\"background-image:url('../res/img/eletronday1_1.jpg')\">
-    </div>";
-  ?>
+    <?php
+      echo "<div id=\"user_img\" style=\"background-image:url('../res/img/eletronday1_1.jpg')\">
+      </div>";
+    ?>
 
   <form>
     <div class="flex">
     <div class="set_flex padding_right">
       <fieldset>
         <label>Nome Completo</label>
-        <input type="text">
+        <input type="text" name="name" value="<?php echo $member->getName();?>">
         <label>NickName</label>
-        <input type="text">
+        <input type="text" name="nick" value="<?php echo $member->getNick();?>">
         <label>Sexo</label><br>
-        <select>
-          <option>Feminino</option>
-          <option>Masculino</option>
+        <select name="sex">
+
+            <?php
+            echo "<option value = 'F' ";
+            if ('F' == $member->getSex()) {
+                echo "selected";
+            } else {
+                //Nothing to do.
+            }
+            echo ">" . MEMBER::$SEX['F'] . "</option>";
+
+            echo "<option value = 'M' ";
+            if ('M' == $member->getSex()) {
+                echo "selected";
+            } else {
+                //Nothing to do.
+            }
+            echo ">" . MEMBER::$SEX['M'] . "</option>";
+            ?>
         </select><br>
         <label>Data de Nascimento</label>
-        <input type="date">
+        <input type="date" name="birthdate" value="<?php echo $member->getBirthdate();?>">
         <label>RG</label>
         <input type="text">
         <label>CPF</label>
@@ -59,7 +77,7 @@
       </fieldset>
       <fieldset>
         <label>Matrícula</label>
-        <input type="text">
+        <input type="text" name="registration" value="<?php echo $member->getRegister();?>">
         <label>Curso</label>
         <input type="text">
         <label>Semestre</label>
@@ -86,9 +104,9 @@
       </fieldset>
       <fieldset>
         <label>Telefone</label>
-        <input type="text">
+        <input type="text" name="phone" value="<?php echo $member->getPhone();?>">
         <label>E-mail</label>
-        <input type="email">
+        <input type="email" name="email" value="<?php echo $member->getEmail();?>">
       </fieldset>
       <fieldset>
         <label>CEP</label>
