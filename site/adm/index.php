@@ -64,10 +64,10 @@
         </select><br>
         <label>Data de Nascimento</label>
         <input type="date" name="birthdate" value="<?php echo $member->getBirthdate();?>">
-        <label>RG</label>
-        <input type="text">
+        <label>RG (numero orgaoEmissor/estado)</label>
+        <input type="text" name="rg" value="<?php echo $member->getRg();?>">
         <label>CPF</label>
-        <input type="text">
+        <input type="text" name="cpf" value="<?php echo $member->getCpf();?>">
       </fieldset>
       <fieldset>
         <label>Senha</label>

@@ -30,8 +30,7 @@ namespace model{
         private $nick;          //Visual name. Not null value
         private $password;      //password to access data
         private $birthdate;     //birthdate of member. Mask mm-dd-yyyy or dd/mm/yyyy
-        private $rg;            //Receive null or rg number
-        private $rg_agency;     //emissor and state
+        private $rg;            //Receive null or rg number plus state
         private $cpf;           //cpf number. valid verificaton number and receive only numbers
         private $phone;         //contact number
         private $isActivity;    //Only y to active or n to inative
@@ -45,13 +44,15 @@ namespace model{
         const INVALID_NAME = "Nome não pode ser nulo/vazio.";
         const INVALID_NICK = "Nick não pode ser nulo/vazio.";
         const INVALID_SEX = "Sexo inválido.";
-        const NULL_REGISTER = "Matr&iacute;cula vazia!";
+        const NULL_REGISTER = "Matr&iacute;cula não pode ser nula/vazia!";
         const INVALID_REGISTER = "Matr&iacute;cula invalida.";
         const DATE_FORMAT = "Formato da data inv&aacute;lido.";
         const INVALID_DATE = "Data inv&aacute;lida.";
-        const NULL_DATE = "Data não pode ser nula.";
+        const NULL_DATE = "Data não pode ser nula/vazia.";
         const INVALID_PHONE = "Telefone invalido.";
-        const NULL_PHONE = "Telefone vazio!";
+        const NULL_PHONE = "Telefone não pode ser nulo/vazio!";
+        const INVALID_CPF = "CPF invalido, use apenas n&uacute;meros.";
+        const NULL_CPF = "CPF não pode ser nulo/vazio!";
 
         /**
          * @param string $email         primary indentifier for a member. Not null value
@@ -61,9 +62,21 @@ namespace model{
          * @param string $registration  secundary indentifier for a member. Not null value and mask XX/XXXXXXX
          * @param string $birthdate     birthdate of member. Mask mm-dd-yyyy or dd/mm/yyyy
          * @param string $phone         contact number
+         * @param string $rg            Receive null or rg number plus state
+         * @param string $cpf           cpf number. valid verificaton number and receive only numbers
          */
-        public function __construct($email, $name, $nick, $sex, $registration, $birthdate, $phone)
-        {
+        public function __construct(
+            $email,
+            $name,
+            $nick,
+            $sex,
+            $registration,
+            $birthdate,
+            $phone,
+            $rg,
+            $cpf
+        ) {
+        
             $this->setEmail($email);
             $this->setName($name);
             $this->setNick($nick);
@@ -71,6 +84,50 @@ namespace model{
             $this->setRegister($registration);
             $this->setBirthdate($birthdate);
             $this->setPhone($phone);
+            $this->setRg($rg);
+            $this->setCpf($cpf);
+        }
+
+        /**
+         * Method to verify if a cpf is valid
+         * @param   string  $cpf     cpf code
+         * @return boolean true if is valid or false if is invalid
+         */
+        private function isValidCpf($cpf)
+        {
+            $return = true;
+
+            // Verify corner cases
+            if (strlen($cpf) == 11 &&
+                !($cpf == '00000000000' ||
+                $cpf == '11111111111' ||
+                $cpf == '22222222222' ||
+                $cpf == '33333333333' ||
+                $cpf == '44444444444' ||
+                $cpf == '55555555555' ||
+                $cpf == '66666666666' ||
+                $cpf == '77777777777' ||
+                $cpf == '88888888888' ||
+                $cpf == '99999999999')) {
+                $CPF_LENGHT = 11;
+
+                //Calculate digit verify
+                for ($cpf_lenght_without_digit = 9;
+                        $cpf_lenght_without_digit < $CPF_LENGHT && $return;
+                        $cpf_lenght_without_digit++) {
+                    for ($digit = 0, $count = 0; $count < $cpf_lenght_without_digit; $count++) {
+                        $digit += $cpf{$count} * (($cpf_lenght_without_digit + 1) - $count);
+                    }
+                    $digit = ((10 * $digit) % $CPF_LENGHT) % 10;
+                    if ($cpf{$count} != $digit) {
+                        $return = false;
+                    }
+                }
+            } else {
+                $return = false;
+            }
+
+            return $return;
         }
 
         private function setEmail($email)
@@ -198,6 +255,32 @@ namespace model{
         public function getPhone()
         {
             return $this->phone;
+        }
+
+        private function setRg($rg)
+        {
+            $this->rg = $rg;
+        }
+        public function getRg()
+        {
+            return $this->rg;
+        }
+
+        private function setCpf($cpf)
+        {
+            if ($cpf != null) {
+                if ($this->isValidCpf($cpf)) {
+                    $this->cpf = $cpf;
+                } else {
+                    throw new MemberException(self::INVALID_CPF);
+                }
+            } else {
+                throw new MemberException(self::NULL_CPF);
+            }
+        }
+        public function getCpf()
+        {
+            return $this->cpf;
         }
     }
 }
