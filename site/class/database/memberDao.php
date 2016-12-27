@@ -159,7 +159,8 @@ namespace dao{
                 phone,
                 rg,
                 cpf,
-                course 
+                course,
+                period 
                 FROM MEMBERS WHERE email = '{$email}'";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
@@ -177,7 +178,8 @@ namespace dao{
                     $row['phone'],
                     $row['rg'],
                     $row['cpf'],
-                    $row['course']
+                    $row['course'],
+                    $row['period']
                 );
             } else {
                 throw new DatabaseException(self::NOT_EXISTS_MEMBER);

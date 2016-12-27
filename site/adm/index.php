@@ -92,7 +92,16 @@
             ?>
         </select>
         <label>Semestre</label>
-        <input type="text">
+        <select name="semester">
+        <option value="">Nenhum</option>
+            <?php
+            for ($i=1; $i < 17; $i++) {
+                echo "<option value='{$i}'" .
+                (($i == $member->getPeriod()) ? " selected" : "") .
+                ">{$i}</option>";
+            }
+            ?>
+        </select>
       </fieldset>
     </div>
     <div class="set_flex padding_left">

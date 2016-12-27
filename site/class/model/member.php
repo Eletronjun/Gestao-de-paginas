@@ -36,6 +36,7 @@ namespace model{
         private $cpf;           //cpf number. valid verificaton number and receive only numbers
         private $phone;         //contact number
         private $course;        //Null if member is not student or string with name of course
+        private $period;        //Integer value contain de number of period of member or null if member isn't student
         private $isActivity;    //Only y to active or n to inative
         private $image;         //image name
         private $address;       //Object Address only
@@ -57,6 +58,7 @@ namespace model{
         const INVALID_CPF = "CPF invalido, use apenas n&uacute;meros.";
         const NULL_CPF = "CPF não pode ser nulo/vazio!";
         const INVALID_COURSE = "Curso inválido!";
+        const INVALID_PERIOD = "Per&iacute;odo inv&aacute;lido!";
 
         /**
          * @param string $email         primary indentifier for a member. Not null value
@@ -69,6 +71,7 @@ namespace model{
          * @param string $rg            Receive null or rg number plus state
          * @param string $cpf           cpf number. valid verificaton number and receive only numbers
          * @param string $course        Null if member is not student or string with name of course
+         * @param string $period        Integer value contain de number of period of member or null if member isn't student
          */
         public function __construct(
             $email,
@@ -80,7 +83,8 @@ namespace model{
             $phone,
             $rg,
             $cpf,
-            $course
+            $course,
+            $period
         ) {
         
             $this->setEmail($email);
@@ -93,6 +97,7 @@ namespace model{
             $this->setRg($rg);
             $this->setCpf($cpf);
             $this->setCourse($course);
+            $this->setPeriod($period);
         }
 
         /**
@@ -302,6 +307,20 @@ namespace model{
         public function getCourse()
         {
             return $this->course;
+        }
+        
+        private function setPeriod($period)
+        {
+            if (preg_match("/^([1-9]|1[0-6])$/", $period) || $period == null) {
+                $this->period = $period;
+            } else {
+                throw new InscricaoException(self::INVALID_PERIOD);
+            }
+        }
+        
+        public function getPeriod()
+        {
+            return $this->period;
         }
     }
 }

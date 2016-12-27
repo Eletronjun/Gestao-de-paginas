@@ -49,6 +49,7 @@ CREATE TABLE MEMBERS
 	phone VARCHAR(15) NOT NULL,
 	course ENUM('Engenharia Eletrônica','Engenharia de Software',
 		'Engenharia de Energia','Engenharia Automotiva','Engenharia Aeroespacial', 'Outros') NULL,
+	period INT NULL,
 	code_address INT NOT NULL,
 	code_directorate INT,
 	code_office INT NOT NULL,
