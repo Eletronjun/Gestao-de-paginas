@@ -79,7 +79,18 @@
         <label>Matrícula</label>
         <input type="text" name="registration" value="<?php echo $member->getRegister();?>">
         <label>Curso</label>
-        <input type="text" name="course" value="<?php echo $member->getCourse();?>">
+        <select name="course">
+            <option value="">Nenhum</option>
+            <?php
+
+            for ($i=0; $i < count(Member::$COURSE); $i++) {
+                echo "<option value='" . Member::$COURSE[$i] .
+                    ((Member::$COURSE[$i] == $member->getCourse()) ? "' selected" : "'") .
+                    ">" . Member::$COURSE[$i] . "</option>";
+            }
+
+            ?>
+        </select>
         <label>Semestre</label>
         <input type="text">
       </fieldset>

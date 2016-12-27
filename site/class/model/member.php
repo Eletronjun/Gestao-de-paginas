@@ -20,6 +20,8 @@ namespace model{
         public static $DIRECTORATE = array('Marketing','Administrativo/Financeiro',
                     'Gestão de Pessoas e Processos', 'Projeto', 'Presidencia');
         public static $OFFICE = array("Diretor", "Gerente", "Presidente", "Acessor");
+        public static $COURSE = array("Engenharia Eletrônica", "Engenharia de Software",
+            "Engenharia de Energia", "Engenharia Automotiva", "Engenharia Aeroespacial", "Outros");
         public static $SEX = array('F' => 'Feminino', 'M' =>'Masculino');
 
         //Attributes
@@ -54,6 +56,7 @@ namespace model{
         const NULL_PHONE = "Telefone não pode ser nulo/vazio!";
         const INVALID_CPF = "CPF invalido, use apenas n&uacute;meros.";
         const NULL_CPF = "CPF não pode ser nulo/vazio!";
+        const INVALID_COURSE = "Curso inválido!";
 
         /**
          * @param string $email         primary indentifier for a member. Not null value
@@ -289,7 +292,11 @@ namespace model{
 
         private function setCourse($course)
         {
-            $this->course = $course;
+            if (in_array($course, Member::$COURSE) || $course == null) {
+                $this->course = $course;
+            } else {
+                throw new MemberException(self::INVALID_COURSE);
+            }
         }
         
         public function getCourse()
