@@ -79,7 +79,7 @@
         <label>Matrícula</label>
         <input type="text" name="registration" value="<?php echo $member->getRegister();?>">
         <label>Curso</label>
-        <input type="text">
+        <input type="text" name="course" value="<?php echo $member->getCourse();?>">
         <label>Semestre</label>
         <input type="text">
       </fieldset>

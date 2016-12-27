@@ -47,6 +47,7 @@ CREATE TABLE MEMBERS
 	rg VARCHAR(30) NOT NULL,
 	cpf VARCHAR(15) NOT NULL,
 	phone VARCHAR(15) NOT NULL,
+	course VARCHAR(100) NULL,
 	code_address INT NOT NULL,
 	code_directorate INT,
 	code_office INT NOT NULL,

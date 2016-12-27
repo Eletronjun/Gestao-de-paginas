@@ -33,6 +33,7 @@ namespace model{
         private $rg;            //Receive null or rg number plus state
         private $cpf;           //cpf number. valid verificaton number and receive only numbers
         private $phone;         //contact number
+        private $course;        //Null if member is not student or string with name of course
         private $isActivity;    //Only y to active or n to inative
         private $image;         //image name
         private $address;       //Object Address only
@@ -64,6 +65,7 @@ namespace model{
          * @param string $phone         contact number
          * @param string $rg            Receive null or rg number plus state
          * @param string $cpf           cpf number. valid verificaton number and receive only numbers
+         * @param string $course        Null if member is not student or string with name of course
          */
         public function __construct(
             $email,
@@ -74,7 +76,8 @@ namespace model{
             $birthdate,
             $phone,
             $rg,
-            $cpf
+            $cpf,
+            $course
         ) {
         
             $this->setEmail($email);
@@ -86,6 +89,7 @@ namespace model{
             $this->setPhone($phone);
             $this->setRg($rg);
             $this->setCpf($cpf);
+            $this->setCourse($course);
         }
 
         /**
@@ -281,6 +285,16 @@ namespace model{
         public function getCpf()
         {
             return $this->cpf;
+        }
+
+        private function setCourse($course)
+        {
+            $this->course = $course;
+        }
+        
+        public function getCourse()
+        {
+            return $this->course;
         }
     }
 }
