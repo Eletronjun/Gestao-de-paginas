@@ -50,6 +50,7 @@
           </a>
         </ul>
         <div class="set_flex flex flex_colunm">
+          <?php if(isset($last_publications[1][0])) {?>
           <ul class="set_flex">
             <a href="controller/generatePublication.php?code=<?php echo $last_publications[1][0];?>">
               <li>
@@ -74,6 +75,9 @@
               </li>
             </a>
           </ul>
+          <?php }
+            if (isset($last_publications[2][0])) {
+          ?>
           <ul class="set_flex">
             <a href="controller/generatePublication.php?code=<?php echo $last_publications[2][0];?>">
               <li>
@@ -98,6 +102,9 @@
               </li>
             </a>
           </ul>
+          <?php
+            }
+          ?>
         </div>
       </section>
 
