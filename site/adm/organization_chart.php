@@ -9,6 +9,7 @@
     Page::startHeader("Organograma");
     Page::styleSheet("user");
     Page::styleSheet("form");
+    echo "<script src=\"../css/ckeditor/ckeditor.js\"></script>";
     Page::closeHeader();
 
     $session = new Session();
@@ -20,11 +21,50 @@
 
 ?>
 <main>
-  <h1></h1>
-  <section class="left" style="margin-bottom:3.125rem">
-    <h1>Gerenciar Organograma</h1>
-    <p style="font-size:1.5625rem;margin-top:-1.7rem;">Camila Ferrer</p>
-  </section>
+  <h1>Gerenciar Organograma</h1>
+
+  <form class="flex" enctype="multipart/form-data">
+    <div class="set_flex padding_right">
+      <fieldset>
+        <label>Presidente Organizacional:</label>
+        <input type="file" name="organizationalPresident">
+      </fieldset>
+      <fieldset>
+        <label>Diretor(a) ADM-FIN:</label>
+        <input type="file" name="directorADM">
+        <label>Acessores ADM-FIN:</label>
+        <textarea id="advisorsADM" name="advisorsADM"></textarea><br><br>
+        <script>CKEDITOR.replace( 'advisorsADM' );</script>
+      </fieldset>
+      <fieldset>
+        <label>Diretor(a) MKT:</label>
+        <input type="file" name="directorMKT">
+        <label>Acessores MKT:</label>
+        <textarea id="advisorsMKT" name="advisorsMKT"></textarea><br><br>
+        <script>CKEDITOR.replace( 'advisorsMKT' );</script>
+      </fieldset>
+    </div>
+    <div class="set_flex padding_left">
+      <fieldset>
+        <label>Presidente Institucional:</label>
+        <input type="file" name="institutionalPresident">
+      </fieldset>
+      <fieldset>
+        <label>Diretor(a) GPP:</label>
+        <input type="file" name="directorGPP">
+        <label>Acessores GPP:</label>
+        <textarea id="advisorsGPP" name="advisorsGPP"></textarea><br><br>
+        <script>CKEDITOR.replace( 'advisorsGPP' );</script>
+      </fieldset>
+      <fieldset>
+        <label>Diretor(a) Projetos:</label>
+        <input type="file" name="directorProjects">
+        <label>Acessores Projetos:</label>
+        <textarea id="advisorsProjects" name="advisorsProjects"></textarea><br><br>
+        <script>CKEDITOR.replace( 'advisorsProjects' );</script>
+      </fieldset>
+    </div>
+  </form>
 
 </main>
 
