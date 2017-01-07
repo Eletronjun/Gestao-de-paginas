@@ -32,8 +32,7 @@
   ?>
 
   <form>
-    <div class="flex">
-    <div class="set_flex padding_right">
+    <div class="double_column">
       <fieldset>
         <label>Nome Completo</label>
         <input type="text">
@@ -65,8 +64,6 @@
         <label>Semestre</label>
         <input type="text">
       </fieldset>
-    </div>
-    <div class="set_flex padding_left">
       <fieldset>
         <label>Diretoria</label><br>
         <select>
@@ -107,7 +104,6 @@
         <input type="text">
       </fieldset>
     </div>
-  </div>
     <input type="submit" value="Salvar">
   </form>
 </main>

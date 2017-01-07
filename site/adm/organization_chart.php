@@ -23,8 +23,7 @@
 <main>
   <h1>Gerenciar Organograma</h1>
 
-  <form class="flex" enctype="multipart/form-data">
-    <div class="set_flex padding_right">
+  <form class="double_column" enctype="multipart/form-data">
       <fieldset>
         <label>Presidente Organizacional:</label>
         <input type="file" name="organizationalPresident">
@@ -43,8 +42,6 @@
         <textarea id="advisorsMKT" name="advisorsMKT"></textarea><br><br>
         <script>CKEDITOR.replace( 'advisorsMKT' );</script>
       </fieldset>
-    </div>
-    <div class="set_flex padding_left">
       <fieldset>
         <label>Presidente Institucional:</label>
         <input type="file" name="institutionalPresident">
@@ -63,7 +60,6 @@
         <textarea id="advisorsProjects" name="advisorsProjects"></textarea><br><br>
         <script>CKEDITOR.replace( 'advisorsProjects' );</script>
       </fieldset>
-    </div>
   </form>
 
 </main>
