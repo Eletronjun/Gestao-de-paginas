@@ -55,7 +55,7 @@
 
     <div class="set_flex">
         <h4 class="center" style="display:block;float:right">
-          <a href="#">Manual de<br>Identidade Visual</a>
+          <a href="<?php echo PROJECT_ROOT ?>res/doc/Manual_de_Identidade_Visual_2016.pdf">Manual de<br>Identidade Visual</a>
         </h4>
     </div>
   </section>
