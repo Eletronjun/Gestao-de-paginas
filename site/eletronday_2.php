@@ -12,7 +12,7 @@
 
 try {
 
-    Page::startHeader("1º EletronDay");
+    Page::startHeader("2º EletronDay");
     Page::styleSheet("eletronday");
     Page::styleSheet("galery");
     Page::JavaScript("galery");
