@@ -55,7 +55,7 @@ try {
               echo Date::formatDate($data[$index][4]) . "</p>\n";
 
               if (strlen($data[$index][2])) {
-                  echo  "       <p>" . substr($data[$index][2], 0, 72) . "...</p>\n";
+                  echo  "       <p>" . substr($data[$index][2], 0, 50) . "...</p>\n";
               }
             echo "    </a></div>\n";
           }
