@@ -30,6 +30,7 @@ namespace html{
             $session->verifyIfSessionIsStarted();
             parent::startMenu();
             $this->wellcomeUser();
+            parent::menuMobile();
             parent::startMenuOptions();
         }
 

@@ -52,5 +52,9 @@ namespace html{
             echo "</div>";
             echo "<br>";
         }
+
+        protected static function menuMobile() {
+          echo "<span class=\"anchor_menu\"><div></div><div></div><div></div></span>\n";
+        }
     }
 }
