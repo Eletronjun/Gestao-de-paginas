@@ -20,21 +20,6 @@ CREATE TABLE DIRECTORATE
 	PRIMARY KEY directorate_pk (code)
 ) ENGINE=InnoDB CHARSET=utf8;
 
-CREATE TABLE ADDRESS
-(
-	code INT NOT NULL AUTO_INCREMENT,
-	cep VARCHAR(10) NOT NULL,
-	address VARCHAR(100) NOT NULL,
-    neighborhood VARCHAR(30),
-    residence VARCHAR(6) NOT NULL,
-	city  VARCHAR(50) NOT NULL,
-	state  VARCHAR(2) NOT NULL,
-	complement  VARCHAR(50) NULL,
-	PRIMARY KEY address_pk (code)
-
-) ENGINE=InnoDB CHARSET=utf8;
-
-
 CREATE TABLE MEMBERS
 (
 	email VARCHAR(150) NOT NULL,
@@ -50,6 +35,7 @@ CREATE TABLE MEMBERS
 	course ENUM('Engenharia Eletrônica','Engenharia de Software',
 		'Engenharia de Energia','Engenharia Automotiva','Engenharia Aeroespacial', 'Outros') NULL,
 	period INT NULL,
+	address VARCHAR(500) NOT NULL,
 	code_address INT NOT NULL,
 	code_directorate INT,
 	code_office INT NOT NULL,

@@ -39,13 +39,14 @@ namespace model{
         private $period;        //Integer value contain de number of period of member or null if member isn't student
         private $isActivity;    //Only y to active or n to inative
         private $image;         //image name
-        private $address;       //Object Address only
+        private $address;       //Non null string
         private $directorate;   //ENUM directorate only
         private $office;        //ENUM office only
 
         //Exceptions messenger
         const INVALID_EMAIL = "Email ou esta nulo ou é invalido.";
         const INVALID_NAME = "Nome não pode ser nulo/vazio.";
+        const INVALID_ADDRESS = "Nome não pode ser nulo/vazio.";
         const INVALID_NICK = "Nick não pode ser nulo/vazio.";
         const INVALID_SEX = "Sexo inválido.";
         const NULL_REGISTER = "Matr&iacute;cula não pode ser nula/vazia!";
@@ -72,6 +73,7 @@ namespace model{
          * @param string $cpf           cpf number. valid verificaton number and receive only numbers
          * @param string $course        Null if member is not student or string with name of course
          * @param string $period        Integer value contain de number of period of member or null if member isn't student
+         * @param string $address       Non null string
          */
         public function __construct(
             $email,
@@ -84,7 +86,8 @@ namespace model{
             $rg,
             $cpf,
             $course,
-            $period
+            $period,
+            $address
         ) {
         
             $this->setEmail($email);
@@ -98,6 +101,7 @@ namespace model{
             $this->setCpf($cpf);
             $this->setCourse($course);
             $this->setPeriod($period);
+            $this->setAddress($address);
         }
 
         /**
@@ -321,6 +325,19 @@ namespace model{
         public function getPeriod()
         {
             return $this->period;
+        }
+
+        private function setAddress($address)
+        {
+            if ($address != null) {
+                $this->address = $address;
+            } else {
+                throw new MemberException(self::INVALID_ADDRESS);
+            }
+        }
+        public function getAddress()
+        {
+            return $this->address;
         }
     }
 }

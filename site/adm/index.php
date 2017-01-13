@@ -69,12 +69,7 @@
         <label>CPF</label>
         <input type="text" name="cpf" value="<?php echo $member->getCpf();?>">
       </fieldset>
-      <fieldset>
-        <label>Senha</label>
-        <input type="password">
-        <label>Confirmação de Senha</label>
-        <input type="password">
-      </fieldset>
+      
       <fieldset>
         <label>Matrícula</label>
         <input type="text" name="registration" value="<?php echo $member->getRegister();?>">
@@ -91,20 +86,18 @@
 
             ?>
         </select>
-        <label>Semestre</label>
-        <select name="semester">
-        <option value="">Nenhum</option>
-            <?php
-            for ($i=1; $i < 17; $i++) {
-                echo "<option value='{$i}'" .
-                (($i == $member->getPeriod()) ? " selected" : "") .
-                ">{$i}</option>";
-            }
-            ?>
-        </select>
       </fieldset>
+
     </div>
     <div class="set_flex padding_left">
+
+      <fieldset>
+        <label>Senha</label>
+        <input type="password">
+        <label>Confirmação de Senha</label>
+        <input type="password">
+      </fieldset>
+
       <fieldset>
         <label>Diretoria</label><br>
         <select>
@@ -122,27 +115,31 @@
           <option>Presidente</option>
         </select><br>
       </fieldset>
+      
       <fieldset>
-        <label>Telefone</label>
-        <input type="text" name="phone" value="<?php echo $member->getPhone();?>">
+        <label>Endereço</label>
+        <input type="text" name="address" value="<?php echo $member->getAddress();?>">
+      </fieldset>
+      
+      <fieldset>
         <label>E-mail</label>
         <input type="email" name="email" value="<?php echo $member->getEmail();?>">
+        <label>Telefone</label>
+        <input type="text" name="phone" value="<?php echo $member->getPhone();?>">
       </fieldset>
+
       <fieldset>
-        <label>CEP</label>
-        <input type="text">
-        <label>Logradouro</label>
-        <input type="text">
-        <label>Bairro</label>
-        <input type="text">
-        <label>Número</label>
-        <input type="text">
-        <label>Cidade</label>
-        <input type="text">
-        <label>Estado</label>
-        <input type="text">
-        <label>Complemento</label>
-        <input type="text">
+        <label>Semestre</label>
+        <select name="semester">
+        <option value="">Nenhum</option>
+            <?php
+            for ($i=1; $i < 17; $i++) {
+                echo "<option value='{$i}'" .
+                (($i == $member->getPeriod()) ? " selected" : "") .
+                ">{$i}</option>";
+            }
+            ?>
+        </select>
       </fieldset>
     </div>
   </div>
