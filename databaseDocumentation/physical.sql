@@ -36,7 +36,6 @@ CREATE TABLE MEMBERS
 		'Engenharia de Energia','Engenharia Automotiva','Engenharia Aeroespacial', 'Outros') NULL,
 	period INT NULL,
 	address VARCHAR(500) NOT NULL,
-	code_address INT NOT NULL,
 	code_directorate INT,
 	code_office INT NOT NULL,
 	isActivity ENUM('n','y') NOT NULL DEFAULT 'n', /* To account actived, use 'y' or 'n' to inative. */
@@ -47,7 +46,6 @@ CREATE TABLE MEMBERS
 	CONSTRAINT UNIQUE email_uk(email),
     CONSTRAINT UNIQUE cpf_uk(cpf),
 
-	FOREIGN KEY members_address_fk (code_address) REFERENCES ADDRESS(code) ON UPDATE RESTRICT ON DELETE RESTRICT,
 	FOREIGN KEY members_directorate_fk (code_directorate) REFERENCES DIRECTORATE(code) ON UPDATE RESTRICT ON DELETE RESTRICT,
 	FOREIGN KEY members_office_fk (code_office) REFERENCES OFFICE(code) ON UPDATE RESTRICT ON DELETE RESTRICT
 
@@ -84,7 +82,8 @@ CREATE TABLE WEB_PAGE(
 
 ) ENGINE=InnoDB CHARSET=utf8;
 
-INSERT INTO OFFICE (office) VALUES ('Presidente');
+INSERT INTO OFFICE (office) VALUES ('Presidente Organizacional');
+INSERT INTO OFFICE (office) VALUES ('Presidente Institucional');
 INSERT INTO OFFICE (office) VALUES ('Diretor');
 INSERT INTO OFFICE (office) VALUES ('Gerente');
 INSERT INTO OFFICE (office) VALUES ('Assessor');
@@ -95,12 +94,16 @@ INSERT INTO DIRECTORATE (directorate) VALUES ('Administrativo e Financeiro');
 INSERT INTO DIRECTORATE (directorate) VALUES ('Gestão de Pessoas e Processos');
 INSERT INTO DIRECTORATE (directorate) VALUES ('Marketing');
 INSERT INTO DIRECTORATE (directorate) VALUES ('Gestão de Projetos');
+INSERT INTO DIRECTORATE (directorate) VALUES ('Presidência');
 
 /*usuário inicial padrão*/
-INSERT INTO ADDRESS (cep, address, neighborhood, residence, city, state, complement)
-	VALUES('72450-100',	'Q10', 'Gama Oeste','Lote 09', 'Gama', 'DF','apto 102');
 /*password is 1234*/
-INSERT INTO MEMBERS (email, registration, member_name, sex, nick, password, birthDate, rg,
-	rg_agency, cpf, phone, code_address, code_directorate,code_office,isActivity) VALUES
-	('marketing@eletronjun.com.br', '14/0066543', 'Eletronjun', ' ', 'eletronjun','$2a$05$JD2WU824jsfhs23hu233D.0EbJKRpRMa8cI/4dKusO.yCyTiHuqvO',
-		'2013-01-01','', '', '', '', 1, 3, 1,'y');
+INSERT INTO `eletronjun_db`.`MEMBERS` 
+(`email`, `registration`, `member_name`, `sex`, `nick`, `password`, `birthDate`, `rg`, 
+	`cpf`, `phone`, `course`, `period`, `address`, `code_address`, `code_directorate`, 
+	`code_office`, `isActivity`, `image`) 
+VALUES 
+('marketing@eletronjun.com.br', '14/0066543', 'Eletronjun - Engenharia Eletrônica Júnior', 
+	'M', 'eletronjun', '$2a$05$JD2WU824jsfhs23hu233D.0EbJKRpRMa8cI/4dKusO.yCyTiHuqvO', 
+	'2013-01-01', ' ', '42341155847', '(99)99999-9999', 'Engenharia Eletrônica', '10', 
+	'Unb-Gama', '1', '2', '5', 'y', 'default.png');

@@ -19,7 +19,7 @@
     $menu = new AdministratorMenu();
     $menu->construct();
 
-    $member = MemberDao::findCategory($session->getEmail());
+    $member = MemberDao::findMember($session->getEmail());
 ?>
 <main>
   <h1></h1>
@@ -29,11 +29,11 @@
   </section>
 
     <?php
-      echo "<div id=\"user_img\" style=\"background-image:url('../res/img/eletronday1_1.jpg')\">
+      echo "<div id=\"user_img\" style=\"background-image:url('../res/member_image/{$member->getImage()}')\">
       </div>";
     ?>
 
-  <form>
+  <form name="update" action="../controller/updateMember.php" method="POST" enctype="multipart/form-data">
     <div class="flex">
     <div class="set_flex padding_right">
       <fieldset>
@@ -88,31 +88,45 @@
         </select>
       </fieldset>
 
+        <fieldset>
+            <label>Atualizar imagem</label>
+            <input type="file" text="Nova Foto" name="image">
+        </fieldset>
+
     </div>
     <div class="set_flex padding_left">
 
       <fieldset>
         <label>Senha</label>
-        <input type="password">
+        <input type="password" name="password">
         <label>Confirmação de Senha</label>
-        <input type="password">
+        <input type="password" name="password_confirm">
       </fieldset>
 
       <fieldset>
         <label>Diretoria</label><br>
-        <select>
-          <option>Presidência</option>
-          <option>Administrativo e Financeiro</option>
-          <option>Gestão de Pessoa e Projetos</option>
-          <option>Marketing</option>
-          <option>Projetos</option>
+        <select name="directorate">
+        <?php
+
+        for ($i=0; $i < count(Member::$DIRECTORATE); $i++) {
+            echo "<option value='" . ($i+1) .
+              (($i+1 == $member->getDirectorate()) ? "' selected" : "'") .
+              ">" . Member::$DIRECTORATE[$i] . "</option>";
+        }
+
+        ?>
         </select><br>
         <label>Cargo</label><br>
-        <select>
-          <option>Acessor</option>
-          <option>Gerente</option>
-          <option>Diretor</option>
-          <option>Presidente</option>
+        <select name="office">
+        <?php
+
+        for ($i=0; $i < count(Member::$OFFICE); $i++) {
+            echo "<option value='" . ($i+1) .
+              (($i+1 == $member->getOffice()) ? "' selected" : "'") .
+              ">" . Member::$OFFICE[$i] . "</option>";
+        }
+
+        ?>
         </select><br>
       </fieldset>
       
@@ -130,7 +144,7 @@
 
       <fieldset>
         <label>Semestre</label>
-        <select name="semester">
+        <select name="period">
         <option value="">Nenhum</option>
             <?php
             for ($i=1; $i < 17; $i++) {
@@ -142,6 +156,7 @@
         </select>
       </fieldset>
     </div>
+
   </div>
     <input type="submit" value="Salvar">
   </form>

@@ -17,9 +17,9 @@ namespace model{
     class Member
     {
         //Constants
-        public static $DIRECTORATE = array('Marketing','Administrativo/Financeiro',
-                    'Gestão de Pessoas e Processos', 'Projeto', 'Presidencia');
-        public static $OFFICE = array("Diretor", "Gerente", "Presidente", "Acessor");
+        public static $DIRECTORATE = array('Administrativo/Financeiro',
+                    'Gestão de Pessoas e Processos','Marketing', 'Projeto', 'Presidencia');
+        public static $OFFICE = array("Presidente Organizacional", "Presidente Institucional", "Diretor", "Gerente", "Assessor", "Trainee", "Colaborador");
         public static $COURSE = array("Engenharia Eletrônica", "Engenharia de Software",
             "Engenharia de Energia", "Engenharia Automotiva", "Engenharia Aeroespacial", "Outros");
         public static $SEX = array('F' => 'Feminino', 'M' =>'Masculino');
@@ -49,6 +49,8 @@ namespace model{
         const INVALID_ADDRESS = "Nome não pode ser nulo/vazio.";
         const INVALID_NICK = "Nick não pode ser nulo/vazio.";
         const INVALID_SEX = "Sexo inválido.";
+        const INVALID_DIRECTORATE = "Diretoria Inválida.";
+        const INVALID_OFFICE = "Cargo inválido.";
         const NULL_REGISTER = "Matr&iacute;cula não pode ser nula/vazia!";
         const INVALID_REGISTER = "Matr&iacute;cula invalida.";
         const DATE_FORMAT = "Formato da data inv&aacute;lido.";
@@ -68,12 +70,16 @@ namespace model{
          * @param string $sex           Only F to Female or M to Male
          * @param string $registration  secundary indentifier for a member. Not null value and mask XX/XXXXXXX
          * @param string $birthdate     birthdate of member. Mask mm-dd-yyyy or dd/mm/yyyy
-         * @param string $phone         contact number
+         * @param string $phone         contact number, not null and in format (XX)XXXXX-XXXX
          * @param string $rg            Receive null or rg number plus state
          * @param string $cpf           cpf number. valid verificaton number and receive only numbers
          * @param string $course        Null if member is not student or string with name of course
          * @param string $period        Integer value contain de number of period of member or null if member isn't student
          * @param string $address       Non null string
+         * @param int    $directorate   ENUM directorate only
+         * @param int    $office        Non null string
+         * @param string $password      password to access data
+         * @param string $image         ENUM office only
          */
         public function __construct(
             $email,
@@ -87,7 +93,11 @@ namespace model{
             $cpf,
             $course,
             $period,
-            $address
+            $address,
+            $directorate,
+            $office,
+            $password = null,
+            $image = null
         ) {
         
             $this->setEmail($email);
@@ -102,6 +112,10 @@ namespace model{
             $this->setCourse($course);
             $this->setPeriod($period);
             $this->setAddress($address);
+            $this->setDirectorate($directorate);
+            $this->setOffice($office);
+            $this->setPassword($password);
+            $this->setImage($image);
         }
 
         /**
@@ -338,6 +352,58 @@ namespace model{
         public function getAddress()
         {
             return $this->address;
+        }
+
+        private function setImage($image)
+        {
+            if ($image != null) {
+                $this->image = $image;
+            } else {
+                $this->image = "default.png";
+            }
+        }
+        public function getImage()
+        {
+            return $this->image;
+        }
+
+        private function setPassword($password)
+        {
+            if (strncmp($password, "$2a$", strlen("$2a$")) == 0) {
+                $this->password = $password;
+            } else {
+                $this->password = crypt($password, Globals::SECURITY_HASH);
+            }
+        }
+        public function getPassword()
+        {
+            return $this->password;
+        }
+
+        private function setDirectorate($directorate)
+        {
+            if (isset(self::$DIRECTORATE[$directorate])) {
+                $this->directorate = $directorate;
+            } else {
+                throw new MemberException(self::INVALID_DIRECTORATE);
+            }
+        }
+        public function getDirectorate()
+        {
+            return $this->directorate;
+        }
+
+        private function setOffice($office)
+        {
+            if (isset(self::$OFFICE[$office])) {
+                $this->office = $office;
+            } else {
+                throw new MemberException(self::INVALID_OFFICE);
+            }
+        }
+        public function getoffice()
+        {
+            return $this->office;
         }
     }
 }

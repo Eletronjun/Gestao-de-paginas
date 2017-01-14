@@ -29,10 +29,10 @@ namespace dao{
         /**
          * @param Category $categoryModel not null value
          */
-        public function __construct($category_model)
+        public function __construct($member_model)
         {
             parent::__construct(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
-            $this->setCategoryModel($category_model);
+            $this->setMemberModel($member_model);
         }
 
         // public static function getCategories()
@@ -56,25 +56,42 @@ namespace dao{
         //     return $data;
         // }
 
-        // /**
-        //  * Method to update data
-        //  * @param String  $new_name
-        //  */
-        // public function update($new_name, $new_layout)
-        // {
-        //     if (!is_null($this->getCategoryModel()->getId())) {
-        //         $query = "UPDATE CATEGORY SET name = '{$new_name}', layout = '{$new_layout}' WHERE code = " . $this->getCategoryModel()->getId();
+        /**
+         * Method to update member data
+         * @param Member  $new_member     object member with the new data
+         */
+        public function update($new_member)
+        {
+            $query = "UPDATE MEMBERS SET 
+                email = '{$new_member->getEmail()}',
+                member_name = '{$new_member->getName()}', 
+                nick = '{$new_member->getNick()}', 
+                sex = '{$new_member->getSex()}', 
+                registration = '{$new_member->getRegister()}', 
+                birthdate = '{$new_member->getBirthdate()}',
+                phone = '{$new_member->getPhone()}',
+                rg = '{$new_member->getRg()}',
+                cpf = '{$new_member->getCpf()}',
+                course = '{$new_member->getCourse()}',
+                period = '{$new_member->getPeriod()}',
+                address = '{$new_member->getAddress()}',
+                code_directorate = {$new_member->getDirectorate()},
+                code_office = {$new_member->getOffice()},
+                image = '{$new_member->getImage()}'";
+            if ($new_member->getPassword() == null) {
+                $query .= "password = '{$new_member->getPassword()}'";
+            } else {
+                //Nothing to do.
+            }
 
-        //         parent::query($query);
+            $query .= " WHERE email = '{$this->getMemberModel()->getEmail()}'";
 
-        //         $category = new Category(
-        //             $new_name,
-        //             $this->getCategoryModel()->getId()
-        //         );
-        //     } else {
-        //         throw new DatabaseException(self::NOT_UPDATE_CATEGORY);
-        //     }
-        // }
+            parent::query($query);
+            $this->setMemberModel($new_member);
+            parent::disconnect();
+
+            echo $query;
+        }
 
         // /**
         //  * Method to persist category data
@@ -148,7 +165,7 @@ namespace dao{
          * @param   string     $email   only string
          * @return  Member     member model data
          */
-        public static function findCategory($email)
+        public static function findMember($email)
         {
             $query = "SELECT email,
                 member_name, 
@@ -161,7 +178,11 @@ namespace dao{
                 cpf,
                 course,
                 period,
-                address
+                address,
+                password,
+                image,
+                code_directorate,
+                code_office
                 FROM MEMBERS WHERE email = '{$email}'";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $resultSet = $dao->query($query);
@@ -181,7 +202,11 @@ namespace dao{
                     $row['cpf'],
                     $row['course'],
                     $row['period'],
-                    $row['address']
+                    $row['address'],
+                    $row['code_directorate'],
+                    $row['code_office'],
+                    $row['password'],
+                    $row['image']
                 );
             } else {
                 throw new DatabaseException(self::NOT_EXISTS_MEMBER);
@@ -210,9 +235,9 @@ namespace dao{
             }
         }
 
-        public function getCategoryModel()
+        public function getMemberModel()
         {
-            return $this->category_model;
+            return $this->member_model;
         }
     }
 }
