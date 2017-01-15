@@ -34,12 +34,19 @@ namespace html{
             parent::addItem(PROJECT_ROOT . "adm/organization_chart.php", "Organograma");
 
             switch (Member::$DIRECTORATE[$_SESSION['code_directorate']-1]) {
+                case Member::$DIRECTORATE[0]:
+                    break;
+                case Member::$DIRECTORATE[1]:
+                    $this->gppPageOptions();
+                    break;
                 case Member::$DIRECTORATE[2]:
                     $this->marketngPageOptions();
                     break;
-                
-                default:
-                    # code...
+                case Member::$DIRECTORATE[3]:
+                    break;
+                case Member::$DIRECTORATE[4]:
+                    $this->marketngPageOptions();
+                    $this->gppPageOptions();
                     break;
             }
             parent::endMenu();
@@ -51,6 +58,13 @@ namespace html{
                   parent::addItem(PROJECT_ROOT . "adm/category.php", "Gerenciar Categorias");
                   parent::addItem(PROJECT_ROOT . "adm/pages.php", "Gerenciar Páginas");
                   parent::addItem(PROJECT_ROOT . "adm/newPage.php", "Nova Página");
+                parent::endDropdown();
+        }
+
+        private function gppPageOptions()
+        {
+                parent::startDropdown("Membros");
+                  parent::addItem(PROJECT_ROOT . "adm/solicitations.php", "Solicitações");
                 parent::endDropdown();
         }
 
