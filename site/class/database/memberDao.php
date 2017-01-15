@@ -89,8 +89,6 @@ namespace dao{
             parent::query($query);
             $this->setMemberModel($new_member);
             parent::disconnect();
-
-            echo $query;
         }
 
         // /**

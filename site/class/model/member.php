@@ -51,17 +51,17 @@ namespace model{
         const INVALID_SEX = "Sexo inválido.";
         const INVALID_DIRECTORATE = "Diretoria Inválida.";
         const INVALID_OFFICE = "Cargo inválido.";
-        const NULL_REGISTER = "Matr&iacute;cula não pode ser nula/vazia!";
-        const INVALID_REGISTER = "Matr&iacute;cula invalida.";
-        const DATE_FORMAT = "Formato da data inv&aacute;lido.";
-        const INVALID_DATE = "Data inv&aacute;lida.";
+        const NULL_REGISTER = "Matrícula não pode ser nula/vazia!";
+        const INVALID_REGISTER = "Matrícula invalida.";
+        const DATE_FORMAT = "Formato da data inválido.";
+        const INVALID_DATE = "Data inválida.";
         const NULL_DATE = "Data não pode ser nula/vazia.";
         const INVALID_PHONE = "Telefone invalido.";
         const NULL_PHONE = "Telefone não pode ser nulo/vazio!";
         const INVALID_CPF = "CPF invalido, use apenas n&uacute;meros.";
         const NULL_CPF = "CPF não pode ser nulo/vazio!";
         const INVALID_COURSE = "Curso inválido!";
-        const INVALID_PERIOD = "Per&iacute;odo inv&aacute;lido!";
+        const INVALID_PERIOD = "Período inválido!";
 
         /**
          * @param string $email         primary indentifier for a member. Not null value
