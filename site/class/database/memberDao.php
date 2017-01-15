@@ -62,6 +62,11 @@ namespace dao{
          */
         public function update($new_member)
         {
+            $image = ($new_member->getImage() != $this->getMemberModel()->getImage()
+                && $new_member->getImage() != "default.png") ?
+                ",image = '{$new_member->getImage()}'"
+                :
+                "";
             $query = "UPDATE MEMBERS SET 
                 email = '{$new_member->getEmail()}',
                 member_name = '{$new_member->getName()}', 
@@ -76,8 +81,8 @@ namespace dao{
                 period = '{$new_member->getPeriod()}',
                 address = '{$new_member->getAddress()}',
                 code_directorate = {$new_member->getDirectorate()},
-                code_office = {$new_member->getOffice()},
-                image = '{$new_member->getImage()}'";
+                code_office = {$new_member->getOffice()}
+                {$image}";
             if ($new_member->getPassword() == null) {
                 $query .= "password = '{$new_member->getPassword()}'";
             } else {

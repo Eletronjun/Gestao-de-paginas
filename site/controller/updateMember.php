@@ -75,7 +75,7 @@ try {
 
     $member_dao->update($member_update);
 
-    if ($old_image != "default.png") {
+    if ($old_image != $member_update->getImage() && $member_update->getImage() != "default.png") {
         unlink(UPLOAD_ROOT . "../member_image/" . $old_image);
     } else {
         //Nothing to do
