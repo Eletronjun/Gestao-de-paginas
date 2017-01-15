@@ -14,15 +14,11 @@ namespace html{
     use \utilities\Session as Session;
     use \html\Page as Page;
     use \html\Menu as Menu;
+    use \model\Member as Member;
     use \configuration\Globals as Globals;
 
     class AdministratorMenu extends Menu
     {
-
-        const ADMINISTRATIV_FINANCEIRO = 1;
-        const GESTAO_PESSOAS_PROCESSOS = 2;
-        const MARKETING = 3;
-        const PROJETOS = 4;
 
         public function __construct()
         {
@@ -36,19 +32,39 @@ namespace html{
         public function construct()
         {
             parent::addItem(PROJECT_ROOT . "adm/organization_chart.php", "Organograma");
-            if ($_SESSION['code_directorate'] == self::MARKETING) {
-                $this->pageOptions();
-            }
 
+            switch (Member::$DIRECTORATE[$_SESSION['code_directorate']-1]) {
+                case Member::$DIRECTORATE[0]:
+                    break;
+                case Member::$DIRECTORATE[1]:
+                    $this->gppPageOptions();
+                    break;
+                case Member::$DIRECTORATE[2]:
+                    $this->marketngPageOptions();
+                    break;
+                case Member::$DIRECTORATE[3]:
+                    break;
+                case Member::$DIRECTORATE[4]:
+                    $this->marketngPageOptions();
+                    $this->gppPageOptions();
+                    break;
+            }
             parent::endMenu();
         }
 
-        private function pageOptions()
+        private function marketngPageOptions()
         {
                 parent::startDropdown("Páginas");
                   parent::addItem(PROJECT_ROOT . "adm/category.php", "Gerenciar Categorias");
                   parent::addItem(PROJECT_ROOT . "adm/pages.php", "Gerenciar Páginas");
                   parent::addItem(PROJECT_ROOT . "adm/newPage.php", "Nova Página");
+                parent::endDropdown();
+        }
+
+        private function gppPageOptions()
+        {
+                parent::startDropdown("Membros");
+                  parent::addItem(PROJECT_ROOT . "adm/solicitations.php", "Solicitações");
                 parent::endDropdown();
         }
 
@@ -64,7 +80,7 @@ namespace html{
             echo "<figure><img src=" . IMG_PATCH . "user.png></figure>";
             echo "<p>Olá, Usuário!<br><span class=\"right\" style=\"font-size:0.9rem\">";
             $this->logout();
-            echo " | conta</span></p>";
+            echo " | <a href='index.php'>conta</a></span></p>";
             echo "</section>";
         }
     }
