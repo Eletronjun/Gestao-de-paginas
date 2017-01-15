@@ -88,6 +88,7 @@ namespace dao{
 
             parent::query($query);
             $this->setMemberModel($new_member);
+            $_SESSION['code_directorate'] = $new_member->getDirectorate();
             parent::disconnect();
         }
 

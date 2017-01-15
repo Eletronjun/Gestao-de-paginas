@@ -382,7 +382,7 @@ namespace model{
 
         private function setDirectorate($directorate)
         {
-            if (isset(self::$DIRECTORATE[$directorate])) {
+            if (isset(self::$DIRECTORATE[$directorate-1])) {
                 $this->directorate = $directorate;
             } else {
                 throw new MemberException(self::INVALID_DIRECTORATE);
@@ -395,7 +395,7 @@ namespace model{
 
         private function setOffice($office)
         {
-            if (isset(self::$OFFICE[$office])) {
+            if (isset(self::$OFFICE[$office-1])) {
                 $this->office = $office;
             } else {
                 throw new MemberException(self::INVALID_OFFICE);

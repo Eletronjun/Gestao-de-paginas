@@ -14,15 +14,11 @@ namespace html{
     use \utilities\Session as Session;
     use \html\Page as Page;
     use \html\Menu as Menu;
+    use \model\Member as Member;
     use \configuration\Globals as Globals;
 
     class AdministratorMenu extends Menu
     {
-
-        const ADMINISTRATIV_FINANCEIRO = 1;
-        const GESTAO_PESSOAS_PROCESSOS = 2;
-        const MARKETING = 3;
-        const PROJETOS = 4;
 
         public function __construct()
         {
@@ -36,14 +32,14 @@ namespace html{
         public function construct()
         {
             parent::addItem(PROJECT_ROOT . "adm/organization_chart.php", "Organograma");
-            if ($_SESSION['code_directorate'] == self::MARKETING) {
-                $this->pageOptions();
+            if (Member::$DIRECTORATE[$_SESSION['code_directorate']-1] == Member::$DIRECTORATE[2]) {
+                $this->marketngPageOptions();
             }
 
             parent::endMenu();
         }
 
-        private function pageOptions()
+        private function marketngPageOptions()
         {
                 parent::startDropdown("Páginas");
                   parent::addItem(PROJECT_ROOT . "adm/category.php", "Gerenciar Categorias");
