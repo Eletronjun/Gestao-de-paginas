@@ -43,11 +43,15 @@ try {
           <h1><?php echo $category->getName(); ?></h1>
           <img src="res/img/Circuito.png">
         </div>
-
+        <?php
+        if ($page->getImage() != null) {
+        ?>
         <figure>
             <img src="<?php echo FILE_PATCH . $page->getImage(); ?>" alt="<?php echo $category->getName(); ?>">
         </figure>
-
+        <?php
+        }
+        ?>
         <header>
           <h2><?php echo $page->getTitle(); ?></h2>
           Publicado em <?php echo Date::formatDate($page->getCreationDate()); ?>
