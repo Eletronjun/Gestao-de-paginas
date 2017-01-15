@@ -113,3 +113,12 @@ input[type=image] {
 input[type=image]:hover {
   background-color:#111F1E;
 }
+
+.double_column {
+  -webkit-column-gap:6.875rem;
+  -moz-column-gap:6.875rem;
+  column-gap:6.875rem;
+  -webkit-column-count:2;
+  -moz-column-count:2;
+  column-count:2;
+}

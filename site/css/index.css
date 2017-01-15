@@ -4,7 +4,7 @@
   height: 25rem;
   max-height: 400px;
   overflow: hidden;
-  margin: 0;
+  margin: auto;
 }
 .last_publications ul {
   width: 100%;
@@ -61,7 +61,7 @@
 .category_banner {
   width: 100%;
   max-width: 50rem;
-  margin: 2.5rem 0;
+  margin: 2.5rem auto;
   display: flex;
   flex-wrap: wrap;
 }

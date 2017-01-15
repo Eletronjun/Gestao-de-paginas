@@ -55,7 +55,7 @@
 
     <div class="set_flex">
         <h4 class="center" style="display:block;float:right">
-          <a href="#">Manual de<br>Identidade Visual</a>
+          <a href="<?php echo PROJECT_ROOT ?>res/doc/Manual_de_Identidade_Visual_2016.pdf">Manual de<br>Identidade Visual</a>
         </h4>
     </div>
   </section>
@@ -109,17 +109,17 @@
   <section class="max_width flex partner">
     <div>
       <figure class="left" style="margin-top:35.5%;">
-        <img src="res/img/Zenit.png">
+        <a href="http://www.zenitaerospace.com"><img src="res/img/Zenit.png"></a>
       </figure>
     </div>
     <div>
       <figure>
-        <img src="res/img/Matriz.png">
+        <a href="http://www.matrizenergia.com"><img src="res/img/Matriz.png"></a>
       </figure>
     </div>
     <div>
       <figure class="right" style="margin-top:22.7%;">
-        <img src="res/img/orc_estra.png">
+        <a href="http://www.facebook.com/Orcestra.Ej"><img src="res/img/orc_estra.png"></a>
       </figure>
     </div>
   </section>
@@ -127,17 +127,17 @@
   <section class="max_width flex partner">
     <div>
       <figure class="left" style="margin-top:20%;">
-        <img src="res/img/LEI.png">
+        <a href="http://www.fga.unb.br/lei"><img src="res/img/LEI.png"></a>
       </figure>
     </div>
     <div>
       <figure>
-        <img src="res/img/engrena.png">
+        <a href="http://www.facebook.com/engrenaengenharia"><img src="res/img/engrena.png"></a>
       </figure>
     </div>
     <div>
       <figure class="right" style="margin-top:28.7%;">
-        <img src="res/img/LabPro.png">
+        <a href="http://www.facebook.com/labprofga"><img src="res/img/LabPro.png"></a>
       </figure>
     </div>
   </section>

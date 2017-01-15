@@ -87,7 +87,6 @@
             ?>
         </select>
       </fieldset>
-
         <fieldset>
             <label>Atualizar imagem</label>
             <input type="file" text="Nova Foto" name="image">
