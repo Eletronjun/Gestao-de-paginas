@@ -46,7 +46,7 @@ namespace model{
         //Exceptions messenger
         const INVALID_EMAIL = "Email ou esta nulo ou é invalido.";
         const INVALID_NAME = "Nome não pode ser nulo/vazio.";
-        const INVALID_ADDRESS = "Nome não pode ser nulo/vazio.";
+        const INVALID_ADDRESS = "Endereço não pode ser nulo/vazio.";
         const INVALID_NICK = "Nick não pode ser nulo/vazio.";
         const INVALID_SEX = "Sexo inválido.";
         const INVALID_DIRECTORATE = "Diretoria Inválida.";

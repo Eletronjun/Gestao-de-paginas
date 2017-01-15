@@ -27,34 +27,13 @@ namespace dao{
         const NOT_EXISTS_MEMBER = "Membro não encontrado.";
 
         /**
-         * @param Category $categoryModel not null value
+         * @param Member $member_model not null value
          */
         public function __construct($member_model)
         {
             parent::__construct(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
             $this->setMemberModel($member_model);
         }
-
-        // public static function getCategories()
-        // {
-        //     $query = "SELECT code, name, isActivity, description, layout FROM CATEGORY";
-
-        //     $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
-
-        //     $resultSet = $dao->query($query);
-
-        //     $data = array();
-
-        //     for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
-        //         $data[$i][0] = $row['code'];
-        //         $data[$i][1] = $row['name'];
-        //         $data[$i][2] = $row['isActivity'];
-        //         $data[$i][3] = $row['layout'];
-        //         $data[$i][4] = $row['description'];
-        //     }
-
-        //     return $data;
-        // }
 
         /**
          * Method to update member data
@@ -82,12 +61,8 @@ namespace dao{
                 address = '{$new_member->getAddress()}',
                 code_directorate = {$new_member->getDirectorate()},
                 code_office = {$new_member->getOffice()}
-                {$image}";
-            if ($new_member->getPassword() == null) {
-                $query .= "password = '{$new_member->getPassword()}'";
-            } else {
-                //Nothing to do.
-            }
+                {$image},
+                password = '{$new_member->getPassword()}'";
 
             $query .= " WHERE email = '{$this->getMemberModel()->getEmail()}'";
 
@@ -97,27 +72,38 @@ namespace dao{
             parent::disconnect();
         }
 
-        // /**
-        //  * Method to persist category data
-        //  */
-        // public function register()
-        // {
-        //     $query = "INSERT INTO CATEGORY(name,description,layout) VALUES('
-        //     {$this->getCategoryModel()->getName()}','{$this->getCategoryModel()->getDescription()}',
-        //     '{$this->getCategoryModel()->getLayout()}')";
+        /**
+         * Method to persist member data
+         */
+        public function register()
+        {
 
-        //     parent::query($query);
+            $query = "INSERT INTO `eletronjun_db`.`MEMBERS` 
+            (`email`, `registration`, `member_name`, `sex`, `nick`, `password`, `birthDate`, `rg`, 
+                `cpf`, `phone`, `course`, `period`, `address`, `code_directorate`, 
+                `code_office`, `image`) 
+            VALUES 
+            (
+             '{$this->getMemberModel()->getEmail()}',
+             '{$this->getMemberModel()->getRegister()}',
+             '{$this->getMemberModel()->getName()}',
+             '{$this->getMemberModel()->getSex()}',
+             '{$this->getMemberModel()->getNick()}',
+             '{$this->getMemberModel()->getPassword()}',
+             '{$this->getMemberModel()->getBirthdate()}',
+             '{$this->getMemberModel()->getRg()}',
+             '{$this->getMemberModel()->getCpf()}',
+             '{$this->getMemberModel()->getPhone()}',
+             '{$this->getMemberModel()->getCourse()}',
+             '{$this->getMemberModel()->getPeriod()}',
+             '{$this->getMemberModel()->getAddress()}',
+             '{$this->getMemberModel()->getDirectorate()}',
+             '{$this->getMemberModel()->getOffice()}',
+             '{$this->getMemberModel()->getImage()}');";
 
-        //     $category = new Category(
-        //         $this->getCategoryModel()->getName(),
-        //         $this->getCategoryModel()->getDescription(),
-        //         parent::insertId()
-        //     );
-
-        //     $this->setCategoryModel($category);
-
-        //     parent::disconnect();
-        // }
+            parent::query($query);
+            parent::disconnect();
+        }
 
         // /**
         //  * Method to update in database activity

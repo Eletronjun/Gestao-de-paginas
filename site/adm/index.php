@@ -105,7 +105,7 @@
 
       <fieldset>
         <label>Diretoria</label><br>
-        <select name="directorate">
+        <select name="directorate" disabled="disabled">
         <?php
 
         for ($i=0; $i < count(Member::$DIRECTORATE); $i++) {
@@ -117,7 +117,7 @@
         ?>
         </select><br>
         <label>Cargo</label><br>
-        <select name="office">
+        <select name="office" disabled="disabled">
         <?php
 
         for ($i=0; $i < count(Member::$OFFICE); $i++) {

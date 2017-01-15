@@ -32,10 +32,16 @@ namespace html{
         public function construct()
         {
             parent::addItem(PROJECT_ROOT . "adm/organization_chart.php", "Organograma");
-            if (Member::$DIRECTORATE[$_SESSION['code_directorate']-1] == Member::$DIRECTORATE[2]) {
-                $this->marketngPageOptions();
-            }
 
+            switch (Member::$DIRECTORATE[$_SESSION['code_directorate']-1]) {
+                case Member::$DIRECTORATE[2]:
+                    $this->marketngPageOptions();
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
             parent::endMenu();
         }
 

@@ -13,10 +13,6 @@ use \dao\MemberDAO as MemberDAO;
 use \exception\MemberException as MemberException;
 use \exception\DatabaseException as DatabaseException;
 use \configuration\Globals as Globals;
-use \utilities\Session as Session;
-
-$session = new Session();
-$session->verifyIfSessionIsStarted();
 
 //Declair and remove espaces
 
@@ -34,12 +30,15 @@ $phone = addslashes($_POST['phone']);
 $course = addslashes($_POST['course']);
 $period = addslashes($_POST['period']);
 $address = addslashes($_POST['address']);
+$directorate = addslashes($_POST['directorate']);
+$office = addslashes($_POST['office']);
 $image_name = null;
 
 try {
     if ($password != $password_confirm) {
         throw new Exception("Senhas diferem!");
     }
+
     if (!empty($_FILES["image"]["type"])) {
         date_default_timezone_set("Brazil/East"); //Define TimeZone
         $ext = strtolower(substr($_FILES['image']['name'], -4)); //Get extension of file
@@ -53,10 +52,8 @@ try {
     } else {
         //Nothing to do.
     }
-    $member_dao = new MemberDAO(MemberDao::findMember($session->getEmail()));
-    $old_image = $member_dao->getMemberModel()->getImage();
-    $password = ($password == null) ? $member_dao->getMemberModel()->getPassword() : $password;
-    $member_update = new Member(
+
+    $member_register = new Member(
         $email,
         $name,
         $nick,
@@ -69,25 +66,20 @@ try {
         $course,
         $period,
         $address,
-        $member_dao->getMemberModel()->getDirectorate(),
-        $member_dao->getMemberModel()->getOffice(),
+        $directorate,
+        $office,
         $password,
         $image_name
     );
 
-    $member_dao->update($member_update);
+    $member_dao = new MemberDAO($member_register);
 
-    if ($old_image != $member_update->getImage() && $member_update->getImage() != "default.png") {
-        unlink(UPLOAD_ROOT . "../member_image/" . $old_image);
-    } else {
-        //Nothing to do
-    }
-    
-
-    echo "<script>alert('Dados Alterados'); location.href='" . PROJECT_ROOT . "adm';</script>";
+    $member_dao->register();
+    echo "<script>alert('Solicitação efetuada'); location.href='" . PROJECT_ROOT ."';</script>";
 } catch (Exception $msg) {
     if (file_exists(UPLOAD_ROOT . "../member_image/" . $image_name)) {
         unlink(UPLOAD_ROOT . "../member_image/" . $image_name);
     }
-    echo "<script>alert('{$msg}'); history.go(-1); </script>";
+    $msg = addslashes($msg);
+    echo "<script>alert('{$msg}'); history.go(-1)</script>";
 }
