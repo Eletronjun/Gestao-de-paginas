@@ -54,6 +54,7 @@ try {
     }
     $member_dao = new MemberDAO(MemberDao::findMember($session->getEmail()));
     $old_image = $member_dao->getMemberModel()->getImage();
+    $password = ($password == null) ? $member_dao->getMemberModel()->getPassword() : $password;
     $member_update = new Member(
         $email,
         $name,
