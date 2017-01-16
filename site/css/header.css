@@ -41,10 +41,6 @@
 .dropdown {
   float:left;
   clear: both;
-  -webkit-transition: all .5s linear;
-  -moz-transition: all .5s linear;
-  -ms-transition: all .5s linear;
-  transition: all .5s linear;
 }
 .menu a,
 .menu a:visited,
@@ -62,8 +58,7 @@
 
 .menu a:hover,
 .menu button:hover {
-  border-color:#FFF;
-  color:#FFF;
+  border:solid 0.1rem #fff;
   outline: none;
 }
 
@@ -100,8 +95,18 @@
   -webkit-transition: max-height 1s ease-in-out;
 }
 
-.dropdown a {
+.dropdown-content a,
+.dropdown-content a:visited,
+.dropdown-content a:focus{
+  background-color: inherit;
+  padding: 0.5rem;
+  margin: 0;
+  border:none;
   font-size: 1.4rem;
+}
+
+.dropdown-content a:hover{
+  color: #3dde1e;
   border:none;
 }
 
@@ -111,4 +116,83 @@
 
 .selected_drop button {
   color: #3dde1e;
+}
+
+@media only screen and (min-width: 800px) {
+  .anchor_menu {
+    display: none;
+  }
+
+  .menu{
+    position: relative;
+    float:right;
+    margin-top:1rem;
+    height:auto;
+    background: inherit;
+
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  .menu a,
+  .menu a:visited,
+  .menu .dropdown button,
+  .dropdown {
+    float:none;
+    clear: none;
+    display: inline-block;
+    width: auto;
+  }
+
+  .menu a,
+  .menu a:visited,
+  .menu button {
+    margin: 0 1rem 0 0;
+    border:solid 0.1rem #111e14;
+  }
+
+  .dropdown-content a{
+    border:none;
+  }
+
+  .menu a:hover,
+  .menu button:hover {
+    border:solid 0.1rem #fff;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111e14;
+    width: auto;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    max-height:50rem;
+    box-shadow: 0 0 2rem 0 rgba(0,0,0,0.2);
+    border-radius: 0.5rem;
+  }
+
+  .dropdown-content a,
+  .dropdown-content a:visited,
+  .dropdown-content a:focus {
+    font-size: 1.2rem;
+    float: left;
+    clear: both;
+  }
+
+  .dropdown-content a:hover{
+    border:none;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .selected_drop button {
+    color:#fff;
+  }
+
+
 }
