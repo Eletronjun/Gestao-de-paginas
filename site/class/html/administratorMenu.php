@@ -15,6 +15,7 @@ namespace html{
     use \html\Page as Page;
     use \html\Menu as Menu;
     use \model\Member as Member;
+    use \dao\MemberDao as MemberDao;
     use \configuration\Globals as Globals;
 
     class AdministratorMenu extends Menu
@@ -24,8 +25,9 @@ namespace html{
         {
             $session = new Session();
             $session->verifyIfSessionIsStarted();
+            $member = MemberDao::findMember($session->getEmail());
             parent::startMenu();
-            $this->wellcomeUser();
+            $this->wellcomeUser($member);
             parent::menuMobile();
             parent::startMenuOptions();
         }
@@ -75,11 +77,16 @@ namespace html{
                 OnClick=\"return confirm('Tem certeza que deseja sair?');\" class=\"clean_link\">logout</a>";
         }
 
-        protected function wellcomeUser()
+        protected function wellcomeUser($member)
         {
             echo "<section id=\"wellcomeUser\" class=\"flex\">";
-            echo "<figure><img src=" . IMG_PATCH . "user.png></figure>";
-            echo "<p>Olá, Usuário!<br><span class=\"right\" style=\"font-size:0.9rem\">";
+            if(!$member->getImage()) {
+              echo "<figure><img src=" . IMG_PATCH . "user.png></figure>";
+            } else {
+              echo "<div id=\"user_icon\" style=\"background-image:url('../res/member_image/{$member->getImage()}')\">
+              </div>";
+            }
+            echo "<p>Olá, {$member->getNick()}!<br><span class=\"right\" style=\"font-size:0.9rem\">";
             $this->logout();
             echo " | <a href='index.php'>conta</a></span></p>";
             echo "</section>";

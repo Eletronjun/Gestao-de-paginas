@@ -69,7 +69,7 @@
         <label>CPF</label>
         <input type="text" name="cpf" value="<?php echo $member->getCpf();?>">
       </fieldset>
-      
+
       <fieldset>
         <label>Matrícula</label>
         <input type="text" name="registration" value="<?php echo $member->getRegister();?>">
@@ -128,12 +128,12 @@
         ?>
         </select><br>
       </fieldset>
-      
+
       <fieldset>
         <label>Endereço</label>
         <input type="text" name="address" value="<?php echo $member->getAddress();?>">
       </fieldset>
-      
+
       <fieldset>
         <label>E-mail</label>
         <input type="email" name="email" value="<?php echo $member->getEmail();?>">
