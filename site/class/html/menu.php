@@ -35,8 +35,8 @@ namespace html{
         {
             $id = "itemDD_" . str_replace(" ", "", $name);
             echo "
-            <div class=\"dropdown\">
-            <button onclick=\"dropdownClick('{$id}')\" class=\"dropbtn\">{$name}</button>";
+            <div class=\"dropdown\" id=\"". str_replace(" ", "", $name). "\">
+            <button onclick=\"dropdownClick('". str_replace(" ", "", $name) . "')\" class=\"dropbtn\">{$name}</button>";
             echo  "<div id=\"{$id}\" class=\"dropdown-content\">";
         }
 

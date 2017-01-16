@@ -1,6 +1,8 @@
 function dropdownClick($id)
 {
-    document.getElementById($id).classList.toggle("show");
+    var name = "itemDD_" + $id;
+    document.getElementById(name).classList.toggle("show");
+    document.getElementById($id).className += " selected_drop";
 }
 
 window.onclick = function (event) {
@@ -13,7 +15,9 @@ window.onclick = function (event) {
                 openDropdown.classList.remove('show');
             }
         }
-    }
+        var selected = document.getElementsByClassName("selected_drop");
+        selected[0].className = selected[0].className.replace(" selected_drop", "");
+    }    
 }
 
 var open = false;
