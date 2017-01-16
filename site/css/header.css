@@ -60,6 +60,7 @@
 .menu button:hover {
   border:solid 0.1rem #fff;
   outline: none;
+  color: #fff;
 }
 
 .menu {
