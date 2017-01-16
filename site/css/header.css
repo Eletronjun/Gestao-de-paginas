@@ -14,18 +14,67 @@
     float:left;
 }
 
-#header nav{
-  display:none;
-}
-
 .anchor_menu {
   float:right;
   margin-top: 1.5rem;
   margin-right: 1.5rem;
+  cursor:pointer;
 }
 .anchor_menu div{
   width: 2.5rem;
   border: solid #FFF 0.2rem;
   border-radius:1rem;
   margin-bottom: 0.5rem;
+}
+
+.menu{
+  display: table;
+  position: fixed;
+  right: 0;
+  top: 0rem;
+  margin-top: 5rem;
+  padding: 1rem;
+  height: 100%;
+  background: #1c3121;
+}
+
+.menu a,
+.menu a:visited,
+.menu button {
+  border:solid 0.1rem #1c3121;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: inherit;
+  color: #FFF;
+  font-family: 'eightone';
+  font-size: 1.625rem;
+  outline: none;
+  float:left;
+  clear: both;
+  margin-top: 1rem;
+}
+
+.menu a:hover,
+.menu button:hover {
+  border-color:#FFF;
+  color:#FFF;
+  outline: none;
+}
+
+.menu {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: all .25s linear;
+  -moz-transition: all .25s linear;
+  -ms-transition: all .25s linear;
+  transition: all .25s linear;
+}
+
+.menu-open {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
 }

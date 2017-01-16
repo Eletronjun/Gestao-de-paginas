@@ -54,7 +54,7 @@ namespace html{
         }
 
         protected static function menuMobile() {
-          echo "<span class=\"anchor_menu\"><div></div><div></div><div></div></span>\n";
+          echo "<span class=\"anchor_menu\" onClick=\"menuClick();\"><div></div><div></div><div></div></span>\n";
         }
     }
 }

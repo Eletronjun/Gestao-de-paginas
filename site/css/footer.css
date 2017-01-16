@@ -6,6 +6,7 @@
     bottom:0;
     display:table;
     padding: 1rem 1.875rem 0 1.875rem;
+    z-index:6;
     /*margin-top:1.5rem;
     padding-top:2%;
     padding-bottom:2%;

@@ -15,3 +15,20 @@ window.onclick = function (event) {
         }
     }
 }
+
+var open = false;
+function menuClick() {
+
+  var menu = document.getElementsByClassName("menu");
+  var header = document.getElementById("header");
+
+  if(!open){
+    open = true;
+    menu[0].className += " menu-open";
+    header.style.position = "fixed";
+  } else {
+    open = false;
+    menu[0].className = menu[0].className.replace(" menu-open", "");
+    header.style.position = "absolute";
+  }
+}
