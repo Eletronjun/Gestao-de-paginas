@@ -106,6 +106,21 @@ namespace utilities{
                 $this->redirectMemberNoLogged();
             }
         }
+
+        /**
+         * Method to return email in session
+         * @return string email logged
+         */
+        public function getEmail()
+        {
+            $email = null;
+            if (isset($_SESSION["email"])) {
+                $email = $_SESSION["email"];
+            } else {
+                $email = null;
+            }
+            return $email;
+        }
     
         /**
          * method with the messenger if member no has permission to access the page
