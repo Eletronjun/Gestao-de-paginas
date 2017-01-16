@@ -25,6 +25,7 @@
     $last_publications = WebPageDao::returnLast3();
     ?>
       <section class="last_publications flex">
+        <?php if(isset($last_publications[0][0])) {?>
         <ul class="set_flex" id="first_publication">
           <a href="controller/generatePublication.php?code=<?php echo $last_publications[0][0];?>">
             <li>
@@ -50,17 +51,17 @@
           </a>
         </ul>
         <div class="set_flex flex flex_colunm">
-          <?php if(isset($last_publications[1][0])) {?>
+          <?php } if(isset($last_publications[1][0])) {?>
           <ul class="set_flex">
             <a href="controller/generatePublication.php?code=<?php echo $last_publications[1][0];?>">
               <li>
                   <?php
                   if (strlen($last_publications[1][1]) <= 24) {
-                      echo "<h2>{$last_publications[1][1]}</h2>";
                   } else {
                       $length_title = 23/(strlen($last_publications[1][1])*0.45);
                       echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[1][1]}</h2>";
                   }
+                  echo "<h2>{$last_publications[1][1]}</h2>";
                   ?>
                   <?php
                   if (strlen($last_publications[1][2]) > 3) {
