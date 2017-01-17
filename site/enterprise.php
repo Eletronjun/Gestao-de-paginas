@@ -48,7 +48,7 @@
     <div class="set_flex">
       <div>
         <h4 class="center">
-          <a href="#">Membros</a>
+          <a href="members.php">Membros</a>
         </h4>
       </div>
     </div>
