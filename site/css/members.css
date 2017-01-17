@@ -1,31 +1,39 @@
 #organization_chart {
   margin:auto;
-  width: 57.5rem;
-  display: table;
+  width: 100%;
 }
 
-.president {
-  height: 22.5rem;
-  overflow: hidden;
-}
-
-.director {
-  height: 23.125rem;
-  overflow: hidden;
-}
-
-.acessor {
+.memberContact,
+.advisors {
+  flex:1;
+  display: inline-block;
   text-align: center;
-  width: 57.5rem;
-  margin:1.875rem auto;
+  padding: 0 0.2rem;
+  margin-top: 0;
 }
 
-.acessor p {
+.advisors {
+  margin-top:1.875rem;
+}
+
+.memberContact div {
+  width:9.375rem;
+  height:9.375rem;
+  border-radius: 4.6875rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin:auto;
+  margin-bottom:1.875rem;
+}
+
+.memberContact p,
+.advisors p {
   text-align: center;
 }
 
-.acessor strong {
-  color: #000;
+.memberContact .email{
+  font-size: 0.8rem;
 }
 
 #team {

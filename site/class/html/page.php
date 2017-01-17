@@ -31,6 +31,7 @@ namespace html{
                 echo "  <title>{$title}</title>\n";
                 echo "  <meta charset=\"utf-8\">\n";
                 echo "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n";
+                echo "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\">";
                 echo "  <link rel=\"icon\" type=\"image/png\" href=\"" . IMG_PATCH . "favicon.png\" />\n";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/styles.css\" />\n";
                 echo "  <link rel= \"stylesheet\" type=\"text/css\" href=\"" . PROJECT_ROOT . "css/header.css\" />\n";

@@ -26,13 +26,12 @@ namespace html{
             $session->verifyIfSessionIsStarted();
             parent::startMenu();
             $this->wellcomeUser();
+            parent::menuMobile();
             parent::startMenuOptions();
         }
 
         public function construct()
         {
-            parent::addItem(PROJECT_ROOT . "adm/organization_chart.php", "Organograma");
-
             switch (Member::$DIRECTORATE[$_SESSION['code_directorate']-1]) {
                 case Member::$DIRECTORATE[0]:
                     break;

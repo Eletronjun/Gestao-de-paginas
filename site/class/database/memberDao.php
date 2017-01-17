@@ -25,6 +25,8 @@ namespace dao{
         const INVALID_MODEL = "Modelo Inválida.";
         const MEMBER_MODEL_ISNT_OBJECT = "Objeto de Membro Inválido.";
         const NOT_EXISTS_MEMBER = "Membro não encontrado.";
+        const INVALID_DIRECTORATE = "Diretoria Inválida.";
+        const INVALID_OFFICE = "Cargo Inválido.";
 
         /**
          * @param Member $member_model not null value
@@ -46,12 +48,12 @@ namespace dao{
                 ",image = '{$new_member->getImage()}'"
                 :
                 "";
-            $query = "UPDATE MEMBERS SET 
+            $query = "UPDATE MEMBERS SET
                 email = '{$new_member->getEmail()}',
-                member_name = '{$new_member->getName()}', 
-                nick = '{$new_member->getNick()}', 
-                sex = '{$new_member->getSex()}', 
-                registration = '{$new_member->getRegister()}', 
+                member_name = '{$new_member->getName()}',
+                nick = '{$new_member->getNick()}',
+                sex = '{$new_member->getSex()}',
+                registration = '{$new_member->getRegister()}',
                 birthdate = '{$new_member->getBirthdate()}',
                 phone = '{$new_member->getPhone()}',
                 rg = '{$new_member->getRg()}',
@@ -75,12 +77,11 @@ namespace dao{
          */
         public function register()
         {
-
             $query = "INSERT INTO eletronjun_db.MEMBERS 
             (email, registration, member_name, sex, nick, password, birthDate, rg, 
                 cpf, phone, course, period, address, code_directorate, 
                 code_office, image, isActivity) 
-            VALUES 
+            VALUES
             (
              '{$this->getMemberModel()->getEmail()}',
              '{$this->getMemberModel()->getRegister()}',
@@ -165,10 +166,10 @@ namespace dao{
         public static function findMember($email)
         {
             $query = "SELECT email,
-                member_name, 
-                nick, 
-                sex, 
-                registration, 
+                member_name,
+                nick,
+                sex,
+                registration,
                 birthdate,
                 phone,
                 rg,
@@ -235,6 +236,64 @@ namespace dao{
         public function getMemberModel()
         {
             return $this->member_model;
+        }
+
+        public static function getMembersByOffice($code_office, $code_directorate)
+        {
+
+            if ($code_directorate != null) {
+                if ($code_office != null) {
+                    $query = "SELECT email,
+                    member_name,
+                    nick,
+                    sex,
+                    registration,
+                    birthdate,
+                    phone,
+                    rg,
+                    cpf,
+                    course,
+                    period,
+                    address,
+                    password,
+                    image,
+                    code_directorate,
+                    code_office
+                    FROM MEMBERS WHERE code_directorate = '{$code_directorate}' and code_office = '{$code_office}' ORDER BY member_name";
+                    $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+                    $resultSet = $dao->query($query);
+
+                    $data = array();
+
+                    for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                        $member = new Member(
+                            $row['email'],
+                            $row['member_name'],
+                            $row['nick'],
+                            $row['sex'],
+                            $row['registration'],
+                            $row['birthdate'],
+                            $row['phone'],
+                            $row['rg'],
+                            $row['cpf'],
+                            $row['course'],
+                            $row['period'],
+                            $row['address'],
+                            $row['code_directorate'],
+                            $row['code_office'],
+                            $row['password'],
+                            $row['image']
+                        );
+                        $data[$i] = $member;
+                    }
+
+                    return $data;
+                } else {
+                    throw new DatabaseException(self::INVALID_OFFICE);
+                }
+            } else {
+                throw new DatabaseException(self::INVALID_DIRECTORATE);
+            }
         }
     }
 }
