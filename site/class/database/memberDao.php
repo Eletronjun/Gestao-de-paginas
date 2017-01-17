@@ -253,7 +253,7 @@ namespace dao{
                     image,
                     code_directorate,
                     code_office
-                    FROM MEMBERS WHERE code_directorate = '{$code_directorate}' and code_office = '{$code_office}' ORDER BY member_name";
+                    FROM MEMBERS WHERE code_directorate = '{$code_directorate}' and code_office = '{$code_office}' and isActivity = 'y' ORDER BY member_name";
                 $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
                 $resultSet = $dao->query($query);
 
