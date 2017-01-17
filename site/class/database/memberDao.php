@@ -212,12 +212,12 @@ namespace dao{
             return $member_model;
         }
 
-        // public function remove()
-        // {
-        //     $query = "DELETE FROM CATEGORY WHERE code = {$this->getCategoryModel()->getId()}";
+        public function remove()
+        {
+            $query = "DELETE FROM MEMBERS WHERE email = '{$this->getMemberModel()->getEmail()}'";
 
-        //     parent::query($query);
-        // }
+            parent::query($query);
+        }
 
         public function setMemberModel($member_model)
         {

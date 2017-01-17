@@ -81,7 +81,7 @@ try {
     $member_dao->register();
     echo "<script>alert('Membro efetivado no sistema'); location.href='" . PROJECT_ROOT ."';</script>";
 } catch (Exception $msg) {
-    if (file_exists(UPLOAD_ROOT . "../member_image/" . $image_name)) {
+    if (file_exists(UPLOAD_ROOT . "../member_image/" . $image_name) && $image_name != null) {
         unlink(UPLOAD_ROOT . "../member_image/" . $image_name);
     }
     $msg = addslashes($msg);

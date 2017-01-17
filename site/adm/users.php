@@ -48,7 +48,8 @@
                     </a>
                 </td>
                 <td class='center'>
-                    <a href='removeMember.php?email={$members[$i]->getemail()}'>
+                    <a href='../controller/removeMember.php?email={$members[$i]->getemail()}'
+                        OnClick=\"return confirm('AÇÃO IRREVERSIVEL!\\nDeseja realmente remover os dados de\\n{$name}');\" >
                     <img src='" . IMG_PATCH . "Lixeira_Usuario.png' alt='Editar' />
                     </a>
                 </td>
