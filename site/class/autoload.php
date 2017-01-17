@@ -25,6 +25,7 @@
     //Utilities
     require_once __DIR__ . '/utilities/session.php';
     require_once __DIR__ . '/utilities/date.php';
+    require_once __DIR__ . '/utilities/memberContact.php';
 
     //Exception
     require_once __DIR__ . '/exception/pageException.php';
