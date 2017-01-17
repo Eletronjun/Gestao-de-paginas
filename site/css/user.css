@@ -42,3 +42,11 @@ select {
 form {
   margin-top:6.25rem;
 }
+table{
+  text-align: left;
+  width: 50rem;
+}
+th h2{
+  color: #87C665;
+  text-align: center;
+}

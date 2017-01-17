@@ -62,13 +62,11 @@ namespace dao{
                 code_directorate = {$new_member->getDirectorate()},
                 code_office = {$new_member->getOffice()}
                 {$image},
-                password = '{$new_member->getPassword()}'";
-
-            $query .= " WHERE email = '{$this->getMemberModel()->getEmail()}'";
+                password = '{$new_member->getPassword()}'
+                WHERE email = '{$this->getMemberModel()->getEmail()}'";
 
             parent::query($query);
             $this->setMemberModel($new_member);
-            $_SESSION['code_directorate'] = $new_member->getDirectorate();
             parent::disconnect();
         }
 
@@ -78,10 +76,10 @@ namespace dao{
         public function register()
         {
 
-            $query = "INSERT INTO `eletronjun_db`.`MEMBERS` 
-            (`email`, `registration`, `member_name`, `sex`, `nick`, `password`, `birthDate`, `rg`, 
-                `cpf`, `phone`, `course`, `period`, `address`, `code_directorate`, 
-                `code_office`, `image`) 
+            $query = "INSERT INTO eletronjun_db.MEMBERS 
+            (email, registration, member_name, sex, nick, password, birthDate, rg, 
+                cpf, phone, course, period, address, code_directorate, 
+                code_office, image, isActivity) 
             VALUES 
             (
              '{$this->getMemberModel()->getEmail()}',
@@ -99,56 +97,65 @@ namespace dao{
              '{$this->getMemberModel()->getAddress()}',
              '{$this->getMemberModel()->getDirectorate()}',
              '{$this->getMemberModel()->getOffice()}',
-             '{$this->getMemberModel()->getImage()}');";
+             '{$this->getMemberModel()->getImage()}',
+             'y');";
 
             parent::query($query);
             parent::disconnect();
         }
 
-        // /**
-        //  * Method to update in database activity
-        //  * @param int   $isEnable   0 to disable or 1 to enable
-        //  */
-        // public function updateActivity($isEnable)
-        // {
-        //     $is_activity = ($isEnable == 1) ? 'y' : 'n';
-        //     $id = $this->getCategoryModel()->getId();
+        /**
+         * Metho to return all inactive registers
+         * @return Member[] null, if not has inactive or a vector with Members object
+         */
+        public static function allMembers()
+        {
+            $query = "SELECT email,
+                member_name, 
+                nick, 
+                sex, 
+                registration, 
+                birthdate,
+                phone,
+                rg,
+                cpf,
+                course,
+                period,
+                address,
+                password,
+                image,
+                code_directorate,
+                code_office
+                FROM MEMBERS";
+            $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
+            $resultSet = $dao->query($query);
 
-        //     $query = "UPDATE CATEGORY SET isActivity = '{$is_activity}' WHERE code = " . $id;
+            $member_model = null;
 
-        //     parent::query($query);
+            for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
+                $member_model[$i] = new Member(
+                    $row['email'],
+                    $row['member_name'],
+                    $row['nick'],
+                    $row['sex'],
+                    $row['registration'],
+                    $row['birthdate'],
+                    $row['phone'],
+                    $row['rg'],
+                    $row['cpf'],
+                    $row['course'],
+                    $row['period'],
+                    $row['address'],
+                    $row['code_directorate'],
+                    $row['code_office'],
+                    $row['password'],
+                    $row['image']
+                );
+            }
 
-        //     $category = new Category(
-        //         $this->getCategoryModel()->getName(),
-        //         $this->getCategoryModel()->getId(),
-        //         $is_activity
-        //     );
+            return $member_model;
+        }
 
-        //     $this->setCategoryModel($category);
-
-        //     parent::disconnect();
-        // }
-
-        // /**
-        //  * Method to find and return only active categories
-        //  * @return array code of category => name of category
-        // */
-        // public static function returnActiveCategories()
-        // {
-
-        //     $query = "SELECT code, name FROM CATEGORY WHERE isActivity = 'y'";
-        //     $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
-
-        //     $resultSet = $dao->query($query);
-
-        //     $data = array();
-
-        //     for ($i = 0; $row = $resultSet->fetch_assoc(); $i++) {
-        //         $data[$row['code']] = $row['name'];
-        //     }
-
-        //     return $data;
-        // }
 
         /**
          * Method to find a member using his email
