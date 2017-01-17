@@ -1,9 +1,11 @@
 <?php
-    require_once __DIR__ . "/class/autoload.php";
+    require_once __DIR__ . "/../class/autoload.php";
 
+    use \utilities\Session as Session;
     use \html\Page as Page;
-    use \html\CommunityMenu as CommunityMenu;
+    use \html\AdministratorMenu as AdministratorMenu;
     use \configuration\Globals as Globals;
+    use \dao\MemberDao as MemberDao;
     use \model\Member as Member;
 
     Page::startHeader(Globals::ENTERPRISE_NAME);
@@ -11,16 +13,18 @@
     Page::styleSheet("user");
     Page::closeHeader();
 
-    $menu = new CommunityMenu();
-    $menu->construct();
+    $session = new Session();
+    $session->verifyIfSessionIsStarted();
 
+    $menu = new AdministratorMenu();
+    $menu->construct();
 ?>
   <main style="margin-top: 2rem;">
     <section class="left" style="margin-bottom:3.125rem">
-      <h2>Solicitação de cadastro de novo membro!</h2>
+      <h2>Cadastro de novo membro!</h2>
     </section>
 
-    <form name="update" action="controller/registerMember.php" method="POST" enctype="multipart/form-data">
+    <form name="update" action="../controller/registerMember.php" method="POST" enctype="multipart/form-data">
       <div class="flex">
         <div class="set_flex padding_right">
           <fieldset>

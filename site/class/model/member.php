@@ -329,10 +329,13 @@ namespace model{
         
         private function setPeriod($period)
         {
+            if ($period == 0) {
+                $period = null;
+            }
             if (preg_match("/^([1-9]|1[0-6])$/", $period) || $period == null) {
                 $this->period = $period;
             } else {
-                throw new InscricaoException(self::INVALID_PERIOD);
+                throw new MemberException(self::INVALID_PERIOD);
             }
         }
         

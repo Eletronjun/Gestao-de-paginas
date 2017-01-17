@@ -13,6 +13,10 @@ use \dao\MemberDAO as MemberDAO;
 use \exception\MemberException as MemberException;
 use \exception\DatabaseException as DatabaseException;
 use \configuration\Globals as Globals;
+use \utilities\Session as Session;
+
+$session = new Session();
+$session->verifyIfSessionIsStarted();
 
 //Declair and remove espaces
 
@@ -75,11 +79,11 @@ try {
     $member_dao = new MemberDAO($member_register);
 
     $member_dao->register();
-    echo "<script>alert('Solicitação efetuada'); location.href='" . PROJECT_ROOT ."';</script>";
+    echo "<script>alert('Membro efetivado no sistema'); location.href='" . PROJECT_ROOT ."adm/users.php';</script>";
 } catch (Exception $msg) {
-    if (file_exists(UPLOAD_ROOT . "../member_image/" . $image_name)) {
+    if (file_exists(UPLOAD_ROOT . "../member_image/" . $image_name) && $image_name != null) {
         unlink(UPLOAD_ROOT . "../member_image/" . $image_name);
     }
     $msg = addslashes($msg);
-    echo "<script>alert('{$msg}'); history.go(-1)</script>";
+    echo "<script>alert(\"$msg\"); history.go(-1);</script>";
 }

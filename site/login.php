@@ -24,7 +24,6 @@
               <input type="password" id="password" name="password" required><br><br>
             </fieldset>
           <input type="submit" value="Logar" style="margin-top: 1.875rem"/>
-          <input type="button" value="Cadastrar" style="margin-top: 1.875rem" onclick="location.href='registerMember.php'" />
       </form>
   </main>
 <?php

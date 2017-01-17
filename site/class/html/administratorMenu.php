@@ -62,8 +62,8 @@ namespace html{
 
         private function gppPageOptions()
         {
-                parent::startDropdown("Membros");
-                  parent::addItem(PROJECT_ROOT . "adm/solicitations.php", "Solicitações");
+                parent::startDropdown("Processos");
+                  parent::addItem(PROJECT_ROOT . "adm/users.php", "Gerenciar Usuário");
                 parent::endDropdown();
         }
 
