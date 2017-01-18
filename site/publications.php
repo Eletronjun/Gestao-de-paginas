@@ -41,39 +41,45 @@ try {
 
         <div id="page_title">
           <h1><?php echo $category->getName(); ?></h1>
-          <img src="res/img/Circuito.png">
+          <figure><img src="res/img/Circuito.png"></figure>
         </div>
-        <?php
-        if ($page->getImage() != null) {
-        ?>
-        <figure>
-            <img src="<?php echo FILE_PATCH . $page->getImage(); ?>" alt="<?php echo $category->getName(); ?>">
-        </figure>
-        <?php
-        }
-        ?>
-        <header>
-          <h2><?php echo $page->getTitle(); ?></h2>
-          Publicado em <?php echo Date::formatDate($page->getCreationDate()); ?>
-          por <?php echo $page->getAuthor(); ?><br>
-          Última atualização em <?php echo Date::formatDate($page->getLastModified()); ?>
-        </header>
 
-        <article>
-            <?php echo $page->getContent(); ?>
-        </article>
+        <section>
+          <?php
+          if ($page->getImage() != null) {
+            ?>
+            <figure>
+              <img src="<?php echo FILE_PATCH . $page->getImage(); ?>" alt="<?php echo $category->getName(); ?>">
+            </figure>
+            <?php
+          }
+          ?>
 
-        <address>
-          <b>Fontes de Referência</b><br>
+          <header>
+            <h2><?php echo $page->getTitle(); ?></h2>
+            Publicado em <?php echo Date::formatDate($page->getCreationDate()); ?>
+            por <?php echo $page->getAuthor(); ?><br>
+            Última atualização em <?php echo Date::formatDate($page->getLastModified()); ?>
+          </header>
+
+          <article>
+              <?php echo $page->getContent(); ?>
+          </article>
+
+          <address>
+            <b>Fontes de Referência</b><br>
             <?php echo $page->getReferences(); ?>
-        </address>
-        <br>
-        
+          </address>
+
+        </section>
+
         <div class="fb-like" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>"
         data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         <br>
         <div class="fb-comments" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>"
-         data-numposts="10"></div>
+         data-numposts="10" data-width="auto"></div>
+
+
       </main>
 
 <?php

@@ -32,6 +32,7 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'eightone', 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
     text-align: left;
     font-weight: 400;
+    display:block;
 }
 h1 {
     font-size:3.125rem;
@@ -112,15 +113,15 @@ ul {
 
 /*Estilização do Conteúdo*/
 main{
-    width: 64%;
+    width: 84%;
     max-width:1366px;
     text-align:center;
     background-color:#fff;
     display:table;
     padding-top: 2rem;
     padding-bottom: 10rem;
-    padding-left: 18%;
-    padding-right: 18%;
+    padding-left: 8%;
+    padding-right: 8%;
 }
 
 article {
@@ -137,28 +138,34 @@ iframe {
     width:100%;
     height:100%;
     background-color:#fff;
-    display: table;/*O display table garante que a seção englobara também os elementos flutuantes.*/
+    display: table;
     position: relative;
 }
 
 #page_title {
-  margin-top:8.25rem;
-  margin-bottom: 4.375rem;
-  display: table;
-  padding:0;
+  margin-top:3.875rem;
+  margin-bottom:2rem;
+  width: 100%;
+  text-align: left;
 }
 
 #page_title h1{
-  margin:0;
-  display:block;
-  float:left;
+  margin-top:0;
+  margin-bottom: 0;
+  display:inline-block;
+  text-align: left;
+  font-size:2.5rem;
 }
 
-#page_title img{
-  padding-left: 1.25rem;
-  padding-top: 0.7rem;
+#page_title figure{
+  padding-left:1.25rem;
+  display: inline-block;
+}
+
+#page_title img {
+  margin:0 0 0 0;
   height: auto;
-  width: 9rem;
+  width: 5.4rem;
   max-width: 131px;
 }
 
@@ -223,178 +230,42 @@ iframe {
   margin: 5rem;
 }
 
-/*Adaptação screen(max-width:1024px)*
-@media only screen and (max-width: 1023px){
-#logo{
-    padding-left:0.2rem;
+/*Facebook Plugins*/
+#fb-root {
+  display: none;
 }
-.index{
-    margin-top: 5rem;
-}
-.apresentacao{
-    position:static;
-    float:none;
-    width: 90%;
-    margin:auto;
-}
-.img-center{
-    width:100%;
-}
-.img-left{
-    float:none;
-    margin:auto;
-    width: 100%;
-}
-.img-leftt{
-    float:none;
-    margin-right:auto;
-    margin:auto;
-    width: 100%;
-    text-align:center;
-}
-.img-right{
-    float:none;
-    margin:auto;
-    width: 100%;
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+  width: 100% !important;
 }
 
-.curso img{
-    float:left;
-    height: 3rem;
-    width: auto;
-    margin:0.1rem;
-    padding-top: 0.5rem;
-}
-.curso ul{
-    padding:1.3rem;
-}
-.curso h2{
-    text-align:center;
-}
-.curso ul{
-    display:block;
-}
-.fixed{
-    position: relative;
-}
-.projetoint{
-    position:static;
-    float:none;
-    width: 90%;
-    margin:auto;
-}
-/*Menu Mobile*
-.menu nav{
-    background-color: rgba(42,55,55,0.7);
-    position:fixed;
-    right:0;
-    top:4rem;
-    width:auto;
-    max-width:90%;
-    border-radius: 0 0 0 0.5rem;
-    margin:0;
-    padding:0.5rem;
-    visibility:hidden;
-    opacity:0;
 
-         -webkit-transition: all 300ms ease;
- -moz-transition: all 400ms ease;
- -ms-transition: all 400ms ease;
- -o-transition: all 400ms ease;
- transition: all 400ms ease;
+@media only screen and (min-width:800px){
 
-}
-.item{
-    display:block;
-    width: 100%;
-    padding: 0.3rem;
-    font-size:1.5rem;
+  main{
+      width: 64%;
+      padding-left: 18%;
+      padding-right: 18%;
+      display: table;
+  }
 
-}
-.item:hover{
-    border-bottom: groove 1px rgba(42,55,55,0.8);
-    border-radius:0;
-}
-.item a{
-    border:none;
-}
-.item a:hover{
-    border:none;
-}
-.sub-item{
-    visibility:hidden;
+  #page_title {
+    margin-top:8.25rem;
+    margin-bottom: 3.75rem;
+  }
+
+  #page_title h1 {
+    font-size: 3.125rem;
+  }
+
+  #page_title img{
+    padding-left: 1.25rem;
+    padding-top: 0.7rem;
+    height: auto;
+    width: 9rem;
+    max-width: 131px;
+  }
 }
 
-#control-nav:checked ~ nav{
-        visibility:visible;
-        opacity:1;
-}
-
-/*Controle do Menu*
-.control-nav {
-    position: absolute;
-    right: 0.5rem;
-    top: 1rem;
-    display: block;
-    width: 1.5rem;
-    padding: 0.3rem 0;
-    border: solid #333;
-    border-width: 0.2rem 0;
-    z-index: 2;
-    cursor: pointer;/*Responsável por fazer o label clicavel, sem a necessidade de acessar direto o chekbox*
-}
-.control-nav:before{
-      content: "";
-    display: block;
-    height: 0.2rem;
-    background: #333;
-}
-/*rodapé*
-.right{
-    float:left;
-    position:relative;
-    width:auto;
-    vertical-align:0;
-}
-.right p{
-    text-align: left;
-}
-
-.banner li{
-        max-width:100%;
-        margin: 1rem;
-        font-size: 0.875rem;
-}
-.banner li img{
-    float: none;
-}
-
-.banner li{
-    float: none;
-    text-align:center;
-}
-.left{
-    float:left;
-}
-
-ul{
-    -webkit-margin-before:0;
-    -webkit-margin-after:0;
-    -webkit-padding-start:0;
-}
-
-.parceiros{
-    padding-top:4em;
-    width:50%;
-}
-
-.gallery img{
-    width: 100%;
-}
-
-}*Fim da estilização Mobile*/
-
-/*Declaração de fontes e classes para as mesmas*/
 @font-face{
  font-family: 'eightone';
  src: url('font/eightone.ttf') format('truetype');
