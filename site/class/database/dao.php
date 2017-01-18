@@ -63,7 +63,7 @@ namespace dao{
             if ($resultset) {
                 return $resultset;
             } else {
-                throw new DatabaseException(self::WRONG_QUERY . "<br>" . $query);
+                throw new DatabaseException(self::WRONG_QUERY . $this->connection->error);
             }
         }
     

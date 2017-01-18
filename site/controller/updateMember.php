@@ -19,14 +19,23 @@ $session = new Session();
 $session->verifyIfSessionIsStarted();
 
 //Declair and remove espaces
+if (!isset($_GET['gpp'])) {
+    $member_dao = new MemberDAO(MemberDao::findMember($session->getEmail()));
+} else {
+    $member_dao = new MemberDAO(MemberDao::findMember(addslashes($_POST['email'])));
+}
 
 $email = addslashes($_POST['email']);
 $registration = addslashes($_POST['registration']);
 $name = addslashes($_POST['name']);
 $sex = addslashes($_POST['sex']);
 $nick = addslashes($_POST['nick']);
-$password = addslashes($_POST['password']);
-$password_confirm = addslashes($_POST['password_confirm']);
+$password = (!isset($_GET['gpp'])) ?
+    addslashes($_POST['password']) :
+    $member_dao->getMemberModel()->getPassword();
+$password_confirm = (!isset($_GET['gpp'])) ?
+    addslashes($_POST['password_confirm']) :
+    $member_dao->getMemberModel()->getPassword();
 $birthdate = addslashes($_POST['birthdate']);
 $rg = addslashes($_POST['rg']);
 $cpf = addslashes($_POST['cpf']);
@@ -34,6 +43,12 @@ $phone = addslashes($_POST['phone']);
 $course = addslashes($_POST['course']);
 $period = addslashes($_POST['period']);
 $address = addslashes($_POST['address']);
+$directorate = (isset($_GET['gpp'])) ?
+    addslashes($_POST['directorate']) :
+    $member_dao->getMemberModel()->getDirectorate();
+$office = (isset($_GET['gpp'])) ?
+    addslashes($_POST['office']) :
+    $member_dao->getMemberModel()->getOffice();
 $image_name = null;
 
 try {
@@ -53,7 +68,6 @@ try {
     } else {
         //Nothing to do.
     }
-    $member_dao = new MemberDAO(MemberDao::findMember($session->getEmail()));
     $old_image = $member_dao->getMemberModel()->getImage();
     $password = ($password == null) ? $member_dao->getMemberModel()->getPassword() : $password;
     $member_update = new Member(
@@ -69,13 +83,13 @@ try {
         $course,
         $period,
         $address,
-        $member_dao->getMemberModel()->getDirectorate(),
-        $member_dao->getMemberModel()->getOffice(),
+        $directorate,
+        $office,
         $password,
         $image_name
     );
-
     $member_dao->update($member_update);
+    
 
     if ($old_image != $member_update->getImage() && $member_update->getImage() != "default.png") {
         unlink(UPLOAD_ROOT . "../member_image/" . $old_image);
@@ -84,10 +98,13 @@ try {
     }
     
 
-    echo "<script>alert('Dados Alterados'); location.href='" . PROJECT_ROOT . "adm';</script>";
+    echo "<script>alert('Dados Alterados'); location.href='" . PROJECT_ROOT .
+    "adm/updateMember.php?email={$email}'; </script>";
 } catch (Exception $msg) {
-    if (file_exists(UPLOAD_ROOT . "../member_image/" . $image_name)) {
+    if (file_exists(UPLOAD_ROOT . "../member_image/" . $image_name) && $image_name != null) {
         unlink(UPLOAD_ROOT . "../member_image/" . $image_name);
     }
-    echo "<script>alert('{$msg}'); history.go(-1); </script>";
+    $msg = addslashes($msg);
+    echo "<script>alert('{$msg}'); location.href='" . PROJECT_ROOT .
+    "adm/updateMember.php?email={$email}'; </script>";
 }
