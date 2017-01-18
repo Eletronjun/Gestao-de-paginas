@@ -148,6 +148,7 @@
   </div>
 
   <figure id="team">
+    <img src="res/img/team_eletronjun2017.jpg">
   </figure>
 
 <?php
