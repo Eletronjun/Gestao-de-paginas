@@ -23,7 +23,6 @@ namespace html{
         public function __construct()
         {
             parent::startMenu();
-            parent::menuMobile();
             parent::startMenuOptions();
         }
 

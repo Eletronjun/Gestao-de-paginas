@@ -29,13 +29,16 @@
 
 .menu{
   display: table;
-  position: fixed;
+  position:absolute;
   right: 0;
-  top: 0rem;
-  margin: 5rem 0;
-  border-top-left-radius: 0.5rem;
-  height: 100%;
+  top: 0;
+  margin: 0;
+  padding-top: 5rem;
+  border-bottom-left-radius: 1rem;
   background: #1c3121;
+  z-index:4;
+  height:auto;
+  overflow: hidden;
 }
 
 .menu a,
@@ -129,8 +132,11 @@
     position: relative;
     float:right;
     margin-top:1rem;
+    padding-top: 0;
+    z-index: 7;
     height:auto;
-    background: inherit;
+    background:#111e14;
+    border-bottom-left-radius:0;
 
     -webkit-transform: translateX(0);
     -moz-transform: translateX(0);

@@ -143,6 +143,7 @@ iframe {
     background-color:#fff;
     display: table;
     position: relative;
+    overflow: hidden;
 }
 
 #page_title {
@@ -234,6 +235,9 @@ iframe {
 }
 
 /*Facebook Plugins*/
+.facebook {
+  z-index:0;
+}
 #fb-root {
   display: none;
 }

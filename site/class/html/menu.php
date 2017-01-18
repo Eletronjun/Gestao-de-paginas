@@ -14,10 +14,12 @@ namespace html{
     class Menu
     {
         protected static function startMenu(){
-          echo "<div id=\"header\">";
+          echo "<header id=\"header\">";
           echo "<figure id=\"logo\">";
           echo "<a href=" . PROJECT_ROOT . "><img src=\"".IMG_PATCH."Menu.png\" alt=\"eletronjun\" /></a>";
           echo "</figure>";
+          Menu::menuMobile();
+          echo "</header>";
         }
 
         protected static function startMenuOptions()
@@ -49,8 +51,6 @@ namespace html{
         protected static function endMenu()
         {
             echo "</nav>";
-            echo "</div>";
-            echo "<br>";
         }
 
         protected static function menuMobile() {
