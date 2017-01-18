@@ -44,12 +44,16 @@
 
         echo "<section class=\"memberContact\">";
         $members = MemberDao::getMembersByOffice(ORGANIZATIONAL, PRESIDENCY);
-        MemberContact::memberContact($members[0]);
+        if(isset($members[0])) {
+          MemberContact::memberContact($members[0]);
+        }
         echo "</section>";
 
         echo "<section class=\"memberContact\">";
         $members = MemberDao::getMembersByOffice(INSTITUTIONAL, PRESIDENCY);
-        MemberContact::memberContact($members[0]);
+        if(isset($members[0])) {
+          MemberContact::memberContact($members[0]);
+        }
         echo "</section>";
 
       ?>
@@ -60,22 +64,30 @@
 
         echo "<section class=\"memberContact\">";
         $members = MemberDao::getMembersByOffice(DIRECTOR, ADM);
-        MemberContact::memberContact($members[0], "Administrativo Financeiro");
+        if(isset($members[0])) {
+          MemberContact::memberContact($members[0], "Administrativo Financeiro");
+        }
         echo "</section>";
 
         echo "<section class=\"memberContact\">";
         $members = MemberDao::getMembersByOffice(DIRECTOR, GPP);
-        MemberContact::memberContact($members[0], "de Gestão de Pessoas e Processos");
+        if(isset($members[0])) {
+          MemberContact::memberContact($members[0], "de Gestão de Pessoas e Processos");
+        }
         echo "</section>";
 
         echo "<section class=\"memberContact\">";
         $members = MemberDao::getMembersByOffice(DIRECTOR, MARKETING);
-        MemberContact::memberContact($members[0], "de Marketing<br>");
+        if(isset($members[0])) {
+          MemberContact::memberContact($members[0], "de Marketing<br>");
+        }
         echo "</section>";
 
         echo "<section class=\"memberContact\">";
         $members = MemberDao::getMembersByOffice(DIRECTOR, PROJECTS);
-        MemberContact::memberContact($members[0], "de Projetos<br>");
+        if(isset($members[0])) {
+          MemberContact::memberContact($members[0], "de Projetos<br>");
+        }
         echo "</section>";
 
       ?>

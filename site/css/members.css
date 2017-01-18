@@ -1,6 +1,12 @@
 #organization_chart {
   margin:auto;
-  width: 100%;
+  width:51rem;
+  max-width:816px;
+}
+
+#organization_chart > figure img {
+  width:51rem;
+  max-width:816px;
 }
 
 .memberContact,
