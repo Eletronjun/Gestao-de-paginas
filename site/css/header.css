@@ -38,7 +38,7 @@
   background: #1c3121;
   z-index:4;
   height:auto;
-  overflow: hidden;
+  overflow:hidden;
 }
 
 .menu a,
@@ -62,9 +62,7 @@
 
 .menu a:hover,
 .menu button:hover {
-  border:solid 0.1rem #fff;
-  outline: none;
-  color: #fff;
+    color: #3dde1e;
 }
 
 .menu {
@@ -110,11 +108,6 @@
   font-size: 1.4rem;
 }
 
-.dropdown-content a:hover{
-  color: #3dde1e;
-  border:none;
-}
-
 .show {
   max-height: 50rem;
 }
@@ -129,7 +122,7 @@
   }
 
   .menu{
-    position: relative;
+    overflow: visible;
     float:right;
     margin-top:1rem;
     padding-top: 0;
@@ -168,18 +161,17 @@
   .menu a:hover,
   .menu button:hover {
     border:solid 0.1rem #fff;
+    color: #fff;
   }
 
   .dropdown-content {
-    display: none;
     position: absolute;
     background-color: #111e14;
     width: auto;
     padding: 0.5rem;
-    margin-left: 0.5rem;
-    max-height:50rem;
-    box-shadow: 0 0 2rem 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 0 #111e14;
     border-radius: 0.5rem;
+    box-sizing: border-box;
   }
 
   .dropdown-content a,
@@ -192,15 +184,10 @@
 
   .dropdown-content a:hover{
     border:none;
-  }
-
-  .show {
-    display: block;
+    color: #3dde1e;
   }
 
   .selected_drop button {
     color:#fff;
   }
-
-
 }
