@@ -3,10 +3,24 @@
   margin: 2rem 0;
   width: 100%;
 }
+
+#courses ul {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 4rem;
+  -moz-column-gap: 4rem;
+  column-gap: 4rem;
+}
 #courses li {
-  margin-bottom:3.125rem;
+  box-sizing: padding-box;
+  padding-bottom:3.125rem;
   height: 10rem;
+  max-height: 10rem;
   display: table;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 #courses figure,

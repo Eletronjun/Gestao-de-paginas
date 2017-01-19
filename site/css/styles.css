@@ -147,7 +147,7 @@ iframe {
 }
 
 #page_title {
-  margin-top:3.875rem;
+  margin-top:5.125rem; /*2rem + medida desejada*/
   margin-bottom:2rem;
   width: 100%;
   text-align: left;
