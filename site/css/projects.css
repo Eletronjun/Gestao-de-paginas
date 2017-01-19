@@ -1,26 +1,29 @@
 #main_project {
   display: table;
-  margin-bottom: 4.375rem;
+  margin-bottom: 3.75rem;
 }
 
 #main_project figure{
-  width: 31.25rem;
-  height: 25rem;
-  float:left;
-  margin-right:3.125rem;
+  width: 100%;
+  max-width: 31.25rem;
+  max-height: 25rem;
+  margin:auto;
+  margin-bottom: 2.5rem;
   overflow:hidden;
 }
 
 .project_banner {
   width: 100%;
   margin-bottom:3.125rem;
+  display: flex;
+  flex-direction: column;
 }
+
 .project_banner figure {
-  width: 30%;
-  height: 100%;
-  float:left;
-  margin-right:6.25rem;
+  margin:auto;
+  margin-bottom: 1.875rem;
   overflow:hidden;
+  margin-top: 0;
 }
 
 .project_banner img {
@@ -28,6 +31,29 @@
   height: 12.5rem;
 }
 
-.project_banner div {
-  width: 57%;
+@media only screen and (min-width:800px) {
+
+  .project_banner {
+    flex-direction: row;
+  }
+  .project_banner figure {
+    flex:2;
+  }
+  .project_banner div {
+    flex:3;
+    padding-left:6.25rem;
+  }
+}
+
+@media only screen and (min-width:900px) {
+
+  #main_project {
+    margin-bottom: 4.375rem;
+  }
+
+  #main_project figure{
+    float:left;
+    margin-right:3.125rem;
+    margin-bottom:0;
+  }
 }
