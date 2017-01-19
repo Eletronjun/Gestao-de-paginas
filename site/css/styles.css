@@ -168,8 +168,9 @@ iframe {
 
 #page_title img {
   margin:0 0 0 0;
-  height: auto;
-  width: 6.4rem;
+  height: 1.3rem;
+  width: 4.5rem;
+  padding-left:0.5rem;
   max-width: 131px;
 }
 
@@ -246,6 +247,13 @@ iframe {
 }
 
 
+@media only screen and (min-width:480px){
+  #page_title img {
+    height:auto;
+    width: 6.4rem;
+    padding-left:1.25rem;
+  }
+}
 @media only screen and (min-width:800px){
 
   #page_title {
@@ -259,9 +267,7 @@ iframe {
 
   #page_title img{
     padding-top: 0.7rem;
-    height: auto;
     width: 9rem;
-    max-width: 131px;
   }
 }
 
