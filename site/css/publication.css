@@ -1,0 +1,92 @@
+.publication > section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.publication header {
+  font-size: 0.7rem;
+  color: #111F1E;
+  text-align: left;
+  margin-bottom: 1.25rem;
+  order:1;
+}
+.publication h2{
+  font-family: 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
+  font-size: 1.875rem;
+  margin-bottom: 0;
+}
+
+.publication figure {
+  order:2;
+}
+.publication img{
+  width: 16rem;
+  max-width: 300px;
+  margin:auto;
+  margin-bottom: 1.25rem;
+}
+
+.publication article {
+  order: 3;
+}
+
+.publication address{
+  font-size: 0.8rem;
+  color: #3D3D3D;
+  text-align: left;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+  order:4;
+}
+
+.publication address p {
+  word-wrap: break-word;
+  max-width: 268px;
+}
+
+@media only screen and (min-width: 400px){
+  .publication address p {
+    max-width: 330px;
+  }
+
+  .publication img{
+    width: 18.75rem;
+  }
+}
+
+@media only screen and (min-width: 500px){
+  .publication address p {
+    max-width: 460px;
+  }
+}
+
+@media only screen and (min-width: 600px){
+  .publication address p {
+    max-width: 640px;
+  }
+}
+
+@media only screen and (min-width:800px) {
+
+  .publication > section {
+    display: table;
+  }
+
+  .publication img {
+    margin-right: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .publication header {
+    font-size: 0.8rem;
+    margin-bottom: 1.875rem;
+  }
+
+  .publication img{
+    float: left;
+  }
+
+  .publication address p {
+    max-width: 800px;
+  }
+}
