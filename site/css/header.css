@@ -116,7 +116,7 @@
   color: #3dde1e;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width:1160px) {
   .anchor_menu {
     display: none;
   }
