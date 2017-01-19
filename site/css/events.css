@@ -1,0 +1,91 @@
+#courses,
+#eletronday {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+#courses ul {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+
+#courses li {
+  box-sizing: padding-box;
+  padding-bottom:3.125rem;
+  height: 10rem;
+  max-height: 10rem;
+  display: table;
+}
+
+#courses img {
+  width:7.5rem;
+  height:auto;
+}
+#courses figure {
+  margin:auto;
+  margin-bottom: 1.875rem;
+  width:7.5rem;
+  height: 100%;
+}
+#courses p {
+  margin:0;
+}
+
+#eletronday div{
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#eletronday a {
+  box-sizing: padding-box;
+  margin-top:2.5rem;
+}
+
+#eletronday a {
+  text-align:center;
+}
+
+#eletronday a h4 {
+  margin:1rem auto;
+  text-align:center;
+}
+
+@media only screen and (min-width:500px) {
+  #courses figure {
+    float: left;
+    margin-right:1.5rem;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (min-width:700px) {
+
+  #courses li {
+    width: 45%;
+  }
+  #courses figure {
+    float:none;
+    margin:auto;
+    margin-bottom:1.875rem;
+  }
+
+  #eletronday div{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width:900px) {
+
+  #courses li {
+    width: 48%;
+  }
+  #courses figure {
+    float: left;
+    margin-right:1.5rem;
+    margin-bottom: 0;
+  }
+}
