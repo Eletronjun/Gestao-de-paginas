@@ -22,7 +22,7 @@ namespace utilities{
             if($member->getDirectorate() != 5){
               echo " {$directorate}";
             }
-            echo "</strong><br>";
+            echo "</strong>";
             echo "<p>{$member->getNick()}</p>";
             echo "<p class=\"email\">{$member->getEmail()}</p>";
           }

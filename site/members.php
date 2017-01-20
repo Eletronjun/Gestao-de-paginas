@@ -38,8 +38,8 @@
   </div>
 
   <?php try { ?>
-  <div id="organization_chart">
-    <div class="flex">
+  <section id="organization_chart">
+    <div>
       <?php
 
         echo "<section class=\"memberContact\">";
@@ -59,7 +59,7 @@
       ?>
     </div>
     <figure><img src="res/img/Organograma.png"></figure>
-    <div class="flex">
+    <div>
       <?php
 
         echo "<section class=\"memberContact\">";
@@ -79,20 +79,20 @@
         echo "<section class=\"memberContact\">";
         $members = MemberDao::getMembersByOffice(DIRECTOR, MARKETING);
         if(isset($members[0])) {
-          MemberContact::memberContact($members[0], "de Marketing<br>");
+          MemberContact::memberContact($members[0], "de Marketing");
         }
         echo "</section>";
 
         echo "<section class=\"memberContact\">";
         $members = MemberDao::getMembersByOffice(DIRECTOR, PROJECTS);
         if(isset($members[0])) {
-          MemberContact::memberContact($members[0], "de Projetos<br>");
+          MemberContact::memberContact($members[0], "de Projetos");
         }
         echo "</section>";
 
       ?>
     </div>
-    <div class="flex">
+    <div>
       <?php
 
         echo "<section class=\"advisors\">";
@@ -145,7 +145,7 @@
 
       ?>
     </div>
-  </div>
+  </section>
 
   <figure id="team">
     <img src="res/img/team_eletronjun2017.jpg">

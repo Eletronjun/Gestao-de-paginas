@@ -1,27 +1,25 @@
-#organization_chart {
-  margin:auto;
-  width:51rem;
-  max-width:816px;
+#organization_chart > figure img {
+  display: none;
 }
 
-#organization_chart > figure img {
-  width:51rem;
-  max-width:816px;
+#organization_chart > div{
+  display: flex;
+  flex-direction: column;
 }
 
 .memberContact,
 .advisors {
-  flex:1;
   display: inline-block;
   text-align: center;
-  padding: 0 0.2rem;
-  margin-top: 0;
+  padding: 2rem 0.2rem;
 }
 
-.advisors {
-  margin-top:1.875rem;
+.memberContact strong {
+  display: inline-block;
+  width: 12rem;
 }
 
+/*Photo*/
 .memberContact div {
   width:9.375rem;
   height:9.375rem;
@@ -36,6 +34,7 @@
 .memberContact p,
 .advisors p {
   text-align: center;
+  padding-bottom: 0;
 }
 
 .memberContact .email{
@@ -43,7 +42,79 @@
 }
 
 #team {
-  width:43.75rem;
-  height:25rem;
+  max-width:43.75rem;
   margin:3.125rem auto;
+}
+
+@media only screen and (min-width:600px) {
+
+  #organization_chart {
+    margin:auto;
+    width:100%;
+    max-width:816px;
+  }
+
+  #organization_chart > div {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .memberContact,
+  .advisors {
+    width:15rem;
+  }
+}
+
+@media only screen and (min-width:800px) {
+  .memberContact,
+  .advisors {
+    width:20rem;
+  }
+}
+
+@media only screen and (min-width:960px) {
+
+  #organization_chart > div {
+    flex-wrap: nowrap;
+  }
+
+  #organization_chart > figure img {
+    display: block;
+    width: 100%;
+    max-width:816px;
+  }
+
+  .memberContact,
+  .advisors {
+    width: 25%;
+    padding: 1rem 0.2rem;
+  }
+
+  .advisors {
+    margin-top:1.875rem;
+  }
+
+  .memberContact strong {
+    height: 2.2rem;
+  }
+}
+
+@media only screen and (min-width:1100px){
+
+  main{
+      width: 84%;
+      padding-left: 8%;
+      padding-right: 8%;
+  }
+}
+
+@media only screen and (min-width:1250px){
+
+  main{
+      width: 64%;
+      padding-left: 18%;
+      padding-right: 18%;
+      display: table;
+  }
 }
