@@ -8,12 +8,13 @@
     ?>
     <style>
       #etron_page figure{
-        margin:auto;
+        margin: 3.125rem auto;
       }
 
       @media only screen and (min-width:700px){
         #etron_page figure{
           float: left;
+          margin:0;
           margin-right:4.375rem;
         }
       }
