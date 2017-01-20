@@ -35,52 +35,46 @@
     <p>A empresa busca sempre integrar a comunidade do Gama em suas iniciativas, além de propor parcerias com o campo industrial regional, almejando tornar mais acessível o conhecimento a toda a comunidade e desenvolver o meio acadêmico-científico com o auxílio empresarial.</p>
   </section>
 
-  <section class="flex">
-
-    <div class="set_flex">
-      <div class="left">
-        <h4 class="center">
+  <section id="enterprise_links">
+    <div>
+      <div>
+        <h4>
           <a href="etron.php">Conheça nosso<br>Mascote</a>
         </h4>
       </div>
     </div>
-
-    <div class="set_flex">
+    <div>
       <div>
-        <h4 class="center">
+        <h4>
           <a href="members.php">Membros</a>
         </h4>
       </div>
     </div>
-
-    <div class="set_flex">
-        <h4 class="center" style="display:block;float:right">
+    <div>
+        <h4>
           <a href="<?php echo PROJECT_ROOT ?>res/doc/Manual_de_Identidade_Visual_2016.pdf">Manual de<br>Identidade Visual</a>
         </h4>
     </div>
   </section>
 
-  <section id="section_logo" class="flex max_width">
-    <div class="left">
-      <h3 class="center">Missão</h3>
+  <section id="section_logo">
+    <div>
+      <h3>Missão</h3>
       <p>Atender com excelência às demandas de nossos clientes a partir do desenvolvimento e oferta de produtos e serviços que contribuam para a melhoria da qualidade de vida das pessoas, atuando na área de engenharia eletrônica de forma sustentável.</p>
     </div>
-
     <figure>
       <img src="res/img/enterprise_ci.png">
     </figure>
-
-    <div class="right">
-      <h3 class="center">Valores</h3>
+    <div>
+      <h3>Valores</h3>
       <p>A EletronJun sempre busca trazer ao seu ambiente de trabalho valores como ética, transparência,
       proatividade, comprometimento, união, objetividade e meritocracia visando atingir a qualidade em
       todos os nossos projetos e processos.</p>
     </div>
-
   </section>
 
   <section>
-    <h3 class="center">Movimento Empresa Junior</h3>
+    <h3>Movimento Empresa Junior</h3>
     <p>Composto por universitários integrantes das empresas juniores, empresas cuja gestão e
     organização são exercidas por estudantes, o Movimento Empresa Júnior (MEJ) é um dos maiores
     movimentos jovens e estudantis do mundo.</p>
@@ -104,42 +98,29 @@
     cultura empreendedora.</p>
   </section>
 
-  <h3 class="center" style="padding-top:2rem;">Parceiros</h3>
+  <h3 style="padding-top:2rem;">Parceiros</h3>
   <!--The margin-top attributes were calculated individually for each logo-->
-  <section class="max_width flex partner">
-    <div>
-      <figure class="left" style="margin-top:35.5%;">
+  <section class="partner">
+      <figure>
         <a href="http://www.zenitaerospace.com"><img src="res/img/Zenit.png"></a>
       </figure>
-    </div>
-    <div>
+
       <figure>
         <a href="http://www.matrizenergia.com"><img src="res/img/Matriz.png"></a>
       </figure>
-    </div>
-    <div>
-      <figure class="right" style="margin-top:22.7%;">
+
+      <figure>
         <a href="http://www.facebook.com/Orcestra.Ej"><img src="res/img/orc_estra.png"></a>
       </figure>
-    </div>
-  </section>
-
-  <section class="max_width flex partner">
-    <div>
-      <figure class="left" style="margin-top:20%;">
+      <figure>
         <a href="http://www.fga.unb.br/lei"><img src="res/img/LEI.png"></a>
       </figure>
-    </div>
-    <div>
       <figure>
         <a href="http://www.facebook.com/engrenaengenharia"><img src="res/img/engrena.png"></a>
       </figure>
-    </div>
-    <div>
-      <figure class="right" style="margin-top:28.7%;">
+      <figure>
         <a href="http://www.facebook.com/labprofga"><img src="res/img/LabPro.png"></a>
       </figure>
-    </div>
   </section>
 
 </main>
