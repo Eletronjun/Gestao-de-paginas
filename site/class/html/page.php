@@ -76,7 +76,7 @@ namespace html{
             echo " <section class=\"contacts\">";
             echo "  <h6>Encontre a EletronJun</h6>";
             echo "  <address>";
-            echo "      <div class=\"flex\">";
+            echo "      <div>";
             echo "      <a href=\"mailto:eletronjun@gmail.com\" class=\"set_flex\"><img ";
             echo "          src=\"" . IMG_PATCH . "Email.png\" alt=\"Email\"
                             title=\"eletronjun@gmail.com\"></a>";
