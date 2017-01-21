@@ -22,8 +22,8 @@ try {
   <main id="category">
     <div id="page_title">
       <h1><?php echo CategoryDao::findCategory($_GET['code'])->getName(); ?></h1>
-      <img src="res/img/Circuito.png">
-      <p><em><?php echo CategoryDao::findCategory($_GET['code'])->getDescription();?></em></p>
+      <figure><img src="res/img/Circuito.png"></figure>
+      <p><?php echo CategoryDao::findCategory($_GET['code'])->getDescription();?></p>
     </div>
 
     <?php
@@ -32,32 +32,24 @@ try {
     if (!$data[0]) {
       // Nothing do
     } else {
-      echo "<div class=\"flex category_banner\">\n";
+      echo "<div class=\"category_banner\">\n";
       for($index = 0; $index < 3; $index++) {
-        echo "  <div class=\"set_flex\">\n";
+        echo "  <div>\n";
           if(isset($data[$index])){
-            echo "    <div class=\"dispaly_table max_width\"><a href=\"controller/generatePublication.php?code={$data[$index][0]}\" class=\"clean_link ";
+            echo "<a href=\"controller/generatePublication.php?code={$data[$index][0]}\" class=\"clean_link\">";
 
-              if($index == 0) {
-                echo "left\">\n";
-              }
-              else if($index == 2) {
-                echo "right\">\n";
-              } else {
-                echo "\" style=\"margin:0 auto;\">\n";
-              }
-              echo "      <figure>";
+              echo "<figure>";
               if(strlen($data[$index][3]) > 1){
                 echo "<img src=\"res/file/{$data[$index][3]}\">";
               }
-              echo "</figure>\n";
-              echo "      <p class=\"title\">{$data[$index][1]}</p><p class=\"date\">";
+              echo "</figure><span>\n";
+              echo "<p class=\"title\">{$data[$index][1]}</p><p class=\"date\">";
               echo Date::formatDate($data[$index][4]) . "</p>\n";
 
               if (strlen($data[$index][2])) {
-                  echo  "       <p>" . substr($data[$index][2], 0, 50) . "...</p>\n";
+                  echo "<p>" . strip_tags(substr($data[$index][2], 0, 50)) . "...</p>\n";
               }
-            echo "    </a></div>\n";
+            echo "</span></a>\n";
           }
         echo "  </div>\n";
       }
@@ -65,29 +57,29 @@ try {
     }
 
 ?>
-    <h2>Postagens Antigas</h2>
-    <table class="category_table">
-    <tr class="title">
-        <td class="col_1">Título</td>
-        <td class="col_2">Resumo</td>
-        <td class="col_3">Data de Publicação</td>
-    </tr>
+  <h2>Postagens Antigas</h2>
+  <table class="category_table">
+  <tr class="title">
+      <td class="col_1">Título<span class="date_col"> e Data</span></td>
+      <td class="col_2">Resumo</td>
+      <td class="col_3">Data de Publicação</td>
+  </tr>
 
-<?php
+  <?php
 
   $allPublications = WebPageDao::returnByCategory($_GET['code']);
 
   for ($i=0; $i < count($allPublications); $i++) {
-      if ($allPublications[$i]->getIsActivity() == 'y') {
-          echo "<tr> <td class=\"col_1\">";
-          echo "<a href=\"controller/generatePublication.php?code={$allPublications[$i]->getCode()}\" class=\"clean_link\">".
-            "{$allPublications[$i]->getTitle()}</a></td>";
-          echo "<td <td class=\"col_2\">" . substr($allPublications[$i]->getContent(), 0, 200) ."...</p></td>";
-          echo "<td <td class=\"col_3\">" . Date::formatDate($allPublications[$i]->getLastModified()) ."</td></tr>";
-      }
+    if ($allPublications[$i]->getIsActivity() == 'y') {
+        echo "<tr> <td class=\"col_1\">";
+        echo "<a href=\"controller/generatePublication.php?code={$allPublications[$i]->getCode()}\" class=\"clean_link\">".
+          "{$allPublications[$i]->getTitle()}</a><br><span class=\"date_col\"> " . Date::formatShortDate($allPublications[$i]->getLastModified()) . "</span></td>";
+        echo "<td <td class=\"col_2\">" . substr($allPublications[$i]->getContent(), 0, 200) ."...</p></td>";
+        echo "<td <td class=\"col_3\">" . Date::formatDate($allPublications[$i]->getLastModified()) ."</td></tr>";
+    }
   }
-?>
-    </table>
+  ?>
+  </table>
   </main>
 
 <?php
