@@ -44,10 +44,6 @@ try {
       } else {
           throw new Exception("O arquivo precisa ser uma imagem.");
       }
-    } else {
-      if(CategoryDao::findCategory($_POST['category'])->getLayout() == "video"){
-        $new_name = "Youtube.png";
-      }
     }
     $new_page = new WebPage(
         $_POST['title'],

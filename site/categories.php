@@ -40,7 +40,12 @@ try {
 
               echo "<figure>";
               if(strlen($data[$index][3]) > 1){
-                echo "<img src=\"res/file/{$data[$index][3]}\">";
+                echo "<img src=\"";
+                if(CategoryDao::findCategory($_GET['code'])->getLayout() == "video"){
+                  echo "http://i1.ytimg.com/vi/{$data[$index][5]}/default.jpg\">";
+                } else {
+                  echo "res/file/{$data[$index][3]}\">";
+                }
               }
               echo "</figure><span>\n";
               echo "<p class=\"title\">{$data[$index][1]}</p><p class=\"date\">";

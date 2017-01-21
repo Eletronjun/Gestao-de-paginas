@@ -193,7 +193,7 @@ namespace dao{
          */
         public static function returnLast3()
         {
-            $query = "SELECT WEB_PAGE.code, title, content, image " .
+            $query = "SELECT WEB_PAGE.code, title, content, image, video " .
                 "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
                 "WHERE CATEGORY.isActivity = 'y' AND WEB_PAGE.isActivity = 'y' ORDER BY creation_date DESC LIMIT 3";
             $dao = new DAO(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
@@ -206,6 +206,7 @@ namespace dao{
                 $data[$i][1] = $row['title'];
                 $data[$i][2] = substr($row['content'], 0, 150);
                 $data[$i][3] = $row['image'];
+                $data[$i][4] = $row['video'];
             }
 
             return $data;
@@ -218,7 +219,7 @@ namespace dao{
          */
         public static function returnLast3byCategory($codeCategory)
         {
-            $query = "SELECT WEB_PAGE.code, title, content, image, creation_date " .
+            $query = "SELECT WEB_PAGE.code, title, content, image, creation_date, video " .
                 "FROM WEB_PAGE INNER JOIN CATEGORY ON WEB_PAGE.code_category = CATEGORY.code " .
                 "WHERE code_category = {$codeCategory}  AND WEB_PAGE.isActivity = 'y' ORDER BY last_modified DESC LIMIT 3";
 
@@ -233,6 +234,7 @@ namespace dao{
                 $data[$i][2] = substr($row['content'], 0, 100);
                 $data[$i][3] = $row['image'];
                 $data[$i][4] = $row['creation_date'];
+                $data[$i][5] = $row['video'];
             }
             return $data;
         }

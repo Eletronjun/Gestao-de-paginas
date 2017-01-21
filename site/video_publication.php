@@ -49,7 +49,7 @@ try {
           Publicado em <?php echo Date::formatDate($page->getCreationDate()); ?>
         </header>
 
-        <iframe id="video" src="<?php echo $page->getVideo(); ?>" allowfullscreen></iframe>
+        <iframe id="video" src="https://www.youtube.com/embed/ <?php echo $page->getVideo(); ?>" allowfullscreen></iframe>
 
         <article>
             <?php echo $page->getContent(); ?>

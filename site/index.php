@@ -44,9 +44,13 @@
                 ?>
             </li>
             <li>
-              <?php if(strlen($last_publications[0][3]) > 0) { ?>
-                <img class="top" src="res/file/<?php echo $last_publications[0][3]?>">
-              <?php } ?>
+              <?php
+                if(strlen($last_publications[0][4]) > 0) {
+                  echo "<img class=\"top\" src=\"http://i1.ytimg.com/vi/{$last_publications[0][4]}/hqdefault.jpg\">";
+                } else if(strlen($last_publications[0][3]) > 0) {
+                  echo "<img class=\"top\" src=\"res/file/{$last_publications[0][3]}\">";
+                }
+               ?>
             </li>
           </a>
         </ul>
@@ -71,9 +75,13 @@
                   ?>
               </li>
               <li>
-                <?php if(strlen($last_publications[1][3]) > 0) { ?>
-                  <img class="top" src="res/file/<?php echo $last_publications[1][3]?>">
-                <?php } ?>
+                <?php
+                  if(strlen($last_publications[1][4]) > 0) {
+                    echo "<img class=\"top\" src=\"http://i1.ytimg.com/vi/{$last_publications[1][4]}/hqdefault.jpg\">";
+                  } else if(strlen($last_publications[1][3]) > 0) {
+                    echo "<img class=\"top\" src=\"res/file/{$last_publications[1][3]}\">";
+                  }
+                 ?>
               </li>
             </a>
           </ul>
@@ -98,9 +106,13 @@
                   ?>
               </li>
               <li>
-                <?php if(strlen($last_publications[2][3]) > 0) { ?>
-                  <img class="top" src="res/file/<?php echo $last_publications[2][3]?>">
-                <?php } ?>
+                <?php
+                  if(strlen($last_publications[2][4]) > 0) {
+                    echo "<img class=\"top\" src=\"http://i1.ytimg.com/vi/{$last_publications[2][4]}/hqdefault.jpg\">";
+                  } else if(strlen($last_publications[2][3]) > 0) {
+                    echo "<img class=\"top\" src=\"res/file/{$last_publications[2][3]}\">";
+                  }
+                 ?>
               </li>
             </a>
           </ul>
@@ -131,8 +143,10 @@
               foreach ($data as $list) {
                   echo "<a href=\"controller/generatePublication.php?code={$list[0]}\">
                         <figure>";
-                        if(strlen($list[3]) > 1) {
-                          echo "<img src=\"res/file/{$list[3]}\">";
+                        if(strlen($list[5]) > 0) {
+                          echo "<img class=\"top\" src=\"http://i1.ytimg.com/vi/{$list[5]}/mqdefault.jpg\">";
+                        } else if(strlen($list[3]) > 0) {
+                          echo "<img class=\"top\" src=\"res/file/{$list[3]}\">";
                         }
                         echo "</figure>
                         <p class=\"title\">{$list[1]}</p><br>";
