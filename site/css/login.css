@@ -1,0 +1,33 @@
+main {
+  margin-top: 2rem;
+}
+
+#etron {
+  max-width:230px;
+  display:none;
+  float:left;
+  margin-top:2rem;
+}
+form {
+  width:100%;
+  display:block;
+}
+
+fieldset {
+  width:100%;
+  max-width: 20rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+@media only screen and (min-width:800px) {
+  #etron {
+    display: block;
+  }
+  form {
+    margin-left:5rem;
+  }
+}
