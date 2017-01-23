@@ -20,7 +20,7 @@
 <main>
 
   <h1></h1>
-  <h2 style="width:20rem">Últimas Publicações</h2>
+  <!-- <h2 style="width:20rem">Últimas Publicações</h2>
     <?php
     $last_publications = WebPageDao::returnLast3();
     ?>
@@ -120,7 +120,7 @@
             }
           ?>
         </div>
-      </section>
+      </section> -->
 
 
       <div class="category_banner">
@@ -131,33 +131,25 @@
           if (!$data[0]) {
             // Nothing do
           } else {
-              echo "<section><div class=\"";
-              if($flag_float){
-                echo "left";$flag_float=false;
-              } else {
-                echo "right";
-                $flag_float = true;
-              }
-              echo "\">";
-              echo "<h2>{$name}</h2>";
+              echo "<section>";
+              echo "<a href=\"categories.php?code={$code}\"><h2>{$name}</h2></a>";
               foreach ($data as $list) {
                   echo "<a href=\"controller/generatePublication.php?code={$list[0]}\">
                         <figure>";
                         if(strlen($list[5]) > 0) {
-                          echo "<img class=\"top\" src=\"http://i1.ytimg.com/vi/{$list[5]}/mqdefault.jpg\">";
+                          echo "<img src=\"http://i1.ytimg.com/vi/{$list[5]}/mqdefault.jpg\">";
                         } else if(strlen($list[3]) > 0) {
-                          echo "<img class=\"top\" src=\"res/file/{$list[3]}\">";
+                          echo "<img src=\"res/file/{$list[3]}\">";
                         }
                         echo "</figure>
-                        <p class=\"title\">{$list[1]}</p><br>";
+                        <div><p class=\"title\">{$list[1]}</p><br>";
 
                   if (strlen($list[2])) {
-                      echo  "{$list[2]}...</p>";
+                      echo "<p>" . substr(strip_tags($list[2]), 0, 100) . "...</p></div>\n";
                   }
-
-                      echo "</a>";
+                  echo "</a>";
               }
-              echo "</div></section>";
+              echo "</section>\n";
           }
         }
       ?>
