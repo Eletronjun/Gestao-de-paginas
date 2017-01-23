@@ -20,108 +20,105 @@
 <main>
 
   <h1></h1>
-  <!-- <h2 style="width:20rem">Últimas Publicações</h2>
+  <h2>Últimas Publicações</h2>
     <?php
     $last_publications = WebPageDao::returnLast3();
     ?>
-      <section class="last_publications flex">
-        <?php if(isset($last_publications[0][0])) {?>
-        <ul class="set_flex" id="first_publication">
+      <section class="last_publications">
+        <ul class="publication" id="first_publication">
           <a href="controller/generatePublication.php?code=<?php echo $last_publications[0][0];?>">
+            <li>
+              <figure>
+              <?php
+              if(strlen($last_publications[0][4]) > 0) {
+                echo "<img src=\"http://i1.ytimg.com/vi/{$last_publications[0][4]}/hqdefault.jpg\">";
+              } else if(strlen($last_publications[0][3]) > 0) {
+                echo "<img src=\"res/file/{$last_publications[0][3]}\">";
+              }
+              ?>
+            </figure>
+            </li>
             <li>
                 <?php
                 if (strlen($last_publications[0][1]) <= 24) {
                     echo "<h2>{$last_publications[0][1]}</h2>";
                 } else {
                     $length_title = 23/(strlen($last_publications[0][1])*0.45);
-                    echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[0][1]}</h2>";
+                    echo "<h2 style=\"@media only screen and (min-width:700px){font-size:{$length_title}rem}\">{$last_publications[0][1]}</h2>";
                 }
                 ?>
                 <?php
                 if (strlen($last_publications[0][2]) > 3) {
-                    echo $last_publications[0][2];
+                  echo "<p>" . substr(strip_tags($last_publications[0][2]), 0, 100) . "...</p>\n";
                 }
                 ?>
             </li>
+          </a>
+        </ul>
+        <div>
+        <ul class="publication">
+          <a href="controller/generatePublication.php?code=<?php echo $last_publications[1][0];?>">
             <li>
+              <figure>
               <?php
-                if(strlen($last_publications[0][4]) > 0) {
-                  echo "<img class=\"top\" src=\"http://i1.ytimg.com/vi/{$last_publications[0][4]}/hqdefault.jpg\">";
-                } else if(strlen($last_publications[0][3]) > 0) {
-                  echo "<img class=\"top\" src=\"res/file/{$last_publications[0][3]}\">";
+              if(strlen($last_publications[1][4]) > 0) {
+                echo "<img src=\"http://i1.ytimg.com/vi/{$last_publications[1][4]}/hqdefault.jpg\">";
+              } else if(strlen($last_publications[1][3]) > 0) {
+                echo "<img src=\"res/file/{$last_publications[1][3]}\">";
+              }
+              ?>
+            </figure>
+            </li>
+            <li>
+                <?php
+                if (strlen($last_publications[1][1]) <= 24) {
+                  echo "<h2>{$last_publications[1][1]}</h2>";
+                } else {
+                    $length_title = 23/(strlen($last_publications[1][1])*0.45);
+                    echo "<h2 style=\"@media only screen and (min-width:700px){font-size:{$length_title}rem}\">{$last_publications[1][1]}</h2>";
                 }
-               ?>
+                ?>
+                <?php
+                if (strlen($last_publications[1][2]) > 3) {
+                  echo "<p>" . substr(strip_tags($last_publications[1][2]), 0, 100) . "...</p>\n";
+                }
+                ?>
             </li>
           </a>
         </ul>
-        <?php } ?>
-        <div class="set_flex flex flex_colunm">
-          <?php if(isset($last_publications[1][0])) {?>
-          <ul class="set_flex">
-            <a href="controller/generatePublication.php?code=<?php echo $last_publications[1][0];?>">
-              <li>
-                  <?php
-                  if (strlen($last_publications[1][1]) <= 24) {
-                  } else {
-                      $length_title = 23/(strlen($last_publications[1][1])*0.45);
-                      echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[1][1]}</h2>";
-                  }
-                  echo "<h2>{$last_publications[1][1]}</h2>";
-                  ?>
-                  <?php
-                  if (strlen($last_publications[1][2]) > 3) {
-                      echo $last_publications[1][2] . "...</p>";
-                  }
-                  ?>
-              </li>
-              <li>
+        <ul class="publication">
+          <a href="controller/generatePublication.php?code=<?php echo $last_publications[2][0];?>">
+            <li>
+              <figure>
+              <?php
+              if(strlen($last_publications[2][4]) > 0) {
+                echo "<img src=\"http://i1.ytimg.com/vi/{$last_publications[2][4]}/hqdefault.jpg\" class=\"video_image\">";
+              } else if(strlen($last_publications[2][3]) > 0) {
+                echo "<img src=\"res/file/{$last_publications[2][3]}\">";
+              }
+              ?>
+              </figure>
+            </li>
+            <li>
                 <?php
-                  if(strlen($last_publications[1][4]) > 0) {
-                    echo "<img class=\"top\" src=\"http://i1.ytimg.com/vi/{$last_publications[1][4]}/hqdefault.jpg\">";
-                  } else if(strlen($last_publications[1][3]) > 0) {
-                    echo "<img class=\"top\" src=\"res/file/{$last_publications[1][3]}\">";
-                  }
-                 ?>
-              </li>
-            </a>
-          </ul>
-          <?php }
-            if (isset($last_publications[2][0])) {
-          ?>
-          <ul class="set_flex">
-            <a href="controller/generatePublication.php?code=<?php echo $last_publications[2][0];?>">
-              <li>
-                  <?php
-                  if (strlen($last_publications[2][1]) <= 24) {
-                      echo "<h2>{$last_publications[2][1]}</h2>";
-                  } else {
-                      $length_title = 23/(strlen($last_publications[2][1])*0.45);
-                      echo "<h2 style=\"font-size:{$length_title}rem\">{$last_publications[2][1]}</h2>";
-                  }
-                  ?>
-                  <?php
-                  if (strlen($last_publications[2][2]) > 3) {
-                      echo $last_publications[2][2] . "...</p>";
-                  }
-                  ?>
-              </li>
-              <li>
+                if (strlen($last_publications[2][1]) <= 24) {
+                    echo "<h2>{$last_publications[2][1]}</h2>";
+                } else {
+                    $length_title = 23/(strlen($last_publications[2][1])*0.45);
+                    echo "<h2 style=\"@media only screen and (min-width:700px){font-size:{$length_title}rem}\">{$last_publications[2][1]}</h2>";
+                }
+                ?>
                 <?php
-                  if(strlen($last_publications[2][4]) > 0) {
-                    echo "<img class=\"top\" src=\"http://i1.ytimg.com/vi/{$last_publications[2][4]}/hqdefault.jpg\">";
-                  } else if(strlen($last_publications[2][3]) > 0) {
-                    echo "<img class=\"top\" src=\"res/file/{$last_publications[2][3]}\">";
-                  }
-                 ?>
-              </li>
-            </a>
-          </ul>
-          <?php
-            }
-          ?>
-        </div>
-      </section> -->
+                if (strlen($last_publications[2][2]) > 3) {
+                    echo "<p>" . substr(strip_tags($last_publications[2][2]), 0, 100) . "...</p>\n";
 
+                }
+                ?>
+            </li>
+          </a>
+        </ul>
+        </div>
+      </section>
 
       <div class="category_banner">
       <?php
@@ -158,6 +155,7 @@
 <?php
     echo "</main>";
     Page::footer();
+    Page::javaScript("mainBanner");
     Page::closeBody();
 
 ?>
