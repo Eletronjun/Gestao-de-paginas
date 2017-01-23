@@ -52,7 +52,7 @@ try {
               echo Date::formatDate($data[$index][4]) . "</p>\n";
 
               if (strlen($data[$index][2])) {
-                  echo "<p>" . strip_tags(substr($data[$index][2], 0, 50)) . "...</p>\n";
+                  echo "<p>" . substr(strip_tags($data[$index][2]), 0, 45) . "...</p>\n";
               }
             echo "</span></a>\n";
           }
@@ -79,7 +79,7 @@ try {
         echo "<tr> <td class=\"col_1\">";
         echo "<a href=\"controller/generatePublication.php?code={$allPublications[$i]->getCode()}\" class=\"clean_link\">".
           "{$allPublications[$i]->getTitle()}</a><br><span class=\"date_col\"> " . Date::formatShortDate($allPublications[$i]->getLastModified()) . "</span></td>";
-        echo "<td <td class=\"col_2\">" . substr($allPublications[$i]->getContent(), 0, 200) ."...</p></td>";
+        echo "<td <td class=\"col_2\">" . substr(strip_tags($allPublications[$i]->getContent()), 0, 200) ."...</p></td>";
         echo "<td <td class=\"col_3\">" . Date::formatDate($allPublications[$i]->getLastModified()) ."</td></tr>";
     }
   }
