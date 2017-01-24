@@ -47,6 +47,7 @@ namespace html{
                     $this->gppPageOptions();
                     break;
             }
+            $this->logout("mobile");
             parent::endMenu();
         }
 
@@ -66,10 +67,16 @@ namespace html{
                 parent::endDropdown();
         }
 
-        private function logout()
+        private function logout($mode = "desk")
         {
-            echo "<a href=\"" . PROJECT_ROOT . "controller/destroySession.php\"
+            if($mode == "mobile") {
+              echo "<div id=\"logout\"><a href='index.php'>minha conta</a>";
+              echo "<a href=\"" . PROJECT_ROOT . "controller/destroySession.php\"
+                  OnClick=\"return confirm('Tem certeza que deseja sair?');\" class=\"clean_link\">logout</a></div>";
+            } else {
+              echo "<a href=\"" . PROJECT_ROOT . "controller/destroySession.php\"
                 OnClick=\"return confirm('Tem certeza que deseja sair?');\" class=\"clean_link\">logout</a>";
+            }
         }
 
         protected function wellcomeUser()

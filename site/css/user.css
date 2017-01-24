@@ -7,6 +7,7 @@
   position: absolute;
   top:0;
   left:14rem;
+  visibility: hidden;
 }
 
 #wellcomeUser figure {
@@ -56,4 +57,14 @@ table{
 th h2{
   color: #87C665;
   text-align: center;
+}
+
+@media only screen and (min-width:600px) {
+  #wellcomeUser{
+    visibility: visible;
+  }
+
+  #logout {
+    display: none;
+  }
 }
