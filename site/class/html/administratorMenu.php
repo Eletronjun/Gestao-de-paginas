@@ -75,8 +75,9 @@ namespace html{
         protected function wellcomeUser()
         {
             echo "<section id=\"wellcomeUser\" class=\"flex\">";
-            echo "<figure><img src=" . IMG_PATCH . "user.png></figure>";
-            echo "<p>Olá, Usuário!<br><span class=\"right\" style=\"font-size:0.9rem\">";
+            echo "<figure><img src=\"" . PROJECT_ROOT . "res/member_image/{$_SESSION['image']}\"></figure>";
+            echo "<p>Olá, {$_SESSION['nick']}!";
+            echo "<br><span class=\"right\" style=\"font-size:0.9rem\">";
             $this->logout();
             echo " | <a href='index.php'>conta</a></span></p>";
             echo "</section>";

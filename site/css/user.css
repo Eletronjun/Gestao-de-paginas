@@ -1,15 +1,22 @@
 #wellcomeUser {
   float:left;
-  width:13rem;
+  width:15rem;
   height: 3rem;
   margin:1rem 0 0 3rem;
+  z-index: 1000;
+  position: absolute;
+  top:0;
+  left:14rem;
 }
 
 #wellcomeUser figure {
   width:2.1857rem;
-  height:auto;
+  height:2.1857rem;
   float:left;
   margin: 0.4rem 0.5rem 0 0;
+  border-radius:50%;
+  overflow: hidden;
+  text-align: center;
 }
 #wellcomeUser p,
 #wellcomeUser a,
