@@ -21,7 +21,7 @@ namespace utilities{
      */
     class Session extends \dao\DAO
     {
-        
+
         const INVALID_USER = 'Usuário inválido';
         const INVALID_PASSWORD = 'Senha inválida';
         const INATIVE_USER = 'Usuário ainda não ativo, contate a equipe de Gestão de Pessoas e Processos';
@@ -38,7 +38,7 @@ namespace utilities{
                 //Nothing to do
             }
         }
-    
+
         /**
          * Method to destroy a session
          */
@@ -47,7 +47,7 @@ namespace utilities{
             $_SESSION["loggin"] == 0;
             session_destroy();
         }
-    
+
         /**
          * Method to verify if the user has permission to access private area
          *  create a session cookie loggin, define 1 to loggin or 0 to loggout
@@ -59,7 +59,7 @@ namespace utilities{
         {
             //Database select data
             parent::__construct(Globals::HOST, Globals::USER, Globals::PASSWORD, Globals::DATABASE);
-            $query = "SELECT isActivity,password,code_directorate,code_office from MEMBERS WHERE email = '{$email}'";
+            $query = "SELECT isActivity,password,code_directorate,code_office, nick, image from MEMBERS WHERE email = '{$email}'";
             $result_set = parent::query($query);
 
             //Save result of consult
@@ -78,6 +78,8 @@ namespace utilities{
                         $_SESSION["email"] = $email;
                         $_SESSION["code_office"] = $line_result['code_office'];
                         $_SESSION["code_directorate"] = $line_result['code_directorate'];
+                        $_SESSION["nick"] = $line_result['nick'];
+                        $_SESSION["image"] = $line_result['image'];
                     } else {
                         $_SESSION["loggin"] = 0;
                         throw new SessionException(self::INATIVE_USER);
@@ -90,7 +92,7 @@ namespace utilities{
                 throw new SessionException(self::INVALID_USER);
             }
         }
-    
+
         /**
          * Method using in all private pages to verify if user can loader page
          */
@@ -121,7 +123,7 @@ namespace utilities{
             }
             return $email;
         }
-    
+
         /**
          * method with the messenger if member no has permission to access the page
          */
