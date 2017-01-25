@@ -32,10 +32,7 @@
 
 <main>
 
-  <div id="page_title">
-    <h1>Membros</h1>
-    <img src="res/img/Circuito.png"><br>
-  </div>
+  <?php Page::pageTitle("Membros");?>
 
   <?php try { ?>
   <section id="organization_chart">

@@ -87,7 +87,12 @@ td.col_3 {
 @media only screen and (min-width:530px){
 
   #page_title figure {
-    display: inline-block;
+    display: block;
+  }
+
+  #page_title img{
+    padding-top: 0.8rem;
+    width: 9rem;
   }
 
   div .category_banner{

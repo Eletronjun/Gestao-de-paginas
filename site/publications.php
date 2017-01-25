@@ -39,10 +39,7 @@ try {
 
       <main class="publication">
 
-        <div id="page_title">
-          <h1><?php echo $category->getName(); ?></h1>
-          <figure><img src="res/img/Circuito.png"></figure>
-        </div>
+        <?php Page::pageTitle($category->getName());?>
 
         <section>
           <?php

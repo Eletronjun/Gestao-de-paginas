@@ -20,10 +20,7 @@
 
 <main id="enterprise">
 
-  <div id="page_title">
-    <h1>Eletron<span class="green_font">Jun</span></h1>
-    <img src="res/img/Circuito.png"><br>
-  </div>
+  <?php Page::pageTitle("Eletron<span class=\"green_font\">Jun</span>");?>
 
   <section>
     <h3 style="text-align:center;">Quem somos?</h3>

@@ -6,7 +6,7 @@
     use \configuration\Globals as Globals;
 
     Page::startHeader("Processo Seletivo 2015");
-    echo "<style> main figure, main img {width: 23rem;} </style>";
+    Page::styleSheet("selective_process");
     Page::closeHeader();
 
     $menu = new CommunityMenu();
@@ -16,20 +16,17 @@
 
 <main>
 
-  <div id="page_title">
-    <h1>Processos Seletivos</h1>
-    <img src="res/img/Circuito.png"><br>
-  </div>
+  <?php Page::pageTitle("Processos <span class=\"break\"></span>Seletivos");?>
 
-  <div class="flex">
-    <a href="selective_process2015.php" class="set_flex">
-      <figure class="left">
+  <div >
+    <a href="selective_process2015.php">
+      <figure>
         <img src="res/img/PS15.png">
       </figure>
     </a>
 
-    <a href="selective_process2016.php" class="set_flex">
-      <figure class="right">
+    <a href="selective_process2016.php">
+      <figure>
         <img src="res/img/PS16.jpg">
       </figure>
     </a>

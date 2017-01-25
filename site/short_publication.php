@@ -39,10 +39,7 @@ try {
 
       <main>
 
-        <div id="page_title">
-          <h1><?php echo $category->getName(); ?></h1>
-          <img src="res/img/Circuito.png">
-        </div>
+        <?php Page::pageTitle($category->getName());?>
 
         <div id="short_content">
           <header>

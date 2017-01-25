@@ -16,10 +16,7 @@
 
 <main>
 
-  <div id="page_title">
-    <h1>Projetos</h1>
-    <img src="res/img/Circuito.png">
-  </div>
+  <?php Page::pageTitle("Projetos");?>
 
   <section id="main_project">
     <figure><img src="res/img/Projetos.jpg"></figure>

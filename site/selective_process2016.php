@@ -17,10 +17,7 @@
 
 <main>
 
-  <div  id="page_title">
-    <h1>Processo Seletivo 2016</h1>
-    <img src="res/img/Circuito.png"><br>
-  </div>
+  <?php Page::pageTitle("Processo Seletivo 2016");?>
 
   <section id="main_project">
     <figure>

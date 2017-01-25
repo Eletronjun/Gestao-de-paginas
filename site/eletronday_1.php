@@ -24,10 +24,7 @@ try {
 ?>
     <main>
 
-      <div id="page_title">
-        <h1>1° Eletron<span class="green_font">Day</span></h1>
-        <img src="res/img/Circuito.png">
-      </div>
+      <?php Page::pageTitle("1° Eletron<span class=\"green_font\">Day</span>");?>
 
       <section>
         <figure class="left"><img src="res/img/EletronDay1.png"></figure>

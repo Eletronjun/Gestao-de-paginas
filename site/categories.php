@@ -20,11 +20,8 @@ try {
 ?>
 
   <main id="category">
-    <div id="page_title">
-      <h1><?php echo CategoryDao::findCategory($_GET['code'])->getName(); ?></h1>
-      <figure><img src="res/img/Circuito.png"></figure>
-      <p><?php echo CategoryDao::findCategory($_GET['code'])->getDescription();?></p>
-    </div>
+
+    <?php Page::pageTitle(CategoryDao::findCategory($_GET['code'])->getName(), CategoryDao::findCategory($_GET['code'])->getDescription());?>
 
     <?php
 

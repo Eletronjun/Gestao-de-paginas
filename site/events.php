@@ -20,10 +20,7 @@
 
 <main>
 
-  <div id="page_title">
-    <h1>Eventos</h1>
-    <img src="res/img/Circuito.png">
-  </div>
+  <?php Page::pageTitle("Eventos");?>
 
   <section id="courses">
     <h3>Cursos</h3>
