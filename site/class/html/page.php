@@ -105,5 +105,16 @@ namespace html{
         {
             echo "  <script type=\"text/javascript\" src=\"" . PROJECT_ROOT . "css/js/{$file}.js\"></script>\n";
         }
+
+        public static function pageTitle($title, $description = null) {
+          echo "<div id=\"page_title\">";
+          echo "  <div><h1>{$title}</h1>";
+          echo "    <figure><img src=\"res/img/Circuito.png\"></figure>";
+          echo "  </div>";
+          if($description != null) {
+            echo "  <p>{$description}</p>";
+          }
+          echo "</div>";
+        }
     }
 }
