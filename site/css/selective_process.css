@@ -1,0 +1,56 @@
+.process figure,
+.process img {
+  width: 100%;
+  max-width: 23rem;
+  margin:auto;
+}
+
+.process figure {
+  margin-bottom:3.75rem;
+}
+
+.process {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#page_title h1{
+  max-width: 10.125rem;
+}
+
+@media only screen and (min-width:480px){
+  #page_title h1{
+    max-width: 12rem;
+  }
+}
+
+@media only screen and (min-width:600px){
+  #page_title h1{
+    max-width: 16rem;
+  }
+}
+
+@media only screen and (min-width:700px) {
+
+  .process {
+    flex-direction: row;
+  }
+
+  .process figure {
+    margin-bottom:0;
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width:800px){
+  #page_title h1{
+    max-width:100%;
+  }
+}
+
+@media only screen and (min-width:1180px) {
+  .process figure {
+    width: 100%;
+  }
+}

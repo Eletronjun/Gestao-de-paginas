@@ -16,9 +16,9 @@
 
 <main>
 
-  <?php Page::pageTitle("Processos <span class=\"break\"></span>Seletivos");?>
+  <?php Page::pageTitle("Processos Seletivos");?>
 
-  <div >
+  <div class="process">
     <a href="selective_process2015.php">
       <figure>
         <img src="res/img/PS15.png">
