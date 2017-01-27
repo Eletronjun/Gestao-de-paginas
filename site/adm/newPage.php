@@ -39,8 +39,8 @@
             <input type="hidden" name="formLink">
             <input type="hidden" name="reference">
           </fieldset>
-          <label>Autor</label><br>
-          <input type="text" id="author" name="author" required><br><br>
+          <p>Autor(a): <?php echo $_SESSION['nick'];?></p><br>
+          <input type="text" id="author" name="author" value="<?php echo $_SESSION['nick'];?>" hidden required>
         </fieldset>
         <fieldset>
         <label>Página Oculta</label><br>
