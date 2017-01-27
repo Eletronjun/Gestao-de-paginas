@@ -26,63 +26,67 @@ try {
 
       <?php Page::pageTitle("2° Eletron<span class=\"green_font\">Day</span>");?>
 
-      <section>
-        <figure class="left"><img src="res/img/EletronDay2.png"></figure>
+      <section class="eletronDay">
         <h2>Engenharia e Biomédica</h2>
+        <figure><img src="res/img/EletronDay2.png"></figure>
         <p>O 2º EletronDay veio com tudo, trazendo como tema principal para a vida dos graduandos Engenharia e Biomédica. Contando com um excelente repertório de palestras sobre os diversos ramos desta área, as oportunidades do meio acadêmico e a experiência de quem vivencia esse mercado de trabalho. Além de Workshops de Phyton e Machine Learning, modalidades essenciais para quem pretende atuar na área. Fechando o seu ponto alto em uma maravilhosa Mesa Redonda com quem realmente entende do assunto.</p>
         <p>A EletronJun agradece em especial a todo o corpo de formidáveis profisionais que se dispuseram a nos prestigiar com seus conhecimentos durante o evento.</p>
         <p>A todos aqueles que participaram, o nosso Muito Obrigado.</p>
       </section>
 
-      <br>
-
       <section class="galery">
         <h4>Galeria de Fotos</h4>
-
         <div class="photo effect" style="display:block">
-          <figure  style="background-image: url(res/img/eletronday2_abertura.jpg)">
+          <figure>
+            <img src="res/img/eletronday2_abertura.jpg">
             <div class="number">1 / 7</div>
             <figcaption>Abertura do Evento</figcaption>
           </figure>
         </div>
 
         <div class="photo effect">
-          <figure  style="background-image: url(res/img/eletronday2_biomedica.jpg)">
+          <figure>
+            <img src="res/img/eletronday2_biomedica.jpg">
             <div class="number">2 / 7</div>
             <figcaption>Palestra - Biomédica no Meio Acadêmico</figcaption>
           </figure>
         </div>
 
         <div class="photo effect">
-          <figure  style="background-image: url(res/img/eletronday2_workshopPython.jpg)">
+          <figure>
+            <img src="res/img/eletronday2_workshopPython.jpg">
             <div class="number">3 / 7</div>
             <figcaption>Workshop de Introdução a Linguagem Python</figcaption>
           </figure>
         </div>
 
         <div class="photo effect">
-          <figure  style="background-image: url(res/img/eletronday2_palestramercado.jpg)">
+          <figure>
+            <img src="res/img/eletronday2_palestramercado.jpg">
             <div class="number">4 / 7</div>
             <figcaption>Workshop de Introdução a Linguagem Python</figcaption>
           </figure>
         </div>
 
         <div class="photo effect">
-          <figure  style="background-image: url(res/img/eletronday2_palestramercado2.jpg)">
+          <figure>
+            <img src="res/img/eletronday2_palestramercado2.jpg">
             <div class="number">5 / 7</div>
             <figcaption>Workshop de Introdução a Linguagem Python</figcaption>
           </figure>
         </div>
 
         <div class="photo effect">
-          <figure  style="background-image: url(res/img/eletronday2_mesaRedonda.jpg)">
+          <figure>
+            <img src="res/img/eletronday2_mesaRedonda.jpg">
             <div class="number">6 / 7</div>
             <figcaption>Mesa Redonda</figcaption>
           </figure>
         </div>
 
         <div class="photo effect">
-          <figure  style="background-image: url(res/img/eletronday2_mesaRedonda2.jpg)">
+          <figure>
+            <img src="res/img/eletronday2_mesaRedonda2.jpg">
             <div class="number">7 / 7</div>
             <figcaption>Mesa Redonda</figcaption>
           </figure>

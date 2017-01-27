@@ -1,8 +1,25 @@
-section figure {
-  width:15.625rem;
-  height:15.625rem;
+.eletronDay {
+  overflow: hidden;
+}
+
+.eletronDay > figure {
+  width:100%;
+  height:100%;
   max-width:250px;
-  overflow:hidden;
-  margin-right:3.125rem;
-  margin-bottom: 5rem;
+  margin: 2.5rem auto;
+}
+
+@media only screen and (min-width:900px) {
+  .eletronDay {
+    max-height: 28rem;
+  }
+
+  .eletronDay > figure {
+    margin: -3rem 3.125rem 11rem 0;
+    float: left;
+  }
+
+  .eletronDay h2 {
+    margin-left:18.75rem;
+  }
 }
