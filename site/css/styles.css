@@ -160,8 +160,6 @@ iframe {
 
 #page_title h1{
   margin-top:0;
-  /*margin-bottom: 0;
-  display:inline-block;*/
   text-align: left;
   font-size:2rem;
 }
@@ -170,7 +168,7 @@ iframe {
   padding-left:1.25rem;
   height:100%;
   width:auto;
-  /*display: inline-block;*/
+  visibility: hidden;
 }
 
 #page_title img {
@@ -302,6 +300,13 @@ iframe {
       text-align: left;
   }
 }
+
+@media only screen and (min-width:827px) {
+    #page_title figure {
+      visibility: visible;
+    }
+}
+
 
 @media only screen and (min-width:1100px){
 
