@@ -45,6 +45,7 @@ try {
           <header>
             <h2><?php echo $page->getTitle(); ?></h2>
             Publicado em <?php echo Date::formatDate($page->getCreationDate()); ?>
+            por <?php echo $page->getAuthor(); ?>
           </header>
 
           <article>
@@ -55,13 +56,14 @@ try {
               <img src="<?php echo FILE_PATCH . $page->getImage(); ?>" alt="<?php echo $category->getName(); ?>">
           </figure>
         </div>
-
-        <br>
-        <div class="fb-like" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>"
-        data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-        <br>
-        <div class="fb-comments" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>"
-         data-numposts="10"></div>
+<!--
+        <section>
+          <div class="fb-like" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>"
+          data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+          <br>
+          <div class="fb-comments" data-href="<?php echo "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>"
+           data-numposts="10" data-width="auto"></div>
+        </section> -->
       </main>
 
 <?php
