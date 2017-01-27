@@ -159,7 +159,7 @@ iframe {
 }
 
 #page_title h1{
-  margin-top:0;
+  margin:0;
   text-align: left;
   font-size:2rem;
 }
@@ -168,7 +168,7 @@ iframe {
   padding-left:1.25rem;
   height:100%;
   width:auto;
-  visibility: hidden;
+  display: none;
 }
 
 #page_title img {
@@ -239,6 +239,10 @@ iframe {
 .list {
   text-align: left;
 }
+/*
+.list li{
+  padding: 0.1rem;
+}*/
 
 #img_error img{
   margin: 5rem;
@@ -291,7 +295,7 @@ iframe {
 
   #page_title p {
     font-style: italic;
-    margin-top:-1.875rem;
+    margin-top:-0.8rem;
   }
 
   h1 {
@@ -299,11 +303,12 @@ iframe {
       margin-top:6.25rem;
       text-align: left;
   }
+
 }
 
 @media only screen and (min-width:827px) {
     #page_title figure {
-      visibility: visible;
+      display: block;
     }
 }
 
