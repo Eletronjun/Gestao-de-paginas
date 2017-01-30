@@ -33,9 +33,7 @@
       </div>";
     ?>
 
-  <form name="update" action="../controller/updateMember.php" method="POST" enctype="multipart/form-data">
-    <div class="flex">
-    <div class="set_flex padding_right">
+  <form name="update" action="../controller/updateMember.php" method="POST" enctype="multipart/form-data" class="double_column">
       <fieldset>
         <label>Nome Completo</label>
         <input type="text" name="name" value="<?php echo $member->getName();?>">
@@ -69,7 +67,7 @@
         <label>CPF</label>
         <input type="text" name="cpf" value="<?php echo $member->getCpf();?>">
       </fieldset>
-      
+
       <fieldset>
         <label>Matrícula</label>
         <input type="text" name="registration" value="<?php echo $member->getRegister();?>">
@@ -91,9 +89,6 @@
             <label>Atualizar imagem</label>
             <input type="file" text="Nova Foto" name="image">
         </fieldset>
-
-    </div>
-    <div class="set_flex padding_left">
 
       <fieldset>
         <label>Senha</label>
@@ -128,12 +123,12 @@
         ?>
         </select><br>
       </fieldset>
-      
+
       <fieldset>
         <label>Endereço</label>
         <input type="text" name="address" value="<?php echo $member->getAddress();?>">
       </fieldset>
-      
+
       <fieldset>
         <label>E-mail</label>
         <input type="email" name="email" value="<?php echo $member->getEmail();?>">
@@ -154,9 +149,6 @@
             ?>
         </select>
       </fieldset>
-    </div>
-
-  </div>
     <input type="submit" value="Salvar">
   </form>
 </main>

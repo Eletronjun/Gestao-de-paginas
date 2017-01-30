@@ -32,8 +32,8 @@
 }
 
 #user_img{
-  height:20em;
-  width: 20rem;
+  height:15em;
+  width: 15rem;
   overflow:hidden;
   margin:auto;
   border-radius:10rem;
@@ -83,5 +83,10 @@ h1 {
 
   th h3{
     font-size:1.875rem;
+  }
+
+  #user_img{
+    height:20em;
+    width:20rem;
   }
 }
