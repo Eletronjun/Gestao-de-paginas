@@ -70,7 +70,8 @@ select{
   border-color: #111e14;
   margin-top: 0.625rem;
   margin-bottom: 1.25rem;
-  width: 20rem;
+  width: 100%;
+  max-width: 20rem;
   height: 2rem;
 }
 
@@ -81,8 +82,9 @@ select{
   border-radius: 0.5rem;
   text-align: center;
   padding: 0.2rem;
+  margin-bottom: 4rem;
   font-size: 1rem;
-  width:auto;
+  width:100%;
   max-width:18rem;
 }
 
@@ -121,4 +123,16 @@ input[type=image]:hover {
   -webkit-column-count:2;
   -moz-column-count:2;
   column-count:2;
+}
+
+@media only screen and (min-width:800px) {
+  .category_manager .check-table {
+    display:block;
+    float:right;
+    width:30%;
+  }
+
+  .category_manager > div {
+    max-width: 55%;
+  }
 }

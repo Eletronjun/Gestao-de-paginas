@@ -20,11 +20,11 @@
 ?>
 
 <!--Conteúdo da página-->
-<main>
+<main class="category_manager">
 
       <h1>Gerência de Categorias</h1>
 
-      <form style="display:block; float:right; width:30%;" class="check-table">
+      <form class="check-table">
         <h2></h2>
         <fieldset>
           <div id="enable"></div>
@@ -39,7 +39,7 @@
         </fieldset>
       </form>
 
-      <div style="display:block; float:left; width:55%;">
+      <div>
         <div id="register"></div>
         <form>
             <h2>Nova Categoria</h2>
