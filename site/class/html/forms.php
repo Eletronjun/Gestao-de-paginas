@@ -59,7 +59,7 @@ namespace html{
                   echo "<input type=\"hidden\" name=\"videoLink\">";
                   echo "<label>Formulário Google Docs</label><input type=\"text\" name=\"formLink\" value=\"{$web_page->getForm()}\">";
                   echo "<input type=\"hidden\" name=\"reference\">";
-                  echo "<b>URL: </b><a href=\"" . PROJECT_ROOT . " form_publication.php?code={$web_page->getCode()}\">" . PROJECT_ROOT . "form_publication.php?code={$web_page->getCode()}</a><br><br>";
+                  echo "<b>URL: </b><a href=\"" . PROJECT_ROOT . "form_publication.php?code={$web_page->getCode()}\">" . PROJECT_ROOT . "form_publication.php?code={$web_page->getCode()}</a><br><br>";
                 }
                 else if($layout == "short_publication") {
                   echo "<label>Imagem</label><input type=\"file\" name=\"imageFile\">";
