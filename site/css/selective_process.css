@@ -15,19 +15,25 @@
   justify-content: space-between;
 }
 
-#page_title h1{
-  max-width: 10.125rem;
+#short_content p {
+  text-align: justify;
 }
 
-@media only screen and (min-width:480px){
-  #page_title h1{
-    max-width: 12rem;
-  }
+#short_content ul {
+  padding: 0;
+  margin-top: 1rem;
+  text-align: left;
 }
 
-@media only screen and (min-width:600px){
-  #page_title h1{
-    max-width: 16rem;
+#short_content h5 {
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width:617px) {
+  #short_content ul {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
   }
 }
 
@@ -41,11 +47,9 @@
     margin-bottom:0;
     width: 90%;
   }
-}
 
-@media only screen and (min-width:800px){
-  #page_title h1{
-    max-width:100%;
+  #short_content p {
+    text-align: center;
   }
 }
 

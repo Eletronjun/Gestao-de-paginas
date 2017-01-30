@@ -7,6 +7,7 @@
 
     Page::startHeader("Processo Seletivo 2015");
     Page::styleSheet("short_publication");
+    Page::styleSheet("selective_process");
     Page::closeHeader();
 
     $menu = new CommunityMenu();
@@ -18,7 +19,7 @@
 
   <?php Page::pageTitle("Processo Seletivo 2015");?>
 
-  <div id="short_content" style="max-width:700px;width:43.75rem">
+  <div id="short_content" style="max-width:700px;width:100%">
 
     <article>
       <p>É com muita alegria que a EletronJun anuncia a relação de alunos aprovados no Processo Seletivo de 2015! Agradecemos a participação de todos. Sejam bem-vindos.</p>
