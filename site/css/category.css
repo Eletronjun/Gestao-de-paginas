@@ -1,11 +1,3 @@
-#page_title figure {
-  display: none;
-}
-
-#page_title h1 {
-  font-size: 3.125rem;
-}
-
 div .category_banner{
   margin-top: 3.75rem;
   margin-bottom:3.125rem;
@@ -15,14 +7,14 @@ div .category_banner{
   justify-content: space-between;
 }
 
-.category_banner div {
+.category_banner > div {
   margin-bottom: 1.875rem;
 }
 
 .category_banner figure {
   float: left;
   width:4.675rem;
-  height:100%;
+  min-height:4.675rem;
   padding-right:0.5rem;
   overflow:hidden;
 }
@@ -99,6 +91,10 @@ td.col_3 {
     flex-direction: row;
   }
 
+  .category_banner > div {
+    width: 33%;
+  }
+
   .category_banner figure {
     float: none;
     margin:auto;
@@ -153,5 +149,4 @@ td.col_3 {
   td.col_3 {
     display: block;
   }
-
 }
