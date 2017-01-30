@@ -26,11 +26,9 @@ try {
 
 ?>
 
-  <?php Page::pageTitle(CategoryDao::findCategory($_GET['code'])->getName(), CategoryDao::findCategory($_GET['code'])->getDescription());?>
+<main id="category">
 
-  <main id="category">
-
-    <?php
+    <?php Page::pageTitle(CategoryDao::findCategory($_GET['code'])->getName(), CategoryDao::findCategory($_GET['code'])->getDescription());
 
     $data = WebPageDao::returnLast3byCategory($_GET['code']);
     if (!$data[0]) {
