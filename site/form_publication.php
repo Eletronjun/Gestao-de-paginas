@@ -46,8 +46,8 @@ try {
 
 <?php
 } catch (Exception $msg) {
-    echo "<h1>Página não encontrada</h1>";
-    echo "<p>Desculpe-nos, mas essa publicação não existe ou foi retirada do ar.</p>";
+    echo "<main><h1>Página não encontrada</h1>";
+    echo "<p>Desculpe-nos, mas essa publicação não existe ou foi retirada do ar.</p></main>";
 }
   Page::footer();
   Page::closeBody();
