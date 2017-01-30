@@ -88,7 +88,8 @@ section{
 
 /*Estilizacao Geral de Tabelas*/
 table {
-  width:60rem;
+  width: 100%;
+  max-width:60rem;
   border-collapse:collapse;
   margin:auto;
 }

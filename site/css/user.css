@@ -50,13 +50,26 @@ select {
 form {
   margin-top:6.25rem;
 }
+
 table{
   text-align: left;
-  width: 50rem;
 }
-th h2{
-  color: #87C665;
+
+th h3{
+  font-size:1.2rem;
   text-align: center;
+}
+
+#user_table .col_1{
+  width: 60%;
+}
+
+#user_table .col_2 {
+  width: 20%;
+}
+
+h1 {
+  padding-top: 2rem;
 }
 
 @media only screen and (min-width:600px) {
@@ -66,5 +79,9 @@ th h2{
 
   #logout {
     display: none;
+  }
+
+  th h3{
+    font-size:1.875rem;
   }
 }

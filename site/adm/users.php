@@ -21,41 +21,38 @@
 
     $members = MemberDao::allMembers();
 ?>
-  <main style="margin-top: 2rem;">
-    <section>
-      <h1>Gerenciar Usuários</h1>
-    </section>
-    <section>
-        <button onclick="location.href='registerMember.php';">Novo</button>
-    </section>
-    <section>
-    <table>
-        <tr>
-            <th><h2>Nome Usuário</h2></th>
-            <th><h2>Editar</h2></th>
-            <th><h2>Remover</h2></th>
-        </tr>
-        <?php
-        for ($i=0; $i < count($members); $i++) {
-            $name = (strlen($members[$i]->getName()) > 50) ?
-                substr($members[$i]->getName(), 0, 50) . "..." :
-                $members[$i]->getName();
-            echo "<tr>
-                <td>{$name}</td>
-                <td class='center'>
-                    <a href='updateMember.php?email={$members[$i]->getemail()}'>
-                    <img src='" . IMG_PATCH . "Caneta.png' alt='Editar' />
-                    </a>
-                </td>
-                <td class='center'>
-                    <a href='../controller/removeMember.php?email={$members[$i]->getemail()}'
-                        OnClick=\"return confirm('AÇÃO IRREVERSIVEL!\\nDeseja realmente remover os dados de\\n{$name}');\" >
-                    <img src='" . IMG_PATCH . "Lixeira_Usuario.png' alt='Editar' />
-                    </a>
-                </td>
-            </tr>";
-        }
-        ?>
+  <main>
+    <h1>Gerenciar Usuários</h1>
+
+    <div style="margin-top:4.375rem;margin-bottom:3.125rem"><button onclick="location.href='registerMember.php';">Novo</button></div>
+
+    <table id="user_table">
+      <tr>
+          <th class="col_1"><h3>Nome Usuário</h3></th>
+          <th class="col_2"><h3>Editar</h3></th>
+          <th class="col_2"><h3>Remover</h3></th>
+      </tr>
+      <?php
+      for ($i=0; $i < count($members); $i++) {
+          $name = (strlen($members[$i]->getName()) > 50) ?
+              substr($members[$i]->getName(), 0, 50) . "..." :
+              $members[$i]->getName();
+          echo "<tr>
+              <td>{$name}</td>
+              <td class='center'>
+                  <a href='updateMember.php?email={$members[$i]->getemail()}'>
+                  <img src='" . IMG_PATCH . "Caneta.png' alt='Editar' />
+                  </a>
+              </td>
+              <td class='center'>
+                  <a href='../controller/removeMember.php?email={$members[$i]->getemail()}'
+                      OnClick=\"return confirm('AÇÃO IRREVERSIVEL!\\nDeseja realmente remover os dados de\\n{$name}');\" >
+                  <img src='" . IMG_PATCH . "Lixeira_Usuario.png' alt='Exluir' />
+                  </a>
+              </td>
+          </tr>";
+      }
+      ?>
     </table>
   </main>
 <?php
