@@ -245,7 +245,9 @@ iframe {
 }*/
 
 #img_error img{
-  margin: 5rem;
+  width: 100%;
+  max-width:530px;
+  margin-top: 5rem;
 }
 
 /*Facebook Plugins*/
