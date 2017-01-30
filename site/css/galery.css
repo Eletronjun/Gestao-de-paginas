@@ -20,6 +20,7 @@
   margin:0;
   overflow: visible;
   position: relative;
+  border:solid;
 }
 
 .galery .number {
@@ -34,7 +35,8 @@
   position: absolute;
   bottom: 0.3rem;
   width: 100%;
-  padding: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   text-align: center;
   font-size: 0.9rem;
   background-color: rgba(7, 7, 7, 0.4);
