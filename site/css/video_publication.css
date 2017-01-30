@@ -1,19 +1,19 @@
 #video {
-  width:53.375rem;
-  height:26.25rem;
+  width: 100%;
+  max-width:53.375rem;
+  height: 56.25vw;
+  max-height: 26.25rem;
   margin: 3.75rem auto;
-  border:solid;
 }
 
-header {
-  margin-left:15rem;
+main header {
   margin-bottom: 1.25rem;
   font-size: 0.8rem;
   color: #3D3D3D;
   text-align:left;
 }
 
-header h2{
+main header h2{
   font-family: 'helvetica-light', 'Swis721 LtEx BT', 'Verdana', 'Century Gothic', 'Square721 BT', 'sans-serif';
   font-size: 1.875rem;
   margin-bottom: 0;
