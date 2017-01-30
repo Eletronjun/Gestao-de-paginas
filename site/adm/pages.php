@@ -24,7 +24,7 @@
 <main>
         <h1>Gerência de Páginas</h1>
         <form method="GET" action='editPage.php'>
-          <fieldset style="margin: 0 auto">
+          <fieldset style="margin: 0; max-width:25rem">
             <label>Categoria</label><br>
             <select name="categories" id="select_categories">
                 <option value='-1'>Selecione uma categoria</option>
