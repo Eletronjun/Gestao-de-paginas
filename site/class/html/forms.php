@@ -36,8 +36,8 @@ namespace html{
                 }
 
                 echo "<input type='hidden' id='code' name ='code' value='{$web_page->getCode()}'>";
-                echo "<label>Autor</label><br>";
-                echo "<input type='text' id='author' name='author' value='{$web_page->getAuthor()}' required><br><br>";
+                echo "<p>Autor: {$web_page->getAuthor()}</p>";
+                echo "<input type='hidden' id='author' name='author' value='{$web_page->getAuthor()}' required><br><br>";
                 echo "<label>Categoria</label><br>";
                 echo "<select name='categories' id='select_update'>";
                 FindCategories::getOptions($web_page->getCategory());
@@ -59,6 +59,7 @@ namespace html{
                   echo "<input type=\"hidden\" name=\"videoLink\">";
                   echo "<label>Formulário Google Docs</label><input type=\"text\" name=\"formLink\" value=\"{$web_page->getForm()}\">";
                   echo "<input type=\"hidden\" name=\"reference\">";
+                  echo "<b>URL: </b><a href=\"" . PROJECT_ROOT . " form_publication.php?code={$web_page->getCode()}\">" . PROJECT_ROOT . "form_publication.php?code={$web_page->getCode()}</a><br><br>";
                 }
                 else if($layout == "short_publication") {
                   echo "<label>Imagem</label><input type=\"file\" name=\"imageFile\">";

@@ -61,7 +61,10 @@ try {
     );
     $web_page_dao = new WebPageDAO($new_page);
     $web_page_dao->register();
-    echo "Salvo com Sucesso!";
+    echo "Salvo com Sucesso!<br>";
+    if ($_POST['formLink'] != null) {
+      echo "<br><b>Link para o formulário: </b><a href=\"" . PROJECT_ROOT . " form_publication.php?code={$web_page_dao->getWebPageModel()->getCode()}\">" . PROJECT_ROOT . "form_publication.php?code={$web_page_dao->getWebPageModel()->getCode()}<br>";
+    }
 
 } catch (Exception $msg) {
     echo "<script>alert(\"{$msg}\"); history.go(-1);</script>";
