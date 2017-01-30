@@ -22,7 +22,7 @@ try {
 
     if($category->getLayout() == "video") {
       echo "<input type=\"hidden\" name=\"imageFile\">";
-      echo "<label>Video</label><input type=\"text\" name=\"videoLink\">";
+      echo "<label>Video ID</label><input type=\"text\" name=\"videoLink\">";
       echo "<input type=\"hidden\" name=\"formLink\">";
       echo "<input type=\"hidden\" name=\"reference\">";
     }
