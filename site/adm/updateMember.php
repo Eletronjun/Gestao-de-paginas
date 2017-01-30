@@ -23,9 +23,9 @@
 ?>
 <main>
   <h1></h1>
-  <section class="left" style="margin-bottom:3.125rem">
+  <section class="name_title">
     <h2>Editar Usuário</h2>
-    <p style="font-size:1.5625rem;margin-top:-1.7rem;"><?php echo $member->getNick();?></p>
+    <p><?php echo $member->getNick();?></p>
   </section>
 
     <?php
