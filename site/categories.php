@@ -9,6 +9,7 @@
     use \model\WebPage as WebPage;
     use \configuration\Globals as Globals;
 
+
     Page::startHeader(CategoryDao::findCategory($_GET['code'])->getName());
     Page::styleSheet("category");
     Page::closeHeader();
@@ -17,11 +18,17 @@
     $menu->construct();
 
 try {
+    if (CategoryDao::findCategory($_GET['code'])->getIsActivity() == 'y') {
+        // Nothing to do
+    } else {
+        throw new Exception("Inative Page");
+    }
+
 ?>
 
-  <main id="category">
+  <?php Page::pageTitle(CategoryDao::findCategory($_GET['code'])->getName(), CategoryDao::findCategory($_GET['code'])->getDescription());?>
 
-    <?php Page::pageTitle(CategoryDao::findCategory($_GET['code'])->getName(), CategoryDao::findCategory($_GET['code'])->getDescription());?>
+  <main id="category">
 
     <?php
 
@@ -87,7 +94,7 @@ try {
 } catch (Exception $msg) {
     echo $msg;
     echo "<main><h1>Página não encontrada</h1>";
-    echo "<p>Desculpe-nos, mas essa publicação não existe ou foi retirada do ar.</p></main>";
+    echo "<p>Desculpe-nos, mas esta página não existe ou foi retirada do ar.</p></main>";
 }
 
 Page::footer();
