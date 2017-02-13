@@ -75,8 +75,6 @@
               <input type='text' name='category' id='category_name' value='' size='50%' required>
               <label>Nova Descrição:</label><br>
               <textarea name="description" id="update_description" maxlength="200" rows="5" cols="50"></textarea><br>
-
-
               <label>Layout Padrão:</label><br>
               <select id='update_layout' name='update_layout'>
               </select>
