@@ -116,6 +116,10 @@ input[type=image]:hover {
   background-color:#111F1E;
 }
 
+input[readonly] {
+  color: #777;
+}
+
 .format {
   color:#777;
   font-size: 0.8rem;
