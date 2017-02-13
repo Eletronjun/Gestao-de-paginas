@@ -116,6 +116,11 @@ input[type=image]:hover {
   background-color:#111F1E;
 }
 
+.format {
+  color:#777;
+  font-size: 0.8rem;
+}
+
 @media only screen and (min-width:800px) {
   .category_manager .check-table {
     display:block;
