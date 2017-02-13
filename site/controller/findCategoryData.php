@@ -19,11 +19,11 @@ $session->verifyIfSessionIsStarted();
 try {
   if(isset($_GET['code'])){
     $category = CategoryDAO::findCategory($_GET['code']);
-    echo "<label>Novo Nome:</label><br>
-      <input type='text' name='category' id='category_name' value='' size='50%' required>
-      <label>Nova Descrição:</label><br>
-      <textarea name=\"description\" id=\"update_description\" 
-      maxlength=\"200\" rows=\"5\" cols=\"50\"></textarea><br>";
+    echo "<label>Nome:</label><br>
+      <input type='text' name='category' id='category_name' value='{$category->getName()}' size='50%' required>
+      <label>Descrição:</label><br>
+      <textarea name=\"description\" id=\"update_description\"
+      maxlength=\"200\" rows=\"5\" cols=\"50\">{$category->getDescription()}</textarea><br>";
     echo "<label>Layout Padrão:</label><br>
       <select id='update_layout' name='update_layout'>";
 
