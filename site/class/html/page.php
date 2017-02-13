@@ -26,7 +26,7 @@ namespace html{
         {
             if ($title != null && $title != "") {
                 echo "<!DOCTYPE html>\n";
-                echo "<html>\n";
+                echo "<html lang=\"pt-br\">\n";
                 echo "<head>\n";
                 echo "  <title>{$title}</title>\n";
                 echo "  <meta charset=\"utf-8\">\n";
