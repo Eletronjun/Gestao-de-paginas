@@ -116,5 +116,11 @@ namespace html{
           }
           echo "</div>";
         }
+
+        public static function MaskedInput() {
+          Page::JavaScript("jquery");
+          Page::JavaScript("jquery.maskedinput");
+          Page::JavaScript("validation");
+        }
     }
 }
