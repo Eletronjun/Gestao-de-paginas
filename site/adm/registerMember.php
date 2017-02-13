@@ -2,6 +2,7 @@
     require_once __DIR__ . "/../class/autoload.php";
 
     use \utilities\Session as Session;
+    use \utilities\Date as Date;
     use \html\Page as Page;
     use \html\AdministratorMenu as AdministratorMenu;
     use \configuration\Globals as Globals;
@@ -37,16 +38,16 @@
             ?>
         </select><br>
         <label>Data de Nascimento</label>
-        <input type="date" name="birthdate" placeholder="1995-05-05">
-        <label>RG (numero orgaoEmissor/estado)</label>
+        <input type="text" name="birthdate" placeholder="05-05-1995" id="birth_date">
+        <label>RG <span class="format">(Número orgãoEmissor/Estado)</span></label>
         <input type="text" name="rg" placeholder="111111111-1 SSP/DF">
         <label>CPF</label>
-        <input type="text" name="cpf" placeholder="11111111111">
+        <input type="text" name="cpf" placeholder="11111111111" id="cpf" maxlength="14">
       </fieldset>
 
       <fieldset>
         <label>Matrícula</label>
-        <input type="text" name="registration" placeholder="14/0011111">
+        <input type="text" name="registration" placeholder="14/0011111" id="registration" maxlength="10">
         <label>Curso</label>
         <select name="course">
             <option value="">Nenhum</option>
@@ -104,7 +105,7 @@
         <label>E-mail</label>
         <input type="email" name="email" placeholder="example@example.com">
         <label>Telefone</label>
-        <input type="text" name="phone" placeholder="(61)99999-9999">
+        <input type="text" name="phone" placeholder="(61)99999-9999"  id="phone">
       </fieldset>
 
       <fieldset>
@@ -123,5 +124,6 @@
   </main>
 <?php
     Page::footer();
+    Page::MaskedInput();
     Page::closeBody();
 ?>

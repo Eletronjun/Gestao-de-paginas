@@ -2,6 +2,7 @@
     require_once __DIR__ . "/../class/autoload.php";
 
     use \utilities\Session as Session;
+    use \utilities\Date as Date;
     use \html\Page as Page;
     use \html\AdministratorMenu as AdministratorMenu;
     use \configuration\Globals as Globals;
@@ -61,16 +62,16 @@
             ?>
         </select><br>
         <label>Data de Nascimento</label>
-        <input type="date" name="birthdate" value="<?php echo $member->getBirthdate();?>">
-        <label>RG (numero orgaoEmissor/estado)</label>
-        <input type="text" name="rg" value="<?php echo $member->getRg();?>">
+        <input type="text" name="birthdate" value="<?php echo Date::formatShortDate($member->getBirthdate());?>" id="birth_date">
+        <label>RG <span class="format">(Número orgãoEmissor/Estado)</span></label>
+        <input type="text" name="rg" value="<?php echo $member->getRg();?>" placeholder="00000000 SSP/DF">
         <label>CPF</label>
-        <input type="text" name="cpf" value="<?php echo $member->getCpf();?>">
+        <input type="text" name="cpf" value="<?php echo $member->getCpf();?>" id="cpf" maxlength="14">
       </fieldset>
 
       <fieldset>
         <label>Matrícula</label>
-        <input type="text" name="registration" value="<?php echo $member->getRegister();?>">
+        <input type="text" name="registration" value="<?php echo $member->getRegister();?>" id="registration" maxlength="10">
         <label>Curso</label>
         <select name="course">
             <option value="">Nenhum</option>
@@ -131,9 +132,9 @@
 
       <fieldset>
         <label>E-mail</label>
-        <input type="email" name="email" value="<?php echo $member->getEmail();?>">
+        <input type="email" name="email" value="<?php echo $member->getEmail();?>" onInvalid="setCustomValidity('Por favor, insira uma e-mail válido.');">
         <label>Telefone</label>
-        <input type="text" name="phone" value="<?php echo $member->getPhone();?>">
+        <input type="text" name="phone" value="<?php echo $member->getPhone();?>" id="phone">
       </fieldset>
 
       <fieldset>
@@ -155,5 +156,6 @@
 
 <?php
     Page::footer();
+    Page::MaskedInput();
     Page::closeBody();
 ?>
