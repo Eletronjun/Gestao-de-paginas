@@ -61,10 +61,10 @@ namespace dao{
          * Method to update data
          * @param String  $new_name
          */
-        public function update($new_name, $new_layout)
+        public function update($new_name, $new_layout, $new_description)
         {
             if (!is_null($this->getCategoryModel()->getId())) {
-                $query = "UPDATE CATEGORY SET name = '{$new_name}', layout = '{$new_layout}' WHERE code = " . $this->getCategoryModel()->getId();
+                $query = "UPDATE CATEGORY SET name = '{$new_name}', layout = '{$new_layout}', description = '{$new_description}' WHERE code = " . $this->getCategoryModel()->getId();
 
                 parent::query($query);
 
@@ -83,7 +83,7 @@ namespace dao{
         public function register()
         {
             $query = "INSERT INTO CATEGORY(name,description,layout) VALUES('
-            {$this->getCategoryModel()->getName()}','{$this->getCategoryModel()->getDescription()}', 
+            {$this->getCategoryModel()->getName()}','{$this->getCategoryModel()->getDescription()}',
             '{$this->getCategoryModel()->getLayout()}')";
 
             parent::query($query);
