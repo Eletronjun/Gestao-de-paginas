@@ -258,6 +258,25 @@ iframe {
   width: 100% !important;
 }
 
+.styleLink a {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #87C665;
+}
+
+.styleLink a:visited {
+  color: #375d22;
+}
+
+.styleLink a:hover {
+  color: #111F1E;
+}
+
+*::selection {
+  background-color: #87C665;
+  color: #FFF;
+}
+
 
 @media only screen and (min-width:480px){
 

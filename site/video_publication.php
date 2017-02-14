@@ -37,7 +37,7 @@ try {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-      <main>
+      <main class="styleLink">
         <?php Page::pageTitle($category->getName());?>
 
         <header>

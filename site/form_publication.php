@@ -28,7 +28,7 @@ try {
 
     $category = CategoryDao::findCategory($page->getCategory());
 ?>
-      <main>
+      <main class="styleLink">
 
         <?php Page::pageTitle($category->getName());?>
 

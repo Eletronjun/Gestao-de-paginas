@@ -37,7 +37,7 @@ try {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-      <main class="publication">
+      <main class="publication styleLink">
 
         <?php Page::pageTitle($category->getName());?>
 
@@ -64,8 +64,9 @@ try {
           </article>
 
           <address>
+            <?php if(strlen($page->getReferences()) > 1) { ?>
             <b>Fontes de Referência</b><br>
-            <?php echo $page->getReferences(); ?>
+            <?php echo $page->getReferences(); }?>
           </address>
 
         </section>
