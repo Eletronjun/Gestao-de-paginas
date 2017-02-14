@@ -29,9 +29,9 @@
                 <?php FindCategories::getOptions(); ?>
           </select><br><br>
           <label>Título</label><br>
-          <input type="text" id="title" name="title" required><br><br>
+          <input type="text" id="title" name="title" required max="100"><br><br>
           <label>Publicação</label>
-          <textarea rows="20" cols="80" id="postage" name="postage"></textarea><br><br>
+          <textarea rows="20" cols="80" id="postage" name="postage" maxlength="5000"></textarea><br><br>
           <script>CKEDITOR.replace( 'postage' );</script>
           <fieldset id="type_page">
             <input type="hidden" name="imageFile">

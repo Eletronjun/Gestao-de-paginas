@@ -43,9 +43,9 @@ namespace html{
                 FindCategories::getOptions($web_page->getCategory());
                 echo "</select><br><br>";
                 echo "<label>Título</label><br>";
-                echo "<input type='text' id='title' name='title' value='{$web_page->getTitle()}' required><br><br>";
+                echo "<input type='text' id='title' name='title' value='{$web_page->getTitle()}' required maxlenght='100'><br><br>";
                 echo "<label>Postagem</label><br>";
-                echo "<textarea rows='20' cols='80' id='postage' name='postage'>{$web_page->getContent()}</textarea><br><br>";
+                echo "<textarea rows='20' cols='80' id='postage' name='postage' maxlenght='5000'>{$web_page->getContent()}</textarea><br><br>";
                 echo "<script>CKEDITOR.replace( 'postage' );</script>";
 
                 if($layout == "video") {
@@ -72,8 +72,7 @@ namespace html{
                   echo "<input type=\"hidden\" name=\"videoLink\">";
                   echo "<input type=\"hidden\" name=\"formLink\">";
                   echo "<label>Referências</label><br>
-                        <textarea rows=\"4\" cols=\"80\" id=\"reference\" maxlenght=\"300\" name=\"reference\" required=\"true\">{$web_page->getReferences()}
-                        </textarea><br><br>\n<script>CKEDITOR.replace( 'reference' );</script>";
+                        <textarea rows=\"4\" cols=\"80\" id=\"reference\" maxlenght=\"300\" name=\"reference\" required=\"true\" maxlenght='300'>{$web_page->getReferences()}</textarea><br><br>\n<script>CKEDITOR.replace( 'reference' );</script>";
                 }
 
                 echo "<fieldset>";

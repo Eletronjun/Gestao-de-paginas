@@ -24,6 +24,7 @@ $menu = new AdministratorMenu();
 $menu->construct();
 
 Page::startHeader(Globals::ENTERPRISE_NAME);
+Page::styleSheet("user");
 Page::closeHeader();
 
 echo "<main>";
