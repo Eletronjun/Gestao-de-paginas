@@ -26,7 +26,7 @@
   <main style="text-align: left;">
 
       <h1>Edição de Página </h1>
-      <form action="<?php echo PROJECT_ROOT;?>controller/updatePage.php" method="POST">
+      <form action="<?php echo PROJECT_ROOT;?>controller/updatePage.php" method="POST" enctype="multipart/form-data">
         <fieldset>
             <?php Forms::updatePageForm($_GET['pages']); ?>
         </fieldset>
