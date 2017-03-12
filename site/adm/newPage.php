@@ -26,6 +26,7 @@
         <fieldset>
           <label>Categoria</label><br>
           <select name="category" id="select_update">
+              <option value="-1">Selecione a categoria</option>
                 <?php FindCategories::getOptions(); ?>
           </select><br><br>
           <label>Título</label><br>
@@ -55,6 +56,13 @@
     Page::footer();
 ?>
   <script type="text/javascript">
+
+    $("form").submit( function(event){
+        if ( $("#select_update").val() === "-1" ) {
+            alert("Selecione uma categoria");
+            return false;
+        }
+    });
 
   function ajaxReload(){
       $.ajax({
