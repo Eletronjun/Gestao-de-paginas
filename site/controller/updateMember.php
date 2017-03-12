@@ -97,6 +97,8 @@ try {
         //Nothing to do
     }
     
+    $_SESSION["code_office"] = $office;
+    $_SESSION["code_directorate"] = $directorate;
 
     echo "<script>alert('Dados Alterados'); location.href='" . PROJECT_ROOT .
     "adm/updateMember.php?email={$email}'; </script>";

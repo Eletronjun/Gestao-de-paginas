@@ -109,11 +109,11 @@ namespace dao{
             $id = $this->getCategoryModel()->getId();
 
             $query = "UPDATE CATEGORY SET isActivity = '{$is_activity}' WHERE code = " . $id;
-
             parent::query($query);
 
             $category = new Category(
                 $this->getCategoryModel()->getName(),
+                $this->getCategoryModel()->getDescription(),
                 $this->getCategoryModel()->getId(),
                 $is_activity
             );

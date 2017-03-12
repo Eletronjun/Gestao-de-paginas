@@ -16,9 +16,8 @@ use \utilities\Session as Session;
 
 $session = new Session();
 $session->verifyIfSessionIsStarted();
-
 try {
-    $category = new Category($_GET['name'], $_GET['id']);
+    $category = new Category($_GET['name'], 'descricao', $_GET['id']);
 
     $category_dao = new CategoryDAO($category);
 
