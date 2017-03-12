@@ -7,14 +7,14 @@
     use \configuration\Globals as Globals;
     use \utilities\Session as Session;
 
+    $session = new Session();
+    $session->verifyIfSessionIsStarted();
+
     Page::startHeader("Editar Página");
     Page::styleSheet("user");
     Page::styleSheet("form");
     echo "<script src=\"../css/ckeditor/ckeditor.js\"></script>";
     Page::closeHeader();
-
-    $session = new Session();
-    $session->verifyIfSessionIsStarted();
 
     $menu = new AdministratorMenu();
     $menu->construct();

@@ -9,13 +9,13 @@
     use \dao\MemberDao as MemberDao;
     use \model\Member as Member;
 
+    $session = new Session();
+    $session->verifyIfSessionIsStarted();
+
     Page::startHeader(Globals::ENTERPRISE_NAME);
     Page::styleSheet("form");
     Page::styleSheet("user");
     Page::closeHeader();
-
-    $session = new Session();
-    $session->verifyIfSessionIsStarted();
 
     $menu = new AdministratorMenu();
     $menu->construct();

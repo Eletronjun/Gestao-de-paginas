@@ -7,13 +7,13 @@
     use \html\FindCategories as FindCategories;
     use \configuration\Globals as Globals;
 
+    $session = new Session();
+    $session->verifyIfSessionIsStarted();
+
     Page::startHeader("Categorias");
     Page::styleSheet("user");
     Page::styleSheet("form");
     Page::closeHeader();
-
-    $session = new Session();
-    $session->verifyIfSessionIsStarted();
 
     $menu = new AdministratorMenu();
     $menu->construct();
