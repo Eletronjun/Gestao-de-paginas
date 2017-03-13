@@ -77,7 +77,7 @@ namespace dao{
          */
         public function register()
         {
-            $query = "INSERT INTO eletronjun_db.MEMBERS
+            $query = "INSERT INTO MEMBERS
             (email, registration, member_name, sex, nick, password, birthDate, rg,
                 cpf, phone, course, period, address, code_directorate,
                 code_office, image, isActivity)
