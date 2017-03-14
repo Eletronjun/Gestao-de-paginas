@@ -28,38 +28,48 @@ namespace utilities{
           }
         }
 
-    public function nameOffice($member) {
-      $office = $member->getOffice();
-      switch ($office) {
-        case 1:
-          $nameOffice = "Presidente Organizacional";
-          break;
-        case 2:
-          $nameOffice = "Presidente Institucional";
-          break;
-        case 3:
-          $nameOffice = "Diretor";
-          break;
-        case 4:
-          $nameOffice = "Gerente";
-          break;
-        case 5:
-          $nameOffice = "Acessor";
-          break;
-        case 6:
-          $nameOffice = "Trainee";
-          break;
-        default:
-          $nameOffice = "Colaborador";
-          break;
-    }
+        public function memberContactNull($office)
+        {
+          if($office){
+            echo "<div style=\"background-image:url('res/member_image/default.png')\"></div>";
+            echo "<strong>{$office}</strong>";
+            echo "<p>-</p>";
+            echo "<p class=\"email\">eletronjun@gmail.com</p>";
+          }
+        }
 
-      if($member->getSex() == "F"){
-        if($office == 3 || $office == 5 || $office == 7) {
-          $nameOffice = $nameOffice . "a";
+        public function nameOffice($member) {
+          $office = $member->getOffice();
+          switch ($office) {
+            case 1:
+              $nameOffice = "Presidente Organizacional";
+              break;
+            case 2:
+              $nameOffice = "Presidente Institucional";
+              break;
+            case 3:
+              $nameOffice = "Diretor";
+              break;
+            case 4:
+              $nameOffice = "Gerente";
+              break;
+            case 5:
+              $nameOffice = "Acessor";
+              break;
+            case 6:
+              $nameOffice = "Trainee";
+              break;
+            default:
+              $nameOffice = "Colaborador";
+              break;
+        }
+
+          if($member->getSex() == "F"){
+            if($office == 3 || $office == 5 || $office == 7) {
+              $nameOffice = $nameOffice . "a";
+            }
+          }
+        return $nameOffice;
         }
       }
-    return $nameOffice;
-    }
-  }
 }

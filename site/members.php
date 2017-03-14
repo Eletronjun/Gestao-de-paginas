@@ -43,6 +43,8 @@
         $members = MemberDao::getMembersByOffice(ORGANIZATIONAL, PRESIDENCY);
         if(isset($members[0])) {
           MemberContact::memberContact($members[0]);
+        }  else {
+          MemberContact::memberContactNull("Presidente Organizacional");
         }
         echo "</section>";
 
@@ -50,6 +52,8 @@
         $members = MemberDao::getMembersByOffice(INSTITUTIONAL, PRESIDENCY);
         if(isset($members[0])) {
           MemberContact::memberContact($members[0]);
+        }  else {
+          MemberContact::memberContactNull("Presidente Institucional");
         }
         echo "</section>";
 
@@ -63,6 +67,8 @@
         $members = MemberDao::getMembersByOffice(DIRECTOR, ADM);
         if(isset($members[0])) {
           MemberContact::memberContact($members[0], "Administrativo Financeiro");
+        } else {
+          MemberContact::memberContactNull("Diretor Administrativo Financeiro");
         }
         echo "</section>";
 
@@ -70,6 +76,8 @@
         $members = MemberDao::getMembersByOffice(DIRECTOR, GPP);
         if(isset($members[0])) {
           MemberContact::memberContact($members[0], "de Gestão de Pessoas e Processos");
+        } else {
+          MemberContact::memberContactNull("Diretor de Gestão de Pessoas e Processos");
         }
         echo "</section>";
 
@@ -77,6 +85,8 @@
         $members = MemberDao::getMembersByOffice(DIRECTOR, MARKETING);
         if(isset($members[0])) {
           MemberContact::memberContact($members[0], "de Marketing");
+        }  else {
+          MemberContact::memberContactNull("Diretor de Marketing");
         }
         echo "</section>";
 
@@ -84,6 +94,8 @@
         $members = MemberDao::getMembersByOffice(DIRECTOR, PROJECTS);
         if(isset($members[0])) {
           MemberContact::memberContact($members[0], "de Projetos");
+        }   else {
+          MemberContact::memberContactNull("Diretor de Projetos");
         }
         echo "</section>";
 
